@@ -1,0 +1,3 @@
+MongoDB_Audit漏洞修复建议：
+    1、建议在开发者修复该漏洞前停用phpMoAdmin。
+    2、或者使用htaccess对moadmin.php文件做访问限制

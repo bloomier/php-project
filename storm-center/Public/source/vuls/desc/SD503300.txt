@@ -1,0 +1,3 @@
+PageAdmin v3默认数据库文件下载漏洞描述：
+    PageAdmin默认配置不当导致敏感数据泄露，大量站点受影响
+    拿WebShell方式参照PageAdmin后台获取WebShell

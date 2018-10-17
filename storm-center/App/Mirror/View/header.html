@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>飞天镜</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <![endif]-->
+    <!-- css -->
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/js/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/js/scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+
+    <link href="__PUBLIC__/js/select2/select2.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/Mirror/mirror.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/html5shiv.min.js"></script>
+    <script type="text/javascript"  src="__PUBLIC__/js/bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<!--- 可用插件定义  -->
+<assign name="echarts" value="echarts" />
+<assign name="datatable" value="datatable" />
+<assign name="gritter" value="gritter"/>
+
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/js/echarts/dist">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+
+
+<header class="header">
+    <div class="h-nav">
+        <a class="logo" href="javascript:void(0)" ></a>
+        <ul class="nav-bar">
+            <li class="active"><a href="__ROOT__/index.php/Mirror/Index/index">首页</a></li>
+            <li><a href="">日志流</a></li>
+            <li><a href="">日志检索</a></li>
+            <li><a href="">报表</a></li>
+            <li><a href="__ROOT__/index.php/Mirror/Set/index">设置</a></li>
+        </ul>
+        <ul class="setting">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user"></i>
+                        <span class="username">{$user.name}</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="__ROOT__/index.php/Login/viewModels.html">
+                                <i class="fa fa-th-large"></i>
+                                主菜单
+                            </a>
+                        </li>
+                        <li>
+                            <a href="__ROOT__/index.php/MSSP/Set/index">
+                                <i class="fa fa-cog"></i>
+                                个人设置
+                            </a>
+                        </li>
+                        <li>
+                            <a href="__ROOT__/index.php/Home/Login/logout">
+                                <i class="fa fa-sign-out"></i>
+                                退出系统
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+    </div>
+</header>

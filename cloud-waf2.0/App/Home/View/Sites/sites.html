@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <include file="./App/Common/View/header.html" />
+    <link href="__PUBLIC__/asset/js/plugins/zTree_v3/css/metroStyle/metroStyle.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset_os/css/page/wafsite.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        table.dataTable tbody tr.selected {
+            background-color: #b0bed9;
+        }
+    </style>
+</head>
+<body class="gray-bg">
+<input type="hidden" id="currentUserId" value="{$useId}">
+<input type="hidden" id="addActionId" value="{$addAction}">
+<input type="hidden" id="isSystemRoleId" value="{$isSystemRole}">
+<input type="hidden" id="clickWhichCountId">
+<div class="wrapper wrapper-content animated fadeInRight">
+
+    <div class="ibox">
+        <div class="ibox-title">
+            <h5>实时概况</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="safe-item">
+                        <img src="__PUBLIC__/asset_os/image/safe1.png" alt=""/>
+                        <div class="i-info">
+                            <div class="i-info-tit">站点总数/防护站点数</div>
+                            <div class="i-info-num"><span class="allCount c-blue font-num"></span><em>/</em><span class="saveCount c-blue font-num"></span></div>
+                        </div>
+                    </div>
+                    <div class="safe-item">
+                        <img src="__PUBLIC__/asset_os/image/safe2.png" alt="高危漏洞站点数"/>
+                        <div class="i-info">
+                            <div class="i-info-tit">高危站点/中危站点数</div>
+                            <div class="i-info-num"><span class="highVulsCount c-red font-num"></span><em>/</em><span class="midVulsCount c-yellow font-num"></span></div>
+                            <!--<div class="highVulsCount i-info-num c-red font-num">{$noAccessCount}</div>-->
+                        </div>
+                    </div>
+                    <div class="safe-item">
+                        <img src="__PUBLIC__/asset_os/image/safe3.png" alt="无法访问站点数"/>
+                        <div class="i-info">
+                            <div class="i-info-tit">无法访问站点数</div>
+                            <div class="noAccessCount i-info-num c-orange font-num"></div>
+                        </div>
+                    </div>
+                    <div class="safe-item">
+                        <img src="__PUBLIC__/asset_os/image/safe4.png" alt="受攻击站点数"/>
+                        <div class="i-info">
+                            <div class="i-info-tit">受攻击站点数</div>
+                            <div class="attackCount i-info-num c-red font-num"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>站点列表</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <if condition="$isSystemRole">
+                                <a class="btn-add btn btn-sm  btn-primary " href="javascript:void(0)"><i class="fa fa-plus"></i>&nbsp;添加站点</a>
+                            </if>
+                            <a class="btn-delete-all btn btn-sm  btn-danger " href="javascript:void(0)"><i class="fa fa-minus"></i>&nbsp;删除站点</a>
+                        </div>
+                        <div class="col-sm-7 col-sm-offset-3 location-wraper">
+                            <div class="row">
+                                <div class="col-sm-3 col-sm-offset-3">
+                                    <select id="protect_mode_id"  name="protect_mode" style="width:100%;min-height: 30px;" >
+                                        <option value="" selected="selected">--请选择--</option>
+                                        <option value="detect">检测模式</option>
+                                        <option value="on" >防护模式</option>
+                                        <option value="off" >转发模式</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 ">
+                                    <div class="input-group">
+                                        <input id="extra" type="text" placeholder="标题 | 域名 | IP" name="param" class="input-md form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-md btn-primary btn-search"> 搜索</button> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="waf_site_table" class="table table-striped table-bordered table-hover dataTables-example" style="width: 100%;" >
+                        <thead  style="text-align: center">
+                        <tr>
+                            <th><input type="checkbox" id="checkAll_id"/></th>
+                            <th>站点名称</th>
+                            <th>源站信息</th>
+                            <th>服务质量</th>
+                            <th>漏洞等级</th>
+                            <th>访问次数</th>
+                            <th>攻击次数</th>
+                            <th>当日流量</th>
+                            <th>关停站点</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<include file="./App/Common/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/asset/js/plugins/cityselector/jquery.cityselect.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/plugins/dialog/bootstrap-dialog.min.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/script/Home/Sites/sites.js"></script>
+
+</body>
+</html>
+
+
+
+
+

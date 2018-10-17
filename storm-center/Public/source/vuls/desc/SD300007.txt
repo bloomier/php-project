@@ -1,0 +1,3 @@
+apache solrexposed漏洞：
+    Apache Solr 4.1之前版本的UpdateRequestHandler for XSLT或XPathEntityProcessor允许远程攻击者
+    通过包含外部实体声明的XML数据及实体参考执行恶意攻击，获取敏感信息或导致拒绝服务。

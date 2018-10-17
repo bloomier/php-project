@@ -1,0 +1,6 @@
+Elasticsearch groovy远程脚本执行漏洞修复方案：
+    ElasticSearch的groovy引起的代码执行，很多国内安全厂商给出的建议是一升了之，
+    但是很多装了插件的应用服务器，升级之后会造成插件不能访问，甚至导致业务中断，
+    目前比较折衷的解决方案是修改配置文件，禁用groovy脚本，
+    在配置文件中添加：script.groovy.sandbox.enabled: false，
+    重启es服务

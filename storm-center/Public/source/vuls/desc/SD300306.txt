@@ -1,0 +1,3 @@
+IIS_v5_NTML_Basic_Auth_Bypass漏洞：
+    针对目录的基础验证(basic authentication)处理存在错误。使用NTFS ADS(Alternate Data Streams)可打开受
+    保护的文件夹，可绕过所有IIS验证方法

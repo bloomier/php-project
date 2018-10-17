@@ -1,0 +1,144 @@
+<include file="Common/header" />
+<link rel="stylesheet" href="__PUBLIC__/plugins/sweetalert/sweetalert.css" />
+
+    <div class="container">
+        <button id="base_id" class="btn btn-large btn-primary btn-block" type="submit">基本信息弹窗</button>
+        <button id="title_id" class="btn btn-large btn-primary btn-block" type="submit">标题与文本的信息弹窗</button>
+        <button id="success_id" class="btn btn-large btn-primary btn-block" type="submit">成功信息弹窗</button>
+        <button id="confirm_id" class="btn btn-large btn-primary btn-block" type="submit">警告信息弹窗</button>
+        <button id="error_id" class="btn btn-large btn-primary btn-block" type="submit">错误信息弹窗</button>
+        <button id="cancel_id" class="btn btn-large btn-primary btn-block" type="submit">给函数传入参数</button>
+        <button id="config_image_id" class="btn btn-large btn-primary btn-block" type="submit">自定义图标信息弹窗</button>
+        <button id="html_id" class="btn btn-large btn-primary btn-block" type="submit">HTML信息弹窗</button>
+        <button id="time_id" class="btn btn-large btn-primary btn-block" type="submit">定时关闭信息弹窗</button>
+        <button id="input_id" class="btn btn-large btn-primary btn-block" type="submit">输入信息弹窗</button>
+        <button id="ajax_id" class="btn btn-large btn-primary btn-block" type="submit">加载(AJAX请求示例)弹窗</button>
+    </div> <!-- /container -->
+<include file="Common/footer" />
+<script src="__PUBLIC__/js/jquery.form.min.js"></script>
+<script src="__PUBLIC__/plugins/sweetalert/sweetalert.min.js"></script>
+ <script type="text/javascript">
+ $(function(){
+
+     $("#base_id").click(function(){
+         swal("这是一条信息！");
+     });
+     $("#title_id").click(function(){
+         swal("这是一条信息！", "很漂亮，不是吗？");
+     });
+     $("#success_id").click(function(){
+         swal("干得漂亮！", "你点击了按钮！","success");
+     });
+     $("#error_id").click(function(){
+         swal({
+             title: "错误",
+             text: "服务器异常!",
+             type: "error",
+             confirmButtonText: "确定"
+         });
+     });
+     $("#confirm_id").click(function(){
+         swal({
+             title: "确定删除吗？",
+             text: "你将无法恢复该虚拟文件！",
+             type: "warning",
+             showCancelButton: true,
+             confirmButtonColor: "#DD6B55",
+             confirmButtonText: "确定删除！",
+             cancelButtonText: "取消！",
+             closeOnConfirm: false
+         },
+         function(){
+             swal({
+                 title: "删除！",
+                 text: "你的虚拟文件已经被删除。",
+                 type: "success",
+                 confirmButtonText: "确定"
+             });
+         });
+     });
+
+     $("#cancel_id").click(function(){
+         swal({
+             title: "确定删除吗？",
+             text: "你将无法恢复该虚拟文件！",
+             type: "warning",
+             showCancelButton: true,
+             confirmButtonColor: "#DD6B55",
+             confirmButtonText: "确定删除！",
+             cancelButtonText: "取消删除！",
+             closeOnConfirm: false,
+             closeOnCancel: false
+         },
+         function(isConfirm){
+             if (isConfirm) {
+                 swal("删除！", "你的虚拟文件已经被删除。",
+                         "success");
+             } else {
+                 swal("取消！", "你的虚拟文件是安全的:)",
+                         "error");
+             }
+         });
+     });
+
+     $("#config_image_id").click(function(){
+         swal({
+             title: "漂亮！",
+             text: "这是自定义图标。",
+             imageUrl: "http://mishengqiang.com/sweetalert/images/thumbs-up.jpg"
+         });
+     });
+     $("#html_id").click(function(){
+         swal({
+             title: "HTML <small>标题</small>!",
+             text: "自定义<span style=\"color:#F8BB86\">html<span>信息。",
+             html: true
+        });
+     });
+     $("#time_id").click(function(){
+         swal({
+             title: "自动关闭弹窗！",
+             text: "2秒后自动关闭。",
+             timer: 2000,
+             showConfirmButton: false
+         });
+     });
+     $("#input_id").click(function(){
+         swal({
+             title: "输入！",
+             text: "输入一些有趣的话：",
+             type: "input",
+             showCancelButton: true,
+             closeOnConfirm: false,
+             animation: "slide-from-top",
+             inputPlaceholder: "输入一些话"
+         },
+         function(inputValue){
+             if (inputValue === false) returnfalse;
+
+             if (inputValue === "") {
+                 swal.showInputError("你需要输入一些话！");
+                 return false
+             }
+
+             swal("非常好！", "你输入了：" + inputValue,"success");
+         });
+     });
+     $("#ajax_id").click(function(){
+         swal({
+             title: "Ajax请求示例",
+             text: "提交运行ajax请求",
+             type: "info",
+             showCancelButton: true,
+             closeOnConfirm: false,
+             showLoaderOnConfirm: true
+         },
+         function(){
+             setTimeout(function(){
+                 swal("Ajax请求完成！");
+             }, 2000);
+         });
+     });
+
+ });
+ </script>

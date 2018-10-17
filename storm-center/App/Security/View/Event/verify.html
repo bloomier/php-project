@@ -1,0 +1,163 @@
+<include file="./App/Security/View/header.html" />
+<link href="__PUBLIC__/js/metronic-bootstrap/css/jquery.fileupload-ui.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/js/metronic-bootstrap/css/jquery.fancybox.css" rel="stylesheet">
+<link href="__PUBLIC__/js/metronic-bootstrap/css/select2_metro.css" rel="stylesheet">
+<link href="__PUBLIC__/css/Security/verify.css" rel="stylesheet">
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <input type="hidden" id="image_path" value="{$image_path}"/>
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ul class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Security">首页</a> </li>
+                    <li><a href="#">事件管理</a></li>
+                    <li><a href="__ROOT__/index.php/Security/Event/verify">事件审核</a> </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>事件审核</div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form action="#" class="form-search pull-right margin-bottom-10 ">
+                                    <select class="m-wrap small" data-placeholder="Choose a Category" id="eventType" name="eventType" tabindex="1">
+                                        <foreach item="event_type_config" name="event_type_config" key="key">
+                                            <option value="{$event_type_config}">{$key}</option>
+                                        </foreach>
+                                        <!--
+                                        <option value="0">请选择</option>
+                                        <option value="1">篡改</option>
+                                        <option value="2">暗链</option>
+                                        <option value="3">反共</option>
+                                        <option value="4">其它</option>
+                                        -->
+                                    </select>
+                                    <div class="input-group" style="display: inline-table;vertical-align: top;">
+                                        <input class="m-wrap" type="text" name="eventParam" id="eventParam">
+                                        <button class="btn green query-by-param" type="button">查询</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row show-values" style="padding-left:10px; padding-right:10px">
+                            <table class="table datatable" id="eventInfoTable" border="0px">
+
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="one-result" class="row bottom-line one-result-css wrapper" style="display: none;margin:20px 15px; border: 1px solid #ddd;">
+    <div class="col-md-3 margin-top-10">
+        <div class="item">
+            <a class="fancybox-button one-event-pic" data-rel="fancybox-button" target="_Blank" title="" href="">
+                <div class="zoom">
+                    <img class="one-event-pic-show" alt="" style="width: 320px;">
+                    <div class="zoom-icon"></div>
+                </div>
+            </a>
+            <div>
+                <!-- <span class="help-inline" class="tishi_id">若修改图片请点击上传</span> -->
+                <span class="btn light-grey fileinput-button" style="display:none">
+                    <input type="file" name="file" class="form-control m-wrap upload_photo_input" multiple="">
+                </span>
+            </div>
+        </div>
+        <ul class="list-unstyled">
+            <li><i class="fa fa-globe"></i> <span class="one-event-ip"></span></li>
+            <li><i class="fa fa-map-marker"></i> <span class="one-event-addr"></span></li>
+            <li><i class="fa fa-calendar"></i> <span class="one-event-time"></span></li>
+            <li><i class="fa fa-bell"></i> <span class="one-event-type"></span></li>
+            <li><i class="fa fa-user"></i> <span class="one-event-submiter"></span></li>
+        </ul>
+    </div>
+    <div class="col-md-8 margin-top-10 margin-left-10" style="margin-bottom:10px">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">黑页地址:</label>
+                <div class="col-sm-6">
+                    <input class="m-wrap  one-event-url" style="height: 30px;width: 580px;"/>
+                    <!--
+                    <span class="medium one-event-url"></span>
+                    -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">网站标题:</label>
+                <div class="col-sm-6">
+                    <input class="m-wrap  one-event-title" style="height: 30px;width: 580px;"/>
+                    <!--
+                    <span class="m-wrap medium one-event-title" style="width:200px;overflow: hidden;word-break: break-all" title="双击可修改"></span>
+                    -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">数据来源:</label>
+                <div class="col-sm-6">
+                    <span class="m-wrap  one-event-source" title="双击可修改"></span>
+                </div>
+            </div>
+            <div class="form-group margin-bottom-20">
+                <label class="col-sm-2 control-label">事件描述:</label>
+                <div class="col-sm-8">
+                    <textarea class="m-wrap large one-event-desc" rows="6" cols="60"></textarea>
+                    <!--
+                    <pre class="m-wrap one-event-desc pre-scrollable" style="margin-top: 16px; height: 200px;"></pre>
+                    -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">归属区域</label>
+                <div class="col-sm-8 citys">
+                    <div class="col-sm-6">
+                        <select class="form-control prov prov-location" name="province">
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <select class="form-control city city-location" disabled="disabled" name="city">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group"></div>
+            <div class="form-group margin-top-10">
+                <label class="col-sm-2 control-label">通报对象:</label>
+                <div class="col-sm-8" style="margin-left:0px; margin-right:0px">
+                    <input type="hidden" class="select2 target_options" value="" style="width:600px">
+                </div>
+            </div>
+            <div class="form-group"></div>
+            <div class="form-group margin-top-20">
+                <a class="btn blue big one-event-pass-btn">立即通报</a>
+                <a class="btn red big one-event-default">信息有误</a>
+                <a class="btn green big one-event-update-btn">修改信息</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<include file="./App/Security/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/js/cityselect/jquery.cityselect.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/twbspage/jquery.twbsPagination.js"></script>
+<!--<script src="__PUBLIC__/js/metronic-bootstrap/js/select2.min.js" type="text/javascript"></script>-->
+<script src="__PUBLIC__/js/metronic-bootstrap/js/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Security/eventinfoverify.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/ajaxfileupload/ajaxfileupload.js"></script>
+
+
+

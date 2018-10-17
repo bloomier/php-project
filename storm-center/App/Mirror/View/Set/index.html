@@ -1,0 +1,167 @@
+<include file="./App/Mirror/View/header.html" />
+<div class="main">
+    <div class="m-inner">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">可信设置 <i class="tip" data-toggle="popover" data-placement="right"  data-content="可信设置可信设置"></i></h3>
+            </div>
+            <div class="panel-body">
+                <table class="grid" >
+                    <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>可信IP</th>
+                        <th>可信协议</th>
+                        <th style="width: 180px">设置</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td>2015.12.12</td>
+                    <td>255.255.255.255</td>
+                    <td class="dropdown">
+                        <div class="dropdown-toggle" data-toggle="dropdown"><a class="span">ssh</a><a class="span">telnet</a><a class="span">vnc</a><a class="span">sftp</a></div>
+                        <div class="dropdown-menu">
+                            <div class="menu-item"><div class="menu-head"><a>文本</a></div><div class="menu-text"><a class="active">ssh</a><a class="active">telnet</a></div></div>
+                            <div class="menu-item"><div class="menu-head"><a>图形</a></div><div class="menu-text"><a>rdp</a><a class="active">vnc</a></div></div>
+                            <div class="menu-item"><div class="menu-head"><a>传输</a></div><div class="menu-text"><a class="active">sftp</a><a>ftp</a><a>smp</a></div></div>
+                        </div>
+                    </td>
+
+                    <td style="width: 180px">
+                            <div class="switch">
+                            <div class="switch-default">
+                                <span class="text"></span>
+                                <span class="label"></span>
+                                <input type="checkbox"/>
+                            </div>
+                        </div>
+                            <span class="red-label">删除</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2015.12.12</td>
+                        <td>255.255.255.255</td>
+                        <td class="dropdown">
+                            <div class="dropdown-toggle" data-toggle="dropdown"><a class="span">ssh</a></div>
+                            <div class="dropdown-menu">
+                                <div class="menu-item"><div class="menu-head"><a>文本</a></div><div class="menu-text"><a class="active">ssh</a><a>telnet</a></div></div>
+                                <div class="menu-item"><div class="menu-head"><a>图形</a></div><div class="menu-text"><a>rdp</a><a>vnc</a></div></div>
+                                <div class="menu-item"><div class="menu-head"><a>传输</a></div><div class="menu-text"><a>sftp</a><a>ftp</a><a>smp</a></div></div>
+                            </div>
+                        </td>
+                        <td style="width: 180px">
+                            <div class="switch">
+                                <div class="switch-default">
+                                    <span class="text"></span>
+                                    <span class="label"></span>
+                                    <input type="checkbox"/>
+                                </div>
+                            </div>
+                            <span class="red-label">删除</span>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+
+                </table>
+                <table class="grid" >
+                    <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>可信IP</th>
+                        <th>可信协议</th>
+                        <th>设置</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="4" align="center">您没有可信设备，建议采购堡垒机： <a href="http://market.aliyun.com">http://market.aliyun.com</a></td>
+                    </tr>
+
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">告警设置 <i class="tip" data-toggle="popover" data-placement="top"  data-content="告警设置告警设置"></i></h3>
+            </div>
+            <div class="panel-body">
+                <table class="grid" >
+                    <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>云资产</th>
+                        <th>包含关键字</th>
+                        <th>排出关键字</th>
+                        <th style="width: 180px">设置</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <td>2015.12.12</td>
+                    <td>255.255.255.255</td>
+                    <td class="dropdown">
+                        <div class="dropdown-toggle" data-toggle="dropdown"><a class="span">ssh</a></div>
+                        <div class="dropdown-menu">
+                            <div class="menu-item"><div class="menu-text"><a class="active">ssh</a><a>telnet</a></div></div>
+                            <div class="menu-item"><div class="menu-text"><a>rdp</a><a>vnc</a></div></div>
+                        </div>
+                    </td>
+                    <td class="dropdown">
+                        <div class="dropdown-toggle" data-toggle="dropdown"><a class="span">ssh</a></div>
+                        <div class="dropdown-menu">
+                            <div class="menu-item"><div class="menu-text"><a class="active">ssh</a><a>telnet</a></div></div>
+                            <div class="menu-item"><div class="menu-text"><a>rdp</a><a>vnc</a></div></div>
+                            <div class="menu-item"><div class="menu-text"><a>sftp</a><a>ftp</a><a>smp</a></div></div>
+                        </div>
+                    </td>
+                    <td style="width: 180px">
+                        <div class="switch">
+                            <div class="switch-default">
+                                <span class="text"></span>
+                                <span class="label"></span>
+                                <input type="checkbox"/>
+                            </div>
+                        </div>
+                        <span class="red-label">删除</span>
+                    </td>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<include file="./App/Mirror/View/footer.html" />
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover();
+        $('td.dropdown .dropdown-toggle').live('click', function(){
+            $(this).next('.dropdown-menu').width($(this).parent('.dropdown').innerWidth());
+        });
+        $('.menu-text a').on('click', function(){
+            var txt = $(this).text();
+            if($(this).hasClass('active')){
+                $(this).parents('.dropdown').find('.dropdown-toggle a').filter(function(){
+                    if(txt==$(this).text()){
+                        $(this).remove();
+                    }
+                });
+                $(this).removeClass('active');
+            }else{
+                $(this).parents('.dropdown').find('.dropdown-toggle').append('<a class="span">'+txt+'</a>');
+                $(this).addClass('active');
+            }
+        })
+    })
+</script>

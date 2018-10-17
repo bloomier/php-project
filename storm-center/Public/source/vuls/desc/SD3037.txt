@@ -1,0 +1,2 @@
+Ecshop 2.7.2 SQL注入漏洞描述：
+    flow.php页面看似intval的红包ID，其实可以注入

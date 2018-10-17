@@ -1,0 +1,4 @@
+Mercurial库漏洞修复方案：
+    Mercurial
+    目前厂商已经发布了升级补丁以修复这个安全问题，请到厂商的主页下载：
+    http://www.selenic.com/hg/rev/87c704ac92d4

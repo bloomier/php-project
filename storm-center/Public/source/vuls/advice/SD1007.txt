@@ -1,0 +1,4 @@
+Struts2漏洞修复方案：
+    下载最新的版本2.3.4：http://struts.apache.org/download.cgi#struts234
+    或者修改对应jar中的ongl处理逻辑,然后编译打包替换旧的文件。
+    waf之类的，安全点就只保留字母数字，其它的全部删除

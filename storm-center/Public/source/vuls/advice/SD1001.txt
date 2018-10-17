@@ -1,0 +1,3 @@
+elasticsearch远程代码执行修复建议：
+    关掉执行脚本功能，在配置文件elasticsearch.yml里为每一个结点都加上：
+    script.disable_dynamic: true

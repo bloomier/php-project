@@ -1,0 +1,12 @@
+webdev漏洞修复建议：
+    ⑴ 安装补丁，目前微软已经提供了此漏洞的补丁，下载地址[url=http://microsoft.com/downloads/]链接标记http://microsoft.com/downloads/[/url]
+details.aspx?FamilyId=C9A38D45-5145-4844-B62E-C69D32AC929B&displaylang=en
+或者，你也可以作用微软提供的IIS Lockdown工具来防止该漏洞被利用。
+    ⑵ 如果你不能立刻安装补丁或升级，也可以手工修补这个漏洞，我们上面已经说了WebDAV功能对一般的Web服务器来说并不需要，所以可以把它停止掉。WebDAV在IIS 5.0 WEB服务器上的实现是由Httpext.dll完成，默认安装，但是简单更改Httpext.ell不能修正此漏洞，因为WINDOWS 2000的WFP功能会防止系统重要文件破坏或删除。要完全关闭WebDAV包括的PUT和DELETE请求，需要对注册表进行如下更改：
+启动注册表编辑器，搜索注册表中的如下键：
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W3SVC\Parameters
+找到后点击"编辑"菜单，点击"增加值"，然后增加如下注册表键值：
+value name: DisableWebDAV　　　　
+Data typeWORD
+value data: 1
+    （3）最后别忘了重新启动IIS，只有重启IIS后新的设置才会生成

@@ -1,0 +1,209 @@
+<div class="row p4 border-b">
+    <div class="col-xs-6">
+        <div class="thumbnail text-center mt10">
+            <div class="detail mb2">
+                <div class="circle font-num c-blue visit_count" style="font-size: 20px!important;"></div>
+                <span>次</span>
+            </div>
+            <div class="title">网站访问次数</div>
+            <div class="value">访问IP数<span class="c-blue visit_ip_count"></span>次</div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="thumbnail text-center mt10">
+            <div class="detail mb2 text-center">
+                <div class="circle"><span class="font-num attack_count c-blue"></span></div>
+            </div>
+            <div class="title">拦截攻击次数</div>
+            <div class="value">攻击源区域<br><span class="c-blue attack_area_count"></span>个</div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="thumbnail text-center mt10">
+            <div class="detail mb2 text-center">
+                <div class="circle font-num flow_all c-blue"></div>
+                <span>M</span>
+            </div>
+
+            <div class="title">网站总流量</div>
+            <div class="value">攻击流量 <br><span class="flow_attack c-blue"></span>M</div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="thumbnail text-center mt10">
+            <div class="detail mb2 text-center">
+                <div class="circle font-num attck_src_count c-blue"></div>
+                <span>个</span>
+            </div>
+            <div class="title">疑似攻击源</div>
+            <div class="value">IP黑名单: <br><span class="black_ip_count c-blue"></span>个</div>
+        </div>
+    </div>
+</div>
+<div class="row p4 border-b">
+    <div class="col-xs-12">
+        <h1 class="text-center"><span class="c-blue">访问/攻击量</span>分析</h1>
+        <div id="attack_visit_line" class="echarts" style="margin: 0 -60px;"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12  mt5">
+        <div style="width: 164px;margin: 0 auto;">
+            <ul class="sort-nav" >
+                <li _id="view-visit"><a href="javascript:void(0);">访问视角</a></li>
+                <li _id="view-attack"><a href="javascript:void(0);">攻击视角</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+<div class="view view-attack">
+    <div class="row p4 border-b">
+        <div class="col-xs-12">
+            <h1 class="text-center"><span class="c-red">攻击告警</span>信息</h1>
+            <table class="m-grid m-grid-blue attackWarn">
+                <thead>
+                <tr>
+                    <th>告警时间</th>
+                    <th>告警类型</th>
+                    <th>流量</th>
+                    <th>IPs</th>
+                    <th>占比</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row p4 border-b">
+        <div class="col-xs-12">
+            <h1 class="text-center"><span class="c-red">攻击目标</span></h1>
+            <table class="m-grid m-grid-blue" id="attack_dest_table" >
+                <thead>
+                <tr>
+                    <th>攻击目标</th>
+                    <th>攻击量</th>
+                    <th>占比</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="row p4 border-b">
+        <div class="col-xs-12">
+            <h1 class="text-center"><span class="c-red">攻击源全球区域分布</span></h1>
+            <table class="m-grid m-grid-blue" id="world_attack_table" >
+                <thead>
+                <tr>
+                    <th>攻击目标</th>
+                    <th>攻击量</th>
+                    <th>占比</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row p4 border-b">
+        <div class="col-xs-12">
+            <h1 class="text-center"><span class="c-red">攻击源境内区域分布</span></h1>
+            <table class="m-grid m-grid-blue" id="china_attack_table" >
+                <thead>
+                <tr>
+                    <th>攻击目标</th>
+                    <th>攻击量</th>
+                    <th>占比</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row p4 border-b">
+        <div class="col-xs-12">
+            <h1 class="text-center"><span class="c-red">攻击源IP</span></h1>
+            <table class="m-grid m-grid-blue" id="attack_topn_table">
+                <thead>
+                <tr>
+                    <th>IP</th>
+                    <th>区域</th>
+                    <th>攻击量</th>
+                    <th>占比</th>
+                </tr>
+                </thead>
+                <tbody> </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="view view-visit">
+    <div class="row p4 border-b">
+        <div class="col-xs-12">
+            <h1 class="text-center"><span class="c-green">访问终端分析</span></h1>
+            <h2 class="text-center">设备终端分布</h2>
+            <div id="device_spread_pie" class="echarts"></div>
+            <h2 class="text-center">设备浏览器分布</h2>
+            <div id="browser_spread_pie" class="echarts"></div>
+        </div>
+    </div>
+    <div class="row p4 border-b">
+        <div class="col-xs-12">
+            <h1 class="text-center"><span class="c-green">访问源全球区域分布</span></h1>
+            <table class="m-grid m-grid-blue" id="world_visit_table" >
+                <thead>
+                <tr>
+                    <th>区域</th>
+                    <th>访问量</th>
+                    <th>占比</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row p4 border-b">
+        <div class="col-xs-12">
+            <h1 class="text-center"><span class="c-green">访问源境内区域分布</span></h1>
+            <table class="m-grid m-grid-blue" id="china_visit_table" >
+                <thead>
+                <tr>
+                    <th>区域</th>
+                    <th>访问量</th>
+                    <th>占比</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <style>
+        #visitip_topn_table tbody tr td:nth-child(1){
+            width: 40%;
+        }
+        #visitip_topn_table tbody tr td:nth-child(2) div{
+            width: 60px;
+            word-wrap:break-word
+        }
+    </style>
+    <div class="row p4 border-b">
+        <div class="col-xs-12">
+            <h1 class="text-center"><span class="c-green">访问源IP</span></h1>
+            <table class="m-grid m-grid-blue" id="visitip_topn_table" >
+                <thead>
+                <tr>
+                    <th>IP</th>
+                    <th>区域</th>
+                    <th>访问量</th>
+                    <th>占比</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

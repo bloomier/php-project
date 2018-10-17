@@ -1,0 +1,3 @@
+The Alternative PHP Cache (APC) is a free and open opcode cache for PHP修复方案：
+    PECL APC 3.1.4已经修复此漏洞，建议用户下载使用：
+    http://pecl.php.net/package/APC

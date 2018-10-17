@@ -1,0 +1,53 @@
+<include file="./App/Common/View/header.html" />
+<link href="__PUBLIC__/asset/css/page/wafsite.css" rel="stylesheet" type="text/css" />
+<style>
+    table.dataTable tbody tr.selected {
+        background-color: #b0bed9;
+    }
+</style>
+
+<div class="main fixed">
+    <div class="m-inner">
+        <div class="widget">
+            <div class="widget-heading">
+                <div class="widget-title">操作日志列表</div>
+            </div>
+
+            <table class="u-grid" id="options_log_table" width="100%">
+                <thead>
+                <tr>
+                    <th>序号</th><!-- <input type="checkbox" id="checkAll_id"/> -->
+                    <th>操作方法</th>
+                    <th>操作人</th>
+                    <th>时间</th>
+                    <th>ip地址</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<div class='options-log-dialog-content' style="display: none;">
+    <form class="form-horizontal" id="contractForm" action="#" data-parsley-validate>
+        <input id="_id_id" type="hidden">
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">参数详情</label>
+            <div class="col-sm-10">
+                <textarea class="param_text" rows="20" style="width: 98%;"></textarea>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+
+<include file="./App/Common/View/footer.html" />
+
+<script type="text/javascript" src="__PUBLIC__/script/Base/options_log.js"  charset="utf-8"></script>

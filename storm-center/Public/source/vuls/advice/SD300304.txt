@@ -1,0 +1,9 @@
+iis短文件名修复方案：
+    1.关闭NTFS 8.3文件格式的支持。该功能默认是开启的，对于大多数用户来说无需开启。
+    如果是虚拟主机空间用户，请联系空间提供商进行修复。
+    修改方法：
+    1）修改注册列表HKLM\SYSTEM\CurrentControlSet\Control\FileSystem\NtfsDisable8dot3NameCreation的值为1,
+       或者，可以直接点此下载，然后运行,再重启下机器。(此修改只能禁止NTFS8.3格式文件名创建,已经存在的文件的短文件名无法移除)
+    2）如果你的web环境不需要asp.net的支持你可以进入Internet
+       信息服务(IIS)管理器 --- Web 服务扩展 - ASP.NET 选择禁止此功能。
+    3）升级net framework 至4.0以上版本.

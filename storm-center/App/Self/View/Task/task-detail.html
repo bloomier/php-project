@@ -1,0 +1,208 @@
+<include file="./App/Self/View/header.html" />
+
+
+<!-- page-content -->
+<input type="hidden" id="form_id" value="{$form_id}"/>
+<input type="hidden" id="form_report_path_id" value="{$info.form_report_path}"/>
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Self/SelfHome/index">首页</a> </li>
+                    <li><a href="__ROOT__/index.php/Self/Task/apply">任务详情</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>新增任务</div>
+                    </div>
+                    <div class="portlet-body form">
+                        <form action="add" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">域名列表</label>
+                                <div class="col-sm-6">
+                                    <!--
+                                    <div style="resize: none; height:200px" class="form-control domainList" rows="6">
+
+                                    </div>
+                                    <textarea style="resize: none;" class="form-control domainList" id="domainList_id" rows="15"><foreach item="domain_list" name="domain_list">
+                                            {$domain_list.website_domain}<input type="button" value="test"/>
+                                        </foreach></textarea>
+                                    -->
+
+                                    <table class="table_a" border="1" width="100%">
+                                        <foreach item="result_list" name="result_list">
+                                            <tr>
+                                                <td>
+                                                    &nbsp;&nbsp;{$result_list.website_domain}&nbsp;&nbsp;
+                                                    <if condition="$result_list.report_save_path eq '1'">
+                                                        <a  onclick=""></a>
+                                                        <else/><!-- {$result_list.report_save_path} -->
+                                                        <a href="__ROOT__/Self/Report/show?url={$result_list.website_domain}">查看报告</a>
+                                                    </if>
+                                                </td>
+                                            </tr>
+                                        </foreach>
+                                    </table>
+
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">申请原因</label>
+                                <div class="col-sm-6">
+                                    <textarea style="resize: none;" class="form-control applyReason" id="applyReason_id" rows="4">{$info.apply_reason}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">申请时间</label>
+                                <div class="col-sm-6">
+                                    <label class="control-label">
+                                        {$info.apply_time}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">审核状态</label>
+                                <div class="col-sm-6">
+                                    <label class="control-label">
+                                        {$info.task_type_desc}
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- 第一种情况审核通过报告已生存 -->
+                            <if condition="$info.type eq 1">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">审核时间</label>
+                                    <div class="col-sm-6">
+                                        <label class="control-label">
+                                            {$info.audit_time}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">审核意见</label>
+                                    <div class="col-sm-6">
+                                        <label class="control-label">
+                                            {$info.audit_option}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">下载次数</label>
+                                    <div class="col-sm-6">
+                                        <label class="control-label">
+                                            {$info.downloadNum}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="button" class="btn blue">导出报告</button>
+                                        <a href="__ROOT__/index.php/Self/Task/personal" class="btn grey">返回列表</a>
+                                    </div>
+                                </div>
+                            </if>
+                            <!-- 第二种情况审核失败 -->
+                            <if condition="$info.type eq 2">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">审核时间</label>
+                                    <div class="col-sm-6">
+                                        <label class="control-label">
+                                            {$info.audit_time}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">审核意见</label>
+                                    <div class="col-sm-6">
+                                        <label class="control-label">
+                                            {$info.audit_option}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <a href="__ROOT__/index.php/Self/Task/personal" class="btn grey">返回列表</a>
+                                    </div>
+                                </div>
+                            </if>
+                            <!-- 第三种情况未审核 -->
+                            <if condition="$info.type eq 3">
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="button" class="btn blue undo_task_apply">撤销任务</button>
+                                        <!--
+                                        <a href="__ROOT__/index.php/Self/Task/personal" class="btn blue undo_task_apply">撤销任务</a>
+                                        -->
+                                        <a href="__ROOT__/index.php/Self/Task/personal" class="btn grey">返回列表</a>
+                                    </div>
+                                </div>
+                            </if>
+                            <!-- 第四种已撤销 -->
+                            <if condition="$info.type eq 4">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">撤销时间</label>
+                                    <div class="col-sm-6">
+                                        <label class="control-label">
+                                            {$info.cancel_time}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <a href="__ROOT__/index.php/Self/Task/personal" class="btn grey">返回列表</a>
+                                    </div>
+                                </div>
+                            </if>
+                            <!-- 第五种情况审核通过报告已生存 -->
+                            <if condition="$info.type eq 5">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">审核时间</label>
+                                    <div class="col-sm-6">
+                                        <label class="control-label">
+                                            {$info.audit_time}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">审核意见</label>
+                                    <div class="col-sm-6">
+                                        <label class="control-label">
+                                            {$info.audit_option}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">下载说明</label>
+                                    <div class="col-sm-6">
+                                        <label class="control-label">
+                                            {$info.downLoad_readme}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <a href="__ROOT__/index.php/Self/Task/personal" class="btn grey">返回列表</a>
+                                    </div>
+                                </div>
+                            </if>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end page-content -->
+
+<include file="./App/Self/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/script/Self/task_detail.js"></script>
+
+

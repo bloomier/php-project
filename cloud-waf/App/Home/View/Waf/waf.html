@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>玄武盾云防护监测</title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/asset/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="__PUBLIC__/asset/js/swiper/css/swiper.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/asset/js/fancybox/jquery.fancybox.css"/>
+    <link href="__PUBLIC__/asset/css/animation.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/asset/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/css/waf/waf.css" rel="stylesheet" type="text/css" />
+    <!--<link href="__PUBLIC__/js/dialog/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />-->
+    <link href="__PUBLIC__/asset/js/scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <script src="__PUBLIC__/asset/js/jquery/jquery-1.8.3.min.js"></script>
+    <style>
+        .grid1 table thead th:nth-of-type(1),.grid1 table tbody td:nth-of-type(1){width: 60px;}
+        .grid1 table thead th:nth-of-type(2),.grid1 table tbody td:nth-of-type(2){width: 180px;}
+        .grid1 table thead th:nth-of-type(3),.grid1 table tbody td:nth-of-type(3){width: 60px;}
+        .grid1 table img{margin-right: 6px;}
+        .grid1 table tbody td{text-align: center}
+
+    </style>
+</head>
+<body>
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/asset/js/echarts/dist">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<include file="./App/ScreenCenter/View/common/navigation.html" />
+
+<header class="header"  >
+    <h1 data-toggle="modal">玄武盾云防护监测</h1>
+    <div class="total">
+        <span id="attackTag">
+            <a><i class="fa fa-bullseye"></i><i class="txt">防护中/总站点数</i><i class="count monitorWebSiteCount timer c-yellow" ></i><span>个</span></a>
+            <a><i class="fa fa-bullhorn"></i><i class="txt">当天受攻击站点数</i><i class="count attackWebSiteCount timer c-yellow" ></i><span>个</span></a>
+            <a><i class="fa fa-bolt"></i><i class="txt">当天受攻击次数</i><i class="count attackCount timer c-yellow" ></i><span>次</span></a>
+        </span>
+    </div>
+</header>
+<div class="container-fluid content clear">
+    <div class="row mb-10">
+
+        <div class="col-md-3">
+            <!--站点流量排行-->
+            <div class="box mb-10">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">流量排行</div>
+                    </div>
+                    <div class="box-tab-sub pull-right">
+                        <ul class="nav nav-tabs ">
+
+                            <li class="active"><a  data-toggle="tab" class="btn-flowRank" toggle="lasest" >实时</a></li>
+                            <li  ><a  data-toggle="tab" class="btn-flowRank" toggle="all" >当天</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="flow-realtime">
+                            <div class="flow-table j-scroll-height scrollbar">
+                                <table class="grid grid-rank" id="flowRank">
+                                    <tbody >
+                                    <!--<tr>-->
+                                        <!--<td>浙江省公安厅</td>-->
+                                        <!--<td><div class="progress"><div class="progress-bar" style="width: 73.75394321766562%;"><span>100M</span></div></div>-->
+                                        <!--</td>-->
+                                    <!--</tr>-->
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="box mb-10">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">IP排行</div>
+                    </div>
+                    <div class="box-tab-sub pull-right">
+                        <ul class="nav nav-tabs ">
+
+                            <li class="active"><a  data-toggle="tab" class="btn-IPRank" toggle="visitIP" >访问IP</a></li>
+                            <li  ><a  data-toggle="tab" class="btn-IPRank" toggle="attackIP" >攻击IP</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="flow-realtimedd">
+                            <div class="flow-table j-scroll-height scrollbar">
+                                <table class="grid grid-rank" id="ipRank">
+                                    <tbody >
+                                    <!--<tr>-->
+                                    <!--<td>浙江省公安厅</td>-->
+                                    <!--<td><div class="progress"><div class="progress-bar" style="width: 73.75394321766562%;"><span>100M</span></div></div>-->
+                                    <!--</td>-->
+                                    <!--</tr>-->
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--流量异常站点
+            <div class="box">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">流量异常站点</div>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="flow-error  j-scroll-height scrollbar">
+                        <table class="grid grid-rank">
+                            <tbody >
+                            <tr>
+                                <td>浙江省公安厅</td>
+                                <td>136M</td>
+                                <td>226%</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省公安厅</td>
+                                <td>136M</td>
+                                <td>226%</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省公安厅</td>
+                                <td>136M</td>
+                                <td>226%</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省公安厅</td>
+                                <td>136M</td>
+                                <td>226%</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省公安厅</td>
+                                <td>136M</td>
+                                <td>226%</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省公安厅</td>
+                                <td>136M</td>
+                                <td>226%</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省公安厅</td>
+                                <td>136M</td>
+                                <td>226%</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省公安厅</td>
+                                <td>136M</td>
+                                <td>226%</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省公安厅</td>
+                                <td>136M</td>
+                                <td>226%</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省公安厅</td>
+                                <td>136M</td>
+                                <td>226%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>-->
+
+        </div>
+        <div class="col-md-6 no-padding">
+            <div class="main">
+                <canvas id="wafCanvas" ></canvas>
+            </div>
+            <div class="gridScroll j-gridScroll">
+                <table class="enginIp">
+                    <thead>
+                    <th>引擎IP</th>
+                    <th>所在位置</th>
+                    <th>服务状态</th>
+                    <th>流量</th>
+                    <th>内存</th>
+                    <th>CPU</th>
+                    </thead>
+                </table>
+                <div class="box-border" style="margin: 4px 0 6px;"></div>
+                <div class="gridRoll">
+                    <div class="gridList" id="info">
+                        <table class="enginIp" >
+                            <tbody class="waf-items">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <!--站点访问量排行-->
+            <div class="box mb-10">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">访问量排行</div>
+                    </div>
+                    <div class="box-tab-sub pull-right">
+                        <ul class="nav nav-tabs ">
+                            <li  class="active"  ><a  data-toggle="tab" class="btn-visitCountRank" toggle="lasest">实时</a></li>
+                            <li><a  data-toggle="tab" class="btn-visitCountRank" toggle="all"  >当天</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="visit-realtime">
+                            <div class="visit-table j-scroll-height scrollbar">
+                                <table class="grid grid-rank" id="visitCountRank">
+                                    <tbody >
+                                    <!--<tr>-->
+                                        <!--<td>浙江省公安厅</td>-->
+                                        <!--<td><div class="progress"><div class="progress-bar" style="width: 73.75394321766562%;"><span>100次</span></div></div>-->
+                                        <!--</td>-->
+                                    <!--</tr>-->
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--异常访问源IP分析-->
+            <div class="box">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">攻击量排行</div>
+                    </div>
+                    <div class="box-tab-sub pull-right">
+                        <ul class="nav nav-tabs ">
+                            <li  class="active"  ><a  data-toggle="tab" class="btn-attactCountRank" toggle="lasest">实时</a></li>
+                            <li><a  data-toggle="tab" class="btn-attactCountRank" toggle="all"  >当天</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="visit-error j-scroll-height scrollbar ">
+                        <table class="grid grid-rank" id="attackCountRank">
+                            <tbody >
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!--云WAF集群流量趋势-->
+        <div class="col-md-6">
+            <div class="box">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">云WAF集群访问趋势</div>
+                    </div>
+                    <div class="box-tab-sub pull-right">
+                        <ul class="nav nav-tabs ">
+                            <!--<li  class="active"><a  data-toggle="tab" href="#waf-flow-realtime">30分钟</a></li>-->
+                            <!--<li class="active" ><a  data-toggle="tab" href="#waf-flow-day">最近24小时</a></li>-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content ">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="waf-flow-realtime">
+                            <div id="flow-realtime-chart"></div>
+                        </div>
+                        <div class="tab-pane " id="waf-flow-day">
+                            <div id="flow-day-chart"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--云WAF集群访问趋势-->
+        <div class="col-md-6">
+            <div class="box">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">云WAF集群流量趋势</div>
+                    </div>
+                    <div class="box-tab-sub pull-right">
+                      <ul class="nav nav-tabs">
+                          <!-- <li  class="active"><a  data-toggle="tab" href="#waf-flow-realtime">最近半小时</a></li>-->
+                           <!--<li class="active"><a  data-toggle="tab" href="#waf-flow-day">最近24小时</a></li>-->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="box-content ">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="waf-visit-realtime" >
+                            <div id="visit-realtime-chart"></div>
+                        </div>
+                        <div class="tab-pane " id="waf-visit-day">
+                            <div id="visit-day-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+</div>
+
+<!--modal-->
+<div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow-y:hidden;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">异常告警</h4>
+            </div>
+            <div class="modal-body">
+                <div class="m-main-t modal-border">
+                    <div class="m-header">提示信息</div>
+                    <div class="m-header-border"></div>
+                    <div class="m-content jm_reportMsg"></div>
+                </div>
+                <div class="m-main-b">
+                    <div class="m-main modal-border " >
+                        <div class="m-header">网站流量Top5</div>
+                        <div class="m-header-border"></div>
+                        <div class="m-content jm_flowRank">
+                            <table class="grid grid-rank">
+                                <tbody class="jm_tbody">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="m-main modal-border">
+                        <div class="m-header">引擎流量Top5</div>
+                        <div class="m-header-border"></div>
+                        <div class="m-content jm_mainState">
+                            <table class="grid grid-rank">
+                                <tbody class="jm_tbody">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="m-main modal-border">
+                        <div class="m-header">IP总量Top5</div>
+                        <div class="m-header-border"></div>
+                        <div class="m-content jm_ipCountRank">
+                            <table class="grid grid-rank">
+                                <tbody class="jm_tbody">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal a-bounceinT"  id="myModal1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">黑客攻击</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-border attack-modal">
+                    <p><strong>攻击源IP</strong><span class="attack-ip">172.16.36.98</span></p>
+                    <p><strong>IP地理位置</strong><span class="attack-place">浙江杭州</span></p>
+                    <p><strong>攻击方式</strong><span class="attack-type">CC</span></p>
+                    <p><strong>攻击流量</strong><span class="attack-io">156M</span></p>
+                    <p><strong>攻击时间</strong><span class="attack-time">09：30：25</span></p>
+                    <p><strong>攻击目标</strong><span class="attack-target">www.baidu.com</span></p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<audio id="chatAudio" loop="loop">
+    <source src="__PUBLIC__/source/vedio/Halarm.wav" type="audio/wav">
+    <source src="__PUBLIC__/source/vedio/Halarm.mp3" type="audio/mp3">
+</audio>
+
+<script src="__PUBLIC__/asset/js/scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+<script src="__PUBLIC__/asset/js/bootstrap/js/bootstrap.min.js"></script>
+<!--<script  type="text/javascript" src="__PUBLIC__/js/dialog/bootstrap-dialog.min.js"></script>-->
+<script src="__PUBLIC__/asset/js/d3/d3.v3.min.js"></script>
+<script src="__PUBLIC__/asset/js/map3d/topojson.v1.min.js"></script>
+<script src="__PUBLIC__/asset/js/map3d/planetaryjs.min.js"></script>
+<script src="__PUBLIC__/asset/js/map3d/waf-earth.js"></script>
+<script src="__PUBLIC__/asset/js/swiper/js/swiper.jquery.min.js"></script>
+<script src="__PUBLIC__/script/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/echarts/dist/echarts.js"></script>
+<script src="__PUBLIC__/asset/js/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/scrool/scrollNum.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/asset/js/scrool/item-scoller.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/typetype/jquery.typetype.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/typetype/typewriting.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/script/Home/waf.js"  charset="utf-8"></script>
+
+
+
+
+</body>
+</html>

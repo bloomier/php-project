@@ -1,0 +1,163 @@
+<include file="./App/OptCenter/View/header.html" />
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Service/index/">首页</a> </li>
+                    <li>网站监测</li>
+                    <li><a href="javascript:;">创建任务</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box grey" id="form_wizard_1">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-reorder"></i> 创建任务
+                        </div>
+                    </div>
+                    <div class="portlet-body form">
+                        <form method="post" class="form-horizontal task-create-next-form">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2"><span style="color: red">*</span>任务名称</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control task-name" value="" >
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">任务描述</label>
+                                    <div class="col-sm-6">
+                                    <textarea style="resize: none; height: 250px" class="form-control task-desc" rows="4">
+                                    </textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2"><span style="color: red">*</span>扫描节点</label>
+                                    <div class="col-sm-6">
+                                        <select style="width:100%" class="policy-level" id="task-node">
+                                            <volist name="nodes" id="vo" key="k" >
+                                                <option value="{$vo.id}">{$vo.name}</option>
+                                            </volist>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2"><span style="color: red">*</span>扫描策略组</label>
+                                    <div class="col-sm-6">
+                                        <select style="width:100%" class="policy-level" id="policy-group">
+                                            <volist name="policy_group" id="vo" key="k" >
+                                                <option value="{$vo.id}">{$vo.name}</option>
+                                            </volist>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2"><span style="color: red">*</span>扫描层级</label>
+                                    <div class="col-sm-6">
+                                        <select style="width:100%" class="policy-level" id="task-level">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3" selected>3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2"><span style="color: red">*</span>最小处理单位</label>
+                                    <div class="col-sm-6">
+                                        <select style="width:100%" class="policy-level" id="task-min-slip">
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                            <option value="300">300</option>
+                                            <option value="500" selected>500</option>
+                                            <option value="1000">1000</option>
+                                            <option value="5000">5000</option>
+                                            <option value="10000">10000</option>
+                                            <option value="15000">15000</option>
+                                            <option value="20000">20000</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group audit_button">
+                                    <label class="control-label col-sm-2">扫描周期</label>
+                                    <div class="col-sm-10 row">
+                                        <label class="col-sm-2 " style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="radio" name="task-cycle" checked value="0" data-title="">
+                                        </span>
+                                            一次
+                                        </label>
+                                        <label class="col-sm-3 " style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="radio" name="task-cycle" value="1" data-title="">
+                                        </span>
+                                            循环
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group cyc-day" style="display:none">
+                                    <label class="control-label col-sm-2">扫描间隔天数</label>
+                                    <div class="col-sm-6">
+                                        <select style="width:100%"  id="cyc_day">
+                                            <option value="1">1</option>
+                                            <option value="3">3</option>
+                                            <option value="5">5</option>
+                                            <option value="7">7</option>
+                                            <option value="15">15</option>
+                                            <option value="30">30</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group audit_button">
+                                    <label class="control-label col-sm-2">扫描模式</label>
+                                    <div class="col-sm-10 row">
+                                        <label class="col-sm-2 " style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="radio" name="scan_style" checked value="0" data-title="">
+                                        </span>
+                                            全面扫描(边爬边扫)
+                                        </label>
+                                        <label class="col-sm-3 " style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="radio" name="scan_style" value="1" data-title="">
+                                        </span>
+                                            快速模式(只扫不爬)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <button type="button" class="btn blue task-create-last-stmp">上一步</button>
+                                </div>
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <button type="button" class="btn blue task-create-btn">加入扫描队列</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<form method="post" class="form-horizontal task-create-last-form">
+    <input type="hidden" name="domainList" id="domainList" value="{$domainList}">
+</form>
+
+<script src="__PUBLIC__/script/OptCenter/taskcreate/taskcreatenext.js" type="text/javascript"></script>
+
+<include file="./App/OptCenter/View/footer.html"/>

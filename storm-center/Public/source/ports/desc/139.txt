@@ -1,0 +1,4 @@
+File and Print Sharing 通过这个端口进入的连接试图获
+NetBIOS/SMB服务。这个协议被用于Windows“文件和打印机共享”
+和SAMBA。在Internet上共享自己的硬盘是可能是最常见的问题。
+Ipc$就是要依赖这个端口的.

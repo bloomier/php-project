@@ -1,0 +1,2 @@
+dedecms plus/search.php sql injection漏洞修复方案：
+    构造函数中添加过滤

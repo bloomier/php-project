@@ -1,0 +1,107 @@
+<include file="./App/OptCenter/View/header.html" />
+
+<link href="__PUBLIC__/js/zTree_v3/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/js/zTree_v3/css/outLookStyle/outLookStyle.css" rel="stylesheet" type="text/css" />
+
+<input type="hidden" id="thisPolicyList" value="{$thisPolicyList}">
+<input type="hidden" id="srcPolicyList" value="{$srcPolicyList}">
+<input type="hidden" id="leaveIds" value="{$leaveIds}">
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="javascript:;">首页</a> </li>
+                    <li>策略管理</li>
+                    <li><a href="__ROOT__/index.php/OptCenter/PolicyGroup/index">策略组维护</a> </li>
+                    <li><a href="javascript:;">添加策略组</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>添加策略组</div>
+                    </div>
+                    <div class="portlet-body form">
+                        <form action="add" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"><span style="color: red">*</span>策略组名称</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control policy-group-name" value="" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">策略查询</label>
+                                <div class="col-sm-3">
+                                    <input class="form-control policy-query-param" value="" >
+                                </div>
+                                <div class="col-sm-2">
+                                    <button class="btn policy-query-reset">查询</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"><span style="color: red">*</span>策略名称</label>
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <div style="resize: none; height:300px ;overflow:hidden;overflow-y:auto; border:1px solid #000000; margin-left:15px" class="col-sm-4">
+                                            <ul id="srcTree" class="ztree"></ul>
+                                        </div>
+                                        <div class="col-sm-2 col-sm-offset-1">
+                                            <div style="margin-top:60px"> <button type='button' class='btn yellow btn-sm all-right'>&gt;&gt;</button></div>
+                                            <div style="margin-top:60px"> <button type='button' class='btn yellow btn-sm all-left'>&lt;&lt;</button> </div>
+                                        </div>
+                                        <div style="resize: none; height:300px ;overflow:hidden;overflow-y:auto; border:1px solid #000000; margin-left:20px; margin-right:0px" class="col-sm-4">
+                                            <ul id="destTree" class="ztree"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">策略描述</label>
+                                <div class="col-sm-8">
+                                    <textarea style="resize: none; height: 250px" class="form-control policy-group-desc" rows="4">
+
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="form-group audit_button">
+                                <label class="control-label col-sm-2">是否启用</label>
+                                <div class="col-sm-6 row">
+                                    <label class="col-sm-2 " style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="radio" name="policy-group-enable" checked value="1" data-title="">
+                                        </span>
+                                        启用
+                                    </label>
+                                    <label class="col-sm-3 " style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="radio" name="policy-group-enable" value="0" data-title="">
+                                        </span>
+                                        禁用
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn blue add-policy-group">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="__PUBLIC__/js/zTree_v3/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/OptCenter/policygroupadd.js"></script>
+
+<include file="./App/Self/View/footer.html" />
+
+

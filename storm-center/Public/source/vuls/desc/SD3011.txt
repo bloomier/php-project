@@ -1,0 +1,5 @@
+tomcat examples directory disclosure描述：
+    如果apache/apache tomcat配置文件没有处理好，会给站点带来相当大的隐患，
+    目录遍历漏洞，会将站点的所有目录暴露在访问者眼前，
+    有经验的开发者或hacker们可以从这些目录得知当前站点的信息，
+    如开发语言、服务器系统、站点结构，甚至一些敏感的信息。

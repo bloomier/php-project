@@ -1,0 +1,12 @@
+/**
+ * @author Sean.xiang
+ *@date 15-3-25
+ *@version
+ *@example
+ */
+
+
+
+.point{width: 800px; height: 800px; margin: 0 auto; z-index: 100}
+.bar-left{position: absolute; top: 45%; left: 5%; width: 400px; height: 400px;}
+.bar-right{position: absolute; top: 45%; right: 5%; width: 400px; height: 400px;}

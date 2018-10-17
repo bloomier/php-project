@@ -1,0 +1,214 @@
+/**
+ * @author Sean.xiang
+ *@date 2016/3/28
+ *@version
+ *@example
+ */
+/*安全概况*/
+@font-face {
+    font-family: "customUUSUN";
+    src: url("../../font/UUSUNElektron.ttf") format("truetype");
+}
+.font-num{font-family: "customUUSUN";}
+.safe-item{
+    float: left;
+    width: 25%;
+    height: 64px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.safe-item img{
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    vertical-align: top;
+}
+.safe-item .i-info{
+    display: inline-block;
+    margin-left: 10px;
+    overflow: hidden;
+}
+.safe-item .i-info-tit{
+    color: #2e2e2e;
+    font-size: 12px;
+    margin-top: 6px;
+}
+.safe-item .i-info-num{
+    color: #898989;
+    font-size: 36px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+.i-info-num em{
+    display: inline-block;
+    font-size: 14px;
+    font-family: normal;
+    margin-right: 4px;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+}
+.detail {
+    float: left;
+    width: 20%;
+    border-left: 6px solid #5b6f90;
+    padding-left: 10px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.detail h5 {
+    color: #2e2e2e;
+    line-height: 22px;
+    margin: 0;
+}
+
+.detail .total {
+    font-size: 14px;
+    color: #616161;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.detail .total>span{
+    font-size: 24px;
+    font-family: "Microsoft Yahei";
+    line-height: 24px;
+
+}
+
+.detail .total-desc {
+    color: #898989;
+    margin-bottom: 10px;
+}
+.detail .total-desc span{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.detail.no-border{
+    border-left:none;
+}
+
+/*表格内进度条*/
+.u-grid div.progress{
+     -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+     border-radius: 0;
+
+ }
+
+.inline a,
+.inline span{
+    display: block;
+    margin-left: 10px;
+}
+
+/** 标题title */
+.circle-label{
+    display: inline-block;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    color:#fff;
+    background-color: #42b1ff;
+    padding: 2px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    vertical-align: top;
+    margin-top: 6px;
+
+}
+
+/*Tab*/
+
+/*一级Tab*/
+.nav-tab{
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #cdd2d7;
+    padding-left: 0;
+}
+.nav-tab>li{
+    float: left;
+    margin-bottom: -1px;
+    list-style: none;
+}
+.nav-tab>li>a{
+    float: left;
+    display: block;
+    padding: 7px 20px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #545f64;
+    background-color: #f9f9f9;
+    border-top: 1px solid #cdd2d7;
+    border-bottom: 1px solid transparent;
+    border-right: 1px solid #cdd2d7;
+    text-decoration: none;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s
+}
+.nav-tab>li:first-child{
+    border-left: 1px solid #cdd2d7;
+}
+.nav-tab>li>a:hover{
+    color: #0091ff;
+    border-top: 2px solid #0091ff;
+    border-bottom: 1px solid #cdd2d7;
+}
+.nav-tab>li.active>a,
+.nav-tab>li>a:focus{
+    color: #0091ff;
+    background-color: #fff;
+    border-top: 2px solid #0091ff;
+    border-bottom: 1px solid transparent;
+}
+/*二级Tab*/
+.sub-nav-tab{
+    display: block;
+    float: left;
+    border: 1px solid #429fff;
+    padding-left: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.sub-nav-tab>li{
+    float: left;
+    border-left: 1px solid #429fff;
+    list-style: none;
+}
+.sub-nav-tab>li:first-child{
+    border: none;
+}
+.sub-nav-tab>li>a{
+    display: block;
+    padding: 3px 12px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #429fff;
+    text-decoration: none;
+    -webkit-transition: background-color .2s, color .2s;
+    -moz-transition: background-color .2s, color .2s;
+    transition: background-color .2s, color .2s;
+
+}
+.sub-nav-tab>li>a:hover{
+    background-color: rgba( 66, 155,255, .3);
+}
+.sub-nav-tab>li.active>a{
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba( 66, 155,255, 1);
+}
+.sub-nav-tab+.tab-content{
+    clear: both;
+}
+
+
+

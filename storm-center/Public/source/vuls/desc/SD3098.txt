@@ -1,0 +1,4 @@
+The Alternative PHP Cache (APC) is a free and open opcode cache for PHP漏洞描述：
+    Alternative PHP Cache（APC）是PHP的一个免费公开的优化代码缓存。
+    apc.php存在一个输入验证错误，远程攻击者可以利用漏洞进行跨站脚本攻击，
+    可获得敏感信息或劫持用户会话。

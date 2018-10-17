@@ -1,0 +1,121 @@
+<include file="./App/Security/View/header.html" />
+
+
+<!-- page-content -->
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Security">首页</a> </li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="dashboard">
+            <!-- BEGIN DASHBOARD STATS -->
+            <div class="row">
+                <div class="col-md-3 responsive" data-tablet="col-md-6" data-desktop="col-md-3">
+                    <div class="dashboard-stat blue">
+                        <div class="visual"><i class="ion ion-grid"></i></div>
+                        <div class="details">
+                            <div class="number">{$not_check_num}</div>
+                            <div class="desc">未审核事件数</div>
+                        </div>
+                        <a class="more" href="__ROOT__/index.php/Security/Event/trace?deal_state=0">详情<i class="fa fa-arrow-right"></i> </a>
+                    </div>
+                </div>
+                <div class="col-md-3 responsive" data-tablet="col-md-6" data-desktop="col-md-3">
+                    <div class="dashboard-stat green">
+                        <div class="visual">
+                            <i class="ion ion-android-call"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">{$not_repair_num}</div>
+                            <div class="desc">未修复事件数</div>
+                        </div>
+                        <a class="more" href="__ROOT__/index.php/Security/Event/trace?deal_state=3">详情<i class="fa fa-arrow-right"></i> </a>
+                    </div>
+                </div>
+                <div class="col-md-3 responsive" data-tablet="col-md-6 fix-offset" data-desktop="col-md-3">
+                    <div class="dashboard-stat purple">
+                        <div class="visual">
+                            <i class="ion ion-image"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">{$current_month_num}</div>
+                            <div class="desc">当月新增事件数</div>
+                        </div>
+                        <a class="more" href="__ROOT__/index.php/Security/Event/trace">详情<i class="fa fa-arrow-right"></i> </a>
+                    </div>
+                </div>
+                <div class="col-md-3 responsive" data-tablet="col-md-6" data-desktop="col-md-3">
+                    <div class="dashboard-stat yellow">
+                        <div class="visual">
+                            <i class="ion ion-calendar"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">{$current_month_report_num}</div>
+                            <div class="desc">当月通报事件数</div>
+                        </div>
+                        <a class="more" href="__ROOT__/index.php/Security/ESearch/index">详情<i class="fa fa-arrow-right"></i> </a>
+                    </div>
+                </div>
+            </div>
+            <!-- END DASHBOARD STATS -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN REGIONAL STATS PORTLET-->
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="fa fa-globe"></i>当月事件通报统计</div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="vip_id" ></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="no_vip_id" ></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="fa fa-globe"></i>事件通报趋势</div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="form-search pull-right citys" action="#">
+                                <select class="form-control prov prov-location" id="is_area_id" style="width: 200px;">
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="week_trend_id" ></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END REGIONAL STATS PORTLET-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--end page-content -->
+
+
+<assign name='plugins' value='echarts'/>
+<include file="./App/Security/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/js/cityselect/jquery.provinceselect.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Security/index.js"></script>
+
+
+

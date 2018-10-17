@@ -1,0 +1,2 @@
+axis2任意文件读取漏洞修复方案：
+    在文件：axis2\WEB-INF\conf\axis2.xml中修改账号和密码

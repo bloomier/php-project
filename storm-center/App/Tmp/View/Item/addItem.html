@@ -1,0 +1,222 @@
+<include file="./App/Service/View/header.html" />
+<style>
+    .form-horizontal .radio,
+    .form-horizontal .radio-inline{
+        padding-top: 3px;
+    }
+    .form-horizontal .checker{
+        margin-top: -3px;
+    }
+</style>
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Service/index/">首页</a> </li>
+                    <li>策略管理</li>
+                    <li><a href="__ROOT__/index.php/Service/Item/index">监控项</a> </li>
+                    <li><a href="__ROOT__/index.php/Service/Item/add">新增监控项</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>监控项</div>
+                    </div>
+                    <div class="portlet-body form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form action="#" class="form-horizontal">
+                                    <div class="form-wizard">
+                                        <div class="row steps">
+                                            <ul class="nav nav-tabs" style="border: hidden">
+                                                <li class="col-md-6 text-center active">
+                                                    <a href="#tab_1" class="step active" data-toggle="tab">
+                                                        <span class="number">1</span>
+                                                        <span class="desc"><i class="icon-ok"></i>监控项</span>
+                                                    </a>
+                                                </li>
+                                                <li class="col-md-6 text-center">
+                                                    <a href="#tab_2" class="step" data-toggle="tab">
+                                                        <span class="number">2</span>
+                                                        <span class="desc"><i class="icon-ok"></i>告警策略</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                        <div class="row margin-top-20">
+                                            <div class="col-md-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 50%;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab_1">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>名称</label>
+                                                    <div class="col-sm-6">
+                                                        <input type="text" class="form-control m-wrap">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>描述</label>
+                                                    <div class="col-sm-6">
+                                                        <textarea class="form-control m-wrap"  rows="6">
+
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>监控类型</label>
+                                                    <div class="col-sm-6">
+                                                        <select class="m-wrap"  style="width: 100%;">
+                                                            <option>监控类型</option>
+                                                            <option>无智能DNS或CDN情况下解析变更</option>
+                                                            <option>域名无法解析</option>
+                                                            <option>域名解析过期</option>
+                                                            <option>访问延时明显增加</option>
+                                                            <option>服务中断</option>
+                                                            <option>部分线路无法访问</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>监控频率</label>
+                                                    <div class="col-sm-6">
+                                                        <select class="m-wrap"  style="width: 100%;">
+                                                            <option>监控频率</option>
+                                                            <option>5</option>
+                                                            <option>15</option>
+                                                            <option>20</option>
+                                                            <option>30</option>
+                                                            <option>60</option>
+                                                            <option>2*60</option>
+                                                            <option>3*60</option>
+                                                            <option>4*60</option>
+                                                            <option>12*60</option>
+                                                            <option>24*60</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">监控节点</label>
+                                                    <div class="col-sm-6">
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox" id="inlineCheckbox1" value="option1">北京节点
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox" id="inlineCheckbox2" value="option2">上海节点
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox" id="inlineCheckbox3" value="option3">杭州节点
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">立即启用</label>
+                                                    <div class="col-sm-6">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="inlineRadioOptions" value="option1">启用
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="inlineRadioOptions" value="option2">禁用
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane" id="tab_2">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>告警条件</label>
+                                                    <div class="col-sm-3">
+                                                        <select class="m-wrap"  style="width: 100%;">
+                                                            <option value="">全方面告警策略</option>
+                                                            <option value="">域名告警策略</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <select class="m-wrap"  style="width: 100%;">
+                                                            <option value="">全方面告警策略</option>
+                                                            <option value="">域名告警策略</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>连续告警次数</label>
+                                                    <div class="col-sm-6">
+                                                        <select class="m-wrap"  style="width: 100%;">
+                                                            <option>监控频率</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">告警方式</label>
+                                                    <div class="col-sm-6">
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox"  value="option1">邮件
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox"  value="option2">密信
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox"  value="option3">短信
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>监控频率</label>
+                                                    <div class="col-sm-6">
+                                                        <select class="m-wrap"  style="width: 100%;">
+                                                            <option>监控频率</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <a href="#tab_1" class="btn button-previous" data-toggle="tab">
+                                                <i class="m-icon-swapleft"></i>上一步
+                                            </a>
+                                            <a href="#tab_2" class="btn blue button-next" data-toggle="tab">
+                                                下一步 <i class="m-icon-swapright m-icon-white"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn green button-submit">
+                                                提交 <i class="m-icon-swapright m-icon-white"></i>
+                                            </a>
+                                        </div>
+
+                                    </div>
+
+
+                                </form>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<include file="./App/Service/View/footer.html" />

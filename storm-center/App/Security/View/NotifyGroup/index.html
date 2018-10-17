@@ -1,0 +1,68 @@
+<include file="./App/Security/View/header.html" />
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Security">首页</a> </li>
+                    <li><a href="#">通报群组</a></li>
+                </ol>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>通报群组</div>
+                    </div>
+                    <div class="portlet-body light-grey">
+                        <div class="inline">
+                            <a  class="btn blue btn-add-role"><i class="icon-plus"></i>
+                                新增
+                            </a>
+                            <a  class="btn red bth-batch-delete"><i class="icon-trash"></i>
+                                删除
+                            </a>
+                        </div>
+                        <div class="form-search pull-right" action="#">
+                            <div class="input-append">
+                                <input class="m-wrap" type="text" placeholder="" style="width: 205px;height: 35px;">
+                                <button class="btn green btn-search" type="button">查询</button>
+                            </div>
+                        </div>
+                        <br/><br/>
+                        <table id="roleTable" class="table table-striped table-bordered table-hover table-condensed datatable" >
+                            <thead>
+                            <tr class="well">
+                                <th><input type="checkbox" ></th>
+                                <th>通报群组</th>
+                                <th>群组类型</th>
+                                <th>适用范围</th>
+                                <th>群组说明</th>
+                                <th>成员数目</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript" src="__PUBLIC__/script/Security/notifygroup.js"></script>
+
+
+<include file="./App/Security/View/footer.html" />
+
+
+

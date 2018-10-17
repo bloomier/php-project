@@ -1,0 +1,101 @@
+<include file="./App/Self/View/header.html" />
+
+
+<!-- page-content -->
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Self/SelfHome/index">首页</a> </li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="dashboard">
+            <!-- BEGIN DASHBOARD STATS -->
+            <div class="row">
+                <div class="col-md-3 responsive" data-tablet="col-md-6" data-desktop="col-md-3">
+                    <div class="dashboard-stat blue">
+                        <div class="visual"><i class="ion ion-grid"></i></div>
+                        <div class="details">
+                            <div class="number">{$not_check_num}</div>
+                            <div class="desc">未审核数</div>
+                        </div>
+                        <a class="more" href="__ROOT__/index.php/Self/TaskAdmin/index?srcState=1">详情<i class="fa fa-arrow-right"></i> </a>
+                    </div>
+                </div>
+                <div class="col-md-3 responsive" data-tablet="col-md-6" data-desktop="col-md-3">
+                    <div class="dashboard-stat green">
+                        <div class="visual">
+                            <i class="ion ion-android-call"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">{$not_finish_num}</div>
+                            <div class="desc">未完成数</div>
+                        </div>
+                        <a class="more" href="__ROOT__/index.php/Self/TaskAdmin/index?srcState=5">详情<i class="fa fa-arrow-right"></i> </a>
+                    </div>
+                </div>
+                <div class="col-md-3 responsive" data-tablet="col-md-6" data-desktop="col-md-3">
+                    <div class="dashboard-stat purple">
+                        <div class="visual">
+                            <i class="ion ion-image"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">{$check_fail_num}</div>
+                            <div class="desc">审核失败数</div>
+                        </div>
+                        <a class="more" href="__ROOT__/index.php/Self/TaskAdmin/index?srcState=4">详情<i class="fa fa-arrow-right"></i> </a>
+                    </div>
+                </div>
+                <div class="col-md-3 responsive" data-tablet="col-md-6" data-desktop="col-md-3">
+                    <div class="dashboard-stat yellow">
+                        <div class="visual">
+                            <i class="ion ion-calendar"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">{$finish_num}</div>
+                            <div class="desc">已完成数</div>
+                        </div>
+                        <a class="more" href="__ROOT__/index.php/Self/TaskAdmin/index?srcState=6">详情<i class="fa fa-arrow-right"></i> </a>
+                    </div>
+                </div>
+            </div>
+            <!-- END DASHBOARD STATS -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN REGIONAL STATS PORTLET-->
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="fa fa-globe"></i>申请单趋势</div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="line_id" style="height: 500px;"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- END REGIONAL STATS PORTLET-->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--end page-content -->
+
+
+<assign name='plugins' value='echarts'/>
+<include file="./App/Self/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/js/echarts/dist/echarts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Self/index.js"></script>
+
+

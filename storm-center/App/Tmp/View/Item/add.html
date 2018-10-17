@@ -1,0 +1,94 @@
+<include file="./App/Service/View/header.html" />
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Service/index/">首页</a> </li>
+                    <li>策略管理</li>
+                    <li><a href="__ROOT__/index.php/Service/Item">监控项</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>监控项</div>
+                    </div>
+                    <div class="portlet-body light-grey">
+                        <div class="row margin-bottom-15">
+                            <div class="col-md-12">
+                                <div class="inline">
+                                    <a href="#" class="btn"><i class="fa fa-plus"></i>
+                                        新增
+                                    </a>
+                                    <a class="btn"><i class="fa fa-trash"></i>
+                                        删除
+                                    </a>
+                                </div>
+                                <form action="#" class="form-search pull-right">
+                                    <div class="input-group" style="display: inline-table;vertical-align: top;">
+                                        <input class="m-wrap medium" type="text">
+                                        <button class="btn green btn-search" type="button">查询</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-striped table-bordered table-hover dataTable">
+                                    <thead class="bg-lightgrey">
+                                    <tr role="row">
+                                        <th><input type="checkbox" class="group-checkable" data-set="#site.checkboxes"></th>
+                                        <td>监控项</td>
+                                        <td>监控项描述</td>
+                                        <td>监控类型</td>
+                                        <td>监控频率</td>
+                                        <td>是否启用</td>
+                                        <td>操作</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th><input type="checkbox" class="checkboxes" value="1"></th>
+                                        <td>首页变更监控</td>
+                                        <td></td>
+                                        <td>首页变更监控</td>
+                                        <td>12*60</td>
+                                        <td><span class="label label-warning">未处理</span></td>
+                                        <td>
+                                            <a href="#" class="btn red-stripe mini">删除</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+                        </div>
+                        <div class="row no-margin">
+                            <ul class="pagination pull-right">
+                                <li><a href="#">上一页</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li class="active"><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">下一页</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<assign name='plugins' value='echarts'/>
+<include file="./App/Service/View/footer.html" />

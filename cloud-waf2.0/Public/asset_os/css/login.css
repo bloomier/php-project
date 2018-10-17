@@ -1,0 +1,274 @@
+/**
+ * @author Sean.xiang
+ *@date 2016/1/20
+ *@version
+ *@example
+ *@desc MSSP login  css
+ */
+
+.login-bg{
+
+    background: #000 url("../image/login_bg.jpg") no-repeat fixed center center ;
+    background-size: cover;
+}
+.wrap{
+    width: 1000px;
+    margin: 0 auto;
+
+}
+.wrapper{
+    width: 100%;
+    height: 100%;
+    z-index: -99;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    width: 270px;
+    height: 32px;
+    background:url("../image/login_title.png")  no-repeat ;
+    margin: 150px auto 74px;
+
+}
+.logo h1{
+    color: #acb3bf;
+    font-size: 30px;
+}
+#form .f-bd{
+    padding: 0 86px
+}
+#form .f-bd label{
+    display: inline-block;
+    padding: 8px 6px ;
+    border-bottom: 1px solid #284767;
+    margin-right: 18px;
+}
+#form .f-bd label:last-child{
+    margin-right: 0;
+}
+#form .f-bd .icon{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background:url("../image/login_icon.png")  no-repeat ;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+#form .f-bd .icon-user{
+    background-position: 0 0;
+}
+#form .f-bd .icon-psw{
+    background-position: 0 -18px;
+}
+#form .f-bd .icon-mpsw{
+    background-position: 0 -36px;
+}
+label.label-mpsw{
+    position: relative;
+}
+label .psw-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#form .psw-btn{
+    display: inline-block;
+    color: #fff;
+    text-shadow: none;
+    background-color: #4d90fe;
+    padding: 7px 10px;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+}
+#form .f-bd .txt{
+    width: 220px;
+    border: none;
+    background-color: transparent;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    color: rgba(255, 255, 255, 1);
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 18px;
+}
+#form #verify_code{
+    display: inline-block;
+    text-shadow: none;
+    padding: 7px 10px;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: -10px;
+}
+
+#form .psw-btn:hover,
+#form .psw-btn:focus,
+#form .psw-btn:active{
+    background-color: #0362fd !important;
+    color: #fff !important;
+}
+input[type=text]::-moz-placeholder{
+    color: rgba(255, 255, 255, .4)
+    opacity: 1;
+}
+input[type=text]::-ms-input-placeholder{
+    color: rgba(255, 255, 255, .4)
+}
+input[type=text]::-webkit-input-placeholder{
+    color: rgba(255, 255, 255, .4)
+}
+
+#form .f-btn{
+    width: 260px;
+    margin: 60px auto;
+}
+#form .f-btn button{
+    width: 258px;
+    height: 30px;
+    border: 1px solid #228049;
+    background-color: #3ab852;
+    color: #fff;
+    font-family: Simsun;
+    font-size: 14px;
+    text-align: center;
+    -webkit-transition: background-color .2s ease;
+    -moz-transition: background-color .2s ease;
+    transition: background-color .2s ease;
+    cursor: pointer;
+    white-space: nowrap;
+}
+#form .f-btn button:hover,
+#form .f-btn button:focus{
+    background-color: #1b8f31;
+}
+.produce{
+    padding: 0 45px;
+    margin-top: 170px;
+}
+.produce .item{
+   display: inline-block;
+}
+.produce .item .left{
+    float: left;
+}
+.produce .item .right{
+    float: right;
+    margin-left: 20px;
+}
+.produce .item .img{
+    width: 72px;
+    height: 72px;
+    background:url("../image/login_produce.png")  no-repeat ;
+
+}
+.produce .item .img1{
+    background-position: 0 0;
+}
+.produce .item .img2{
+    background-position: 0 -72px;
+}
+.produce .item .img3{
+    background-position: 0 -144px;
+}
+.produce .item .text{
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+
+}
+.produce .item .title{
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.produce .item .info{
+    position: relative;
+    width: 196px;
+    height: 140px;
+    color: rgba(255, 255, 255, .2);
+    font-size: 0;
+    overflow: hidden;
+}
+.info-inner{
+    position: absolute;
+}
+.info-inner>li{
+    font-size: 12px;
+    line-height: 20px;
+}
+
+
+.footer{
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    text-align: center;
+}
+.copyright{
+    font-size: 12px;
+    color: #515d77;
+}
+.copyright i{
+    font-style: normal;
+    font-size: 12px;
+    line-height: 12px;
+    vertical-align: top;
+    font-family: "Microsoft YaHei";
+}
+
+.tip{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 280px;
+    margin-left: -140px;
+    z-index: 9999;
+    margin-top: 4px;
+
+}
+.tip .m-tip{
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 12px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #fff;
+}
+.tip .success{
+    background-color: #3ab852;
+}
+.tip .error{
+    background-color: #b22a23;
+}
+
+.none-btn{
+    position: absolute;
+    top: 1%;
+    right: 0;
+}
+.none-btn a{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid #00a2fd;
+    color: #00a2fd;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transition: all 0.5s linear;
+    padding: 4px 8px;
+}
+.none-btn a:hover{
+    transition: all 0.5s linear;
+    opacity: 1;
+}

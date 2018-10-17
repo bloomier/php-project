@@ -1,0 +1,336 @@
+<include file="./App/ScreenCenter/View/common/header.html" />
+
+<style>
+    @font-face {
+        font-family: digifacewide;
+        src: url('__PUBLIC__/font/digifacewide.ttf') format('truetype');
+    }
+        /* @font-face {
+             font-family: "customUUSUN";
+             src: url("__PUBLIC__/font/UUSUNElektron.ttf") format("truetype");
+         }*/
+    body{
+        background-color: #000;
+        overflow: hidden;
+        color: #fff;
+    }
+    h2{
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+    }
+    .red{
+        color:#d32a03!important;
+    }
+    .orange{
+        color:#ff7a04!important;
+    }
+    .yellow{
+        color:#ffcd04!important;
+    }
+    .green{
+        color:#028102!important;
+    }
+
+    .total-info{
+        text-align: center;
+        font-size: 20px;
+        margin-left: -140px;
+    }
+    p.total{
+        margin: 0;
+    }
+    .total .title,.total-sub .title{
+        color:#fff;
+    }
+    .total .title{
+        font-size: 40px;
+    }
+    .total-sub .title{
+        font-size: 24px;
+    }
+    .total .num,.total-sub .num{
+        font-weight: bold;
+        color: #71C34D;
+        font-family: customUUSUN;
+        letter-spacing: 2px;
+
+    }
+    .total .num{
+        font-size: 45px;
+        margin-left: 20px;
+    }
+    .total-sub .num{
+        font-size: 30px;
+        margin-left: 10px;
+    }
+    .web-status{
+        text-align: center;
+        font-size: 18px;
+        padding-top: 10px;
+    }
+    .web-num{
+        font-size: 24px;
+    }
+    .web-status .box{
+        background-color: #0e263e;
+        border: 1px solid #0e426c;
+        margin-bottom: 5px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+    .web-status .box h3{
+        font-size: 20px;
+        margin: 15px 0 10px;
+    }
+
+        /*grid*/
+    .grid{
+        width: 300px;
+        height: 180px;
+        overflow: hidden;
+        margin-left: -40px;;
+    }
+    .grid h3{
+        color:#6596ED;
+        text-align: center;
+        font-size: 20px;
+    }
+    .gridRoll{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+    }
+    .gridList{
+        position: absolute;
+        width: 100%;
+    }
+        /*grid table*/
+    .u-gd-list {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        table-layout:fixed
+    }
+
+    .u-gd-list th,.u-gd-list td{
+        padding-left: 6px;
+    }
+    .u-gd-list thead th ,.u-gd-list td{
+        border-left: none;
+        border-right: none;
+        color: #fff;
+        font-size: 14px;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+
+    }
+
+    .u-gd-list tbody td:first-child{
+        width: 90px;
+    }
+    .u-gd-list tbody td:nth-child(2){
+        width: 120px;
+    }
+    .u-gd-list tbody td:nth-child(3){
+        /*width: 40px;*/
+    }
+    .u-gd-list tbody td:nth-child(4){
+        /*width: 60px;*/
+    }
+
+        /*.reportName{ width: 20px;}*/
+    .u-gd-list thead th{
+        font-weight: bold;
+        height: 38px;
+        font-size: 16px;
+        text-align: left;
+    }
+    .u-gd-list td{
+        height: 30px;
+    }
+
+    .nav-tabs {
+        border-bottom: 1px solid #428bca;
+    }
+
+    .nav-tabs>li>a:hover,
+    .nav-tabs>li.active>a,
+    .nav-tabs>li.active>a:hover,
+    .nav-tabs>li.active>a:focus {
+        color: #fff;
+        cursor: pointer;
+        background-color: #428bca;
+        border: 1px solid #428bca;
+        border-bottom-color: transparent!important;
+    }
+</style>
+<div class="title-wraper">
+    <h1>全国政府网站基础数据</h1>
+</div>
+<div class="container-fluid">
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-3">
+            <h2>各省网站TOP5</h2>
+            <div id="siteBar" style="margin: -40px 0 0 -20px;"></div>
+            <h2 style="margin-top: -10px;">网站安全等级</h2>
+            <div id="safePie" style="margin: -50px 0 0 -50px;"></div>
+        </div>
+        <div class="col-md-7">
+            <div class="total-info">
+                <p class="total"><span class="title">网站总数</span><span class="num">245,393</span></p>
+                <p class="total-sub"><span class="title">其中存活网站</span><span class="num">150,234</span>占比<span>61%</span></p>
+            </div>
+            <div id="map" style="margin: -40px 0 0 -120px;"></div>
+        </div>
+        <div class="col-md-2">
+            <h2>网站存活状态</h2>
+            <div class="web-status" style="overflow: hidden;">
+                <div class="box">
+                    <h3>正常访问网站量</h3>
+                    <p><span class="web-num green normalWeb"></span></p>
+                </div>
+                <div class="box">
+                    <h3>异常访问网站量</h3>
+                    <p><span class="web-num orange abnormalWeb"></span></p>
+                </div>
+                <div class="box">
+                    <h3>不可访问网站量</h3>
+                    <p><span class="web-num red unconnectWeb"></span></p>
+                </div>
+
+            </div>
+
+            <h2>网站异常实时告警</h2>
+            <div id="grid" class="grid">
+                <div id="gridRoll" class="gridRoll">
+                    <div id="gridList" class="gridList" >
+                        <table class="u-gd-list j-table">
+                            <tbody class="unAccessDomain">
+                            <!--<tr>
+                                <td>09：01 </td>
+                                <td>江西新闻网</td>
+                                <td class="red">不可访问</td>
+                            </tr>
+                            <tr>
+                                <td>09：01 </td>
+                                <td>江西新闻网</td>
+                                <td class="red">不可访问</td>
+                            </tr>
+                            <tr>
+                                <td>09：01 </td>
+                                <td>江西新闻网</td>
+                                <td class="red">不可访问</td>
+                            </tr>
+                            <tr>
+                                <td>09：01 </td>
+                                <td>江西新闻网</td>
+                                <td class="red">不可访问</td>
+                            </tr>
+                            <tr>
+                                <td>09：01 </td>
+                                <td>江西新闻网</td>
+                                <td class="red">不可访问</td>
+                            </tr></tr>
+                            <tr>
+                                <td>09：01 </td>
+                                <td>江西新闻网</td>
+                                <td class="red">不可访问</td>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <td>09：01 </td>
+                                <td>江西新闻网</td>
+                                <td class="red">不可访问</td>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <td>09：01 </td>
+                                <td>江西新闻网</td>
+                                <td class="red">不可访问</td>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <td>09：01 </td>
+                                <td>江西新闻网</td>
+                                <td class="red">不可访问</td>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <td>09：01 </td>
+                                <td>江西新闻网</td>
+                                <td class="red">不可访问</td>
+                            </tr>
+-->
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div role="tabpanel" style="margin-top: -60px;">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#web" role="tab" data-toggle="tab">网站总量</a></li>
+                    <li role="presentation"><a href="#info" role="tab" data-toggle="tab">指纹分布</a></li>
+                    <li role="presentation"><a href="#hole" role="tab" data-toggle="tab">首页大文件分布</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="web">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div id="tabWebPie"></div>
+                            </div>
+                            <div class="col-md-9">
+                                <div id="tabWebBar"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade active" id="info">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div id="tabInfoPie"></div>
+                            </div>
+                            <div class="col-md-9">
+                                <div id="tabInfoBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade active" id="hole">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div id="tabHolePie"></div>
+                            </div>
+                            <div class="col-md-9">
+                                <div id="tabHoleBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<assign name='plugins' value='echarts'/>
+<script src="__PUBLIC__/js/d3/d3.v3.min.js"></script>
+<include file="./App/ScreenCenter/View/common/autorun.html" />
+<include file="./App/ScreenCenter/View/common/footer.html" />
+
+
+<script type="text/javascript" src="__PUBLIC__/script/ScreenCenter/web-survey.js"></script>
+<script>
+    $(function(){
+        $("#vavigation-wraper").css("position","static");
+    });
+</script>

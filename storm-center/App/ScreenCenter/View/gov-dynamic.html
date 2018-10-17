@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>政务网站安全概况</title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="__PUBLIC__/js/swiper/css/swiper.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/js/fancybox/jquery.fancybox.css"/>
+    <link href="__PUBLIC__/css/animation.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/Home/page/gov-affairs.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <script src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/js/echarts/dist">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<input type="hidden" value="{$imgserver}" id="imgserver"/>
+<input type="hidden" id="cur_province" value="{$current_province}">
+<input type="hidden" id="cur_city" value="{$current_city}">
+<input type="hidden" id="autoPlay" value="{:I('autoPlay')}">
+<include file="./App/ScreenCenter/View/common/navigation.html" />
+
+
+<header class="header"  >
+    <h1 class="{:I('noheader')?'hide':''}"><span id="location-name"></span>政务网站安全概况 </h1>
+    <h1 class="{:I('noheader')?'':'hide'}"><img src="__PUBLIC__/image/screen/gongan.png" style="max-width: 100%; height: 40px; vertical-align: top; margin-right: 20px;"/><span >浙江省公安厅 全省政府</span>网站安全概况</h1>
+
+    <div class="nav ">
+        <a class="home btn-back-home " href="#"></a>
+        <a class="nationwide {:I('noheader')?'hide':''} tab-viewport-china" href="#"></a>
+    </div>
+
+    <div class="safety pull-right ">
+        <div class="safety-chart">
+            <div class="safety-chart-gauge"></div>
+            <div class="safety-chart-gauge-pointer"></div>
+        </div>
+        <div class="safety-posture">当月安全态势：<span class="s-p-name">中危</span></div>
+    </div>
+</header>
+
+<div class="container-fluid content clear">
+    <div class="row no-padding no-margin">
+        <div class="col-md-3 no-padding">
+            <div class="box mb-10 risk-level">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">风险等级分布</div>
+                        <!--<div class="sub-title"><span class="name">高危网站：</span><span class="num">1,234</span> 个</div>-->
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div id="riskLevelRank"></div>
+                </div>
+
+            </div>
+            <div class="box mb-10 hole-type">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">漏洞类型分布</div>
+                    </div>
+                    <div class="box-tab pull-right">
+                        <ul class="nav nav-tabs " role="tablist">
+                            <li role="presentation" class="active"><a href="#high" class="tab-vlus-type-cloud"  ref="high" role="tab" data-toggle="tab">高危漏洞</a></li>
+                            <li role="presentation"><a href="#mid" role="tab" class="tab-vlus-type-cloud" ref="mid" data-toggle="tab">中危漏洞</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="high">
+                            <div id="vulsTypeRankCloud"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="box zero-day-hole">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">0Day漏洞分布</div>
+                        <div class="sub-title">风险等级：高危</div>
+                    </div>
+                    <div class="box-tab pull-right">
+                        <ul class="nav nav-tabs " role="tablist" id="zeroDayRank-tab-warper">
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="box-content box-content-bottom">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="zeroDayRank">
+                            <table class="grid">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 padding-10">
+            <!--首页-->
+            <div class="main content-wraper content-main">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title pull-left">
+                            <div class="title">网站量区域分布</div>
+                            <div class="sub-title"><span class="name">网站总量：</span><span class="num" id="webTotalNum"></span> 个</div>
+                        </div>
+                        <div class="reply pull-right">
+                            <a href="#" class="prev btn-return-prev"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-margin">
+                    <div class="col-md-6">
+                        <div id="main_surveyAreaRank"></div>
+                    </div>
+                    <div class="col-md-6" id="main_surveyAreaRank_right">
+                        <div class="row">
+                            <div class="col-md-4 no-padding">
+                                <div id="main_categoryCycle1" class="pie" ></div>
+
+                            </div>
+                            <div class="col-md-4 no-padding">
+                                <div id="main_categoryCycle2" class="pie" ></div>
+                            </div>
+                            <div class="col-md-4 no-padding">
+                                <div id="main_categoryCycle3" class="pie" ></div>
+                            </div>
+                        </div>
+                        <div class="row mt-20">
+                            <div class="col-md-4 no-padding">
+                                <div id="main_categoryCycle4" class="pie" ></div>
+
+                            </div>
+                            <div class="col-md-4 no-padding">
+                                <div id="main_categoryCycle5" class="pie"></div>
+                            </div>
+                            <div class="col-md-4">
+                                <!--<div id="safe-event-pie" class="pie">饼图</div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-10">
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="web-num">
+                                    <span class="order">NO.1</span>
+                                    <span class="name">北京</span>
+                                </div>
+                                <div id="main_surveyRankCycle1"></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="web-num">
+                                    <span class="order">NO.2</span>
+                                    <span class="name">北京</span>
+                                </div>
+                                <div id="main_surveyRankCycle2"></div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="web-num">
+                                    <span class="order">NO.3</span>
+                                    <span class="name">北京</span>
+                                </div>
+                                <div id="main_surveyRankCycle3"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 25%;">排行</th>
+                                <th style="width: 25%;">区域</th>
+                                <th style="width: 25%;">网站量</th>
+                                <th style="width: 25%;">网站占比</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar blue-grid-height" >
+                            <table class="blue-grid blue-grid-rank" id="main_surveyRankTopNtable">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!--风险等级-->
+            <div class="main content-wraper content-risklevel">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title pull-left">
+                            <div class="title">风险网站区域分布</div>
+                            <div class="box-tab-sub">
+                                <ul class="nav nav-tabs " role="tablist">
+                                    <li role="presentation" class="risklevel-tab-level active"><a   role="tab" data-toggle="tab">高危等级</a></li>
+                                    <li role="presentation" class="risklevel-tab-level"><a  role="tab" data-toggle="tab">中危等级</a></li>
+                                    <li role="presentation" class="risklevel-tab-level"><a  role="tab" data-toggle="tab">低危等级</a></li>
+                                    <li role="presentation" class="risklevel-tab-level"><a  role="tab" data-toggle="tab">信息等级</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="reply pull-right">
+                            <a href="#" class="prev btn-return-prev"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="areaRank" id="risklevel_areaRank"></div>
+                    </div>
+                    <div class="col-md-5 mt-20 areaRank_right">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 20%;">区域</th>
+                                <th style="width: 20%;">站点</th>
+                                <th style="width: 20%;">高危占比</th>
+                                <th style="width: 20%;">中危占比</th>
+                                <th style="width: 20%;">低危占比</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid blue-grid-rank" id="risklevel_exampleTable">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row mb-10 cat-location">
+                    <div class="col-md-7">
+                        <div class="row no-margin">
+                            <div class="col-md-3 mb-10 circlePie" id="risklevel_Cycle1">
+                            </div>
+                            <div class="col-md-3 mb-10 circlePie" id="risklevel_Cycle2">
+                            </div>
+                            <div class="col-md-3 mb-10 circlePie" id="risklevel_Cycle3">
+                            </div>
+                            <div class="col-md-3 mb-10 circlePie" id="risklevel_Cycle4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 sub-main">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 25%;">排行</th>
+                                <th style="width: 25%;">漏洞名称</th>
+                                <th style="width: 25%;">级别</th>
+                                <th style="width: 25%;">扫出次数</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid blue-grid-rank" id="risklevel_top5Table">
+                                <tbody>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-10 cat-dist" style="display: none;">
+                    <div class="col-md-12 mb-10">
+                        <div class="box-title pull-left">
+                            <div class="title">网站清单</div>
+                        </div>
+                        <!--<div class="search pull-right">-->
+                            <!--<form action="" method="">-->
+                                <!--<input type="text"/>-->
+                                <!--<a href="javascript:;"><i class="fa fa-search"></i></a>-->
+                            <!--</form>-->
+
+                        <!--</div>-->
+                    </div>
+                    <div class="web-list clear" id="riskWebList">
+                        <!--<div class="col-md-4">-->
+                            <!--<div class="list">-->
+                                <!--<div class="l-rank bg-red">高危</div>-->
+                                <!--<div class="l-web">浙江省政府网站</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                    </div>
+                </div>
+
+            </div>
+            <!--漏洞区域-->
+            <div class="main content-wraper content-riskarea">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title pull-left">
+                            <div class="title">漏洞区域分布</div>
+                        </div>
+                        <div class="reply pull-right">
+                            <a href="#" class="prev btn-return-prev"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-margin">
+                    <div class="col-md-6">
+                        <div class="areaRank" id="riskarea_areaRank"></div>
+                    </div>
+                    <div class="col-md-6 mt-20 areaRank_right">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 40%;">网站名称</th>
+                                <th style="width: 40%;">网站地址</th>
+                                <th style="width: 20%;">漏洞个数</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid blue-grid-rank" id="riskarea_topNtable" >
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-10 areaInfo" >
+                    <div class="col-md-2">
+                        <div class="desc">
+                            <p class="d-title">漏洞名称</p>
+                            <p class="d-info riskarea-info-name"></p>
+                        </div>
+                        <div class="desc mt-20" >
+                            <p class="d-title">漏洞等级</p>
+                            <p class="d-info riskarea-info-level" style="font-weight: bold"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="desc">
+                            <p class="d-title">漏洞描述</p>
+                            <p class="d-info riskarea-info-desc"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="desc">
+                            <p class="d-title">修复建议</p>
+                            <p class="d-info info-advice riskarea-info-advice"></p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--0day-->
+            <div class="main content-wraper content-zeroday">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title pull-left">
+                            <div class="title">0 Day事件影响面</div>
+                        </div>
+                        <div class="reply pull-right">
+                            <a href="#" class="prev btn-return-prev"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-margin">
+                    <div class="col-md-7">
+                        <div class="areaRank" id="zeroday_areaRank"></div>
+                    </div>
+                    <div class="col-md-5 mt-20 areaRank_right">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 25%;">区域</th>
+                                <th style="width: 25%;">网站总量</th>
+                                <th style="width: 25%;">影响网站量</th>
+                                <th style="width: 25%;">影响面占比</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid blue-grid-rank" id="zeroday_table">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-10 areaInfo">
+                    <div class="col-md-7">
+                        <div class="desc">
+                            <p class="d-title"><span class="zeroday-info-name"></span>描述</p>
+                            <p class="d-info zeroday-info-desc info-advice"></p>
+                        </div>
+
+                    </div>
+                    <div class="col-md-5 cat-dist sub-main" style="display: none;">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 50%;">网站名称</th>
+                                <th style="width: 25%;">网站域名</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid blue-grid-rank" id="zeroday_table_detail">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--安全事件-->
+            <div class="main content-wraper content-security">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title pull-left">
+                            <div class="title">安全事件区域分布</div>
+                            <div class="box-tab-sub">
+                                <ul class="nav nav-tabs " id="security-tab" role="tablist">
+                                    <li role="presentation" class="security-tab-type active"><a  role="tab" data-toggle="tab">黑页</a></li>
+                                    <li role="presentation" class="security-tab-type"><a  role="tab" data-toggle="tab">反共</a></li>
+                                    <li role="presentation" class="security-tab-type"><a  role="tab" data-toggle="tab">博彩</a></li>
+                                    <li role="presentation" class="security-tab-type"><a  role="tab" data-toggle="tab">色情</a></li>
+                                    <li role="presentation" class="security-tab-type"><a  role="tab" data-toggle="tab">暗链</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="reply pull-right">
+                            <a href="#" class="prev btn-return-prev"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-margin">
+                    <div class="col-md-6">
+                        <div class="areaRank" id="security_areaRank"></div>
+                    </div>
+                    <div class="col-md-6 mt-20 cat-location areaRank_right">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 20%;">区域</th>
+                                <th style="width: 16%;">黑页</th>
+                                <th style="width: 16%;">反共</th>
+                                <th style="width: 16%;">博彩</th>
+                                <th style="width: 16%;">色情</th>
+                                <th style="width: 16%;">暗链</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid" id="security_categoryDeatilTable">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-20 cat-dist" style="display: none;">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width:50%;">安全事件站点</th>
+                                <th style="width:30%;">发生日期</th>
+                                <th style="width:26%;">事件类型</th>
+
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid" id="security_categoryDeatilTable_detail">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-10">
+                    <div class="col-md-6">
+                        <div class="row no-margin">
+                            <div id="security_Cycle1" class="col-md-3 circlePie">
+
+                            </div>
+                            <div id="security_Cycle2" class="col-md-3 circlePie">
+                            </div>
+                            <div id="security_Cycle3" class="col-md-3 circlePie">
+                            </div>
+                            <div id="security_Cycle4" class="col-md-3 circlePie">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 sub-main">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 33%;">月份</th>
+                                <th style="width: 33%;">安全事件数</th>
+                                <th style="width: 33%;">类型</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid blue-grid-rank" id="security_timeDetailTable">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--高危端口-->
+            <div class="main content-wraper content-porttree">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title pull-left">
+                            <div class="title">高危端口区域分布</div>
+                        </div>
+                        <div class="reply pull-right">
+                            <a href="#" class="prev btn-return-prev"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-margin">
+                    <div class="col-md-7">
+                        <div class="areaRank" id="porttree_areaRank"></div>
+                    </div>
+                    <div class="col-md-5 mt-20 areaRank_right">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 40%;">IP地址</th>
+                                <th style="width: 60%;">开放端口</th>
+
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid blue-grid-rank" id="porttree_exapmleTable">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-10 areaInfo">
+                    <div class="col-md-2">
+                        <div class="desc">
+                            <p class="d-title">端口号</p>
+                            <p class="d-info porttree-info-name"></p>
+                        </div>
+                        <div class="desc mt-20">
+                            <p class="d-title">风险等级</p>
+                            <p class="d-info porttree-info-level " style="font-weight: bold"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="desc">
+                            <p class="d-title">端口号描述</p>
+                            <p class="d-info porttree-info-desc info-advice"></p>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!--网站服务质量-->
+            <div class="content-wraper content-serverexption">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title pull-left">
+                            <div class="title">网站服务异常区域分布</div>
+                            <div class="box-tab-sub">
+                                <ul class="nav nav-tabs " id="serverexption-tab" role="tablist">
+                                    <li role="presentation" class="serverexption-tab-type active"><a   role="tab" data-toggle="tab">僵尸网站</a></li>
+                                    <li role="presentation" class="serverexption-tab-type"><a  role="tab" data-toggle="tab">页面找不到</a></li>
+                                    <li role="presentation" class="serverexption-tab-type"><a  role="tab" data-toggle="tab">服务端异常</a></li>
+                                    <li role="presentation" class="serverexption-tab-type"><a  role="tab" data-toggle="tab">无法访问</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="reply pull-right">
+                            <a href="#" class="prev btn-return-prev"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-margin">
+                    <div class="col-md-6">
+                        <div class="areaRank" id="serverexption_areaRank"></div>
+                    </div>
+                    <div class="col-md-6 mt-20 areaRank_right" >
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 20%;">区域</th>
+                                <th style="width: 20%;">网站总量</th>
+                                <th style="width: 20%;">僵尸网站</th>
+                                <th style="width: 20%;">服务端异常</th>
+                                <th style="width: 20%;">无法访问</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid blue-grid-rank" id="serverexption_categoryDeatilTable" >
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row mb-10">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-3 circlePie" id="serverexption_Cycle1">
+                            </div>
+                            <div class="col-md-3 circlePie" id="serverexption_Cycle2">
+                            </div>
+                            <div class="col-md-3 circlePie" id="serverexption_Cycle3">
+                            </div>
+                            <div class="col-md-3 circlePie" id="serverexption_Cycle4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 sub-main">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 33%;">域名</th>
+                                <th style="width: 33%;">标题</th>
+                                <th style="width: 33%;">类型</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid blue-grid-rank" id="serverexption_exampleTable">
+                                <tbody>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="content-wraper content-pagelarge">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title pull-left">
+                            <div class="title">网站首页资源过大区域分布</div>
+
+                        </div>
+                        <div class="reply pull-right">
+                            <a href="#" class="prev btn-return-prev"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-margin">
+                    <div class="col-md-6">
+                        <div class="areaRank" id="pagelarge_areaRank" ></div>
+                    </div>
+                    <div class="col-md-6 mt-20 areaRank_right">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 25%;">区域</th>
+                                <th style="width: 25%;">网站总量</th>
+                                <th style="width: 25%;">首页过大</th>
+                                <th style="width: 25%;">首页过大占比</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid blue-grid-rank" id="pagelarge_categoryDeatilTable">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row mb-10">
+                    <div class="col-md-6 sub-main">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 33%;">域名</th>
+                                <th style="width: 33%;">标题</th>
+                                <th style="width: 33%;">网站大小</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid blue-grid-rank" id="pagelarge_exapmleTable1">
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6 sub-main">
+                        <table class="blue-grid">
+                            <thead>
+                            <tr>
+                                <th style="width: 33%;">域名</th>
+                                <th style="width: 33%;">标题</th>
+                                <th style="width: 33%;">网站大小</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollbar">
+                            <table class="blue-grid blue-grid-rank" id="pagelarge_exapmleTable2">
+                                <tbody>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="content-wraper content-report">
+                <div class="box mb-10 web-area">
+                    <div class="row border-bottom">
+                        <div class="col-md-2">
+                            <div class="m-head border-right">
+                                <div class="m-h-name report-key-title-name"></div>
+                                <h1 class="m-h-info red report-key-title-value"></h1>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-20">
+                            <div class="m-head">
+                                <table>
+
+                                    <tbody>
+                                    <tr>
+                                        <td class="m-h-key">网站标题：</td>
+                                        <td class="m-h-value report-web-title"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="m-h-key">IP地址：</td>
+                                        <td class="m-h-value report-web-ip"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 mt-20">
+                            <div class="m-head">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td class="m-h-key">网站域名：</td>
+                                        <td class="m-h-value report-web-domain"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="m-h-key">IP归属：</td>
+                                        <td class="m-h-value report-web-addr"></td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="reply pull-right">
+                                <a href="#" class="prev btn-return-prev"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="m-content">
+                                <div class="box-tab-sub">
+                                    <ul class="nav nav-tabs " role="tablist">
+                                        <li role="presentation" class="active report-tabs"><a href="#report-view-home"  role="tab" data-toggle="tab">网站首页</a></li>
+                                        <li role="presentation" class="report-tabs"><a href="#report-view-vuls" role="tab" data-toggle="tab">弱点信息</a></li>
+                                        <li role="presentation" class="report-tabs"><a href="#report-view-websurvey" role="tab" data-toggle="tab">服务质量</a></li>
+                                        <li role="presentation" class="report-tabs"><a href="#report-view-security" role="tab" data-toggle="tab">安全事件</a></li>
+                                    </ul>
+                                </div>
+                                <div class="row">
+                                    <div  class="report-tab-view active" id="report-view-home">
+                                        <div class="col-md-12 mt-14">
+                                            <div class="screenshot report-homepage-screenshot" ></div>
+                                        </div>
+
+                                    </div>
+                                    <div  class=" report-tab-view" id="report-view-vuls">
+                                        <div class="col-md-6 mt-14">
+                                            <div class="typeRank" id="report_vuls_typeRank"></div>
+                                        </div>
+                                        <div class="col-md-6 mt-14 sub-main">
+                                            <div class="box-tab-border">
+                                                <ul class="nav nav-tabs " role="tablist">
+                                                    <li class="report-vuls-type-tab report-vuls-type-tab-high" ref="high" role="presentation " ><a   role="tab" data-toggle="tab">高危漏洞</a></li>
+                                                    <li class="report-vuls-type-tab report-vuls-type-tab-mid" ref="mid" role="presentation "><a  role="tab" data-toggle="tab">中危漏洞</a></li>
+                                                    <li  class="report-vuls-type-tab report-vuls-type-tab-low" ref="low" role="presentation "><a  role="tab" data-toggle="tab">低危漏洞</a></li>
+                                                    <li class="report-vuls-type-tab report-vuls-type-tab-info" ref="info" role="presentation "><a  role="tab" data-toggle="tab">信息漏洞</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="tab-content mt-14">
+                                                <div role="tabpanel" class="tab-pane active" id="report-vuls-table">
+                                                    <table class="blue-grid">
+                                                        <thead>
+                                                        <tr>
+                                                            <th style="width: 33%;">漏洞名称</th>
+                                                            <th style="width: 33%;">漏洞级别</th>
+                                                            <th style="width: 33%;">扫出次数</th>
+                                                        </tr>
+                                                        </thead>
+                                                    </table>
+                                                    <div class="scrollbar">
+                                                        <table class="blue-grid blue-grid-rank">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-warning">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div  class=" report-tab-view" id="report-view-websurvey">
+                                        <div class="col-md-7 mt-14">
+                                            <div class="web_areaRank" id="report_websurvey_areaRank"></div>
+                                        </div>
+                                        <div class="col-md-5 mt-14 web_areaRank_right">
+                                            <table class="blue-grid">
+                                                <thead>
+                                                <tr>
+                                                    <th style="width: 20%;">排行</th>
+                                                    <th style="width: 40%;">区域</th>
+                                                    <th style="width: 40%;">访问延时(ms)</th>
+                                                </tr>
+                                                </thead>
+                                            </table>
+                                            <div class="scrollbar">
+                                                <table class="blue-grid blue-grid-rank" id="report-websurveyTable">
+                                                    <tbody>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div  class=" report-tab-view" id="report-view-security">
+                                        <div class="row no-margin">
+                                            <div class="col-md-7 mt-14">
+                                                <div class="report-screenshot" ></div>
+                                            </div>
+                                            <div class="col-md-5 mt-14">
+                                                <div class="desc">
+                                                    <p class="d-title">事件详情</p>
+                                                    <p class="d-info"></p>
+                                                </div>
+                                                <div class="m-head">
+                                                    <table>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="m-h-key text-center">事件URL：</td>
+                                                            <td class="m-h-value report-event-url"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="m-h-key">监测日期：</td>
+                                                            <td class="m-h-value report-event-time"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="m-h-key">数据来源：</td>
+                                                            <td class="m-h-value report-event-source"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="m-h-key">修复状态：</td>
+                                                            <td class="m-h-value report-event-deal-state"></td>
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row no-margin">
+                                            <div class="rol-md-12 " style="padding-top: 20px;padding-left: 40px;">
+                                                <div class="desc">
+                                                    <p class="d-title">事件描述</p>
+                                                    <p class="d-info report-event-desc" ></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!--安全事件举证-->
+
+
+            <div class="box">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">安全事件举证</div>
+                    </div>
+                </div>
+                <div class="box-content box-content-bottom">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper" id="securityEventExample">
+                            <div class="swiper-slide">
+                                <div class='event-type'><span class='type'></span></div>
+                                <img src="" alt="..." >
+								<div class="info">
+                                    <p class="title"></p>
+                                    <p class="domain"></p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 no-padding">
+            <div class="box mb-10">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">安全事件分析</div>
+                    </div>
+                    <div class="box-tab pull-right">
+                        <ul class="nav nav-tabs " role="tablist">
+                            <li role="presentation" class="active"><a   role="tab" class="tab-security-rank" ref="securityAreaRank" data-toggle="tab">事件分布</a></li>
+                            <li role="presentation" ><a  class="tab-security-rank" ref="securityTypeRank"  role="tab" data-toggle="tab">事件类型</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active view-security-rank" id="securityTypeRank">
+                        </div>
+                        <div role="tabpanel" class="tab-pane view-security-rank" id="securityAreaRank">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="box mb-10">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">高危端口分布</div>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div id="portTreeMap"></div>
+                </div>
+            </div>
+            <div class="box web-service">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">网站服务质量</div>
+                    </div>
+                </div>
+                    <div class="grid" id="info-grid">
+                        <table class="table">
+                            <thead>
+                            <th>时间</th>
+                            <th>名称</th>
+                            <th>风险</th>
+                            </thead>
+                        </table>
+                        <div class="box-border" style="margin: 4px 0 6px;"></div>
+                        <div class="gridRoll">
+                            <div class="gridList scrollbar" id="service-quality-list" style="height: 260px; ">
+                                <table class="table" id="monitorData" style="/*position: absolute*/">
+                                    <tbody class="waf-items">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="{:I('noheader')?'':'hide'}" style=" width: 240px;color: #00dcff;font-size: 12px;position: absolute;bottom: 0; left: 50%;margin-left: -120px;">技术支持单位：XXXX技术有限公司</div>
+</div>
+
+<!--<script src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>-->
+<script src="__PUBLIC__/js/scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+<script src="__PUBLIC__/js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/swiper/js/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/echarts/dist/echarts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/geo.js"  charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/script/ScreenCenter/gov-dynamic.js"  charset="utf-8"></script>
+
+</body>
+</html>

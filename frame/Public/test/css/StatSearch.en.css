@@ -1,0 +1,9 @@
+.en .acdc-stat-form-wrap .acdc-stat-search-form .sf-tpl-menuview-ct .sf-tpl-menuview-item .sf-tpl-menuview-item-text {
+    display: block;
+    height: 100%;
+    overflow: hidden
+}
+
+.en .acdc-stat-form-wrap .acdc-stat-search-form .x-panel-footer {
+    padding-left: 152px
+}

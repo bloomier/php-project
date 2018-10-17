@@ -1,0 +1,2 @@
+PHPCMS authkey泄露漏洞修复方案：
+    从官方渠道更新phpcms到最新版本

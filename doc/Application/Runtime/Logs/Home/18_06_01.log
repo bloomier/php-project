@@ -1,0 +1,1882 @@
+[ 2018-06-01T14:05:32+08:00 ] ::1 /doc/index.php/Home/Item/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.036002s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.5760s ]
+SQL: SELECT * FROM `item` WHERE ( uid = '2' or item_id in ( select item_id from item_member where uid = '2' )  )  [ RunTime:0.1770s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.034002s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.034002s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\fbd4024b257c0eb32531d23fc561bc4e.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.262015s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.262015s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.015001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.016001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008001s ]
+
+[ 2018-06-01T14:05:37+08:00 ] ::1 /doc/index.php/Home/Item/Show?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0520s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0470s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0310s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0820s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0380s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0110s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.075004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.075004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:05:43+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=225
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '225'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2018-06-01T14:05:45+08:00 ] ::1 /doc/index.php/Home/page/edit?page_id=225
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0220s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '225'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.038002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2018-06-01T14:05:48+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '19'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:05:54+08:00 ] ::1 /doc/index.php/Home/item/show?item_id=19&page_id=225
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:05:54+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=225
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0190s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '225'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:05:58+08:00 ] ::1 /doc/index.php/Home/page/edit?page_id=225
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '225'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:05:59+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '19'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:03+08:00 ] ::1 /doc/index.php/Home/page/save
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0220s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '225'  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `page_history` [ RunTime:0.4360s ]
+SQL: INSERT INTO `page_history` (`page_id`,`item_id`,`cat_id`,`page_title`,`page_content`,`order`,`addtime`,`author_uid`,`author_username`) VALUES ('225','19','46','王者圈地址','- 王者圈测试线接口地址
+
+**API地址：**
+- ` https://dev.wzqsecapi.hbkejin.com  `
+
+
+**新管理端：**
+- ` http://dev.wzq.admin.hbkejin.com/  `
+- ` siwen / sfaFQ7Q2  `
+
+
+**老管理端：**
+- ` http://dev.wzq.admin.hbkejin.com/console  `
+
+
+**登录地址：**
+- `47.96.177.49  `
+
+- `testapi `
+- `fulu/cKGtURAX `
+
+- `admin+conosle : ssh fulu@testadmin `
+
+- `fulu/uFBe_HM_8G `
+
+** 正式线新管理端 **
+- ` http://wzq.admin.hbkejin.com/ `
+- `superadmin `
+- `veF77zWp  `
+
+**福禄充值正式线数据库地址：**
+- `47.96.177.49:9433  `
+
+- `userfulu/9Pt5_vgf0_wNwG_nZNb  `
+
+
+**王者圈正式线数据库地址：**
+- `47.96.177.49:9433  `
+
+- `userwzq/fAK9_8V6c_jcP2_Z2xA  `
+
+**任务调度平台： **
+- `http://wzq.quartz.hbkejin.com/   `
+
+- `liliping/123456  `
+
+
+- `http://api.fulugou.com   -&gt;  https://wzqsecapi.hbkejin.com/   `
+
+
+** 升级scp **
+
+- `scp -r * fulu@testadmin:/data/fulu/www_wzq/admin/WEB-INF/classes/com/fulu/ `
+
+
+
+** OSS服务器 **
+
+	windows - doNET-WEB 
+	47.97.161.70 
+	(弹性)
+	10.5.1.148 
+	(私有)
+	Administrator/AdMWZQ#2018
+	用户名：i-bp14igqyq0gdj8pd5sko\\Administrator
+	密码：AdMWZQ#2018','99','1518081200','2','admin') [ RunTime:0.0470s ]
+SQL: UPDATE `page` SET `page_title`='王者圈地址',`page_content`='- 王者圈测试线接口地址
+
+**API地址：**
+- ` https://dev.wzqsecapi.hbkejin.com  `
+
+
+**新管理端：**
+- ` http://dev.wzq.admin.hbkejin.com/  `
+- ` siwen / sfaFQ7Q2  `
+
+
+**老管理端：**
+- ` http://dev.wzq.admin.hbkejin.com/console  `
+
+
+**登录地址：**
+- `47.96.177.49  `
+
+- `testapi `
+- `fulu/cKGtURAX `
+
+- `admin+conosle : ssh fulu@testadmin `
+
+- `fulu/uFBe_HM_8G `
+
+** 正式线新管理端 **
+- ` http://wzq.admin.hbkejin.com/ `
+- `superadmin `
+- `veF77zWp  `
+
+**福禄充值正式线数据库地址：**
+- `47.96.177.49:9433  `
+
+- `userfulu/9Pt5_vgf0_wNwG_nZNb  `
+
+
+**王者圈正式线数据库地址：**
+- `47.96.177.49:9433  `
+
+- `userwzq/fAK9_8V6c_jcP2_Z2xA  `
+
+**任务调度平台： **
+- `http://wzq.quartz.hbkejin.com/   `
+
+- `liliping/123456  `
+
+
+- `http://api.fulugou.com   -&gt;  https://wzqsecapi.hbkejin.com/   `
+
+
+** 升级scp **
+
+- `scp -r * fulu@testadmin:/data/fulu/www_wzq/admin/WEB-INF/classes/com/fulu/ `
+
+
+
+** OSS服务器 **
+
+	windows - doNET-WEB 
+	47.97.161.70 
+	(弹性)
+	10.5.1.148 
+	(私有)
+	Administrator/AdMWZQ#2018
+	用户名：i-bp14igqyq0gdj8pd5sko\\Administrator
+	密码：AdMWZQ#2018',`order`='6',`item_id`='19',`cat_id`='46',`addtime`='1527833162',`author_uid`='2',`author_username`='admin' WHERE (  page_id = '225'  ) [ RunTime:0.0500s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0100s ]
+SQL: UPDATE `item` SET `last_update_time`='1527833163' WHERE (  item_id = '19'  ) [ RunTime:0.0180s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '225'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:03+08:00 ] ::1 /doc/index.php/Home/item/show?page_id=225&item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0110s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:03+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=225
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '225'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:10+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=245
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '245'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:12+08:00 ] ::1 /doc/index.php/Home/page/edit?page_id=245
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '245'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:12+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '19'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-06-01T14:06:15+08:00 ] ::1 /doc/index.php/Home/page/save
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '245'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page_history` [ RunTime:0.0090s ]
+SQL: INSERT INTO `page_history` (`page_id`,`item_id`,`cat_id`,`page_title`,`page_content`,`order`,`addtime`,`author_uid`,`author_username`) VALUES ('245','19','46','账号记录-副本','|名称|账号|密码|
+|:-----  |:-----|-----                           |
+|工号 |9068   |   |
+|QQ|2269982263| xu777777|
+|OA|2269982263|123456|
+|git账号|shijy|1qazcde3!@#|
+|正式线老后台|sjy|j2c7Me9v|
+|淘宝联盟： http://pub.alimama.com|氪金网络|game^^^HF|
+|消息队列： https://ons.console.aliyun.com/#/TopicManagement?regionId=cn-shanghai&amp;_k=ou9jfg|2536000536@qq.com|65msi$Zl|
+|容联短信平台： http://www.yuntongxun.com|1181077374@qq.com|FuluB202|
+|JPUSH: https://www.jiguang.cn/accounts/login/form| 2783032602@qq.com|BHeEibAf |
+|腾讯云： https://cloud.tencent.com/login|app_devid@fulu.com|xp6GUfLU|
+|阿里百川： http://baichuan.taobao.com/|app_master@fulu.com|yy888666|','99','1526280233','2','admin') [ RunTime:0.0000s ]
+SQL: UPDATE `page` SET `page_title`='账号记录-副本',`page_content`='|名称|账号|密码|
+|:-----  |:-----|-----                           |
+|工号 |9068   |   |
+|QQ|2269982263| xu777777|
+|OA|2269982263|123456|
+|git账号|shijy|1qazcde3!@#|
+|正式线老后台|sjy|j2c7Me9v|
+|淘宝联盟： http://pub.alimama.com|氪金网络|game^^^HF|
+|消息队列： https://ons.console.aliyun.com/#/TopicManagement?regionId=cn-shanghai&amp;_k=ou9jfg|2536000536@qq.com|65msi$Zl|
+|容联短信平台： http://www.yuntongxun.com|1181077374@qq.com|FuluB202|
+|JPUSH: https://www.jiguang.cn/accounts/login/form| 2783032602@qq.com|BHeEibAf |
+|腾讯云： https://cloud.tencent.com/login|app_devid@fulu.com|xp6GUfLU|
+|阿里百川： http://baichuan.taobao.com/|app_master@fulu.com|yy888666|',`order`='2',`item_id`='19',`cat_id`='46',`addtime`='1527833175',`author_uid`='2',`author_username`='admin' WHERE (  page_id = '245'  ) [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0110s ]
+SQL: UPDATE `item` SET `last_update_time`='1527833175' WHERE (  item_id = '19'  ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '245'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:15+08:00 ] ::1 /doc/index.php/Home/item/show?page_id=245&item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0250s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:06:15+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=245
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '245'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:18+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=223
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '223'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:20+08:00 ] ::1 /doc/index.php/Home/page/edit?page_id=223
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '223'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:20+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '19'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:06:24+08:00 ] ::1 /doc/index.php/Home/page/save
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '223'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page_history` [ RunTime:0.0110s ]
+SQL: INSERT INTO `page_history` (`page_id`,`item_id`,`cat_id`,`page_title`,`page_content`,`order`,`addtime`,`author_uid`,`author_username`) VALUES ('223','19','46','账号信息','    
+**设备id：** 
+1c86b6eb_d20d_3522_8d18_8521e6bbf971
+df6a29d2_59d2_31a9_ab7c_ca068fee36df
+
+
+**会员id** 
+- 正式线：2746044
+- 测试线：100001827
+
+###### 大数据数据库连接地址
+	 真实地址：
+	jdbcUrl: jdbc:sqlserver://47.96.177.49:11433;DatabaseName=TBChargeApp
+	Username: tbflappuser
+	password：bbxlo9g6qg2ET9zx
+','4','1526961840','2','admin') [ RunTime:0.0010s ]
+SQL: UPDATE `page` SET `page_title`='账号信息',`page_content`='    
+**设备id：** 
+1c86b6eb_d20d_3522_8d18_8521e6bbf971
+df6a29d2_59d2_31a9_ab7c_ca068fee36df
+
+
+**会员id** 
+- 正式线：2746044
+- 测试线：100001827
+
+###### 大数据数据库连接地址
+	 真实地址：
+	jdbcUrl: jdbc:sqlserver://47.96.177.49:11433;DatabaseName=TBChargeApp
+	Username: tbflappuser
+	password：bbxlo9g6qg2ET9zx
+',`order`='1',`item_id`='19',`cat_id`='46',`addtime`='1527833183',`author_uid`='2',`author_username`='admin' WHERE (  page_id = '223'  ) [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0110s ]
+SQL: UPDATE `item` SET `last_update_time`='1527833184' WHERE (  item_id = '19'  ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '223'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:06:24+08:00 ] ::1 /doc/index.php/Home/item/show?page_id=223&item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0220s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:24+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=223
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '223'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:27+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=168
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '168'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:29+08:00 ] ::1 /doc/index.php/Home/page/edit?page_id=168
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '168'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:06:29+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '19'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:06:35+08:00 ] ::1 /doc/index.php/Home/page/save
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '168'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page_history` [ RunTime:0.0100s ]
+SQL: INSERT INTO `page_history` (`page_id`,`item_id`,`cat_id`,`page_title`,`page_content`,`order`,`addtime`,`author_uid`,`author_username`) VALUES ('168','19','46','账号记录','|名称|账号|密码|
+|:-----  |:-----|-----                           |
+|工号 |9068   |   |
+|QQ|2269982263| xu777777|
+|OA|2269982263|123456|
+|git账号|shijy|1qazcde3!@#|
+|正式线老后台|sjy|j2c7Me9v|
+|淘宝联盟http://pub.alimama.com|氪金网络|game^^^HF|
+|消息队列https://ons.console.aliyun.com/#/TopicManagement?regionId=cn-shanghai&amp;_k=ou9jfg|2536000536@qq.com|65msi$Zl|
+|容联短信平台http://www.yuntongxun.com|1181077374@qq.com|FuluB202|
+|JPUSH:https://www.jiguang.cn/accounts/login/form| 2783032602@qq.com|BHeEibAf |
+|腾讯云|app_devid@fulu.com|xp6GUfLU|
+|八爪鱼|rampant|fulu2018|
+
+
+	JPush: 2783032602@qq.com	BHeEibAf
+	腾讯云：app_devid@fulu.com	xp6GUfLU
+	新浪微博开放平台：2992761077@qq.com	fulu20140521!
+	微信开放平台：2992761077@qq.com	fulu20140521!
+	腾讯互联：2054332533	fulu20140521!
+	友盟：app_master@fulu.com	3kh2yisa
+	芝麻信用：hbkejin@app.fulu.com    	fuluapp168
+	talkingdata: app_master@fulu.com                C9HmQnPr','99','1526537389','2','admin') [ RunTime:0.0190s ]
+SQL: UPDATE `page` SET `page_title`='账号记录',`page_content`='|名称|账号|密码|
+|:-----  |:-----|-----                           |
+|工号 |9068   |   |
+|QQ|2269982263| xu777777|
+|OA|2269982263|123456|
+|git账号|shijy|1qazcde3!@#|
+|正式线老后台|sjy|j2c7Me9v|
+|淘宝联盟http://pub.alimama.com|氪金网络|game^^^HF|
+|消息队列https://ons.console.aliyun.com/#/TopicManagement?regionId=cn-shanghai&amp;_k=ou9jfg|2536000536@qq.com|65msi$Zl|
+|容联短信平台http://www.yuntongxun.com|1181077374@qq.com|FuluB202|
+|JPUSH:https://www.jiguang.cn/accounts/login/form| 2783032602@qq.com|BHeEibAf |
+|腾讯云|app_devid@fulu.com|xp6GUfLU|
+|八爪鱼|rampant|fulu2018|
+
+
+	JPush: 2783032602@qq.com	BHeEibAf
+	腾讯云：app_devid@fulu.com	xp6GUfLU
+	新浪微博开放平台：2992761077@qq.com	fulu20140521!
+	微信开放平台：2992761077@qq.com	fulu20140521!
+	腾讯互联：2054332533	fulu20140521!
+	友盟：app_master@fulu.com	3kh2yisa
+	芝麻信用：hbkejin@app.fulu.com    	fuluapp168
+	talkingdata: app_master@fulu.com                C9HmQnPr',`order`='3',`item_id`='19',`cat_id`='46',`addtime`='1527833195',`author_uid`='2',`author_username`='admin' WHERE (  page_id = '168'  ) [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0090s ]
+SQL: UPDATE `item` SET `last_update_time`='1527833195' WHERE (  item_id = '19'  ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '168'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2018-06-01T14:06:35+08:00 ] ::1 /doc/index.php/Home/item/show?page_id=168&item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:35+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=168
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '168'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:38+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=169
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '169'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:41+08:00 ] ::1 /doc/index.php/Home/page/edit?page_id=169
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '169'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:41+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '19'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:44+08:00 ] ::1 /doc/index.php/Home/page/save
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '169'  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `page_history` [ RunTime:0.0120s ]
+SQL: INSERT INTO `page_history` (`page_id`,`item_id`,`cat_id`,`page_title`,`page_content`,`order`,`addtime`,`author_uid`,`author_username`) VALUES ('169','19','46','系统登录地址信息','|名称|地址|账号|密码|说明|
+|:-----  |:-----|-----                           |
+|GIT |http://git.fulugou.net   |shijy  |1qazcde3!@#   |git代码创库 |
+|老管理平台|http://admin.fulugou.net/admin/index/login# |admin| admin123| 老管理平台地址|
+|新管理平台|http://admin.fulugou.net/ |superadmin| 123| 新管理平台地址|
+|文档中心|\\\\\\\\10.0.11.99(\\fulu\\中心文件\\技术中心\\设计文档\\H5王者荣耀充值码1期)| guest |无密码|文档中心（开发设计文档\\fulu\\中心文件\\技术中心\\设计文档）|
+|测试MySQL库|fulugames.mysql.rds.aliyuncs.com:3306/app_promotion|fuluapp|Ee85a546|MySQL测试地址|
+|腾讯云活动防刷|https://cloud.tencent.com/document/product/295/6597|AKID1vfEcpUlUHtKiuk1tZ4RfmnhW9aquwna|CHAtSdcUQAj9NXXTFqFezClOm5neaMwh|API|
+|H5王者荣耀充值1期|https://pro.modao.cc/app/0361c4ebf3ac23f8c10c7463328f877eda57cb61|无|无|原型|
+|bug平台地址|https://app.huoban.com/invite/1097827/2cLrdZ?user_id=1430970|无|无|bug平台|
+|接口文档平台|http://rap.fulugou.net:1080|ancyshi|1qazcde3!@#|公司团队使用接口文档平台|
+|测试服务器|116.62.45.110|root|JFzx588e9NDca8Gh|测试服务器|','99','1508219637','2','admin') [ RunTime:0.0070s ]
+SQL: UPDATE `page` SET `page_title`='系统登录地址信息',`page_content`='|名称|地址|账号|密码|说明|
+|:-----  |:-----|-----                           |
+|GIT |http://git.fulugou.net   |shijy  |1qazcde3!@#   |git代码创库 |
+|老管理平台|http://admin.fulugou.net/admin/index/login# |admin| admin123| 老管理平台地址|
+|新管理平台|http://admin.fulugou.net/ |superadmin| 123| 新管理平台地址|
+|文档中心|\\\\\\\\10.0.11.99(\\fulu\\中心文件\\技术中心\\设计文档\\H5王者荣耀充值码1期)| guest |无密码|文档中心（开发设计文档\\fulu\\中心文件\\技术中心\\设计文档）|
+|测试MySQL库|fulugames.mysql.rds.aliyuncs.com:3306/app_promotion|fuluapp|Ee85a546|MySQL测试地址|
+|腾讯云活动防刷|https://cloud.tencent.com/document/product/295/6597|AKID1vfEcpUlUHtKiuk1tZ4RfmnhW9aquwna|CHAtSdcUQAj9NXXTFqFezClOm5neaMwh|API|
+|H5王者荣耀充值1期|https://pro.modao.cc/app/0361c4ebf3ac23f8c10c7463328f877eda57cb61|无|无|原型|
+|bug平台地址|https://app.huoban.com/invite/1097827/2cLrdZ?user_id=1430970|无|无|bug平台|
+|接口文档平台|http://rap.fulugou.net:1080|ancyshi|1qazcde3!@#|公司团队使用接口文档平台|
+|测试服务器|116.62.45.110|root|JFzx588e9NDca8Gh|测试服务器|',`order`='4',`item_id`='19',`cat_id`='46',`addtime`='1527833204',`author_uid`='2',`author_username`='admin' WHERE (  page_id = '169'  ) [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0140s ]
+SQL: UPDATE `item` SET `last_update_time`='1527833204' WHERE (  item_id = '19'  ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '169'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-06-01T14:06:44+08:00 ] ::1 /doc/index.php/Home/item/show?page_id=169&item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:44+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=169
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '169'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:46+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=220
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '220'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:48+08:00 ] ::1 /doc/index.php/Home/page/edit?page_id=220
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '220'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:48+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '19'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:06:52+08:00 ] ::1 /doc/index.php/Home/page/save
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '220'  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `page_history` [ RunTime:0.0100s ]
+SQL: INSERT INTO `page_history` (`page_id`,`item_id`,`cat_id`,`page_title`,`page_content`,`order`,`addtime`,`author_uid`,`author_username`) VALUES ('220','19','46','SQL记录','- SQL时间条件
+- 查询10天内的订单
+
+		select * from btcorder.dbo.DayOrder where DateDiff(dd,OrderTime,getdate()) &lt; 10
+		
+
+- 查询10天之前的订单
+
+		select * from btcorder.dbo.DayOrder where DateDiff(dd,OrderTime,getdate()) &gt; 10','99','1508986177','2','admin') [ RunTime:0.0010s ]
+SQL: UPDATE `page` SET `page_title`='SQL记录',`page_content`='- SQL时间条件
+- 查询10天内的订单
+
+		select * from btcorder.dbo.DayOrder where DateDiff(dd,OrderTime,getdate()) &lt; 10
+		
+
+- 查询10天之前的订单
+
+		select * from btcorder.dbo.DayOrder where DateDiff(dd,OrderTime,getdate()) &gt; 10',`order`='5',`item_id`='19',`cat_id`='46',`addtime`='1527833212',`author_uid`='2',`author_username`='admin' WHERE (  page_id = '220'  ) [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0120s ]
+SQL: UPDATE `item` SET `last_update_time`='1527833212' WHERE (  item_id = '19'  ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '220'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:52+08:00 ] ::1 /doc/index.php/Home/item/show?page_id=220&item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:52+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=220
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '220'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:06:54+08:00 ] ::1 /doc/index.php/Home/Page/edit?item_id=19&type=new
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `page` WHERE (  author_uid ='2' and 19 = '19'  ) ORDER BY  addtime desc  LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\doc\Application\Home\Controller\PageController.class.php 第 62 行.
+NOTIC: [8] Undefined variable: page E:\wamp\www\doc\Application\Home\Controller\PageController.class.php 第 71 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:06:55+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '19'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-06-01T14:07:00+08:00 ] ::1 /doc/index.php/Home/item/show?item_id=19&page_id=
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0210s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:07:03+08:00 ] ::1 /doc/index.php/Home/Page/edit?item_id=19&type=new
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  author_uid ='2' and 19 = '19'  ) ORDER BY  addtime desc  LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: page E:\wamp\www\doc\Application\Home\Controller\PageController.class.php 第 62 行.
+NOTIC: [8] Undefined variable: page E:\wamp\www\doc\Application\Home\Controller\PageController.class.php 第 71 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:07:03+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '19'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:10:19+08:00 ] ::1 /doc/index.php/Home/Page/save
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: INSERT INTO `page` (`page_title`,`page_content`,`order`,`item_id`,`cat_id`,`addtime`,`author_uid`,`author_username`) VALUES ('API接口','###### API接口
+
+	获取商品列表：\'https://dev.flczsecapi.hbkejin.com/goodsShelves/getGoodsListV11 	参数：&quot;reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjEzZDkwYTZlMTg2MDRiOTdhYTBmZGRmNzc5YzgwNWYwIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsInBsYXRmb3JtIjoiaW9zIiwiZWRpdGlvbiI6IkEiLCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYifQ%3D%3D&amp;sign=5a9956f521ff5403a8d542d75f8c150b
+	获取面值：\'https://dev.flczsecapi.hbkejin.com/appHomePageIndex/getParListV13 
+	参数：reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwiZW50ZXJUeXBlIjowLCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsImdvb2RzSWQiOiIzOTIiLCJwbGF0Zm9ybSI6ImlvcyIsImVkaXRpb24iOiJBIiwidmVyc2lvbiI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjAwZTEwYjZjZjQ4ZjRlOTM4MzQ1Yjg2ODYwYTcxOGFmIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9fQ%3D%3D&amp;sign=bb1b89f309a25ea8727ba7eedfeeabee
+	 填单页：https://dev.flczsecapi.hbkejin.com/appHomePageIndex/toPayPageInfoV13
+	参数：reqData=eyJtaWQiOiIxMDAwMDE4MjciLCJjdXJyZW50VmVyc2lvbk51bWJlciI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6ImY2MTA1MTk5NWEyOTQwYWI4MDAzNjFkYzlkMDI0YzhkIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYiLCJlbnRlclR5cGUiOjAsImNvdW50IjoxLCJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwicGxhdGZvcm0iOiJpb3MiLCJzdXBwbHlJZCI6IjIyNDkiLCJlZGl0aW9uIjoiQSIsImdyb3VwSWQiOjAsImdvb2RzSWQiOjM5Miwib2xkR29vZHNJZCI6IjY4ODQifQ%3D%3D&amp;sign=db6fc57c3ac21e2e8495dcb68d8db46f','7','19','46','1527833419','2','admin') [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0120s ]
+SQL: UPDATE `item` SET `last_update_time`='1527833419' WHERE (  item_id = '19'  ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:10:19+08:00 ] ::1 /doc/index.php/Home/item/show?page_id=263&item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:10:20+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=263
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0270s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:10:31+08:00 ] ::1 /doc/index.php/Home/page/edit?page_id=263
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2018-06-01T14:10:31+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '19'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:10:59+08:00 ] ::1 /doc/index.php/Home/page/save
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page_history` [ RunTime:0.0110s ]
+SQL: INSERT INTO `page_history` (`page_id`,`item_id`,`cat_id`,`page_title`,`page_content`,`order`,`addtime`,`author_uid`,`author_username`) VALUES ('263','19','46','API接口','###### API接口
+
+	获取商品列表：\'https://dev.flczsecapi.hbkejin.com/goodsShelves/getGoodsListV11 	参数：&quot;reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjEzZDkwYTZlMTg2MDRiOTdhYTBmZGRmNzc5YzgwNWYwIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsInBsYXRmb3JtIjoiaW9zIiwiZWRpdGlvbiI6IkEiLCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYifQ%3D%3D&amp;sign=5a9956f521ff5403a8d542d75f8c150b
+	获取面值：\'https://dev.flczsecapi.hbkejin.com/appHomePageIndex/getParListV13 
+	参数：reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwiZW50ZXJUeXBlIjowLCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsImdvb2RzSWQiOiIzOTIiLCJwbGF0Zm9ybSI6ImlvcyIsImVkaXRpb24iOiJBIiwidmVyc2lvbiI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjAwZTEwYjZjZjQ4ZjRlOTM4MzQ1Yjg2ODYwYTcxOGFmIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9fQ%3D%3D&amp;sign=bb1b89f309a25ea8727ba7eedfeeabee
+	 填单页：https://dev.flczsecapi.hbkejin.com/appHomePageIndex/toPayPageInfoV13
+	参数：reqData=eyJtaWQiOiIxMDAwMDE4MjciLCJjdXJyZW50VmVyc2lvbk51bWJlciI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6ImY2MTA1MTk5NWEyOTQwYWI4MDAzNjFkYzlkMDI0YzhkIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYiLCJlbnRlclR5cGUiOjAsImNvdW50IjoxLCJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwicGxhdGZvcm0iOiJpb3MiLCJzdXBwbHlJZCI6IjIyNDkiLCJlZGl0aW9uIjoiQSIsImdyb3VwSWQiOjAsImdvb2RzSWQiOjM5Miwib2xkR29vZHNJZCI6IjY4ODQifQ%3D%3D&amp;sign=db6fc57c3ac21e2e8495dcb68d8db46f','7','1527833419','2','admin') [ RunTime:0.0010s ]
+SQL: UPDATE `page` SET `page_title`='API接口',`page_content`='###### API接口
+
+	1、获取商品列表：\'https://dev.flczsecapi.hbkejin.com/goodsShelves/getGoodsListV11
+	参数：&quot;reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjEzZDkwYTZlMTg2MDRiOTdhYTBmZGRmNzc5YzgwNWYwIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsInBsYXRmb3JtIjoiaW9zIiwiZWRpdGlvbiI6IkEiLCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYifQ%3D%3D&amp;sign=5a9956f521ff5403a8d542d75f8c150b
+	2、获取面值：\'https://dev.flczsecapi.hbkejin.com/appHomePageIndex/getParListV13 
+	参数：reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwiZW50ZXJUeXBlIjowLCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsImdvb2RzSWQiOiIzOTIiLCJwbGF0Zm9ybSI6ImlvcyIsImVkaXRpb24iOiJBIiwidmVyc2lvbiI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjAwZTEwYjZjZjQ4ZjRlOTM4MzQ1Yjg2ODYwYTcxOGFmIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9fQ%3D%3D&amp;sign=bb1b89f309a25ea8727ba7eedfeeabee
+	3、填单页：https://dev.flczsecapi.hbkejin.com/appHomePageIndex/toPayPageInfoV13
+	参数：reqData=eyJtaWQiOiIxMDAwMDE4MjciLCJjdXJyZW50VmVyc2lvbk51bWJlciI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6ImY2MTA1MTk5NWEyOTQwYWI4MDAzNjFkYzlkMDI0YzhkIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYiLCJlbnRlclR5cGUiOjAsImNvdW50IjoxLCJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwicGxhdGZvcm0iOiJpb3MiLCJzdXBwbHlJZCI6IjIyNDkiLCJlZGl0aW9uIjoiQSIsImdyb3VwSWQiOjAsImdvb2RzSWQiOjM5Miwib2xkR29vZHNJZCI6IjY4ODQifQ%3D%3D&amp;sign=db6fc57c3ac21e2e8495dcb68d8db46f',`order`='7',`item_id`='19',`cat_id`='46',`addtime`='1527833459',`author_uid`='2',`author_username`='admin' WHERE (  page_id = '263'  ) [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0100s ]
+SQL: UPDATE `item` SET `last_update_time`='1527833459' WHERE (  item_id = '19'  ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:10:59+08:00 ] ::1 /doc/index.php/Home/item/show?page_id=263&item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:10:59+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=263
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:11:14+08:00 ] ::1 /doc/index.php/Home/page/edit?page_id=263
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:11:15+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '19'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:11:46+08:00 ] ::1 /doc/index.php/Home/page/save
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page_history` [ RunTime:0.0100s ]
+SQL: INSERT INTO `page_history` (`page_id`,`item_id`,`cat_id`,`page_title`,`page_content`,`order`,`addtime`,`author_uid`,`author_username`) VALUES ('263','19','46','API接口','###### API接口
+
+	1、获取商品列表：\'https://dev.flczsecapi.hbkejin.com/goodsShelves/getGoodsListV11
+	参数：&quot;reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjEzZDkwYTZlMTg2MDRiOTdhYTBmZGRmNzc5YzgwNWYwIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsInBsYXRmb3JtIjoiaW9zIiwiZWRpdGlvbiI6IkEiLCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYifQ%3D%3D&amp;sign=5a9956f521ff5403a8d542d75f8c150b
+	2、获取面值：\'https://dev.flczsecapi.hbkejin.com/appHomePageIndex/getParListV13 
+	参数：reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwiZW50ZXJUeXBlIjowLCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsImdvb2RzSWQiOiIzOTIiLCJwbGF0Zm9ybSI6ImlvcyIsImVkaXRpb24iOiJBIiwidmVyc2lvbiI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjAwZTEwYjZjZjQ4ZjRlOTM4MzQ1Yjg2ODYwYTcxOGFmIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9fQ%3D%3D&amp;sign=bb1b89f309a25ea8727ba7eedfeeabee
+	3、填单页：https://dev.flczsecapi.hbkejin.com/appHomePageIndex/toPayPageInfoV13
+	参数：reqData=eyJtaWQiOiIxMDAwMDE4MjciLCJjdXJyZW50VmVyc2lvbk51bWJlciI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6ImY2MTA1MTk5NWEyOTQwYWI4MDAzNjFkYzlkMDI0YzhkIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYiLCJlbnRlclR5cGUiOjAsImNvdW50IjoxLCJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwicGxhdGZvcm0iOiJpb3MiLCJzdXBwbHlJZCI6IjIyNDkiLCJlZGl0aW9uIjoiQSIsImdyb3VwSWQiOjAsImdvb2RzSWQiOjM5Miwib2xkR29vZHNJZCI6IjY4ODQifQ%3D%3D&amp;sign=db6fc57c3ac21e2e8495dcb68d8db46f','7','1527833459','2','admin') [ RunTime:0.0010s ]
+SQL: UPDATE `page` SET `page_title`='API接口',`page_content`='###### API接口
+
+	1、获取商品列表：\'https://dev.flczsecapi.hbkejin.com/goodsShelves/getGoodsListV11
+	参数：reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjEzZDkwYTZlMTg2MDRiOTdhYTBmZGRmNzc5YzgwNWYwIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsInBsYXRmb3JtIjoiaW9zIiwiZWRpdGlvbiI6IkEiLCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYifQ%3D%3D&amp;sign=5a9956f521ff5403a8d542d75f8c150b
+	2、获取面值：https://dev.flczsecapi.hbkejin.com/appHomePageIndex/getParListV13
+	参数：reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwiZW50ZXJUeXBlIjowLCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsImdvb2RzSWQiOiIzOTIiLCJwbGF0Zm9ybSI6ImlvcyIsImVkaXRpb24iOiJBIiwidmVyc2lvbiI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjAwZTEwYjZjZjQ4ZjRlOTM4MzQ1Yjg2ODYwYTcxOGFmIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9fQ%3D%3D&amp;sign=bb1b89f309a25ea8727ba7eedfeeabee
+	3、填单页：https://dev.flczsecapi.hbkejin.com/appHomePageIndex/toPayPageInfoV13
+	参数：reqData=eyJtaWQiOiIxMDAwMDE4MjciLCJjdXJyZW50VmVyc2lvbk51bWJlciI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6ImY2MTA1MTk5NWEyOTQwYWI4MDAzNjFkYzlkMDI0YzhkIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYiLCJlbnRlclR5cGUiOjAsImNvdW50IjoxLCJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwicGxhdGZvcm0iOiJpb3MiLCJzdXBwbHlJZCI6IjIyNDkiLCJlZGl0aW9uIjoiQSIsImdyb3VwSWQiOjAsImdvb2RzSWQiOjM5Miwib2xkR29vZHNJZCI6IjY4ODQifQ%3D%3D&amp;sign=db6fc57c3ac21e2e8495dcb68d8db46f',`order`='7',`item_id`='19',`cat_id`='46',`addtime`='1527833506',`author_uid`='2',`author_username`='admin' WHERE (  page_id = '263'  ) [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0110s ]
+SQL: UPDATE `item` SET `last_update_time`='1527833506' WHERE (  item_id = '19'  ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:11:46+08:00 ] ::1 /doc/index.php/Home/item/show?page_id=263&item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:11:46+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=263
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:11:54+08:00 ] ::1 /doc/index.php/Home/page/edit?page_id=263
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:11:54+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '19'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T14:11:59+08:00 ] ::1 /doc/index.php/Home/page/save
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page_history` [ RunTime:0.0100s ]
+SQL: INSERT INTO `page_history` (`page_id`,`item_id`,`cat_id`,`page_title`,`page_content`,`order`,`addtime`,`author_uid`,`author_username`) VALUES ('263','19','46','API接口','###### API接口
+
+	1、获取商品列表：\'https://dev.flczsecapi.hbkejin.com/goodsShelves/getGoodsListV11
+	参数：reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjEzZDkwYTZlMTg2MDRiOTdhYTBmZGRmNzc5YzgwNWYwIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsInBsYXRmb3JtIjoiaW9zIiwiZWRpdGlvbiI6IkEiLCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYifQ%3D%3D&amp;sign=5a9956f521ff5403a8d542d75f8c150b
+	2、获取面值：https://dev.flczsecapi.hbkejin.com/appHomePageIndex/getParListV13
+	参数：reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwiZW50ZXJUeXBlIjowLCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsImdvb2RzSWQiOiIzOTIiLCJwbGF0Zm9ybSI6ImlvcyIsImVkaXRpb24iOiJBIiwidmVyc2lvbiI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjAwZTEwYjZjZjQ4ZjRlOTM4MzQ1Yjg2ODYwYTcxOGFmIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9fQ%3D%3D&amp;sign=bb1b89f309a25ea8727ba7eedfeeabee
+	3、填单页：https://dev.flczsecapi.hbkejin.com/appHomePageIndex/toPayPageInfoV13
+	参数：reqData=eyJtaWQiOiIxMDAwMDE4MjciLCJjdXJyZW50VmVyc2lvbk51bWJlciI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6ImY2MTA1MTk5NWEyOTQwYWI4MDAzNjFkYzlkMDI0YzhkIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYiLCJlbnRlclR5cGUiOjAsImNvdW50IjoxLCJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwicGxhdGZvcm0iOiJpb3MiLCJzdXBwbHlJZCI6IjIyNDkiLCJlZGl0aW9uIjoiQSIsImdyb3VwSWQiOjAsImdvb2RzSWQiOjM5Miwib2xkR29vZHNJZCI6IjY4ODQifQ%3D%3D&amp;sign=db6fc57c3ac21e2e8495dcb68d8db46f','7','1527833506','2','admin') [ RunTime:0.0000s ]
+SQL: UPDATE `page` SET `page_title`='API接口',`page_content`='###### API接口
+
+	1、获取商品列表：https://dev.flczsecapi.hbkejin.com/goodsShelves/getGoodsListV11
+	参数：reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjEzZDkwYTZlMTg2MDRiOTdhYTBmZGRmNzc5YzgwNWYwIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsInBsYXRmb3JtIjoiaW9zIiwiZWRpdGlvbiI6IkEiLCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYifQ%3D%3D&amp;sign=5a9956f521ff5403a8d542d75f8c150b
+	2、获取面值：https://dev.flczsecapi.hbkejin.com/appHomePageIndex/getParListV13
+	参数：reqData=eyJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwiZW50ZXJUeXBlIjowLCJtaWQiOiIxMDAwMDE4MjciLCJjYXRhbG9nSWQiOiI0IiwiY3VycmVudFZlcnNpb25OdW1iZXIiOiIxODEyMDE1MjEwNiIsImdvb2RzSWQiOiIzOTIiLCJwbGF0Zm9ybSI6ImlvcyIsImVkaXRpb24iOiJBIiwidmVyc2lvbiI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6IjAwZTEwYjZjZjQ4ZjRlOTM4MzQ1Yjg2ODYwYTcxOGFmIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9fQ%3D%3D&amp;sign=bb1b89f309a25ea8727ba7eedfeeabee
+	3、填单页：https://dev.flczsecapi.hbkejin.com/appHomePageIndex/toPayPageInfoV13
+	参数：reqData=eyJtaWQiOiIxMDAwMDE4MjciLCJjdXJyZW50VmVyc2lvbk51bWJlciI6IjE4MTIwMTUyMTA2IiwibG9nSW5mbyI6eyJpcCI6IjExNi4yMDUuMTEuMjciLCJtaWQiOiIxMDAwMDE4MjciLCJzdGVwIjowLCJ2ZXJzaW9uMiI6IjMuNS4yIiwiYnJhbmQiOiJpUGhvbmUiLCJmdWx1dXNlciI6ImZsX2M5ZDA4NzU2NTQwNiIsImltZWkiOiIiLCJncHNOYW1lIjoi5Lit5Zu95rmW5YyX55yB5q2m5rGJ5biC5rGf5aSP5Yy66YeR6J6N5riv5LiJ6LevIiwiZ3BzSW5kZXgiOiIxMTQuNDI2MTA0LDMwLjQ1NzIzOCIsImxvZ0lkIjowLCJlZGl0aW9uIjoiQSIsInR5cGUiOjAsInBrZ3ZlcnNpb24iOiIxODEyMDE1MjEwNiIsImN1cnJlbnRWZXJzaW9uTnVtYmVyIjoiMTgxMjAxNTIxMDYiLCJkZXZpY2VpZCI6ImY2MTA1MTk5NWEyOTQwYWI4MDAzNjFkYzlkMDI0YzhkIiwibWFjIjoiIiwidGJhY2NvdW50IjoiIiwiZ3BzSW5kZXhOYW1lIjoi5q2m5rGJ5biCIiwiaWRmdiI6IkQ2NDVDOTQ1LTZENUQtNEQ1OS1BQTFELUUzMjAyQkUwQzdENSIsImNvcnBvcmF0aW9uIjoiS0RESSIsIm5ldHdvcmsiOiJXSUZJIiwib3N2ZXJzaW9uIjoiMTEuMy4xIiwiZ3BzaW5mbyI6IiIsImVudHJhbmNlY29kZSI6IjEwMDAwIiwiZGV2aWNlIjoiaW9zIiwiaWRmYSI6IjIyRkE0MEVELUU0NDEtNDc3Qy1CQTA4LTVBRUExMjlBQjQ1MSJ9LCJ2ZXJzaW9uIjoiMTgxMjAxNTIxMDYiLCJlbnRlclR5cGUiOjAsImNvdW50IjoxLCJ2ZXJzaW9uTmFtZSI6IkEiLCJzeXN0ZW1OYW1lIjoiaW9zIiwicGxhdGZvcm0iOiJpb3MiLCJzdXBwbHlJZCI6IjIyNDkiLCJlZGl0aW9uIjoiQSIsImdyb3VwSWQiOjAsImdvb2RzSWQiOjM5Miwib2xkR29vZHNJZCI6IjY4ODQifQ%3D%3D&amp;sign=db6fc57c3ac21e2e8495dcb68d8db46f',`order`='7',`item_id`='19',`cat_id`='46',`addtime`='1527833519',`author_uid`='2',`author_username`='admin' WHERE (  page_id = '263'  ) [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0090s ]
+SQL: UPDATE `item` SET `last_update_time`='1527833519' WHERE (  item_id = '19'  ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T14:11:59+08:00 ] ::1 /doc/index.php/Home/item/show?page_id=263&item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-06-01T14:11:59+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=263
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T16:25:54+08:00 ] ::1 /doc/index.php/Home/Item/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.2180s ]
+SQL: SELECT * FROM `item` WHERE ( uid = '2' or item_id in ( select item_id from item_member where uid = '2' )  )  [ RunTime:0.0130s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.027001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.027001s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\fbd4024b257c0eb32531d23fc561bc4e.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.223013s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.224013s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.013000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008001s ]
+
+[ 2018-06-01T16:25:57+08:00 ] ::1 /doc/index.php/Home/Item/Show?item_id=23
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '23'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0410s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '23'  ) ORDER BY  `order` asc    [ RunTime:0.1100s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0300s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '23'  ) ORDER BY  `order` asc    [ RunTime:0.0220s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '58'  ) ORDER BY  `order` asc    [ RunTime:0.0140s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '59'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '60'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.073004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-06-01T16:26:01+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=230
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '230'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-06-01T16:50:06+08:00 ] ::1 /doc/index.php/Home/Item/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `item` WHERE ( uid = '2' or item_id in ( select item_id from item_member where uid = '2' )  )  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\fbd4024b257c0eb32531d23fc561bc4e.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T16:50:07+08:00 ] ::1 /doc/index.php/Home/Item/Show?item_id=19
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') E:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '19'  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0470s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '19'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '46'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: page_id E:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-06-01T16:50:09+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=263
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '263'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: item E:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

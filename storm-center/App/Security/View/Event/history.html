@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>安全事件历史记录</title>
+    <meta charset="utf-8">
+    <!-- css -->
+    <link href="__PUBLIC__/css/Security/styleoftimeline.css" rel="stylesheet">
+
+    <script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".main .year .list").each(function (e, target) {
+                var $target=  $(target),
+                    $ul = $target.find("ul");
+                $target.height($ul.outerHeight()), $ul.css("position", "absolute");
+            });
+
+            $(".main .year>h2>a").click(function (e) {
+                e.preventDefault();
+                $(this).parents(".year").toggleClass("close");
+            });
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+<div class="content">
+    <div class="wrapper">
+        <div class="light"><i></i></div>
+        <hr class="line-left">
+        <hr class="line-right">
+        <div class="main">
+            <h1 class="title">{$eventInfo.site_name}</h1>
+            <foreach name="eventInfo['year']" item="years">
+                <div class="year">
+                    <h2><a href="#">{$years}<i></i></a></h2>
+                    <div class="list">
+                        <ul>
+                            <foreach name="eventInfo['yearList'][$years]" item="yearList">
+                                <if condition="$yearList['had_repair'] eq 3">
+                                    <li class="cls ">
+                                        <else/>
+                                    <li class="cls highlight">
+                                </if>
+                                <p class="date">{$yearList.date_str}</p>
+                                <p class="intro">{$yearList.deal_str}</p>
+                                <p class="version">&nbsp;</p>
+                                <div class="more">
+                                    <p><a href="__ROOT__/Security/Event/traceView?eventId={$yearList.event_id}" target="_blank">{$yearList.web_url}</a></p>
+                                </div>
+                                </li>
+                            </foreach>
+                        </ul>
+                    </div>
+                </div>
+            </foreach>
+            <!--
+            <h1 class="title">政府网站---标题</h1>
+            <div class="year">
+                <h2><a href="#">2014<i></i></a></h2>
+                <div class="list">
+                    <ul>
+                        <li class="cls highlight">
+                            <p class="date">3-26</p>
+                            <p class="intro">暗链 [未修复]</p>
+                            <p class="version">&nbsp;</p>
+                            <div class="more">
+                                <p><a href="http://www.baidu.com" target="_blank">http://www.baidu.com/index2.php</a></p>
+                            </div>
+                        </li>
+                        <li class="cls">
+                            <p class="date">3-19</p>
+                            <p class="intro">反共 [已修复]</p>
+                            <p class="version">&nbsp;</p>
+                            <div class="more">
+                                <p><a href="http://www.baidu.com" target="_blank">http://www.baidu.com/index2.php</a></p>
+                            </div>
+                        </li>
+                        <li class="cls">
+                            <p class="date">3-12</p>
+                            <p class="intro">反共 [已修复]</p>
+                            <p class="version">&nbsp;</p>
+                            <div class="more">
+                                <p><a href="http://www.baidu.com" target="_blank">http://www.baidu.com/index2.php</a></p>
+                            </div>
+                        </li>
+                        <li class="cls">
+                            <p class="date">3-5</p>
+                            <p class="intro">反共 [已修复]</p>
+                            <p class="version">&nbsp;</p>
+                            <div class="more">
+                                <p><a href="http://www.baidu.com" target="_blank">http://www.baidu.com/index2.php</a></p>
+                            </div>
+                        </li>
+                        <li class="cls">
+                            <p class="date">2-26</p>
+                            <p class="intro">反共 [已修复]</p>
+                            <p class="version">&nbsp;</p>
+                            <div class="more">
+                                <p><a href="http://www.baidu.com" target="_blank">http://www.baidu.com/index2.php</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="year">
+                <h2><a href="#">2013<i></i></a></h2>
+                <div class="list">
+                    <ul>
+                        <li class="cls">
+                            <p class="date">12-18</p>
+                            <p class="intro">反共 [已修复]</p>
+                            <p class="version">&nbsp;</p>
+                            <div class="more">
+                                <p><a href="http://www.baidu.com" target="_blank">http://www.baidu.com/index2.php</a></p>
+                            </div>
+                        </li>
+                        <li class="cls">
+                            <p class="date">11-18</p>
+                            <p class="intro">反共 [已修复]</p>
+                            <p class="version">&nbsp;</p>
+                            <div class="more">
+                                <p><a href="http://www.baidu.com" target="_blank">http://www.baidu.com/index2.php</a></p>
+                            </div>
+                        </li>
+                        <li class="cls">
+                            <p class="date">10-18</p>
+                            <p class="intro">反共 [已修复]</p>
+                            <p class="version">&nbsp;</p>
+                            <div class="more">
+                                <p><a href="http://www.baidu.com" target="_blank">http://www.baidu.com/index2.php</a></p>
+                            </div>
+                        </li>
+                        <li class="cls">
+                            <p class="date">06-18</p>
+                            <p class="intro">反共 [已修复]</p>
+                            <p class="version">&nbsp;</p>
+                            <div class="more">
+                                <p><a href="http://www.baidu.com" target="_blank">http://www.baidu.com/index2.php</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+</div>
+</body>
+</html>

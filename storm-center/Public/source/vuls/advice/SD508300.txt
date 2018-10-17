@@ -1,0 +1,2 @@
+JCMS任意文件下载 opr_readfile_jsp漏洞修复方案：
+    升级官方最新版本或过滤

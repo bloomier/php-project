@@ -1,0 +1,5 @@
+Huawei SEQ Analyst - XML External Entity Injection XXE漏洞描述：
+    Huawei SEQ Analyst是中国华为（Huawei）公司的一套业务质量监测和管理单个用户和多个供应商之间关系的平台。
+    该平台提供服务调试、用户投诉处理、故障排除、用户体验管理和增值服务的部署等功能。
+    Huawei SEQ Analyst V200R002C03LG0001CP0022之前版本中存在XML外部实体漏洞。
+    远程攻击者可借助‘req’参数利用该漏洞读取任意文件。

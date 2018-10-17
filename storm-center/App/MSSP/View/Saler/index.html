@@ -1,0 +1,65 @@
+<include file="./App/MSSP/View/header.html" />
+<div class="main">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="m-inner">
+        <!-- BEGIN PAGE HEADER-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>销售列表</div>
+                    </div>
+                    <div class="portlet-body light-grey">
+                        <div class="row margin-bottom-15">
+                            <div class="col-md-12">
+                                <div class="inline">
+                                    <a  class="btn blue btn-add-policy-group"><i class="fa fa-plus"></i>
+                                        新增
+                                    </a>
+                                    <a  class="btn red bth-batch-delete"><i class="fa fa-minus"></i>
+                                        删除
+                                    </a>
+                                </div>
+                                <form action="#" class="form-search pull-right">
+                                    <select class="policy-level" id="task-state">
+                                        <option value="0">所有</option>
+                                        <option value="1">有效</option>
+                                        <option value="2">无效</option>
+                                    </select>
+                                    <div class="input-group" style="display: inline-table;vertical-align: top;">
+                                        <input class="m-wrap medium" type="text" placeholder="客户名称" >
+                                        <button class="btn green btn-search" type="button">查询</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-striped table-bordered table-hover table-condensed datatable" id="policy-group-table">
+                                    <thead class="bg-lightgrey">
+                                    <tr role="row">
+                                        <th><input type="checkbox" ></th>
+                                        <td>销售名称</td>
+                                        <td>销售描述</td>
+                                        <td>销售电话</td>
+                                        <td>销售邮箱</td>
+                                        <td>状态</td>
+                                        <td>操作</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/script/MSSP/salerlistindex.js"></script>
+
+<include file="./App/MSSP/View/footer.html" />

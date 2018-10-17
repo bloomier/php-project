@@ -1,0 +1,2 @@
+WebInfWebXML_Audit 漏洞修复建议：
+    过滤特殊字符和WEB-INF目录

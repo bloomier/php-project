@@ -1,0 +1,191 @@
+<include file="./App/Security/View/header.html" />
+
+<input type="hidden" value="{$notifyUser.user_TYPE}" name="userDefaultType" id="userDefaultType">
+<input type="hidden" value="{$userId}" name="defaultUserId" id="defaultUserId">
+<input type="hidden" value="{$notifyUser.notify_TYPE}" name="userDefaultNotifyType" id="userDefaultNotifyType">
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Security">首页</a> </li>
+                    <li><a href="__ROOT__/index.php/Security/NotifyUser/index">通报用户</a></li>
+                    <li><a href="javascript:void(0)">修改用户</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>修改用户</div>
+                    </div>
+                    <div class="portlet-body form">
+                        <form action="add" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">用户姓名</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="userName" id="userName" value="{$notifyUser.user_NAME}" class="form-control" placeholder="用户名">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">性别</label>
+                                <div class="col-sm-6 row">
+                                    <label class="col-sm-2 " style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <if condition="$notifyUser.user_SEX eq 1">
+                                                <input type="radio" name="userSex" checked value="1" data-title="">
+                                            <else/>
+                                                <input type="radio" name="userSex" value="1" data-title="">
+                                            </if>
+                                        </span>
+                                        男
+                                    </label>
+                                    <label class="col-sm-3 " style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <if condition="$notifyUser.user_SEX eq 0">
+                                                <input type="radio" name="userSex" checked value="0" data-title="">
+                                            <else/>
+                                                <input type="radio" name="userSex" value="0" data-title="">
+                                            </if>
+                                        </span>
+                                        女
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">职务</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="userPosition" value="{$notifyUser.user_POSITION}" name="userPosition" type="text" placeholder="" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">类型</label>
+                                <div class="col-sm-7 row">
+                                    <label class="col-sm-2" style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="checkbox" name="userType" value="1" data-title="">
+                                        </span>
+                                        公安部
+                                    </label>
+                                    <label class="col-sm-2" style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="checkbox" name="userType" value="2" data-title="">
+                                        </span>
+                                        省公安厅
+                                    </label>
+                                    <label class="col-sm-2" style=" font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="checkbox" name="userType" value="8" data-title="">
+                                        </span>
+                                        省CERT
+                                    </label>
+                                    <label class="col-sm-2" style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="checkbox" name="userType" value="4" data-title="">
+                                        </span>
+                                        市公安局
+                                    </label>
+                                    <label class="col-sm-3" style=" font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="checkbox" name="userType" value="16" data-title="">
+                                        </span>
+                                        公司业务员
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">所在单位</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="userFirm" value="{$notifyUser.user_FIRM}" name="userFirm" type="text" placeholder="" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">电话</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="userTel" id="userTel" value="{$notifyUser.user_TEL}" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">手机</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="userHands" id="userHands" value="{$notifyUser.user_HANDSET}" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">邮箱</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="userEmail" id="userEmail" value="{$notifyUser.user_EMAIL}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">密信</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="userMixin" id="userMixin" value="{$notifyUser.user_MIXIN}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">微信</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="userWeixin" id="userWeixin" value="{$notifyUser.user_WEIXIN}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">QQ</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="userQQ" id="userQQ" value="{$notifyUser.user_QQ}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">通知方式</label>
+                                <div class="col-sm-7 row">
+                                    <label class="col-sm-2" style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="checkbox" name="notifyType" value="1" data-title="">
+                                        </span>
+                                        短信
+                                    </label>
+                                    <label class="col-sm-2" style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="checkbox" name="notifyType" value="2" data-title="">
+                                        </span>
+                                        密信
+                                    </label>
+                                    <label class="col-sm-2" style="font-size: 12px;">
+                                        <span style="line-height: 16px;">
+                                            <input type="checkbox" name="notifyType" value="4" data-title="">
+                                        </span>
+                                        邮件
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">备注</label>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control" name="remark" id="remark"  rows="3">{$notifyUser.remark}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn blue notify-user-save">保存</button>
+                                    <button type="button" class="btn">取消</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="__PUBLIC__/script/Security/notifyupdateuser.js"></script>
+
+<include file="./App/Security/View/footer.html" />
+
+

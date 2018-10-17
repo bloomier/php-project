@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>风暴中心--登录</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link href="__PUBLIC__/asset/js/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/asset/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/asset/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/asset/css/style.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/asset/js/plugins/select2/select2.css" rel="stylesheet" type="text/css">
+    <!--plugins end-->
+
+    <link rel="stylesheet" href="__PUBLIC__/asset/css/app.css" >
+</head>
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+
+<body class="gray-bg">
+
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div>
+            <h1 class="logo-name"><img src="__PUBLIC__/asset/img/logo.png" alt="风暴中心"/></h1>
+        </div>
+        <h3>欢迎使用风暴中心先知</h3>
+            <span id="errorMsg_id"></span>
+            <div class="form-group">
+                <input type="text" id="username" class="form-control" placeholder="用户名" required="">
+            </div>
+            <div class="form-group">
+                <input type="password" id="_password" class="form-control" placeholder="密码" required="">
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-7">
+                    <input type="text" id="verfyCode" class="form-control" placeholder="验证码" required="" style="width: 100%">
+                </div>
+                <div class="col-sm-5">
+                    <button class="btn btn-primary getVerfyCodeBtn" type="button" style="width: 100%">获取验证码</button>
+                </div>
+            </div>
+            <div class="form-group" id="region_id_wraper" style="display: none">
+                <select id="region_id"  class="form-control select2" style=" width: 100%;">
+                    <option value="">===请选择域===</option>
+                    <foreach name="regions" item="vo" >
+                        <option value="{$vo._id}">{$vo.name_cn}</option>
+                    </foreach>
+                </select>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-login block full-width m-b">登 录</button>
+
+            <p class="text-muted text-center" style="display: none;"> <a href="#" ><small>忘记密码了？</small></a> | <a href="">注册一个新账号</a>
+            </p>
+
+    </div>
+</div>
+<script src="__PUBLIC__/asset/js/jquery/jquery.min.js" ></script>
+<script src="__PUBLIC__/asset/js/jquery/jquerycookie.js" ></script>
+<script src="__PUBLIC__/asset/js/plugins/bootstrap/bootstrap.min.js" ></script>
+<script src="__PUBLIC__/script/main.js"></script>
+
+
+<script src="__PUBLIC__/asset/js/jquery/jquery.md5.js" ></script>
+<script src="__PUBLIC__/asset/js/plugins/select2/select2.js"></script>
+
+</body>
+<script>
+    (function(){
+           $(document).ready(function(){
+               var parentDocument=parent.document;
+               var pathInfo=window.location.href;
+               var parentPathInfo= parent.window.location.href;
+               if(pathInfo!=parentPathInfo){
+                   parent.window.location=pathInfo;
+               }
+
+               var __functions__={
+                   showError:function(err){
+                       var wraper=$("#errorMsg_id");
+                       wraper.css('color','red');
+                       wraper.html(err);
+                   }
+               }
+
+               $(".getVerfyCodeBtn").bind("click", function(){
+                    var username = $.trim($("#username").val());
+                    var pwd = $.trim($("#_password").val());
+                   if(username==''||pwd==''){
+                       __functions__.showError("用户名和密码不能为空");
+                       return;
+                   }
+                   pwd= $.md5(pwd);
+                   var param={"username":username,"password":pwd};
+                   $(".getVerfyCodeBtn").attr("disabled", true);
+                   $.post(__WEBROOT__ + "/Admin/Login/createUserVerifyCode", param).success(function(json){
+                       if(json["code"]){
+                           var last = 179;
+                           var time = setInterval(function(){
+                               __functions__.showError("密信已发送,剩余有效时间" + (last--) + "秒");
+                               if(last == 0){
+                                   __functions__.showError("密信已失效，请重新获取！");
+                                   $(".getVerfyCodeBtn").attr("disabled", false);
+                                   clearInterval(time);
+                               }
+                           }, 1000);
+                       }else{
+                           __functions__.showError(json.msg);
+                       }
+                   });
+               });
+
+                $(".btn-login").bind("click",function(){
+                    var username= $.trim($("#username").val());
+                    var pwd= $.trim($("#_password").val());
+                    var verifyCode = $.trim($("#verfyCode").val());
+                    var region_id;
+                    if(!$("#region_id_wraper").is(":hidden")){
+                        region_id=$("#region_id").val();
+                        if(region_id==''){
+                            __functions__.showError("请选择域");
+                            return;
+                        }
+                    }
+                    if(username==''||pwd==''){
+                        __functions__.showError("用户名和密码不能为空");
+                        return;
+                    }
+                    if(verifyCode==''){
+                        __functions__.showError("验证码不能为空");
+                        return;
+                    }
+
+                    pwd= $.md5(pwd);
+                    var param={"username":username,"password":pwd, "verifyCode":verifyCode};
+                    if(region_id){
+                        param['region_id']=region_id;
+                    }
+
+                    $.post(__WEBROOT__+"/Admin/Login/login",param).success(function(json){
+                        if(json.code==-2){
+                            __functions__.showError("您是超级用户,请选择需要进入的域");
+                            $("#region_id_wraper").show();
+                        } else if(json.code==0){
+                            __functions__.showError(json.msg);
+                        }else if(json.code==1){
+                            var firstAction=__WEBROOT__+"/"+json.firstAction;
+                            if(firstAction){
+                                $.cookie("currentPage",firstAction,{path:__WEBROOT__+"/Home/Index/index"});
+                                $.cookie("currentPage",firstAction,{path:__WEBROOT__+"/Home/Index"});
+                            }
+                            var href=__WEBROOT__+"/Home/Index/index";
+                            location.href=href;
+                        }
+                    });
+                });
+               $('.select2').select2({
+                   minimumResultsForSearch: Infinity
+               });
+           }) ;
+    })();
+
+</script>
+
+</html>

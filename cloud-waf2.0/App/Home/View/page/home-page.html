@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <include file="./App/Common/View/header.html" />
+
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>首页</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ibox-content summary">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="widget style1 red-bg">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <i class="fa fa-flash  fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-8 text-right">
+                                        <span> 高危风险站点 </span>
+                                        <h2 class="font-bold info" key="high" >0</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <a class="more" href="__ROOT__/index.php/Home/AssetReport/index/initParam/{'vuls[level]':'high'}">详情<i class="fa fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="widget style1 yellow-bg">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <i class="fa fa-warning fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-8 text-right">
+                                        <span> 中危风险站点 </span>
+                                        <h2 class="font-bold info" key="mid" >0</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <a class="more" href="__ROOT__/index.php/Home/AssetReport/index/initParam/{'vuls[level]':'mid'}">详情<i class="fa fa-arrow-right"></i></a>
+                                </div>
+                            </div></div>
+                        <div class="col-sm-3">
+                            <div class="widget style1 red-bg">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <i class="fa fa-bell fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-8 text-right">
+                                        <span> 前7天安全事件 </span>
+                                        <h2 class="font-bold info" key="security">0</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <a class="more" href="__ROOT__/index.php/Home/EventSearch/index">详情<i class="fa fa-arrow-right"></i></a>
+                                </div>
+                            </div></div>
+                        <div class="col-sm-3">
+                            <div class="widget style1 navy-bg">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <i class="fa fa-eye-slash fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-8 text-right">
+                                        <span> 无法访问 </span>
+                                        <h2 class="font-bold info" key="survey">0</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <a class="more" href="__ROOT__/index.php/Home/AssetReport/index/initParam/{'survey[visit_state]':'-1000'}">详情<i class="fa fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>站点安全风险分布(Top 10)</h5>
+                </div>
+                <div class="ibox-content">
+                    <div id="bar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>站点可用性分布</h5>
+                </div>
+                <div class="ibox-content">
+                    <div id="pie"></div>
+                </div>
+            </div>
+            <div class="ibox float-e-margins" class="row">
+                <div class="ibox-title">
+                    <h5>安全事件通报情况</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div id="gauge"></div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div style="margin-top: 20px;">
+                                <h4>所有安全事件个数</h4>
+                                <h1><label class="all-sec">0</label></h1>
+                            </div>
+                            <div style="margin-top: 20px;">
+                                <h4>未通报安全事件个数</h4>
+                                <h1><label class="un-deal-sec">0</label></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>最新安全动态</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="file-manager">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <h5>最近安全事件</h5>
+                                    </div>
+                                    <div class="col-sm-3 col-sm-offset-4 text-right">
+                                        <label><a href="__ROOT__/index.php/Home/EventSearch/index">更多...</a></label>
+                                    </div>
+                                </div>
+                                <ul class="folder-list m-b-md sec-latest-wrapper" style="padding: 0">
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="file-manager">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <h5>最新安全资讯</h5>
+                                    </div>
+                                    <div class="col-sm-3 col-sm-offset-4 text-right">
+                                        <label><a class="safety-list-tag">更多...</a></label>
+                                    </div>
+                                </div>
+                                <ul class="folder-list m-b-md safety-latest-wrapper" style="padding: 0">
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>安全预警</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div style="display: none; margin-top: 5px;" id="sec-type-div-wrapper">
+    <li>
+        <a class="safety-type-href">
+            <span class="sec-info-name"></span>
+        </a>
+    </li>
+</div>
+
+<input id="echartPath" type="hidden" value="__PUBLIC__/asset/js/plugins/echarts/dist">
+<include file="./App/Common/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/asset/js/plugins/echarts/dist/echarts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/plugins/cityselector/jquery.cityselect.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/script/Home/home-page.js"></script>
+
+</body>
+</html>

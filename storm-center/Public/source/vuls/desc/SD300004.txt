@@ -1,0 +1,4 @@
+apache roller ognl注入漏洞:
+    Apache Roller 5.0.2之前版本在实现上存在OGNL注入漏洞，因为使用ActionSupport.getText方法
+    的方式不正确，所有UIAction控制器中存在OGNL注入，远程攻击者可利用此漏洞控制服务器端对象并在受影响
+    应用中执行任意代码。

@@ -1,0 +1,2 @@
+client access policy漏洞：
+    Fortinet FortiClient APIaccess控制存在安全漏洞，允许本地用户提交特殊的IOCTL调用修改windows注册表或者目标系统控制进程。

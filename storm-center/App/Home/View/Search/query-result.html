@@ -1,0 +1,136 @@
+<include file="./App/Home/View/Index/header.html" />
+<style>
+    body{
+        background-color: #131313;
+    }
+
+    .one-result-body-type{
+        border: 0px;
+    }
+
+    .navbar-inverse{
+        background-color: #131313;
+    }
+
+    .dropdown-menu>li>a{
+        color:#ffffff;
+    }
+    .row{
+        margin-right:0px;
+        margin-left:0px;
+    }
+
+</style>
+<link href="__PUBLIC__/css/Home/query-result.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/js/pagination/pagination.css" rel="stylesheet" type="text/css" />
+
+<include file="./App/Home/View/Index/navigation.html" />
+<form name="form" id="form">
+    <input type="hidden" name="query-param"/>
+    <input type="hidden" name="area"/>
+</form>
+
+<div style="color:white">
+    <div id="banner">
+        <div class="row" style="height: 17%">
+            <div class="col-md-11 row search-div">
+                <img src="__PUBLIC__/image/search-icon/company-logo.png" width="10%" height="8%"/>
+                <input type="text" class="input-search"  id="params" value="{$params}">
+                <button type="button" class="btn-query btn-style">搜索一下</button>
+                <if condition='authcheck("Home/Report/showReport",$user)'>
+                    <button type="button" class="btn-query-export btn-style">报告</button>       
+                </if>
+            </div>
+        </div>
+    </div>
+    <div style="padding:2%">
+        <hr class="hr-line-all">
+        <div class="row" style="padding-top: 15px">
+            <div class="col-md-2" style="width:15%">
+                <div style="color:#ffffff;font-size: 16px">
+                    <label>按所在区域</label>
+                </div>
+                <div class="area-container row" style="padding-top:20px;">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div style="color:#737373; padding-top: 5px">
+                    <label>总共为你搜索到<label class="select-count">0</label>条记录(查询用时: <label class="select-time">0</label>毫秒)</label>
+                </div>
+                <div>
+                    <div class="row" style="padding-top:1%;">
+
+                        <div class="query-result-value">
+
+                        </div>
+                        <div id="bs_page" class="pagination">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="one-result" class="row bottom-line one-result-css" style="display: none;">
+    <!-- 标题 -->
+    <div class="row">
+        <div class="col-md-12 row" align="left">
+            <div class="one-danger-lever">
+                <label class="one-domain-css"><span class="one-result-title-domain"></span>
+                    <if condition='authcheck("Home/Report/domainReport",$user)'>
+                        <a href="javascript:void(0)" class="one-domain-href" title="网站安全报告" target="_blank"><i class="fa fa-file" style="padding-left:10px"></i></a>   
+                    </if>
+                    <a href="javascript:void(0)" class="one-domain-safe-href" title="网站安全态势" target="_blank"><i class="fa fa-globe" style="padding-left:10px;margin-top:-20px"></i></a></label>
+            </div>
+            <div class="row" style="margin-top:10px">
+                <label>Site：<span class="one-result-foot-domain"></span></label>
+                <label style="padding-left:2%">IP:<span class="one-result-body-ip"></span></label>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="padding-left:0px; padding-top:10px; padding-bottom:10px">
+                    <hr style="height:4px;border:none;border-top:1px solid #7d7d7d;margin-top: 0px;margin-bottom: 0px;">
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:20px">
+                <label class="btn btn-primary one-result-body-type disabled one-result-type-css" style="background-color:#3C5264"></label>
+                <div class="row" style="padding-top:5px">
+                    <div class='col-md-3'>
+                        <div class="one-result-content-css">
+                            <i class="fa fa-map-marker" style=""></i>
+                            <span class="one-result-body-area" style="padding-left:13px"></span>
+                        </div>
+                        <div class="one-result-content-css">
+                            <i class="fa fa-clock-o" style=""></i>
+                            <span class="one-result-body-time" style="padding-left:10px"></span>
+                        </div>
+                    </div>
+                    <div class='col-md-8'>
+                        <div class="one-result-content-css">
+                            <i class="fa fa-exclamation-triangle " style=""></i>
+                            <span class="one-result-body-result" style="padding-left:10px"></span>
+                        </div>
+                        <div class="one-result-content-css">
+                            <i class="fa fa-user-secret" style=""></i>
+                            <span class="one-result-body-security" style="padding-left:12px"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<assign name='plugins' value='echarts'/>
+<include file="./App/Home/View/Index/footer.html" />
+
+<script type="text/javascript" src="__PUBLIC__/js/pagination/jquery.pagination.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/js/province-city/province-city-countmap.js"></script>
+<!--<script type="text/javascript" src="__PUBLIC__/js/stickup/stickUp.min.js"></script>-->
+<script type="text/javascript" src="__PUBLIC__/script/Home/query-result.js"></script>
+
+
+

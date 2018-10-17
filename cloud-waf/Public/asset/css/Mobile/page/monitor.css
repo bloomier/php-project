@@ -1,0 +1,123 @@
+.thumbnail{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+.title{
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+}
+.value{
+    font-size: 28px;
+    color: #999;
+    font-weight: bold;
+}
+.value i{
+    margin-right: 4px;
+}
+.thumbnail img{
+    width: 100%;
+    max-width: 100%;
+}
+.border{
+    border-right: 1px solid #ccc;
+}
+.m-btn{
+    display: inline-block;
+    padding: 5% 2%;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #59abe3;
+    -webkit-box-shadow: 0px 6px 6px rgba(166,166,166,.8);
+    box-shadow: 0px 6px 6px rgba(166,166,166,.8);
+    text-decoration: none;
+}
+.m-btn:hover,
+.m-btn:active{
+    color: #fff;
+    text-decoration: none;
+}
+.m-btn i{
+    margin-right: 10px;
+}
+
+
+@media only screen and (device-height:568px) {}
+
+@media only screen and (min-width: 321px) and (max-width: 413px) {
+    .title{
+        font-size: 22px;
+    }
+    .value{
+        font-size: 18px;
+    }
+    .thumbnail img{
+        width: 40%;
+        max-width: 40%;
+    }
+    .m-btn{
+        padding: 5% 4%;
+        font-size: 20px;
+    }
+}
+@media only screen and (min-width: 413px) and (max-width: 475px) {
+    .title{
+        font-size: 24px;
+    }
+    .value{
+        font-size: 20px;
+    }
+    .thumbnail img{
+        width: 50%;
+        max-width: 50%;
+    }
+    .m-btn{
+        padding: 6% 4%;
+        font-size: 20px;
+    }
+}
+@media only screen and (device-height:627px)  and (width: 375px){
+    .title{
+        font-size: 22px;
+    }
+    .value{
+        font-size: 18px;
+    }
+    .thumbnail img{
+        width: 40%;
+        max-width: 40%;
+    }
+    .m-btn{
+        padding: 5% 4%;
+        font-size: 20px;
+    }
+}
+@media only screen and (width: 320px){
+    .title{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .value{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .thumbnail img{
+        width: 50%;
+        max-width: 50%;
+    }
+    .m-btn{
+        padding: 5% 4%;
+        font-size: 18px;
+    }
+}
+@media only screen and (device-height :480px)and (width: 320px){
+    .thumbnail img{
+        width: 35%;
+        max-width: 35%;
+    }
+}
+.pl-8{ padding-left: 7.5px;}
+.pr-8{ padding-right: 7.5px;}

@@ -1,0 +1,7 @@
+thinkphp框架远程代码执行漏洞描述
+    在ThinkPHP启用了原生模板的情况下，会调用extract把当前tVar导入到变量表里，
+    然后会检测$content变量是否存在，如果存在就eval之，否则include $templateFile。
+    可以看到这里使用了extract函数，extract作用是从数组中把变量导入到当前的符号表中，
+    而第二个参数表示如果有冲突，就覆盖已有变量。因此此处如果$this->tVar可控的话，
+    那么就可以覆盖底下的$templateFile变量造成任意文件包含或覆盖$content造成任意代码执行。
+    漏洞的触发点就是上述的函数，而导致漏洞发生的参数可以通过模板变量赋值函数assign传入

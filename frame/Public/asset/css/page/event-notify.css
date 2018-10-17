@@ -1,0 +1,41 @@
+/**
+ * @author Sean.xiang
+ *@date 2016/3/25
+ *@version
+ *@example
+ */
+
+/*详情 折叠 显示内容*/
+.event-detail{
+    display: none;
+}
+.event-detail.open{
+    display: block;
+}
+tr.event-detail,
+tr.event-detail:hover{
+    background-color: #fff!important;
+}
+.event-detail-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+.event-detail-item:last-child{
+    border-bottom: 0;
+}
+.item-title{
+    font-size: 18px;
+    font-weight: 600;
+}
+.item-info{
+    height: 40px;
+    margin-top: 4px;
+}
+.item-info-type{
+    text-align: center;
+}
+.views-number {
+    font-size: 20px;
+    line-height: 18px;
+    font-weight: 400;
+}

@@ -1,0 +1,5 @@
+[
+{"domain":"www.baidu.com","title":"百度一下,你就知道","sd":"SQL注入","img":"vuls-image/a.jpg"},
+{"domain":"www.baidu.com","title":"百度一下,你就知道","sd":"SQL注入","img":"vuls-image/a.jpg"},
+{"domain":"www.baidu.com","title":"百度一下,你就知道","sd":"SQL注入","img":"vuls-image/a.jpg"}
+]

@@ -1,0 +1,3 @@
+flash crossdomain安全预防建议：
+   crossdomain.xml文件的allow-access-from 实体设置为星号设置为允许任何域访问，将其修改为
+   <allow-access-from domain=”*.example.com” />，表示只允许本域访问，该问题就解决了。

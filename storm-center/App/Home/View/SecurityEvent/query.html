@@ -1,0 +1,214 @@
+<include file="./App/Home/View/Index/header.html" />
+
+
+<link href="__PUBLIC__/js/pagination/pagination.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/js/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
+
+<style>
+    .input-search {
+        color:black;
+        border: 1px solid #c1d0d7;
+        padding-left:3px;
+        margin-top:4px;
+        margin-left:1%;
+        width: 45%;
+        height: 35px;
+        color:#000000;
+    }
+
+    .input-select{
+        color:black;
+        border: 1px solid #c1d0d7;
+        padding-left:3px;
+        margin-top:4px;
+        width: 8%;
+        height: 30px;
+        color:#000000;
+    }
+
+    .input-time{
+        color:black;
+        border: 1px solid #c1d0d7;
+        padding-left:3px;
+        margin-top:4px;
+        width: 14%;
+        height: 30px;
+        color:#000000;
+    }
+
+    .search-div{
+        padding-bottom: 1%;
+        padding-left:6%
+    }
+    /*查询一下 & 导出按钮*/
+    .btn-style{
+        border: 0px;
+        margin-left:1%;
+        background-color: #000000;
+        filter:alpha(opacity=80);
+        -moz-opacity:0.8;
+        -khtml-opacity: 0.8;
+        opacity: 0.8;
+        height: 35px;
+        color:#ffffff;
+    }
+
+    .one-result-css{
+        padding-top:15px;
+        background-color:#DBDBDB;
+        margin-bottom:15px;
+        padding-left:10px
+    }
+
+    .one-result-content-css{
+        margin-bottom:10px;
+        margin-top:10px;
+        font-size:16px;
+    }
+    img{
+        width: 160px;
+        height: 138px;
+    }
+
+</style>
+<include file="./App/Home/View/Index/navigation.html" />
+<form name="form" id="form">
+    <input type="hidden" name="query-param"/>
+    <input type="hidden" name="area"/>
+</form>
+
+<div>
+    <div id="banner">
+        <div class="row" style="height: 10%">
+            <div class="col-md-11 row search-div" style="padding-top: 2%;">
+                <span style="font-size: 18px">条件</span>
+                <input type="text" class="input-search" id="params" name="params">
+                <button type="button" class="btn-query btn-style">搜索一下</button>
+            </div>
+        </div>
+        <div class="row" style="">
+            <div class="col-md-11 row search-div">
+                <span style="font-size: 14px">类型</span>
+                <select class="input-select" name="imgType" id="imgType">
+                    <option value="0">所有</option>
+                    <option value="1">博彩</option>
+                    <option value="2">反共</option>
+                    <option value="3">暗链</option>
+                </select>
+                <span style="font-size: 14px;padding-left:5px">状态</span>
+                <select class="input-select" name="status" id="status">
+                    <option value="0">所有</option>
+                    <option value="1">待审核</option>
+                    <option value="2">已通过</option>
+                    <option value="3">未通过</option>
+                    <option value="4">提交失败</option>
+                </select>
+                <span style="font-size: 14px;padding-left:5px">开始</span>
+                <input type="text" class="input-time form_datetime" id="startTime" readonly>
+                <span style="font-size: 14px;padding-left:5px">截止</span>
+                <input type="text" class="input-time form_datetime" id="endTime" readonly>
+            </div>
+        </div>
+    </div>
+    <div style="padding:1%">
+        <hr class="hr-line-all">
+        <div class="row" style="padding-top: 15px">
+            <div class="col-md-2" style="width:5%">
+
+            </div>
+            <div class="col-md-9">
+                <div>
+                    <div class="row" style="padding-top:1%;">
+
+                        <div class="query-result-value">
+
+                        </div>
+                        <div id="bs_page" class="pagination">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="one-result" class="row bottom-line one-result-css" style="display: none;">
+    <!-- 标题 -->
+    <div class="row">
+        <div class="col-md-12 row" align="left">
+            <div class="one-danger-lever">
+                <label class="one-domain-css"><span class="one-result-title-domain"></span></label><span class="one-result-title-status-info" style="padding-left:20px"></span>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="padding-left:0px; padding-top:10px; padding-bottom:10px">
+                    <hr style="height:4px;border:none;border-top:1px solid #7d7d7d;margin-top: 0px;margin-bottom: 0px;">
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:20px">
+                <div class="row" style="padding-top:5px">
+                    <div class='col-md-3'>
+                        <img class="one-result-body-event-img" style=""/>
+                    </div>
+                    <div class='col-md-3'>
+                        <div class="one-result-content-css">
+                            区域:<span class="one-result-body-area"></span>
+                        </div>
+                        <div class="one-result-content-css">
+                            时间:<span class="one-result-body-time"></span>
+                        </div>
+                        <div class="one-result-content-css">
+                            类型:<span class="one-result-body-type"></span>
+                        </div>
+                        <div class="one-result-content-css">
+                            处理:<span class="one-result-body-status"></span>
+                        </div>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class="one-result-content-css">
+                            描述:<span class="one-result-body-description"></span>
+                        </div>
+                        <div class="one-result-content-css">
+                            标题:<span class="one-result-body-title"></span>
+                        </div>
+                        <div class="one-result-content-css">
+                            提交者:<span class="one-result-body-sender"></span>
+                        </div>
+                        <div class="one-result-content-css">
+                            <span class="one-result-body-error"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="resultModal" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog" style="width: 400px;margin-top:20%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="loginModalLabel">操作结果</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h3 class="sendResult"></h3>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default send-btn" id="pocModelClose">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<include file="./App/Home/View/Index/footer.html" />
+
+<script type="text/javascript" src="__PUBLIC__/js/pagination/jquery.pagination.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Home/security-insert-query.js"></script>
+
+
+

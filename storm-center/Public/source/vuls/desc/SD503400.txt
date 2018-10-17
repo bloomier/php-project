@@ -1,0 +1,3 @@
+PHPCMS authkey泄露漏洞描述：
+    phpcms中部分代码逻辑不严格，导致会泄露网站的authkey。
+    authkey具有极高的权限，黑客可利用authkey对网站进行高权限操作。

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>网站报告</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <![endif]-->
+
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/style-metro.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/Security/timeline.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/Home/page/domain-report.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/jquery/jquery-autocomplete/jquery.autocomplete.css" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/html5shiv.min.js"></script>
+    <script type="text/javascript"  src="__PUBLIC__/js/bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body class="report" data-spy="scroll" data-target=".navbar" data-offset="100">
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/js/echarts/dist">
+
+<input id="vuls_info_content_src" type="hidden" value="{$vuls_info_content_src}">
+<input id="vuls_src_url" type="hidden" value="{$vuls_src_url}">
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">网站综合评估报告</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active" role="presentation"><a href="#webInfo-nav">网站信息 <span class="sr-only">(current)</span></a></li>
+                <li role="presentation"><a href="#rank-nav">综合评级</a></li>
+                <li role="presentation"><a href="#holeInfo-nav" class="vuls-tag">漏洞信息</a></li>
+                <li role="presentation"><a href="#event-nav" class="security-tag">安全事件</a></li>
+                <li role="presentation"><a href="#status-nav">安全态势</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="jumbotron">
+        <!--网站信息-->
+        <div class="row pd-t-50" id="webInfo-nav">
+            <div class="col-md-12">
+                <div class="portlet" >
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>网站信息</div>
+                        <div class="tools">
+                            <a class="tool" href="#webInfo" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body collapse in" id="webInfo">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table style="margin: 0 auto;">
+                                    <tbody>
+                                        <tr>
+                                            <td class="ft-dd">网站标题</td>
+                                            <td class="ft-s domain_title"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ft-dd">IP地址</td>
+                                            <td class="ft-s domain_ip"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table style="margin: 0 auto;">
+                                    <tbody>
+                                        <tr>
+                                            <td class="ft-dd">网站域名</td>
+                                            <td class="ft-s domain_web"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ft-dd">地理位置</td>
+                                            <td class="ft-s domain_region"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--综合评级-->
+        <div class="row pd-t-50" id="rank-nav">
+            <div class="col-md-12">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>综合评级</div>
+                        <div class="tools">
+                            <a class="tool" href="#rank" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body collapse in" id="rank">
+                        <div class="row padding-row">
+                            <div class="col-md-6 no-padding">
+                                <div class="thumbnail">
+                                    <h3>网站风险等级</h3>
+                                    <strong class="red rank_level"></strong>
+                                    <p>漏洞总数<span class="red rank_vuls_total">0</span>个、信息<span class="orange rank_info_total">0</span>个</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 no-padding">
+                                <div class="thumbnail no-border">
+                                    <h3>安全事件</h3>
+                                    <strong class="yellow rank_security_total"></strong>
+                                    <p>当月安全事件<span class="red rank_security_month_total"></span>件</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--漏洞信息-->
+        <div class="row pd-t-50" id="holeInfo-nav">
+            <div class="col-md-12">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>漏洞信息</div>
+                        <div class="tools">
+                            <a class="pull-right tool" href="#holeInfo" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body collapse in" id="holeInfo">
+                        <div class="row">
+                            <div class="col-md-3 no-padding">
+                                <div class="thumbnail">
+                                    <div id="vuls_highHole"></div>
+                                    <p><span class="red">高危</span><span class="vuls_highHole_total">0</span>个</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 no-padding">
+                                <div class="thumbnail">
+                                    <div id="vuls_midHole"></div>
+                                    <p><span class="orange">中危</span><span class="vuls_midHole_total">0</span>个</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 no-padding">
+                                <div class="thumbnail">
+                                    <div id="vuls_lowHole"></div>
+                                    <p><span class="yellow">低危</span><span class="vuls_lowHole_total"></span>个</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 no-padding">
+                                <div class="thumbnail">
+                                    <div id="vuls_infoHole"></div>
+                                    <p><span class="green">信息</span><span class="vuls_infoHole_total"></span>个</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div role="tabpanel">
+                                    <ul id="myTab" class="nav nav-tabs vuls-li-tab" role="tablist">
+
+                                    </ul>
+                                    <div class="tab-content vuls-tab">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--安全事件-->
+        <div class="row pd-t-50" id="event-nav">
+            <div class="col-md-12">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>安全事件（近期）</div>
+                        <div class="tools">
+                            <a  class="pull-right tool" href="#event" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body collapse in" id="event">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="timeline">
+                                    <ul class="event_year">
+                                    </ul>
+                                    <ul class="event_list">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--安全态势-->
+        <div class="row pd-t-50" id="status-nav">
+            <div class="col-md-12">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>安全态势</div>
+                        <div class="tools">
+                            <a  class="pull-right tool" href="#status" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body collapse in" id="status">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div role="tabpanel">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#safe-web-sub" data-toggle="tab">子域名</a></li>
+                                        <li role="presentation"><a href="#safe-web-ip" data-toggle="tab">同IP网站</a></li>
+                                        <li role="presentation"><a href="#safe-web-room" data-toggle="tab">同机房域名</a></li>
+                                    </ul>
+                                    <div class="tab-content safe-state-table">
+                                        <div role="tabpanel" class="tab-pane active" id="safe-web-sub">
+                                            <div class="row">
+                                                <div class="col-md-12 mt-20">
+                                                    <table class="table table-bordered" >
+                                                        <thead class="bg-lightgrey">
+                                                        <tr>
+                                                            <th>网址</th>
+                                                            <th>安全等级</th>
+                                                            <th>安全事件</th>
+                                                            <th>高危漏洞</th>
+                                                            <th>中危漏洞</th>
+                                                            <th>低危漏洞</th>
+                                                            <th>信息</th>
+                                                            <th>操作</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody class="tbody_value">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="safe-web-ip">
+                                            <div class="row">
+                                                <div class="col-md-12 mt-20">
+                                                    <table class="table table-bordered" >
+                                                        <thead class="bg-lightgrey">
+                                                        <tr>
+                                                            <!--<th>网站标题</th>-->
+                                                            <th>网址</th>
+                                                            <th>安全等级</th>
+                                                            <th>安全事件</th>
+                                                            <th>高危漏洞</th>
+                                                            <th>中危漏洞</th>
+                                                            <th>低危漏洞</th>
+                                                            <th>信息</th>
+                                                            <th>操作</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody class="tbody_value">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="safe-web-room">
+                                            <div class="row">
+                                                <div class="col-md-12 mt-20 ">
+                                                    <table class="table table-bordered" >
+                                                        <thead class="bg-lightgrey">
+                                                        <tr>
+                                                            <!--<th>网站标题</th>-->
+                                                            <th>网址</th>
+                                                            <th>安全等级</th>
+                                                            <th>安全事件</th>
+                                                            <th>高危漏洞</th>
+                                                            <th>中危漏洞</th>
+                                                            <th>低危漏洞</th>
+                                                            <th>信息</th>
+                                                            <th>操作</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody class="tbody_value">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="go-top">
+    <a class="btn icn-only" href="javascript:;"><i class="fa fa-send fa-2x"></i></a>
+    <a class="btn icn-only" href="javascript:;"><i class="fa fa-download domina-report-export fa-2x"></i></a>
+    <a class="btn icn-only scroll" href="javascript:;"><i class="fa fa-angle-double-up fa-2x"></i></a>
+</div>
+<div class="tip">
+    <a class="btn" href="javascript:;">发送<br>报告</a>
+    <a class="btn" href="javascript:;">导出<br>报告</a>
+    <a class="btn scroll" href="javascript:;">回到<br>顶部</a>
+</div>
+
+<div class="footer">
+    <p> © 2007-2016 XXXX技术有限公司 保留所有版权</p>
+</div>
+
+<!-- tab 标签 -->
+<li style="display: none" role="presentation" id="one-vuls-tab-li">
+    <a href="" data-toggle="tab" role="tab" class="tab-href-set">
+    </a>
+</li>
+
+<!-- tab div -->
+<div class="tab-pane fade" role="tabpanel" id="tab-vuls-tag" style="display: none">
+</div>
+<!-- tab table -->
+<div class="panel panel-default mt-40" style="display: none"  id="tab-vuls-table">
+    <div class="panel-group no-margin" id="accordionLow" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" class="col-span-href collapsed" data-parent="#accordion" href="" aria-expanded="true" aria-controls="collapseOne">
+                    </a>
+                </h4>
+            </div>
+            <div class="panel-collapse dataTables_wrapper form-inline collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body" style="padding:0px 0px">
+                    <table class="table table-striped vuls-content-table table-bordered table-hover datatable dataTable no-margin" style="boder:0px 0px" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <td style="widht:10%">编号</td>
+                            <td style="width:80%">url</td>
+                            <td style="width:10%">详情</td>
+                        </tr>
+                        </thead>
+                        <tbody class="tab-vuls-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<li style="display: none" id="one-event-time">
+    <span class="event_date"></span>
+    <p class="event_content">
+        <span class="event_main">
+            <i class="type"></i>
+            <a class="this_event_url" href="#"></a>
+            <i class="repair"></i>
+        </span>
+    </p>
+</li>
+
+
+<link href="__PUBLIC__/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/bootstrap.min.js"></script>
+<script  type="text/javascript" src="__PUBLIC__/js/dataTables/jquery.dataTables.js"></script>
+<script  type="text/javascript" src="__PUBLIC__/js/dataTables/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/echarts/dist/echarts.js"></script>
+<script type="text/javascript"  src="__PUBLIC__/js/jquery/jquery-autocomplete/jquery.autocomplete.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Home/report.js"></script>
+
+</body>
+</html>

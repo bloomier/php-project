@@ -1,0 +1,184 @@
+/**
+ * @author Sean.xiang
+ *@date 2015/8/21
+ *@version
+ *@example
+ */
+html{
+    font-size:62.5%; /*10px*/
+}
+
+body{
+    font-family: "Oxygen",Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","STHeiti","宋体",simsun,"sans serif";
+    overflow-x: hidden;
+
+}
+/*标题 子标题*/
+.title-wraper h1{
+    font-weight: bold !important;
+    color: #fff;
+    z-index: 1002;
+    top: 0px;
+    left: 40px;
+    position: absolute;
+    margin: 10px 0;
+}
+h2{
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    margin: 10px 0;
+}
+/*整体背景色*/
+.bg{
+    background-color: #000!important;
+}
+.bg-red{
+    background-color: #ff0000!important;
+}
+.bg-orange{
+    background-color: #ff9900!important;
+}
+.bg-yellow{
+    background-color: #f9e400!important;
+}
+.bg-green{
+    background-color: #028102!important;
+}
+/*颜色*/
+.red{
+    color:#ff0000!important;
+}
+.orange{
+    color:#ff9900!important;
+}
+.yellow{
+    color:#f9e400!important;
+}
+.green{
+    color:#028102!important;
+}
+/*字体样式*/
+@font-face {
+    font-family: "customUUSUN";
+    src: url("../../font/UUSUNElektron.ttf") format("truetype");
+}
+/**/
+.no-padding {
+    padding: 0 !important;
+}
+.no-margin {
+    margin: 0 !important;
+}
+.mt-5{
+    margin-top: 5px;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+
+
+
+/*统计信息*/
+.total-info{
+    text-align: center;
+    font-size: 2rem;
+    /*margin-left: -140px;*/
+}
+.total-info p.total{
+    margin: 0;
+}
+.total-info .total,.total-info .total-sub{
+    color:#fff;
+}
+.total-info .total .title{
+    font-size: 4rem;
+}
+.total-info .total-sub .title{
+    font-size: 2.4rem;
+}
+.total-info .total .num,.total-info .total-sub .num{
+    font-weight: bold;
+    color: #71C34D;
+    font-family: customUUSUN;
+    letter-spacing: 2px;
+}
+.total-info .total .num{
+    font-size: 4.5rem;
+    margin-left: 20px;
+}
+.total-info .total-sub .num{
+    font-size: 3rem;
+    margin-left: 10px;
+}
+
+/*控制页面切换开始、停止*/
+.autoPlay{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.autoPlay:hover i{
+    color: #e0e0e0;
+    transition: all 0.5s linear;
+    opacity: 1;
+}
+.autoPlay i{
+    width: 80px;
+    height: 80px;
+    /*color: #000;*/
+    font-size: 60px;
+    z-index: 100;
+    opacity: 0;
+}
+
+
+/*grid*/
+.grid{
+    overflow: hidden;
+}
+.grid h3{
+    /*color:#6596ED;*/
+    color:#40DFCF;
+    text-align: center;
+    font-size: 20px;
+}
+.gridRoll{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+}
+.gridList{
+    position: absolute;
+    width: 100%;
+}
+
+/*grid table*/
+.u-gd-list {
+    border-collapse: collapse;
+    border-spacing: 0;
+    /*table-layout:fixed;*/
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 0;
+    border: none;
+}
+
+.u-gd-list thead th ,.u-gd-list td{
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+
+}

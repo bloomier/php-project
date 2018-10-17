@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>监控</title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/parsley/parsley.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/dialog/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/Home/screen.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+
+    <!--如果是IE,使用IE9 的内核来渲染-->
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <![endif]-->
+
+    <link rel="icon" href="__PUBLIC__/image/fav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="__PUBLIC__/image/fav.png" type="image/x-icon">
+
+</head>
+<body>
+<!-- 所有需要用到的插件在这里定义 -->
+
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/js/echarts/dist">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+
+<style>
+    .active{
+        font-weight: bold !important;
+        font-size: 16px !important;
+        /*color: darkgray;*/
+    }
+
+</style>
+<div class="show-tab">
+
+</div>
+<div class="row" style="font-size: 20px;">
+    <div class="col-md-offset-3 col-md-6">
+        <div>
+            <div class="world-net-tab">世界互联网大会</div>
+            <div class="div-tab world-net">
+
+            </div>
+        </div>
+        <hr>
+        <div>
+            <div class="world-zjga-tab">浙江省公安厅</div>
+            <div class="div-tab world-zjga">
+
+            </div>
+        </div>
+        <hr>
+        <div>
+            <div class="word-zjrm-tab">浙江省政府</div>
+            <div class="div-tab word-zjrm">
+
+            </div>
+        </div>
+        <hr>
+        <div>
+            <div class="word-txzf-tab">桐乡人民政府</div>
+            <div class="div-tab word-txzf">
+
+            </div>
+        </div>
+        <hr>
+        <div>
+            <div class="word-jxzf-tab">嘉兴人民政府</div>
+            <div class="div-tab word-jxzf">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<include file="./App/Home/View/Index/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/script/Home/webavail.js"></script>

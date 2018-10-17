@@ -1,0 +1,4 @@
+mongodb注入漏洞描述：
+    在MongoDB数据库2.2.3版本上发现一个安全漏洞，并且表示Metasploit利用payload正在开发当中。
+    该漏洞主要是MongoDB不正确的使用SpiderMonkey Javascript的NativeHelper函数，
+    导致可以注入代码或缓冲区溢出执行任意代码。

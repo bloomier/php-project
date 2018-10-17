@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MSSP示范工程</title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/parsley/parsley.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/dialog/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/Home/screen.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/animation.css" rel="stylesheet" type="text/css" />
+
+
+    <script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+
+    <!--如果是IE,使用IE9 的内核来渲染-->
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <![endif]-->
+
+    <link rel="icon" href="__PUBLIC__/image/fav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="__PUBLIC__/image/fav.png" type="image/x-icon">
+
+    <link href="__PUBLIC__/css/Home/page/webMonitor.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body class="bg">
+<!-- 所有需要用到的插件在这里定义 -->
+<assign name="echarts" value="echarts" />
+
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/js/echarts/dist">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<input id="domain" type="hidden" value="{:I('domain')}">
+
+<!--<div class="title-wraper">
+    <h1 class="domain"></h1>
+</div>-->
+
+<!--<div class="alert-info fade" >
+    <p><span class="title">告警</span><span class="info">流量超出<i class="num">20%</i></span><span class="time"></span></p>
+</div>-->
+<div class="header">
+    <div class="title">
+        <h1>MSSP示范工程</h1>
+    </div>
+    <div class="tip" style="display: none">
+        <div class="notice">
+            <span class="n-icon"><i class="fa fa-bullhorn"></i></span>
+            <ul class="n-info">
+                <li><a href="">通知信息</a></li>
+            </ul>
+        </div>
+        <div class="alert">
+            <a href=""><i class="fa fa-bell"></i>告警流量超出20%</a>
+        </div>
+    </div>
+
+</div>
+<div class="container-fluid content">
+    <div class="row no-margin">
+        <div class="col-md-3" style="padding: 0 5px 0 0;">
+            <div class="box avail">
+                <div class="box-heading box-heading-border">
+                    <h2 class="box-title">网站可用性分布</h2>
+                    <div class="box-border"></div>
+                </div>
+                <div class="box-body">
+                    <div id="mapVail" class="mt-10"></div>
+                </div>
+
+            </div>
+            <div class="box visitArea mt-5">
+                <div class="box-heading">
+                    <h2 class="box-title">访客区域排行</h2>
+                    <div class="box-count"><span class="areaCount"></span><b>次</b></div>
+                </div>
+                <div class="box-body">
+                    <div id="areaRank">
+                        <table class="u-gd-list">
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="box visitIp mt-5" >
+                <div class="box-heading">
+                    <h2 class="box-title">访客IP排行</h2>
+                </div>
+                <div class="box-body">
+                    <div id="ipRank">
+                        <table class="u-gd-list">
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding: 0 5px 0 0">
+            <div class="box grade" >
+                <div class="box-body">
+                    <div id="riskGrade" style="width: 19.5%;"></div>
+                    <div id="serverGrade" style="width: 19.5%;"></div>
+                    <div id="serverQuality" style="width: 19.5%;"></div>
+                    <div id="threatLevel" style="width: 19.5%;"></div>
+                    <div id="securityEvent" style="width: 19.5%;"></div>
+                </div>
+            </div>
+            <div class="box mt-5 map-main">
+                <div class="box-heading">
+                    <h2 class="box-title">监控网站安全状态</h2>
+                </div>
+                <div class="box-body">
+                    <div class="map">
+                        <div id="chinaMap"></div>
+                        <div id="asia"></div>
+                        <div id="northAmerica"></div>
+                        <div id="southAmerica"></div>
+                        <div id="africa"></div>
+                        <div id="oceania"></div>
+                        <div id="europe"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="box attack mt-5" >
+                <div class="box-heading">
+                    <h2 class="box-title">网站攻击趋势</h2>
+                </div>
+                <div class="box-body">
+                    <div id="tab" style="margin-top: -40px;">
+                        <div role="tabpanel">
+                            <ul class="nav nav-tabs pull-right" role="tablist">
+                                <li role="presentation" class="active"><a href="#flow" role="tab" data-toggle="tab">访问分析</a></li>
+                                <li role="presentation"><a href="#attack" role="tab" data-toggle="tab">流量分析</a></li>
+                            </ul>
+                            <div class="tab-content" >
+                                <div role="tabpanel" class="tab-pane fade in active" id="flow">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="flowLine" style="margin: 0 -80px 0 -50px"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade active" id="attack">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="attackLine" style="margin: 0 -80px 0 -50px"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 no-padding">
+            <div class="box hole">
+                <div class="box-heading box-heading-border">
+                    <h2 class="box-title">漏洞类型分布</h2>
+                    <div class="box-border"></div>
+                </div>
+                <div class="box-body">
+                    <!--<div id="attackType">
+                        <div class="holeType"></div>
+                    </div>-->
+                    <div id="hole-type">
+                    <table class="u-gd-list">
+                        <tbody>
+                        <!--<tr>-->
+                            <!--<td><span class="label label-warning">高</span></td>-->
+                            <!--<td>基于时间的SQL</td>-->
+                            <!--<td><div class="progress" style="margin-bottom: 0px;"><div class="progress-bar"  style="width: 90%;"><span>100</span></div></div></td>-->
+                        <!--</tr>-->
+                        </tbody>
+                    </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="box attackUrl mt-5">
+                <div class="box-heading">
+                    <h2 class="box-title">攻击URL排行</h2>
+                    <div class="box-count"><span class="urlCount"></span><b>次</b></div>
+                </div>
+                <div class="box-body">
+                    <div id="attackUrl">
+                        <table class="u-gd-list">
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="box attackIp mt-5" >
+                <div class="box-heading">
+                    <h2 class="box-title">攻击源IP排行</h2>
+                    <div class="box-count"><span class="ipCount"></span><b>次</b></div>
+                </div>
+                <div class="box-body">
+                    <div id="attackIp">
+                        <table class="u-gd-list">
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+<assign name='plugins' value='echarts'/>
+
+<include file="./App/ScreenCenter/View/common/autorun.html" />
+<include file="./App/ScreenCenter/View/common/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/js/scrool/scrollNum.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/scrool/item-scoller.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/ScreenCenter/soc-web-info.js"  charset="utf-8"></script>
+</body>
+</html>

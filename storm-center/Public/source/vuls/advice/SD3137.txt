@@ -1,0 +1,6 @@
+IIS Internal IP地址漏洞修复建议：
+    打开一个DOS窗口，进到c:\inetpub\adminscripts目录或其他存放管理脚本的目录下，运行如下这些命令：
+    adsutil set w3svc/UseHostName True
+    net stop iisadmin /y
+    net start w3svc
+    这样会使IIS服务器使用主机名而不是它自己的IP地址。

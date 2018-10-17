@@ -1,0 +1,83 @@
+<include file="./App/Common/View/header.html" />
+
+<input type="hidden" id="currentUserId" value="{$useId}">
+
+<div class="main">
+    <div class="m-inner">
+        <div class="widget">
+            <div class="widget-heading">
+                <div class="widget-title">云防护站点列表</div>
+            </div>
+            <table class="u-grid" id="waf_site_table">
+                <thead>
+                <tr>
+                    <th>域名</th>
+                    <th>ip</th>
+                    <th>端口</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<div class='waf-dialog-content' style="display: none;">
+    <form class="form-horizontal" id="wafForm" action="#" data-parsley-validate>
+        <input name="waf_id" type="hidden">
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span style="color: red">*</span>域名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="domain" required data-parsley-length="[2, 100]" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span style="color: red">*</span>ip地址</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="ip" required data-parsley-length="[2, 20]" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span style="color: red">*</span>端口</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="port" required data-parsley-length="[2, 20]" >
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class='waf-attention-dialog-content' style="display: none;">
+    <form class="form-horizontal" id="attentionForm" action="#" data-parsley-validate>
+        <input type="hidden" name="domain">
+        <div class="form-group">
+            <label class="control-label col-sm-2">关注人</label>
+            <div class="col-sm-10">
+                <div class="col-sm-8" style="padding-left: 0px;">
+                    <input type="text" class="form-control" name="queryParam">
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn attention-search">查询</a>
+                </div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label  class="col-sm-2 control-label"></label>
+            <div class="row col-sm-10">
+                <div class="col-sm-5 source-user" style="height:300px;border:1px solid #ECEEF0;margin-left: 15px;overflow:auto">
+
+                </div>
+                <div class="col-sm-5 col-sm-offset-1 result-user" style="height:300px;border:1px solid #ECEEF0;overflow:auto">
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<include file="./App/Common/View/footer.html" />
+
+<script type="text/javascript" src="__PUBLIC__/script/Home/waf_index.js"  charset="utf-8"></script>

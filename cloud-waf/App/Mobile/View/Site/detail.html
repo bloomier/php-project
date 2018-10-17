@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include  file="./App/Mobile/View/common/header.html"/>
+    <link rel="stylesheet" href="__PUBLIC__/asset/css/Mobile/page/detail.css"/>
+</head>
+<body>
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<input id="domain" type="hidden" value="{$domain}">
+<div></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="thumbnail text-center" style="margin: 3% 0;">
+                <div class="title">站点名称</div>
+                <div class="value j-title"></div>
+                <div class="title">站点域名</div>
+                <div class="value j-ip"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 no-padding">
+            <div class="thumbnail text-center mb5">
+                <div class="border">
+                    <img src="__PUBLIC__/asset/image/mobile/i-service.png" alt="服务质量"/>
+                </div>
+                <div class="title m">服务质量</div>
+                <div class="value j-siteVail"></div>
+            </div>
+        </div>
+        <div class="col-xs-6 no-padding">
+            <div class="thumbnail text-center mb5">
+                <div>
+                    <img src="__PUBLIC__/asset/image/mobile/i-level.png" alt="漏洞等级"/>
+                </div>
+                <div class="title">漏洞等级</div>
+                <div class="value j-vulsLevel" ></div>
+            </div>
+        </div>
+        <div class="col-xs-6 no-padding">
+            <div class="thumbnail text-center mb5">
+                <div class="border">
+                    <img src="__PUBLIC__/asset/image/mobile/i-visit.png" alt="访问次数"/>
+                </div>
+                <div class="title">访问次数</div>
+                <div class="value j-visitCount"></div>
+            </div>
+        </div>
+        <div class="col-xs-6 no-padding">
+            <div class="thumbnail text-center mb5">
+                <div>
+                <img src="__PUBLIC__/asset/image/mobile/i-attack.png" alt="攻击次数"/>
+                </div>
+                <div class="title">攻击次数</div>
+                <div class="value j-attackCount"></div>
+            </div>
+        </div>
+        <div class="col-xs-6 no-padding">
+            <div class="thumbnail text-center mb5">
+                <div class="border">
+                <img src="__PUBLIC__/asset/image/mobile/i-io.png" alt="当日流量"/>
+                </div>
+                <div class="title">当日流量</div>
+                <div class="value j-flow"></div>
+            </div>
+        </div>
+        <div class="col-xs-6 no-padding">
+            <div class="thumbnail text-center mb5">
+                <img src="__PUBLIC__/asset/image/mobile/i-shield.png" alt="防御状态"/>
+                <div class="title">防御状态</div>
+                <div class="value j-status"></div>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="thumbnail text-center mb5">
+                <a class="m-btn report"><i class="fa fa-file"></i>查看报告</a>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="thumbnail text-center mb5">
+                <a class="m-btn monitor"><i class="fa fa-desktop"></i>实时监控</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<include  file="./App/Mobile/View/common/footer.html"/>
+<script src="__PUBLIC__/script/Mobile/detail.js"></script>
+</body>
+</html>

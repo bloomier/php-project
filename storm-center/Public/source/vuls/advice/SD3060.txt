@@ -1,0 +1,5 @@
+dreamweaver脚本漏洞修复方案：
+    厂商补丁：Macromedia
+    目前厂商还没有提供补丁或者升级程序，我们建议使用此软件的用户随时关注厂商的主页以获取最新版本：
+    Dreamweaver MX: http://download.macromedia.com/pub/dreamweaver/drk/security/
+    dwmx_xss.mxp

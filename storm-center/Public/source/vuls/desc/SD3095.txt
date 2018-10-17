@@ -1,0 +1,2 @@
+dedecms安装文件变量覆盖getshell漏洞描述：
+    DedeCms全局变量覆盖漏洞，目标存在全局变量覆盖漏洞

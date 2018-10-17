@@ -1,0 +1,2 @@
+tomcat examples 目录漏洞修复建议：
+	删除Apache Tomcat默认安装包含的“/examples”目录。

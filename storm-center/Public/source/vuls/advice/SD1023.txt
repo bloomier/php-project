@@ -1,0 +1,3 @@
+hdwiki sql注入方案：
+    1、请访问其官方网站，下载并更新至HDWiki的最新版本 http://kaiyuan.hudong.com/。
+    2、加速乐已经可以防御该漏洞。请使用加速乐（http://jiasule.baidu.com），一键防御，让网站更快更安全。

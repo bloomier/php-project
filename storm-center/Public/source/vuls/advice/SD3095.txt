@@ -1,0 +1,18 @@
+dedecms安装文件变量覆盖getshell漏洞修复方案：
+    1、在 /include/common.inc.php 中
+    找到注册变量的代码
+    复制代码代码如下:
+    foreach(Array('_GET','_POST','_COOKIE') as $_request) {
+        foreach($$_request as $_k => $_v) ${$_k} = _RunMagicQuotes($_v);
+    }
+    修改为
+    复制代码代码如下:
+    foreach(Array('_GET','_POST','_COOKIE') as $_request) {
+        foreach($$_request as $_k => $_v) {
+            if( strlen($_k)>0 && eregi('^(cfg_|GLOBALS)',$_k) ){
+            exit('Request var not allow!');
+            }
+            ${$_k} = _RunMagicQuotes($_v);
+        }
+    }
+    2、可以升级版本

@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>网站报告</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <![endif]-->
+
+    <if condition="$report">
+        <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+        <link href="__PUBLIC__/js/metronic-bootstrap/css/style-metro.css" rel="stylesheet" type="text/css" />
+        <link href="__PUBLIC__/js/metronic-bootstrap/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="__PUBLIC__/js/metronic-bootstrap/css/style-responsive.css" rel="stylesheet" type="text/css" />
+        <link href="__PUBLIC__/css/Security/timeline.css" rel="stylesheet">
+        <link href="__PUBLIC__/css/Home/page/domain-report.css" rel="stylesheet" type="text/css" />
+        <link href="__PUBLIC__/js/jquery/jquery-autocomplete/jquery.autocomplete.css" rel="stylesheet" type="text/css"/>
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/html5shiv.min.js"></script>
+        <script type="text/javascript"  src="__PUBLIC__/js/bootstrap/js/respond.min.js"></script>
+        <![endif]-->
+        <else/>
+        <link href="js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+        <link href="js/metronic-bootstrap/css/style-metro.css" rel="stylesheet" type="text/css" />
+        <link href="js/metronic-bootstrap/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="js/metronic-bootstrap/css/style-responsive.css" rel="stylesheet" type="text/css" />
+        <link href="css/timeline.css" rel="stylesheet">
+        <link href="css/domain-report.css" rel="stylesheet" type="text/css" />
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/bootstrap/js/html5shiv.min.js"></script>
+        <script type="text/javascript"  src="js/bootstrap/js/respond.min.js"></script>
+        <![endif]-->
+    </if>
+
+
+</head>
+<body class="report" data-spy="scroll" data-target=".navbar" data-offset="100">
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/js/echarts/dist">
+<!--网站标题-->
+<input type="hidden" value="{$domainInfo.srcTitle}" id="domainTitle" name="domainTitle"/>
+<!--网站域名-->
+<input type="hidden" value="{$domainInfo.domain}" id="domainSite" name="domainSite"/>
+
+<!--ip旁站-->
+<input type="hidden" value='{$ipWebSafe}' id="ipWebSafeSrc" name="ipWebSafeSrc"/>
+<!--init_safe_Web(ipWebSafe, $("#ip-unknow"));-->
+<!--子域名-->
+<input type="hidden" value='{$subWebSafe}' id="subWebSafeSrc" name="subWebSafeSrc"/>
+<!--init_safe_Web(subWebSafe, $("#subWeb-unknow"));-->
+<!--机房旁站-->
+<input type="hidden" value='{$roomWebSafe}' id="roomWebSafeSrc" name="roomWebSafeSrc"/>
+<!--init_safe_Web(roomWebSafes, $("#room-unknow"));-->
+<!--高危漏洞个数-->
+<input type="hidden" value='{$level_count}' id="vulsLevelCount" name="vulsLevelCount"/>
+<!--安全事件个数-->
+<input type="hidden" value='{$securityCount}' id="securityCount" name="securityCount"/>
+<!--安全事件数组列表-->
+<input type="hidden" value='{$securityArray}' id="securityArray" name="securityArray"/>
+<!--可用性数据-->
+<input type="hidden" value='{$usableInfo}' id="usableInfo" name="usableInfo"/>
+<!--网站域名-->
+<input type="hidden" name="sourceDomain" id="sourceDomain" value="{$domain}">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">网站综合评估报告</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active" role="presentation"><a href="#webInfo-nav">网站信息 <span class="sr-only">(current)</span></a></li>
+                <li role="presentation"><a href="#rank-nav">综合评级</a></li>
+                <li role="presentation"><a href="#service-nav">服务质量</a></li>
+                <li role="presentation"><a href="#holeInfo-nav">漏洞信息</a></li>
+                <li role="presentation"><a href="#event-nav">安全事件</a></li>
+                <li role="presentation"><a href="#status-nav">安全态势</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="container">
+        <div class="jumbotron">
+            <!--网站信息-->
+            <div class="row pd-t-50" id="webInfo-nav">
+                <div class="col-md-12">
+                    <div class="portlet" >
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-comments"></i>网站信息</div>
+                            <div class="tools">
+                                <a class="tool" href="#webInfo" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body collapse in" id="webInfo">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <table style="margin: 0 auto;">
+                                        <tbody>
+                                        <tr>
+                                            <td class="ft-dd">网站标题</td>
+                                            <td class="ft-s"><span class="infoValue domainTitle" title="{$domainInfo.srcTitle}"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ft-dd">IP地理</td>
+                                            <td class="ft-s"><span class="infoValue">{$domainInfo.ip}</span></td>
+                                        </tr>
+                                        <!--<tr>
+                                            <td class="ft-dd">域名注册日期</td>
+                                            <td class="ft-s">2015-01-01</td>
+                                        </tr>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <table style="margin: 0 auto;">
+                                        <tbody>
+                                        <tr>
+                                            <td class="ft-dd">网站域名</td>
+
+                                            <td class="ft-s"><span class="infoValue domainSite" title="{$domainInfo.domain}"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ft-dd">地理位置</td>
+
+                                            <td class="ft-s"><span class="infoValue">{$domainInfo.area}</span></td>
+                                        </tr>
+                                        <!--<tr>
+                                            <td class="ft-dd">域名过期日期</td>
+                                            <td class="ft-s">2017-01-01 （距离域名过期还有324天）</td>
+                                        </tr>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--综合评级-->
+            <div class="row pd-t-50" id="rank-nav">
+                <div class="col-md-12">
+                    <div class="portlet">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-comments"></i>综合评级</div>
+                            <div class="tools">
+                                <a class="tool" href="#rank" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body collapse in" id="rank">
+                            <div class="row padding-row">
+                                <div class="col-md-4 no-padding">
+                                    <div class="thumbnail">
+                                        <h3>网站风险等级</h3>
+                                        <strong class="red webSafeLevel">{$safeLevel}</strong>
+                                        <p>漏洞总数<span class="red">{$vulsCount}</span>个、信息<span class="orange">{$infoCount}</span>个</p>
+                                    </div>
+                                </div>
+                                <!--<div class="col-md-3 no-padding">
+                                    <div class="thumbnail">
+                                        <h3>同网段网站风险等级</h3>
+                                        <strong class="orange">中危</strong>
+                                        <p>高危漏洞<span class="red">12</span>个、中危漏洞<span class="orange">12</span>个</p>
+                                    </div>
+                                </div>-->
+                                <div class="col-md-4 no-padding">
+                                    <div class="thumbnail">
+                                        <h3>服务质量</h3>
+                                        <strong class="green webServerLevel"></strong>
+                                        <p>最大连接时长 <span class="red maxTotalTime"></span>秒</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 no-padding">
+                                    <div class="thumbnail no-border">
+                                        <h3>安全事件</h3>
+                                        <strong class="yellow securityEventCountAll"></strong>
+                                        <p>当月安全事件<span class="red thisMonthSecurityEvent"></span>件</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--服务质量-->
+            <div class="row pd-t-50" id="service-nav">
+                <div class="col-md-12">
+                    <div class="portlet">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-comments"></i>服务质量</div>
+                            <div class="tools">
+                                <a class="pull-right tool" href="#service" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body collapse in" id="service">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div role="tabpanel">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#mapView" role="tab" data-toggle="tab">地图视角</a></li>
+                                            <li role="presentation"><a href="#compareView" role="tab" data-toggle="tab" id="useableBar">对比视角</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="mapView">
+                                                <div class="row">
+                                                    <div class="col-md-12 mt-20">
+                                                        <div id="mapChart"></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane active" id="compareView">
+                                                <div class="row">
+                                                    <div class="col-md-12 mt-20">
+                                                        <div id="barChart"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table table-bordered" >
+                                        <thead class="bg-lightgrey">
+                                        <tr>
+                                            <th>监测点</th>
+                                            <th>解析IP</th>
+                                            <th>IP所在地</th>
+                                            <th>HTTP状态</th>
+                                            <th>总时间(秒)</th>
+                                            <th>解析时间(秒)</th>
+                                            <th>连接时间(秒)</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="usableTableInfo">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--漏洞信息-->
+            <div class="row pd-t-50" id="holeInfo-nav">
+                <div class="col-md-12">
+                    <div class="portlet">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-comments"></i>漏洞信息</div>
+                            <div class="tools">
+                                <a class="pull-right tool" href="#holeInfo" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body collapse in" id="holeInfo">
+                            <div class="row">
+                                <div class="col-md-3 no-padding">
+                                    <div class="thumbnail">
+                                        <div id="highHole"></div>
+                                        <p><span class="red">高危</span><span class="highLevelCount"></span>个</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 no-padding">
+                                    <div class="thumbnail">
+                                        <div id="midHole"></div>
+                                        <p><span class="orange">中危</span><span class="midLevelCount"></span>个</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 no-padding">
+                                    <div class="thumbnail">
+                                        <div id="lowHole"></div>
+                                        <p><span class="yellow">低危</span><span class="lowLevelCount"></span>个</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 no-padding">
+                                    <div class="thumbnail">
+                                        <div id="infoHole"></div>
+                                        <p><span class="green">信息</span><span class="infoLevelCount"></span>个</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div role="tabpanel">
+                                        <ul id="myTab" class="nav nav-tabs" role="tablist">
+                                            <if condition="$vuls_detail['high']">
+                                                <li role="presentation">
+                                                    <a href="#high-vuls-tag" data-toggle="tab" role="tab">
+                                                        高危漏洞
+                                                    </a>
+                                                </li>
+                                            </if>
+                                            <if condition="$vuls_detail['mid']">
+                                                <li role="presentation">
+                                                    <a href="#mid-vuls-tag" data-toggle="tab" role="tab">
+                                                        中危漏洞
+                                                    </a>
+                                                </li>
+                                            </if>
+                                            <if condition="$vuls_detail['low']">
+                                                <li role="presentation">
+                                                    <a href="#low-vuls-tag" data-toggle="tab" role="tab">
+                                                        低危漏洞
+                                                    </a>
+                                                </li>
+                                            </if>
+                                            <if condition="$vuls_detail['info']">
+                                                <li role="presentation">
+                                                    <a href="#info-vuls-tag" data-toggle="tab" role="tab">
+                                                        信息
+                                                    </a>
+                                                </li>
+                                            </if>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <if condition="$vuls_detail['high']">
+                                                <div class="tab-pane fade" id="high-vuls-tag">
+                                                    <volist name="vuls_detail['high']" id="vo" key="k" >
+                                                        <div style="padding-top:10px; margin-left:3%; margin-right:3%">
+                                                            <div class="panel-group" id="accordionHigh" role="tablist" aria-multiselectable="true">
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading" role="tab" id="headingOneHigh{$k}">
+                                                                        <h4 class="panel-title">
+                                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOneHigh{$k}" aria-expanded="true" aria-controls="collapseOne">
+                                                                                {$vo.name}
+                                                                            </a>
+                                                                        </h4>
+                                                                    </div>
+                                                                    <if condition="$k eq 1">
+                                                                        <div id="collapseOneHigh1" class="panel-collapse collapse in dataTables_wrapper form-inline" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div class="panel-body">
+                                                                                <table class="table table-striped vuls-content-table table-bordered table-hover datatable dataTable"  cellspacing="0" width="100%" align="left">
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        <td style="widht:10%">编号</td>
+                                                                                        <td style="width:50%">url</td>
+                                                                                        <td style="width:30%">详情</td>
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                    <volist name="vo['value']" id="sub" key="subkey">
+                                                                                        <tr>
+                                                                                            <td>{$subkey}</td>
+                                                                                            <td>{$sub["url"]}</td>
+                                                                                            <td><button class="pocbtn btn btn-default btn-sm" pocs="{$sub['resp']}" arg="{$sub['arg']}" reqhead="{$sub['responseHeader']}" req="{$sub['req']}">详情</button></td>
+                                                                                        </tr>
+                                                                                    </volist>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                        <else/>
+                                                                        <div id="collapseOneHigh{$k}" class="panel-collapse collapse dataTables_wrapper form-inline" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div class="panel-body">
+                                                                                <table class=" table table-striped vuls-content-table table-bordered table-hover datatable dataTable"  cellspacing="0" width="100%" align="left">
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        <td style="widht:10%">编号</td>
+                                                                                        <td style="width:50%">url</td>
+                                                                                        <td style="width:30%">详情</td>
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                    <volist name="vo['value']" id="sub" key="subkey">
+                                                                                        <tr>
+                                                                                            <td>{$subkey}</td>
+                                                                                            <td>{$sub["url"]}</td>
+                                                                                            <td><button class="pocbtn btn btn-default btn-sm" pocs="{$sub['resp']}" arg="{$sub['arg']}" reqhead="{$sub['responseHeader']}" req="{$sub['req']}">详情</button></td>
+                                                                                        </tr>
+                                                                                    </volist>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </if>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </volist>
+                                                </div>
+                                            </if>
+                                            <if condition="$vuls_detail['mid']">
+                                                <div class="tab-pane fade" id="mid-vuls-tag">
+                                                    <volist name="vuls_detail['mid']" id="vo" key="k" >
+                                                        <div style="padding-top:10px; margin-left:3%;margin-right: 3%">
+                                                            <div class="panel-group" id="accordionMid" role="tablist" aria-multiselectable="true">
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading" role="tab" id="headingOneMid{$k}">
+                                                                        <h4 class="panel-title">
+                                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOneMid{$k}" aria-expanded="true" aria-controls="collapseOne">
+                                                                                {$vo.name}
+                                                                            </a>
+                                                                        </h4>
+                                                                    </div>
+                                                                    <if condition="$k eq 1">
+                                                                        <div id="collapseOneMid1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div class="panel-body">
+                                                                                <table class=" table table-striped vuls-content-table table-bordered table-hover datatable dataTable"  cellspacing="0" width="100%" align="left">
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        <td style="widht:10%">编号</td>
+                                                                                        <td style="width:50%">url</td>
+                                                                                        <td style="width:30%">详情</td>
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                    <volist name="vo['value']" id="sub" key="subkey">
+                                                                                        <tr>
+                                                                                            <td>{$subkey}</td>
+                                                                                            <td>{$sub["url"]}</td>
+                                                                                            <td><button class="pocbtn btn btn-default btn-sm" pocs="{$sub['resp']}" arg="{$sub['arg']}" reqhead="{$sub['responseHeader']}" req="{$sub['req']}">详情</button></td>
+                                                                                        </tr>
+                                                                                    </volist>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                        <else/>
+                                                                        <div id="collapseOneMid{$k}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div class="panel-body">
+                                                                                <table class="vuls-content-table table table-striped table-bordered table-hover table-condensed datatable"  cellspacing="0" width="100%" align="left">
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        <td style="widht:10%">编号</td>
+                                                                                        <td style="width:50%">url</td>
+                                                                                        <td style="width:30%">poc</td>
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                    <volist name="vo['value']" id="sub" key="subkey">
+                                                                                        <tr>
+                                                                                            <td>{$subkey}</td>
+                                                                                            <td>{$sub["url"]}</td>
+                                                                                            <td><button class="pocbtn btn btn-default btn-sm" pocs="{$sub['resp']}" arg="{$sub['arg']}" reqhead="{$sub['responseHeader']}" req="{$sub['req']}">poc</button></td>
+                                                                                        </tr>
+                                                                                    </volist>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </if>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </volist>
+                                                </div>
+                                            </if>
+                                            <if condition="$vuls_detail['low']">
+                                                <div class="tab-pane fade" id="low-vuls-tag">
+                                                    <volist name="vuls_detail['low']" id="vo" key="k" >
+                                                        <div style="padding-top:10px; margin-left:3%;margin-right: 3%">
+                                                            <div class="panel-group" id="accordionLow" role="tablist" aria-multiselectable="true">
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading" role="tab" id="headingOneLow{$k}">
+                                                                        <h4 class="panel-title">
+                                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOneLow{$k}" aria-expanded="true" aria-controls="collapseOne">
+                                                                                {$vo.name}
+                                                                            </a>
+                                                                        </h4>
+                                                                    </div>
+                                                                    <if condition="$k eq 1">
+                                                                        <div id="collapseOneLow1" class="panel-collapse collapse in dataTables_wrapper form-inline" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div class="panel-body">
+                                                                                <table class="vuls-content-table table table-striped table-bordered table-hover table-condensed datatable"  cellspacing="0" width="100%" align="left">
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        <td style="widht:10%">编号</td>
+                                                                                        <td style="width:50%">url</td>
+                                                                                        <td style="width:30%">详情</td>
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                    <volist name="vo['value']" id="sub" key="subkey">
+                                                                                        <tr>
+                                                                                            <td>{$subkey}</td>
+                                                                                            <td>{$sub["url"]}</td>
+                                                                                            <td><button class="pocbtn btn btn-default btn-sm" pocs="{$sub['resp']}" arg="{$sub['arg']}" reqhead="{$sub['responseHeader']}" req="{$sub['req']}">详情</button></td>
+                                                                                        </tr>
+                                                                                    </volist>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                        <else/>
+                                                                        <div id="collapseOneLow{$k}" class="panel-collapse collapse dataTables_wrapper form-inline" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div class="panel-body">
+                                                                                <table class="vuls-content-table table table-striped table-bordered table-hover table-condensed datatable"  cellspacing="0" width="100%">
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        <td style="widht:10%">编号</td>
+                                                                                        <td style="width:50%">url</td>
+                                                                                        <td style="width:30%">详情</td>
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                    <volist name="vo['value']" id="sub" key="subkey">
+                                                                                        <tr>
+                                                                                            <td>{$subkey}</td>
+                                                                                            <td>{$sub["url"]}</td>
+                                                                                            <td><button class="pocbtn btn btn-default btn-sm" pocs="{$sub['resp']}" arg="{$sub['arg']}" reqhead="{$sub['responseHeader']}" req="{$sub['req']}">详情</button></td>
+                                                                                        </tr>
+                                                                                    </volist>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </if>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </volist>
+                                                </div>
+                                            </if>
+                                            <if condition="$vuls_detail['info']">
+                                                <div class="tab-pane fade" id="info-vuls-tag">
+                                                    <volist name="vuls_detail['info']" id="vo" key="k" >
+                                                        <div style="padding-top:10px; margin-left:3%;margin-right: 3%">
+                                                            <div class="panel-group" id="accordionInfo" role="tablist" aria-multiselectable="true">
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading" role="tab" id="headingOneInfo{$k}">
+                                                                        <h4 class="panel-title">
+                                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOneInfo{$k}" aria-expanded="true" aria-controls="collapseOne">
+                                                                                {$vo.name}
+                                                                            </a>
+                                                                        </h4>
+                                                                    </div>
+                                                                    <if condition="$k eq 1">
+                                                                        <div id="collapseOneInfo1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div class="panel-body">
+                                                                                <table class="vuls-content-table table table-striped table-bordered table-hover table-condensed datatable"  cellspacing="0" width="100%">
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        <td style="widht:10%">编号</td>
+                                                                                        <td style="width:50%">url</td>
+                                                                                        <td style="width:30%">详情</td>
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                    <volist name="vo['value']" id="sub" key="subkey">
+                                                                                        <tr>
+                                                                                            <td>{$subkey}</td>
+                                                                                            <td>{$sub["url"]}</td>
+                                                                                            <td><button class="pocbtn btn btn-default btn-sm" pocs="{$sub['resp']}" arg="{$sub['arg']}" reqhead="{$sub['responseHeader']}" req="{$sub['req']}">详情</button></td>
+                                                                                        </tr>
+                                                                                    </volist>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                        <else/>
+                                                                        <div id="collapseOneInfo{$k}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div class="panel-body">
+                                                                                <table class=" table table-striped vuls-content-table table-bordered table-hover datatable dataTable"  cellspacing="0" width="100%">
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        <td style="widht:10%">编号</td>
+                                                                                        <td style="width:50%">url</td>
+                                                                                        <td style="width:30%">详情</td>
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                    <volist name="vo['value']" id="sub" key="subkey">
+                                                                                        <tr>
+                                                                                            <td>{$subkey}</td>
+                                                                                            <td>{$sub["url"]}</td>
+                                                                                            <td><button class="pocbtn btn btn-default btn-sm" pocs="{$sub['resp']}" arg="{$sub['arg']}" reqhead="{$sub['responseHeader']}" req="{$sub['req']}">详情</button></td>
+                                                                                        </tr>
+                                                                                    </volist>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </if>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </volist>
+                                                </div>
+                                            </if>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--安全事件-->
+            <div class="row pd-t-50" id="event-nav">
+                <div class="col-md-12">
+                    <div class="portlet">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-comments"></i>安全事件（近期）</div>
+                            <div class="tools">
+                                <a  class="pull-right tool" href="#event" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body collapse in" id="event">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="timeline">
+                                        <ul class="event_year">
+                                        </ul>
+                                        <ul class="event_list">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--安全态势-->
+            <div class="row pd-t-50" id="status-nav">
+                <div class="col-md-12">
+                    <div class="portlet">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-comments"></i>安全态势</div>
+                            <div class="tools">
+                                <a  class="pull-right tool" href="#status" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body collapse in" id="status">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div role="tabpanel">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#safe-web-sub" data-toggle="tab">子域名</a></li>
+                                            <li role="presentation"><a href="#safe-web-ip" data-toggle="tab">同IP网站</a></li>
+                                            <li role="presentation"><a href="#safe-web-room" data-toggle="tab">同机房域名</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="safe-web-sub">
+                                                <div class="row">
+                                                    <div class="col-md-12 mt-20">
+                                                        <table class="table table-bordered" >
+                                                            <thead class="bg-lightgrey">
+                                                            <tr>
+                                                                <!--<th>网站标题</th>-->
+                                                                <th>网址</th>
+                                                                <th>安全等级</th>
+                                                                <th>安全事件</th>
+                                                                <th>高危漏洞</th>
+                                                                <th>中危漏洞</th>
+                                                                <th>低危漏洞</th>
+                                                                <th>信息</th>
+                                                                <th>操作</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody id="sub-web-info">
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="safe-web-ip">
+                                                <div class="row">
+                                                    <div class="col-md-12 mt-20">
+                                                        <table class="table table-bordered" >
+                                                            <thead class="bg-lightgrey">
+                                                            <tr>
+                                                                <!--<th>网站标题</th>-->
+                                                                <th>网址</th>
+                                                                <th>安全等级</th>
+                                                                <th>安全事件</th>
+                                                                <th>高危漏洞</th>
+                                                                <th>中危漏洞</th>
+                                                                <th>低危漏洞</th>
+                                                                <th>信息</th>
+                                                                <th>操作</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody id="ip-web-info">
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="safe-web-room">
+                                                <div class="row">
+                                                    <div class="col-md-12 mt-20">
+                                                        <table class="table table-bordered" >
+                                                            <thead class="bg-lightgrey">
+                                                            <tr>
+                                                                <!--<th>网站标题</th>-->
+                                                                <th>网址</th>
+                                                                <th>安全等级</th>
+                                                                <th>安全事件</th>
+                                                                <th>高危漏洞</th>
+                                                                <th>中危漏洞</th>
+                                                                <th>低危漏洞</th>
+                                                                <th>信息</th>
+                                                                <th>操作</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody id="room-web-info">
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="go-top">
+    <if condition="$report">
+        <if condition='authcheck("Home/Report/emailDomainReport",$user)'>
+            <a class="btn icn-only" href="javascript:;"><i class="fa fa-send send-email fa-2x"></i></a>
+        </if>
+        <if condition='authcheck("Home/Report/exportDomainReport",$user)'>
+            <a class="btn icn-only" href="javascript:;"><i class="fa fa-download domina-report-export fa-2x"></i></a>
+        </if>
+    </if>
+    <a class="btn icn-only scroll" href="javascript:;"><i class="fa fa-angle-double-up fa-2x"></i></a>
+</div>
+<div class="tip">
+    <if condition="$report">
+        <if condition='authcheck("Home/Report/emailDomainReport",$user)'>
+            <a class="btn" href="javascript:;">发送<br>报告</a>
+        </if>
+        <if condition='authcheck("Home/Report/exportDomainReport",$user)'>
+            <a class="btn " href="javascript:;">导出<br>报告</a>
+        </if>
+    </if>
+    <a class="btn scroll" href="javascript:;">回到<br>顶部</a>
+</div>
+
+    <div class="footer">
+        <p>Copyright © 2007-2016 XXXX技术有限公司 保留所有版权</p>
+    </div>
+
+<if condition='authcheck("Home/Report/emailDomainReport",$user)'>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">发送邮件</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label class="control-label col-md-2 col-sm-2" for="emailContact">收件人</label>
+                        <div class="col-md-9 col-sm-9">
+                            <textarea type="text" class="form-control email-param" id="emailContact">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2 col-sm-2" for="emailContactCp">抄送人</label>
+                        <div class="col-md-9 col-sm-9">
+                            <textarea type="text" class="form-control email-param" id="emailContactCp">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2 col-sm-2" for="emailContact">标题</label>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" class="form-control" id="emailTitle" value="XXX检测报告">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2 col-sm-2" for="emailContactCp">正文</label>
+                        <div class="col-md-9 col-sm-9">
+                            <textarea type="text" class="form-control" rows="5" id="emailContent" >你好，附件为{$domain}报告，请查收
+                            </textarea>
+                        </div>
+                    </div>
+                    <div align="center" id="email-result">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default unsend-btn" id="closeSendMail">取消</button>
+                    <button type="button" class="btn btn-default send-btn" id="sendMail">发送</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</if>
+
+<div class="modal fade" id="myPocModal" align="center">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #87CEFA;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" style="color:#ffffff">Poc</h4>
+            </div>
+            <div class="modal-body" style="background-color: #F6FCFF">
+                <div class="form-group row" align="left" style="padding-left:6%">
+                    <div>
+                        <div>
+                            <h4>请求头</h4>
+                        </div>
+                        <pre type="text" style="width: 90%;height:100px;background-color: #FAFAFA" id="pocHeader">
+                        </pre>
+                    </div>
+                    <div>
+                        <div>
+                            <h4>响应头</h4>
+                        </div>
+                        <pre type="text" style="width: 90%;height:100px;background-color: #FAFAFA" id="pocResponseHeader">
+                        </pre>
+                    </div>
+
+                    <div>
+                        <div>
+                            <h4>响应体</h4>
+                        </div>
+                        <pre type="text" style="width: 90%;height:300px;background-color: #FAFAFA" id="pocContent">
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="background-color: #F6FCFF">
+                <button type="button" class="btn btn-default send-btn" id="pocModelClose">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<li style="display: none" id="one-event-time">
+    <span class="event_date"></span>
+    <p class="event_content">
+        <span class="event_main">
+            <i class="type"></i>
+            <a class="this_event_url" href="#"></a>
+            <i class="repair"></i>
+        </span>
+    </p>
+</li>
+
+    <if condition="$report">
+        <link href="__PUBLIC__/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/bootstrap.min.js"></script>
+        <script  type="text/javascript" src="__PUBLIC__/js/dataTables/jquery.dataTables.js"></script>
+        <script  type="text/javascript" src="__PUBLIC__/js/dataTables/dataTables.bootstrap.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/script/main.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/echarts/dist/echarts.js"></script>
+        <script type="text/javascript"  src="__PUBLIC__/js/jquery/jquery-autocomplete/jquery.autocomplete.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/script/Home/domain-report.js"></script>
+        <else/>
+        <link href="js/dataTables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="js/jquery/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
+        <script  type="text/javascript" src="js/dataTables/jquery.dataTables.js"></script>
+        <script  type="text/javascript" src="js/dataTables/dataTables.bootstrap.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/echarts/dist/echarts.js"></script>
+        <script type="text/javascript" src="js/domain-report.js"></script>
+    </if>
+</body>
+</html>

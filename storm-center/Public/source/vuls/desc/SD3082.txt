@@ -1,0 +1,3 @@
+rails mass assinment漏洞描述：
+    Mass assignment是rails中常用的将表单数据存储起来的一种方式。
+    不幸的是，它的简洁性成了黑客攻击的目标。

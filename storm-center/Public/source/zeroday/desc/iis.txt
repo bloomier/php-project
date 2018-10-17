@@ -1,0 +1,4 @@
+Internet Information Server（简称IIS）是Windows系统提供的一种服务，它包括WWW服务器、FTP服务器和SMTP服务器，曾是架设个人网站的首选
+Microsoft IIS 是允许在公共Intranet或Internet上发布信息的Web服务器。Internet Information Server通过使用超文本传输协议(HTTP)传输信息。
+还可配置Internet Information Server 以提供文件传输协议(FTP)和gopher服务。FTP服务允许用户从Web节点或到Web节点传送文件。
+gopher服务为定位文档使用菜单驱动协议。HTTP协议已经尽可能地代替了gopher协议。

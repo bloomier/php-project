@@ -1,0 +1,16 @@
+ssl破戒漏洞修复方案：
+    1、临时解决方法：
+    如果您不能立刻安装补丁或者升级，NSFOCUS建议您采取以下措施以降低威胁：
+    * 禁用SSL 3.0协议。
+    目前常用浏览器只有IE 6.0仍然不支持TLS 1.0，禁用SSL 3.0协议将影响IE 6客户的SSL访问。
+
+    2、服务端禁用方法：
+    Apache 2.x:
+    在mod_ssl配置文件中使用如下命令禁用SSLv2和SSLv3：
+    SSLProtocol All -SSLv2 -SSLv3
+    重启Apache
+
+    3、Nginx:
+    在配置文件中使用：
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    重启Nginx

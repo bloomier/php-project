@@ -1,0 +1,2 @@
+CVE ms12_050 漏洞修复建议：
+	安装厂家补丁：MS12-050：Vulnerabilities in SharePoint Could Allow Elevation of Privilege (2695502)

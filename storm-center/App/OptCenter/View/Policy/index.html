@@ -1,0 +1,67 @@
+<include file="./App/OptCenter/View/header.html" />
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Service/index/">首页</a> </li>
+                    <li>策略管理</li>
+                    <li><a href="__ROOT__/index.php/Service/Item">策略维护</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>策略维护</div>
+                    </div>
+                    <div class="portlet-body light-grey">
+                        <div class="row margin-bottom-15">
+                            <div class="col-md-12">
+                                <form action="#" class="form-search pull-right">
+                                    <select class="policy-level" id="policy-level">
+                                        <option value="0">所有类型</option>
+                                        <option value="20">信息</option>
+                                        <option value="30">低危</option>
+                                        <option value="40">中危</option>
+                                        <option value="50">高危</option>
+                                        <option value="60">安全事件</option>
+                                    </select>
+                                    <div class="input-group" style="display: inline-table;vertical-align: top;">
+                                        <input class="m-wrap medium" type="text" placeholder="策略名称" >
+                                        <button class="btn green btn-search" type="button">查询</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-striped table-bordered table-hover dataTable" id="policy-table">
+                                    <thead class="bg-lightgrey">
+                                    <tr role="row">
+                                        <td>策略ID</td>
+                                        <td>策略名称</td>
+                                        <td>危害性</td>
+                                        <td>漏洞等级</td>
+                                        <td>策略描述</td>
+                                        <td>修复建议</td>
+                                        <td>操作</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/script/OptCenter/policy/policyindex.js"></script>
+<include file="./App/OptCenter/View/footer.html" />

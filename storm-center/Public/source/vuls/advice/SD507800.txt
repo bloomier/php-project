@@ -1,0 +1,5 @@
+elasticsearch audit漏洞修复建议：
+    1、手动关闭ES远程执行脚本的功能，即在每一个ES节点的配置文件elasticsearch.yml中添加如下一行即可
+        script.disable_dynamic: true
+        然后重启ES即可；
+    2、升级ES至1.2版本以上也可，因为在ES1.2版本中已默认关闭了远程执行脚本的功能，但需考虑与Logstash的兼容性问题；

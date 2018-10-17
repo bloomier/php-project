@@ -1,0 +1,73 @@
+<include file="./App/Self/View/header.html" />
+
+
+<!-- page-content -->
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Self/SelfHome/index">首页</a> </li>
+                    <li><a href="__ROOT__/index.php/Self/Task/apply">新增任务</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>新增任务</div>
+                    </div>
+                    <div class="portlet-body form">
+                        <form action="add" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">域名列表</label>
+                                <div class="col-sm-6">
+                                    <!--
+                                    <div style="resize: none; height:200px" class="form-control domainList" rows="6">
+
+                                    </div>
+                                    -->
+                                    <textarea style="resize: none;" class="form-control domainList" id="domainList_id" rows="15"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">申请原因</label>
+                                <div class="col-sm-6">
+                                    <textarea style="resize: none;" class="form-control applyReason" id="applyReason_id" rows="4"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">说明</label>
+                                <div class="col-sm-6">
+                                    <label class="control-label">
+                                        <font style="color: #ff0000">
+                                            网站扫描申请单审核通过后，将通过密信方式通知您，请注意查收。
+                                        </font>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn blue apply_form_audti">提交</button>
+                                    <a href="__ROOT__/index.php/Self/Task/personal" class="btn grey">返回列表</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end page-content -->
+
+
+
+<include file="./App/Self/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/script/Self/task_apply.js"></script>
+
+
+

@@ -1,0 +1,2 @@
+PHPmyadmin修复方案：
+    换其他操作xml的方式，譬如xml_parse

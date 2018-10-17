@@ -1,0 +1,55 @@
+<include file="./App/ScreenCenter/View/common/header.html" />
+
+<!--加载raphael工具|绘制雷达图用-->
+<script type="application/javascript" src="__PUBLIC__/js/raphael/raphael.js"></script>
+<style>
+    body{
+        background-color: #000;
+        overflow: hidden;
+    }
+    .num p{ font-size: 18px; color: #fff; height: 28px; line-height: 28px; margin: 10px auto 0;}
+    .t_num1 i,.t_num2 i,.t_num3 i{}
+    .num .t_num1, .num .t_num2,.num .t_num3{display:inline-block; line-height:13px; margin:2px 4px 0 4px;}
+    .num .t_num1 i, .num .t_num2 i, .num .t_num3 i{
+        width:15px;
+        height:23px;
+        display:inline-block;
+        background: url(__PUBLIC__/image/number.png) no-repeat;
+        background-position:0 0;
+        text-indent:-999em;
+        vertical-align: middle;
+        margin-left: 2px;
+    }
+
+</style>
+<div class="title-wraper">
+    <h1>节点信息采集分析</h1>
+</div>
+<div class="row">
+    <div class='row'>
+        <div class="col-md-3" style="padding-top: 5%; left: 5%">
+            <div id="bar" style="width:80%;"></div>
+            <div  class="num" style="padding-top: 10%">
+                <p>扫描<span class="t_num1"></span>个网页</p>
+                <p>发现<span class="t_num3"></span>个漏洞</p>
+                <p>存储<span class="t_num2"></span>GB数据</p>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-6">
+            <div id="main" style="filter:alpha(opacity=60);"></div>
+        </div>
+        <div class="col-md-3 col-xs-3" style="padding-top: 5%; color: white;">
+            <h4 style="padding-left: 40%">扫描检测</h4>
+            <div id="holder"></div>
+            <div style="padding-top: 10%">
+                <div id="pie"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<assign name='plugins' value='echarts'/>
+<include file="./App/ScreenCenter/View/common/autorun.html" />
+<include file="./App/ScreenCenter/View/common/footer.html" />
+
+<script type="text/javascript" src="__PUBLIC__/js/scrool/animateBackground-plugin.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/ScreenCenter/storm-nodes.js"></script>

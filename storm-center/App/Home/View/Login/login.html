@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>风暴中心</title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/style-metro.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/default.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/parsley/parsley.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/login.css" rel="stylesheet" type="text/css" />
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/html5shiv.min.js"></script>
+    <script type="text/javascript"  src="__PUBLIC__/js/bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="login">
+<input type="hidden" value="{$loginType}" id="loginType">
+<div class="content">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" loginType="2"><a href="#user" aria-controls="user" role="tab" data-toggle="tab">手机令牌登录</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane " id="user">
+            <form class="form-vertical login-form" id="ogin-form2" method="post" action="__ROOT__/index.php/Home/Login/login2" data-parsley-validate>
+                <span class="text-danger" >{$errorMsg2}</span>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">输入手机号</label>
+                    <div class="controls">
+                        <div class="input-icon left">
+                            <i class="fa fa-user"></i>
+                            <input id="phoneNum_id" class="m-wrap placeholder-no-fix" type="text" placeholder="输入手机号" name="username" required data-parsley-type="integer" data-parsley-length="[11,11]"/>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9" >密码</label>
+                    <div class="controls">
+                        <div class="input-icon left">
+                            <i class="fa fa-key"></i>
+                            <input class="m-wrap placeholder-no-fix" type="password" id="passwordTmp" placeholder="密码"  />
+                            <input type="password" id="password" name="password" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">通过密信接收动态密码</label>
+                    <div class="controls row">
+                        <div class="input-icon left">
+                            <div class="col-md-7">
+                                <i class="fa fa-lock"></i>
+                                <input class="m-wrap placeholder-no-fix password" type="text" placeholder="密信接收动态密码" name="valicode" required  data-parsley-type="integer" data-parsley-length="[6, 6]"/>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="button" class="btn blue" id="securityCode_id"  value="获取动态密码"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group show-msg-label" style="display: none">
+                    <div class="controls row">
+                        <div class="col-md-10 show-msg">
+                            <span>密信已发送,剩余有效时间<label class="usable-time">180</label>秒</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions text-center">
+                    <button class="btn green btn-block btn-login2">登录</button>
+                </div>
+
+
+
+            </form>
+        </div>
+        <div class="create-account">
+            <p>没有账号？&nbsp;<a href="#storm"  data-toggle="collapse" aria-expanded="false" aria-controls="storm">联系风暴中心</a></p>
+        </div>
+
+    </div>
+    <!--logo-->
+
+
+
+</div>
+
+<div class="copyright">
+    <i class="fa fa-copyright"></i> 2007-2016 XXXX技术有限公司
+</div>
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery/jquery.md5.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/parsley/parsley.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Home/login.js"></script>
+</body>
+</html>

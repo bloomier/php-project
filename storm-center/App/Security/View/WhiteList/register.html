@@ -1,0 +1,145 @@
+<include file="./App/Security/View/header.html" />
+
+
+<div class="page-content">
+    <input type="hidden" id="contract_id" value="{$contract}"/>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="javascript:;">首页</a> </li>
+                    <li>白名单管理</li>
+                    <li><a href="__ROOT__/index.php/Security/WhiteList/index">我的白名单</a></li>
+                    <if condition="$contract">
+                        <li><a href="#">白名单详情</a></li>
+                        <else/>
+                        <li><a href="__ROOT__/index.php/Security/WhiteList/register">白名单登记</a></li>
+                    </if>
+                </ol>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>
+                            <if condition="$contract">
+                                白名单详情
+                                <else/>
+                                白名单登记
+                            </if>
+                        </div>
+                    </div>
+                    <div class="portlet-body form">
+                        <form id="form_id" action="__ROOT__/index.php/Security/WhiteList/insert" class="form-horizontal j-form" method="post">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span class="required">*</span>客户编号</label>
+                                <div class="col-sm-6">
+                                    <input type="url" class="form-control m-wrap" id="client_no_id" name="client_no"  placeholder="客户编号" required>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span class="required">*</span>合同名称</label>
+                                <div class="col-sm-6">
+                                    <input type="url" class="form-control m-wrap" id="contract_name_id" name="contract_name"  placeholder="合同名称" >
+                                </div>
+                            </div>
+                            -->
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span class="required">*</span>客户名称</label>
+                                <div class="col-sm-6">
+                                    <input type="url" class="form-control m-wrap" id="client_name_id" name="client_name"  placeholder="客户名称">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">联系方式</label>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control m-wrap" id="client_phone_id" name="client_phone" rows="2"></textarea>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span class="required">*</span>合同期限</label>
+                                <div class="col-sm-2">
+                                    <input type="text" id="contract_start_date_id" name="contract_start_date"
+                                           class="Wdate form-control m-wrap"/>
+                                </div>
+                                <label class="col-sm-2 control-label"><span class="required">*</span>至</label>
+                                <div class="col-sm-2">
+                                    <input type="text" id="contract_end_date_id" name="contract_end_date"
+                                           class="Wdate form-control m-wrap"/>
+                                </div>
+                            </div>
+                            -->
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">归属区域</label>
+                                <div class="col-sm-6">
+                                    <select class="m-wrap" id="area_id" name="area" style="width:100%">
+                                        <foreach item="config_area" name="config_area" key="key">
+                                            <option value="{$key}" saleValue="{$config_area.SALE_RESPONSIBLE}" areaValue="{$config_area.AREA_RESPONSIBLE}">{$key}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">区域责任人</label>
+                                <div class="col-sm-6">
+                                    <select id="area_responsible_id" name="area_responsible" style="width:100%" >
+                                        <foreach item="area_responsibles" name="area_responsibles">
+                                            <option value="{$area_responsibles}" >{$area_responsibles}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">销售责任人</label>
+                                <div class="col-sm-6">
+                                    <select id="sale_responsible_id" name="sale_responsible" style="width:100%" >
+                                        <foreach item="sale_responsibles" name="sale_responsibles">
+                                            <option value="{$sale_responsibles}" >{$sale_responsibles}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span class="required">*</span>监测网站</label>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control m-wrap" id="domain_id" name="domains" rows="6" ></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"></label>
+                                <div class="col-sm-6">
+                                    <label class="control-label">
+                                        <font style="color: #ff0000">
+                                            （说明：请将合同相关网站的域名填写在上面文本框中，一行一个域名，格式如：www.baidu.com）
+                                        </font>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">备注</label>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control m-wrap" id="remark_id" name="remark" rows="4"></textarea>
+                                </div>
+                            </div>
+                            <if condition="$contract">
+                                <a style="margin-left: 238px;" href="__ROOT__/index.php/Security/WhiteList/index" class="btn blue">返回列表</a>
+                                <else/>
+                                <button style="margin-left: 238px;" type="button" class="btn blue contract_register" >&nbsp;登记&nbsp;</button>
+                                <button type="button" class="btn reset_form">重置表单</button>
+                            </if>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="__PUBLIC__/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Security/white_list.js"></script>
+<include file="./App/Security/View/footer.html" />

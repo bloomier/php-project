@@ -1,0 +1,57 @@
+签名机制
+
+ECS 服务会对每个访问的请求进行身份验证，所以无论使用 HTTP 还是 HTTPS 协议提交请求，都需要在请求中包含签名（Signature）信息。ECS 通过使用 Access Key ID 和 Access Key Secret 进行对称加密的方法来验证请求的发送者身份。Access Key ID 和 Access Key Secret 由阿里云官方颁发给访问者（可以通过阿里云官方网站申请和管理），其中 Access Key ID 用于标识访问者的身份；Access Key Secret 是用于加密签名字符串和服务器端验证签名字符串的密钥，必须严格保密，只有阿里云和用户知道。
+
+用户在访问时，按照下面的方法对请求进行签名处理：
+
+使用请求参数构造规范化的请求字符串（Canonicalized Query String）
+(a) 参数排序。 按照参数名称的字典顺序对请求中所有的请求参数（包括“公共请求参数”和接口的自定义参数，但不能包括“公共请求参数”中提到的Signature 参数本身）进行排序。
+注：当使用 GET 方法提交请求时，这些参数就是请求 URI 中的参数部分（即 URI 中“?”之后由“&”连接的部分）。
+
+(b) 参数编码。 对排序之后的请求参数的名称和值分别用UTF-8字符集进行URL编码。编码的规则如下：
+
+    i.  对于字符 A-Z、a-z、0-9 以及字符“-”、“_”、“.”、“~”不编码；
+    ii. 对于其他字符编码成 “%XY” 的格式，其中 XY 是字符对应 ASCII 码的 16 进制表示。比如英文的双引号（”）对应的编码就是 %22
+    iii.对于扩展的 UTF-8 字符，编码成 “%XY%ZA…” 的格式；
+    iv. 需要说明的是英文空格（ ）要被编码是 %20，而不是加号（+）。
+注：该编码方式和一般采用的“application/x-www-form-urlencoded” MIME格式编码算法(比如Java标准库中的 java.net.URLEncoder的实现) 相似, 但又有所不同。 实现时, 可以先用标准库的方式进行编码, 然后把编码后的字符串中加号（+）替换成 %20、星号（*）替换成 %2A、%7E 替换回波浪号（~），即可得到上述规则描述的编码字符串。这个算法可以用下面的 percentEncode 方法来实现：
+
+  private static final String ENCODING = "UTF-8";
+
+  private static String percentEncode(String value) throws UnsupportedEncodingException {
+     return value != null ? URLEncoder.encode(value, ENCODING).replace("+", "%20").replace("*", "%2A").replace("%7E", "~") : null;
+ }
+(c) 将编码后的参数名称和值用英文等号（=）进行连接。
+
+(d) 将等号连接得到的参数组合按步骤(a)排好的顺序依次使用&符号连接，即得到规范化请求字符串。
+
+将上一步构造的规范化字符串按照下面的规则构造成待签名的字符串：
+
+ StringToSign=
+     HTTPMethod + “&” +
+     percentEncode(“/”) + ”&” +
+      percentEncode(CanonicalizedQueryString)
+其中 HTTPMethod 是提交请求用的 HTTP 方法，比如 GET。
+percentEncode(“/”) 是按照 1.b 中描述的 URL 编码规则对字符 “/” 进行编码得到的值，即 “%2F”。
+percentEncode(CanonicalizedQueryString) 是对第 1 步中构造的规范化请求字符串按 1.b 中描述的 URL 编码规则编码后得到的字符串。
+
+按照 RFC2104 的定义，计算待签名字符串 StringToSign 的 HMAC 值。注意：计算签名时使用的 Key 就是用户持有的 Access Key Secret 并加上一个 “&” 字符(ASCII:38)，使用的哈希算法是 SHA1。
+
+按照 Base64 编码规则把上面的 HMAC 值编码成字符串，即得到签名值（Signature）。
+
+将得到的签名值作为 Signature 参数添加到请求参数中，即完成对请求签名的过程。
+注意：得到的签名值在作为最后的请求参数值提交给ECS服务器的时候，要和其他参数一样，按照 RFC3986 的规则进行 URL 编码。
+
+以 DescribeRegions 为例，假设使用的 Access Key Id 是 “testid”， Access Key Secret 是 “testsecret”。 那么签名前的请求 URL 为：
+
+http://ecs.aliyuncs.com/?TimeStamp=2016-02-23T12:46:24Z&Format=XML&AccessKeyId=testid&Action=DescribeRegions&SignatureMethod=HMAC-SHA1&SignatureNonce=3ee8c1b8-83d3-44af-a94f-4e0ad82fd6cf&Version=2014-05-26&SignatureVersion=1.0
+而计算得到的待签名字符串 StringToSign 为：
+
+GET&%2F&AccessKeyId%3Dtestid%26Action%3DDescribeRegions%26Format%3DXML%26SignatureMethod%3DHMAC-SHA1%26SignatureNonce%3D3ee8c1b8-83d3-44af-a94f-4e0ad82fd6cf%26SignatureVersion%3D1.0%26TimeStamp%3D2016-02-23T12%253A46%253A24Z%26Version%3D2014-05-26
+因为Access Key Secret 是 “testsecret”，所以用于计算 HMAC 的 Key 为 “testsecret&”，计算得到的签名值是：
+
+CT9X0VtwR86fNWSnsc6v8YGOjuE=
+将签名作为Signature参数加入到URL请求中， 得到最后的URL 为：
+
+http://ecs.aliyuncs.com/?SignatureVersion=1.0&Action=DescribeRegions&Format=XML&SignatureNonce=3ee8c1b8-83d3-44af-a94f-4e0ad82fd6cf&Version=2014-05-26&AccessKeyId=testid&Signature=CT9X0VtwR86fNWSnsc6v8YGOjuE%3D&SignatureMethod=HMAC-SHA1&TimeStamp=2016-02-23T12%3A46%3A24Z
+关于如何进行签名并提交请求的详细示例，请参见附录：如何调用接口。

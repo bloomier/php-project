@@ -1,0 +1,4 @@
+Struts2漏洞：
+    struts2会将http的每个参数名解析为ongl语句执行(可理解为java代码)。
+    ongl表达式通过#来访问struts的对象，struts框架通过过滤#字符防止安全问题，
+    然而通过unicode编码(\u0023)或8进制(\43)即绕过了安全限制。

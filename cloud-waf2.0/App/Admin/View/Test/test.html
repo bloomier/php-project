@@ -1,0 +1,124 @@
+<!doctype html>
+<html class="cn-zh">
+<head>
+    <title>Loading...</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="renderer" content="webkit|ie-stand" />
+    <meta name="robots" content="noindex,nofollow,noarchive">
+
+    <link rel="stylesheet" href="__PUBLIC__/test/css/ext-all.css?201607092016" />
+    <link rel="stylesheet" href="__PUBLIC__/test/css/all.css?201607092016" />
+    <link rel="stylesheet" href="__PUBLIC__/test/css/all.css?201607092016" />
+    <script type="text/javascript">SFUserName="liang";</script>
+    <script type="text/javascript">SFReportVesion ="v11.2R1";</script>
+    <script type="text/javascript">SFIsAdmin="";</script>
+
+    <script type="text/javascript">SFIsDkeyOn="";</script>
+    <script type="text/javascript">VERSION="201607092016";</script>
+</head>
+<body x-ms-format-detection="none">
+
+<div id="loading-mask"></div>
+<div id="loading">
+    <div id="loading-msg" style="display: none;"></div>
+    <div id="progress-bar">
+        <div id="progress-bar-inner"></div>
+    </div>
+</div>
+
+<!--scripts-->
+<script type="text/javascript">
+    var loadingMsg = '正在加载...';
+    window.g_Lang = window.g_Lang || {};
+    document.getElementById('loading-msg').innerHTML = window.g_Lang[loadingMsg] || loadingMsg;
+    function loadStatus(w){
+        var p = document.getElementById('progress-bar-inner');
+        p.style.width = w + '%';
+        if (w === 90) {
+            seajs.use('home/mod-common/router', function () {
+                loadStatus(100);
+                setTimeout(function () {
+                    var loadingEl = document.getElementById('loading'),
+                            maskEl = document.getElementById('loading-mask');
+                    loadingEl.style.display = 'none';
+                    maskEl.style.display = 'none';
+                }, 100);
+            });
+        }
+    }
+    loadStatus(0);
+
+    var SFDebugMode = false;
+    var SFIsLinux = false;
+    var SFIsEnglish = false;
+    var SFIsLowPlat = false;
+
+</script>
+
+<script type="text/javascript">
+    SFIsLinux = true;
+</script><script type="text/javascript">
+    SFIsLowPlat = true;
+</script>
+
+<script src="__PUBLIC__/test/js/seajs.js?201607092016"></script>
+<script type="text/javascript">
+    window.ACDC = seajs;
+    ACDC.config({
+        preload : [
+
+        ],
+        token: "1479260347820",
+        debug : !!SFDebugMode,
+        version : VERSION,
+        isEnglish : !!SFIsEnglish,
+        isLinux : !!SFIsLinux,
+        userName : SFUserName,
+        reportVesion : SFReportVesion,
+        isAdmin: SFIsAdmin,
+        flowUnit: "byteps",
+        flowHex: "1000",
+        grpFlux: "off",
+        isLowPlat: !!SFIsLowPlat,
+        isDkeyOn : !!SFIsDkeyOn
+    });
+    SFDebugMode = undefined;
+    SFIsLinux = undefined;
+    SFUserName = undefined;
+    SFReportVesion = undefined;
+    SFIsAdmin = undefined;
+    SFIsLowPlat = undefined;
+    SFIsDkeyOn = undefined;
+</script>
+<script type="text/javascript"> loadStatus(10); </script>
+<script src=".__PUBLIC__/test/js/seaConf.js?201607092016"></script>
+
+
+<script src="__PUBLIC__/test/js/all.js?201607092016"></script>
+
+<!-- 这里要判断下是不是要加载debug/index.js -->
+
+<!--<script>seajs.use('home/mod-common/loading/index');</script>-->
+
+
+<script src="__PUBLIC__/test/js/extjs.js?201607092016"></script>
+<script type="text/javascript"> loadStatus(30); </script>
+<script src="ac/lib/override.js?201607092016"></script>
+<script type="text/javascript"> loadStatus(60); </script>
+<script src="ac/lib/framework.js?201607092016"></script>
+<script type="text/javascript"> loadStatus(90); </script>
+
+<script type="text/javascript">
+    var title = "";
+    if (title) {
+        title = _("{0}-日志中心", title);
+    } else {
+        title = _("日志中心");
+    }
+    document.title = title;
+</script>
+
+<!--<script src="debug/sync-browser/client/lib/jquery-1.11.1.js?201607092016"></script>-->
+<!--<script src="debug/sync-browser/client/sync-browser.js?201607092016"></script>-->
+</body>
+</html>

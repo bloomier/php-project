@@ -1,0 +1,3 @@
+tomcat弱口令漏洞修复方案：
+    修改安装目录conf下的tomcat-user.xml文件，重新设置复杂口令后并保存文件。
+    重启tomcat后新口令生效

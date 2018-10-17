@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include  file="./App/Mobile/View/common/header.html"/>
+    <link rel="stylesheet" href="__PUBLIC__/asset/css/Mobile/page/site.css"/>
+</head>
+<body>
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+    <div class="search">
+        <input type="text" class="search-box" placeholder="输入站点名称/域名"/>
+        <i class="fa fa-search search-tip"></i>
+        <a href="javascript:;" class="cancel">取消</a>
+    </div>
+    <div class="content">
+        <div class="list-header">
+            <span>站点名称</span><span>服务质量</span><span>攻击/访问</span>
+        </div>
+        <div class="list">
+           <!-- <a class="item" href="__ROOT__/index.php/Mobile/Site/detail">
+               <span class="item-info">
+                    <span class="title">杭州市审计局</span>
+                    <span class="domain">255.255.255.255</span>
+                </span>
+                <span class="item-service"><i class="fa fa-flag"></i>正常</span>
+                <span class="item-detail"><i class="c-red">623</i>/<i class="c-green">67063</i></span>
+            </a>
+            <a class="item item-error" href="__ROOT__/index.php/Mobile/Site/detail">
+                <span class="item-info">杭州市审计局</span>
+                <span class="item-service s-error"><i class="fa fa-flag"></i>异常</span>
+                <span class="item-detail"><i class="c-red">623</i>/<i class="c-green">67063</i></span>
+            </a>-->
+
+
+        </div>
+        <div class="loading clear">下拉加载更多数据...</div>
+    </div>
+
+    <include  file="./App/Mobile/View/common/footer.html"/>
+
+    <script src="__PUBLIC__/script/Mobile/index.js"></script>
+</body>
+</html>

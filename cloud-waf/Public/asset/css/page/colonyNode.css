@@ -1,0 +1,92 @@
+/**
+ * @author Sean.xiang
+ *@date 2016/4/20
+ *@version
+ *@example
+ */
+
+
+.box-main .box-content{
+    height: 628px;
+}
+
+@media screen and (max-width: 1441px){
+    .box-main .box-content{
+        height: 498px;
+    }
+}
+@media screen and (max-width: 1681px) and (min-width: 1441px){
+    .box-main .box-content{
+        height:608px;
+    }
+}
+.box1 .grid>thead>tr>th:nth-child(1),
+.box1 .grid>tbody>tr>td:nth-child(1){
+    width: 40%;
+}
+.box1 .grid>thead>tr>th:nth-child(2),
+.box1 .grid>tbody>tr>td:nth-child(2){
+    width: 40%;
+}
+.box1 .grid>thead>tr>th:nth-child(3),
+.box1 .grid>tbody>tr>td:nth-child(3){
+    width: 20%;
+}
+.box2 .grid>thead>tr>th:nth-child(1),
+.box2 .grid>tbody>tr>td:nth-child(1){
+    width: 30%;
+}
+.box2 .grid>thead>tr>th:nth-child(2),
+.box2 .grid>tbody>tr>td:nth-child(2){
+    width: 30%;
+}
+.box2 .grid>thead>tr>th:nth-child(3),
+.box2 .grid>tbody>tr>td:nth-child(3){
+    width: 40%;
+}
+
+.box3 .grid>thead>tr>th:nth-child(1),
+.box3 .grid>tbody>tr>td:nth-child(1){
+    width: 40%;
+}
+.box3 .grid>thead>tr>th:nth-child(2),
+.box3 .grid>tbody>tr>td:nth-child(2){
+    width: 60%;
+}
+
+.box4 .grid>thead>tr>th:nth-child(1),
+.box4 .grid>tbody>tr>td:nth-child(1){
+    width: 15%;
+}
+.box4 .grid>thead>tr>th:nth-child(2),
+.box4 .grid>tbody>tr>td:nth-child(2){
+    width: 10%;
+}
+.box4 .grid>thead>tr>th:nth-child(3),
+.box4 .grid>tbody>tr>td:nth-child(3){
+    width: 20%;
+}
+.box4 .grid>thead>tr>th:nth-child(4),
+.box4 .grid>tbody>tr>td:nth-child(4){
+    width: 40%;
+}
+.box4 .grid>thead>tr>th:nth-child(5),
+.box4 .grid>tbody>tr>td:nth-child(5){
+    width: 15%;
+}
+.box5 .grid>thead>tr>th:nth-child(1),
+.box5 .grid>tbody>tr>td:nth-child(1){
+    width: 40%;
+}
+.box5 .grid>thead>tr>th:nth-child(2),
+.box5 .grid>tbody>tr>td:nth-child(2){
+    width: 20%;
+}
+.box5 .grid>thead>tr>th:nth-child(3),
+.box5 .grid>tbody>tr>td:nth-child(3){
+    width: 20%;
+}
+.box5 .grid>thead>tr>th:nth-child(4),
+.box5 .grid>tbody>tr>td:nth-child(4){
+    width: 20%;
+}

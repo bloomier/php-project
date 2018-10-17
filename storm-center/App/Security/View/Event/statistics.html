@@ -1,0 +1,117 @@
+<include file="./App/Security/View/header.html" />
+
+
+<!-- page-content -->
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Security">首页</a> </li>
+                    <li><a href="__ROOT__/index.php/Security/Event/statistics">事件统计</a> </li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="dashboard">
+            <!-- BEGIN DASHBOARD STATS -->
+            <!-- END DASHBOARD STATS -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN REGIONAL STATS PORTLET-->
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption">事件统计</div>
+                        </div>
+                        <div class="portlet-body">
+                            <form id="form_id" action="#" class="form-horizontal j-form" method="post">
+                                <!--
+                                <div class="form-group citys">
+                                    <label class="col-sm-2 control-label">统计区域</label>
+                                    <div class="col-sm-2">
+                                        <select class="form-control prov prov-location" name="province">
+                                        </select>
+                                    </div>
+                                </div>
+                                -->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">统计周期</label>
+                                    <div class="col-sm-2">
+                                        <select name="year" id="year_id" class="m-wrap" data-placeholder="Choose a Category"  style="width:100%">
+                                            <foreach item="year_config" name="year_config" key="key">
+                                                <option value="{$year_config}">{$key}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="year" id="month_id" class="m-wrap" data-placeholder="Choose a Category"  style="width:100%">
+                                            <option value="">请选择月份</option>
+                                            <option value="01">01月</option><option value="02">02月</option><option value="03">03月</option>
+                                            <option value="04">04月</option><option value="05">05月</option><option value="06">06月</option>
+                                            <option value="07">07月</option><option value="08">08月</option><option value="09">09月</option>
+                                            <option value="10">10月</option><option value="11">11月</option><option value="12">12月</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button style="margin-left: 238px;width: 160px;" type="button" class="btn blue search_button" > 查 询 </button>
+                            </form>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="vip_id" ></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="no_vip_id" ></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="div_table_id">
+                                        <table class="table table-bordered margin-top-20" >
+                                            <thead class="bg-lightgrey">
+                                            <tr>
+                                                <th>序号</th>
+                                                <th>区域</th>
+                                                <th>已通报数</th>
+                                                <!-- <th>待通报数</th> -->
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>北京</td>
+                                                    <td>50</td>
+                                                    <!-- <td>200</td> -->
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>上海</td>
+                                                    <td>40</td>
+                                                    <!-- <td>100</td> -->
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END REGIONAL STATS PORTLET-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<assign name='plugins' value='echarts'/>
+<include file="./App/Security/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/script/Security/event_statistics.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/cityselect/jquery.cityselect.js"></script>
+
+

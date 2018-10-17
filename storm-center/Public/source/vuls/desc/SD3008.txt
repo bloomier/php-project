@@ -1,0 +1,2 @@
+nginx php pathinfo rce描述：
+    使用nginx+php组建的网站只要允许上传图片就可能被黑客入侵

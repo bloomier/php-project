@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<title>峰会注册网云防护监测</title>-->
+    <title>{$domain}</title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/asset/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/css/page/screen.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/css/animation.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="__PUBLIC__/asset/js/jquery/jquery-1.8.3.min.js"></script>
+
+    <!--如果是IE,使用IE9 的内核来渲染-->
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <![endif]-->
+
+    <link rel="icon" href="__PUBLIC__/image/fav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="__PUBLIC__/image/fav.png" type="image/x-icon">
+
+    <link href="__PUBLIC__/asset/css/page/webMonitor.css" rel="stylesheet" type="text/css" />
+    <style>
+        .grid table thead th{color: #f9e400; text-align: center;}
+        .grid table tbody td{text-align: center}
+        .grid table thead th:nth-of-type(1),.grid table tbody td:nth-of-type(1){width: 60px;}
+        .grid table thead th:nth-of-type(2),.grid table tbody td:nth-of-type(2){width: 120px;}
+        .grid table thead th:nth-of-type(3),.grid table tbody td:nth-of-type(3){width: 60px;}
+        .grid table thead th:nth-of-type(4),.grid table tbody td:nth-of-type(4){width: 160px;max-width: 160px!important;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+        .grid table thead th:nth-of-type(5),.grid table tbody td:nth-of-type(5){width: 100px;max-width: 100px!important;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+        .grid table thead th:nth-of-type(6),.grid table tbody td:nth-of-type(6){width: 80px;}
+        .grid table img{margin-right: 6px;}
+
+        .areaCount i{
+            width: 16px;
+            height: 25px;
+            display:inline-block;
+            background: url("__PUBLIC__/asset/image/screen/waf-num.png") no-repeat;
+            /*background-position:0 0;*/
+            text-indent:-999em;
+            vertical-align: top;
+        }
+        .turn{
+            animation: Turn 2s linear 2s 1 alternate;
+            -webkit-animation: Turn 2s linear 2s 1 alternate;
+        }
+
+        @keyframes Turn{
+            0%{
+                transform: rotateX(0deg);
+                -webkit-transform: rotateX(0deg);
+                -moz-transform: rotateX(0deg);
+            }
+            50%{
+                transform: rotateX(180deg);
+                -webkit-transform: rotateX(180deg);
+                -moz-transform: rotateX(180deg);
+            }
+            100%{
+                transform: rotateX(360deg);
+                -webkit-transform: rotateX(360deg);
+                -moz-transform: rotateX(360deg);
+            }
+        }
+        @-webkit-keyframes Turn {
+            0%{
+                transform: rotateX(0deg);
+                -webkit-transform: rotateX(0deg);
+                -moz-transform: rotateX(0deg);
+            }
+            50%{
+                transform: rotateX(180deg);
+                -webkit-transform: rotateX(180deg);	/* Safari 和 Chrome */
+                -moz-transform: rotateX(180deg);
+            }
+            100%{
+                transform: rotateX(360deg);
+                -webkit-transform: rotateX(360deg);	/* Safari 和 Chrome */
+                -moz-transform: rotateX(360deg);
+            }
+        }
+        @-moz-keyframes Turn {
+            0%{
+                transform: rotateX(0deg);
+                -webkit-transform: rotateX(0deg);	/* Safari 和 Chrome */
+                -moz-transform: rotateX(0deg);
+            }
+            50%{
+                transform: rotateX(180deg);
+                -webkit-transform: rotateX(180deg);	/* Safari 和 Chrome */
+                -moz-transform: rotateX(180deg);
+            }
+            100%{
+                transform: rotateX(360deg);
+                -webkit-transform: rotateX(360deg);	/* Safari 和 Chrome */
+                -moz-transform: rotateX(360deg);
+            }
+        }
+
+        #attackIp  tbody tr:nth-child(even),#visitIp  tbody tr:nth-child(even){
+            /*margin-top: -26px;*/
+        }
+        #attackIp  tbody tr td:nth-of-type(1), #visitIp  tbody tr td:nth-of-type(1){
+            width: 30px!important;
+        }
+        #attackIp  tbody tr td:nth-of-type(2), #visitIp  tbody tr td:nth-of-type(2){
+            width: 80px!important;
+            /*padding-left: 10px;*/
+        }
+        #attackIp  tbody tr td:nth-of-type(3), #visitIp  tbody tr td:nth-of-type(3){
+            padding-left: 10px;
+            width: 135px!important;
+        }
+        @media screen and (min-width: 1441px){
+            #attackIp  tbody tr td:nth-of-type(3), #visitIp  tbody tr td:nth-of-type(3){
+                width: 240px!important;
+            }
+
+        }
+        #attackIp  tbody tr td:nth-of-type(4), #visitIp  tbody tr td:nth-of-type(4){
+            text-align: left;
+            padding-left: 15px;
+            width: 70px;
+        }
+        #attackIp  tbody .progress .progress-bar, #visitIp  tbody .progress .progress-bar{
+            padding-left: 5px;
+        }
+
+        #attackIp  tbody tr td,#visitIp  tbody tr td{
+            color:#58b4ff;
+        }
+        #attackIp  tbody tr .progress .progress-bar,#visitIp  tbody tr .progress .progress-bar{
+            background-color: #58b4ff;
+            color: #fff;
+        }
+        #attackIp  tbody tr:nth-child(1) td:nth-child(2), #visitIp  tbody tr:nth-child(1) td:nth-child(2){
+            color:#ff0000!important;
+        }
+        #attackIp  tbody tr:nth-child(1) .progress .progress-bar, #visitIp  tbody tr:nth-child(1) .progress .progress-bar{
+            background-color: #ff0000;
+        }
+        #attackIp  tbody tr:nth-child(2) td:nth-child(2),#visitIp  tbody tr:nth-child(2) td:nth-child(2){
+            color:#ff9900!important;
+        }
+        #attackIp  tbody tr:nth-child(2) .progress .progress-bar, #visitIp  tbody tr:nth-child(2) .progress .progress-bar{
+            background-color: #ff9900;
+        }
+        #attackIp  tbody tr:nth-child(3) td:nth-child(2), #visitIp  tbody tr:nth-child(3) td:nth-child(2){
+            color:#f9e400!important;
+        }
+        #attackIp  tbody tr:nth-child(3) .progress .progress-bar, #visitIp  tbody tr:nth-child(3) .progress .progress-bar{
+            background-color: #f9e400;
+        }
+        #attackIp  tbody .progress .progress-bar, #visitIp  tbody .progress .progress-bar{
+            text-align: left;
+        }
+
+
+
+        .header .total{
+            position: absolute;
+            right: 4%;
+            top: 0;
+            height: 40px;
+        }
+        .total a{
+            display: inline-block;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: Simsun;
+            color: #b4fbff;
+            height: 40px;
+            line-height: 40px;
+            margin-right: 20px;
+            overflow: none;
+        }
+        .total a i.fa{
+            color: #00a2fd;
+            margin-right: 6px;
+        }
+        .total .line-chart-in, .total .line-chart-out{
+            display: inline-block;
+            width: 16px;
+            height: 14px;
+            background: url("__PUBLIC__/asset/image/screen/line-chart.png") no-repeat;
+            margin-right: 6px;
+        }
+        .total .line-chart-out{
+            background-position: 0 -14px;
+        }
+        .total a i.txt{
+            display: inline-block;
+            font-size: 18px;
+            height: 40px;
+            line-height: 40px;
+            font-style: normal;
+        }
+        .total a i.count{
+            display: inline-block;
+            font-size: 26px;
+            font-family: "customUUSUN";
+            margin-left: 2px;
+            margin-right: 8px;
+
+        }
+        h3.risk-name{font-size: 18px; font-family: "fangZ"; color:#fa0001;margin: 8px 0 ;}
+        .risk p{color:#ffffff;font-size: 15px; font-family: "Simsun";margin-bottom: 6px;}
+        /*综合分析*/
+        .analyze .analyze-Info{margin: 10px 0;}
+        .analyze .name{color:#58b4ff;font-size: 14px; font-family: "Simsun";margin-bottom: 6px;}
+        .analyze .level{position: relative; font-size: 0;width: 100%;}
+        .analyze .level .level-safe, .analyze .level .level-mid, .analyze .level .level-high{display: inline-block;height: 14px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            width: calc(100%/3);}
+        .analyze .level .level-safe{background-color: #00a728;}
+        .analyze .level .level-mid{background-color: #b36715;}
+        .analyze .level .level-high{background-color: #b30a15;}
+        .analyze .level .level-value{position: absolute;background: url("__PUBLIC__/asset/image/screen/level.png") no-repeat;width: 12px; height: 24px;}
+        .analyze .access .level-value,
+        .analyze .system-safe .level-value,
+        .analyze .app-safe .level-value,
+        .analyze .remain-risk .level-value,
+        .analyze .main-risk .level-value{ top:0; }
+        .analyze .access .level-value{left: 14%;}
+        .analyze .system-safe .level-value{left: 14%;}
+        .analyze .app-safe .level-value{left: 14%;}
+        .analyze .remain-risk .level-value{ left: 14%;}
+        .analyze .main-risk .level-value{ left: 14%;}
+
+        /*弹框*/
+
+        .modal{
+            width: 800px;
+            height: 400px;
+            margin: 12% auto 0;
+            background: url("__PUBLIC__/asset/image/screen/modal_bg.png") no-repeat;
+            opacity: 0.2;
+            filter: alpha(opacity=20);
+
+        }
+        .modal-dialog{
+            margin: 0;
+        }
+        .modal-content{
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+        .modal-header{
+            border: none;
+            height: 50px;
+            padding: 10px;
+        }
+        .modal-body{
+            padding: 10px 35px;
+            width: 800px;
+        }
+        .modal-title{
+            color: #fce2ef;
+            font-size: 26px;
+            font-family: "fangZ";
+            margin-left: 120px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .modal .main{
+            padding: 0;
+            width: 240px;
+            /*display: inline-block;*/
+            font-size: 0;
+            float: left;
+        }
+        .modal .main .m-header{
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            font-size: 14px;
+            font-family: 'Simsun';
+            color: #f9e400;
+        }
+        .main .m-content{
+            padding: 10px  20px;
+
+        }
+        .source p ,.target p{
+            color: #59b7ff;
+            font-size: 13px;
+            font-family: 'Simsun';
+        }
+        /*攻击源*/
+        .source .sourceIp, .source .sourceDest{display: inline-block;}
+        .source .sourceDest{width: 100px;text-align: right}
+        .source .sourceIp{width:100px;}
+        .alarm, .alarm{
+            /*margin: 0 0 0 10px;*/
+            padding: 0;
+            font-size: 0;
+            height: 80px;
+            margin-bottom: 10px;
+            overflow: none;
+            vertical-align:top;
+
+        }
+
+
+        .alarm-info{display: inline-block; vertical-align:top;}
+        .alarm-info p{
+            font-size: 16px;
+            /*width: 100px;*/
+            margin-left: 8px;
+        }
+        .alarm-info p.a-level{
+            width: 44px;
+            height: 25px;
+            color: #050101;
+            font-size: 18px;
+            font-family: "fangZ";
+            text-align: center;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+
+        }
+        .alarm-info p.a-name{
+            color: #56b6ff;
+            font-size: 16px;
+            font-family: "fangZ";
+            margin-top: 8px;
+            display: inline-block;
+            /*font-weight: bold;*/
+
+        }
+        .alarm-info span.a-num{
+            font-size: 16px;
+            font-family: "fangZ";
+            margin-left: 20px;
+        }
+        .clear{
+            clear: both;
+        }
+
+        .circle {
+            /*float: left;*/
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            position: relative;
+            border-radius: 50%;
+
+        }
+        .pie_left, .pie_right {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            top: 0;left: 0;
+        }
+        .left, .right {
+            display: block;
+            width:70px;
+            height:70px;
+            background:#2f2725;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .pie_right, .right {
+            clip:rect(0,auto,auto,35px);
+        }
+        .pie_left, .left {
+            clip:rect(0,35px,auto,0);
+        }
+        .mask {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            left: 10px;
+            top: 10px;
+            background: #140004;
+            position: absolute;
+            text-align: center;
+            line-height: 50px;
+            font-size: 16px;
+        }
+    </style>
+
+
+
+</head>
+<body class="bg">
+<!-- 所有需要用到的插件在这里定义 -->
+
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/asset/js/echarts/dist">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<input id="currentDomain" type="hidden" value="{$domain}">
+
+
+
+<div class="header">
+    <div class="title">
+        <h1> <span>{$title}</span></h1>
+        <!--<h1>重要网站云防护监测</h1>-->
+    </div>
+    <div class="total">
+        <span id="inOutMinTag">
+            <a><i class="line-chart-in"></i><i class="txt">进流量</i><i class="count flow_in_count yellow" style="min-width: 60px;"></i><span>兆(Mb)</span></a>
+            <a><i class="line-chart-out"></i><i class="txt">出流量</i><i class="count flow_out_count yellow" style="min-width: 50px;"></i><span>兆(Mb)</span></a>
+        </span>
+        <span id="attackTag">
+            <a><i class="fa fa-bullhorn"></i><i class="txt">访问量</i><i class="count areaCount timer yellow" style="min-width: 70px;"></i><span>次</span></a>
+            <a><i class="fa fa-bolt"></i><i class="txt">攻击量</i><i class="count ipCount timer yellow" style="min-width: 50px;"></i><span>次</span></a>
+        </span>
+    </div>
+
+
+
+
+</div>
+<div class="container-fluid content">
+    <div class="row no-margin">
+        <div class="col-md-3" style="padding: 0 5px 0 0">
+            <div class="box avail">
+                <div class="box-heading box-heading-border">
+                    <h2 class="box-title">网站服务质量</h2>
+                    <div class="box-border">
+                        <!--<b style="color: red;">这里用其他内容替代</b>-->
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div id="mapVail" class="mt-10">
+                    </div>
+                </div>
+            </div>
+            <div class="box visitArea mt-5">
+                <div class="box-heading">
+                    <h2 class="box-title">访问源区域排行</h2>
+                </div>
+                <div class="box-body">
+                    <div id="areaRank">
+                        <table class="u-gd-list">
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="box visitIp mt-5">
+                <div class="box-heading">
+                    <h2 class="box-title">访问源IP排行</h2>
+                </div>
+                <div class="box-body">
+                    <div id="visitIp">
+                        <table class="u-gd-list">
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding: 0 5px 0 0;">
+            <div class="box map-main">
+                <div class="box-body">
+                    <div class="map" id="worldMap" style="padding:0px;">
+                        <div id="asia"></div>
+                        <div id="northAmerica"></div>
+                        <div id="southAmerica"></div>
+                        <div id="africa"></div>
+                        <div id="oceania"></div>
+                        <div id="europe"></div>
+                        <div id="chinaMap"></div>
+                    </div>
+                    <div class="grid" id="info-grid" style="height: 135px;">
+                        <table class="table u-gd-list">
+                            <thead>
+                            <th>时间</th>
+                            <th>源IP</th>
+                            <th>区域</th>
+                            <th>攻击URL</th>
+                            <th>攻击方式</th>
+                            <th>风险等级</th>
+                            </thead>
+
+                        </table>
+                        <div class="box-border" style="margin: 4px 0 6px;"></div>
+                        <div class="gridRoll">
+                            <div class="gridList" id="info">
+                                <table class="table u-gd-list" >
+                                    <tbody class="waf-items">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box attack mt-5" style="">
+                <div class="box-heading">
+                    <h2 class="box-title">网站攻击趋势</h2>
+                </div>
+                <div class="box-body">
+                    <div id="tab" style="margin-top: -40px;">
+                        <div role="tabpanel">
+                            <ul class="nav nav-tabs pull-right" role="tablist">
+                                <li role="presentation" class="active"><a href="#flow" role="tab" data-toggle="tab">访问分析</a></li>
+                                <li role="presentation"><a href="#attack" role="tab" id="inOutMinTab" data-toggle="tab">流量分析</a></li>
+                            </ul>
+                            <div class="tab-content" >
+                                <div role="tabpanel" class="tab-pane fade in active" id="flow">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="attackLine" style="margin: 0 -60px 0 -30px"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade active" id="attack">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="flowLine" style="margin: 0 -60px 0 -30px"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style=" width: 240px;color: #00dcff; font-size: 12px;position: absolute;bottom: 1%; left: 50%;margin-left: -120px;">技术支持单位：XXXX技术有限公司</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 no-padding">
+            <div class="box hole" >
+                <div class="box-heading box-heading-border">
+                    <h2 class="box-title">网站漏洞分布</h2>
+                    <div class="box-border"></div>
+                </div>
+                <div class="box-body alertInfo">
+                    <!--<div id="risk" class="risk">-->
+                    <!--<p><span style="margin-left: 30px;" class="remain-danger"></span><span  class='remain-danger-level' style="color: red"></span></p>-->
+                    <!--</div>-->
+                    <div id="no-risk" style="display: none" class="holeType"></div>
+                    <div id="hole-type">
+                        <table class="u-gd-list">
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box attackUrl mt-5" >
+                <div class="box-heading">
+                    <h2 class="box-title">攻击网站URL排行</h2>
+                </div>
+                <div class="box-body">
+                    <div id="attackUrl">
+                        <table class="u-gd-list">
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="box analyze mt-5">
+                <div class="box-heading">
+                    <h2 class="box-title">攻击源IP排行</h2>
+                </div>
+                <div class="box-body">
+                    <div id="attackIp">
+                        <table class="u-gd-list">
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--<div class="analyze-Info access">-->
+                    <!--<p class="name">访问流量</p>-->
+                    <!--<div class="level">-->
+                    <!--<div class="level-safe"></div>-->
+                    <!--<div class="level-mid"></div>-->
+                    <!--<div class="level-high"></div>-->
+                    <!--<div class="level-value"></div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="analyze-Info system-safe">-->
+                    <!--<p class="name">系统安全</p>-->
+                    <!--<div class="level">-->
+                    <!--<div class="level-safe"></div>-->
+                    <!--<div class="level-mid"></div>-->
+                    <!--<div class="level-high"></div>-->
+                    <!--<div class="level-value"></div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="analyze-Info app-safe">-->
+                    <!--<p class="name">应用安全</p>-->
+                    <!--<div class="level">-->
+                    <!--<div class="level-safe"></div>-->
+                    <!--<div class="level-mid"></div>-->
+                    <!--<div class="level-high"></div>-->
+                    <!--<div class="level-value"></div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="analyze-Info remain-risk">-->
+                    <!--<p class="name">残余风险</p>-->
+                    <!--<div class="level">-->
+                    <!--<div class="level-safe"></div>-->
+                    <!--<div class="level-mid"></div>-->
+                    <!--<div class="level-high"></div>-->
+                    <!--<div class="level-value"></div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="analyze-Info main-risk">-->
+                    <!--<p class="name">主机安全</p>-->
+                    <!--<div class="level">-->
+                    <!--<div class="level-safe"></div>-->
+                    <!--<div class="level-mid"></div>-->
+                    <!--<div class="level-high"></div>-->
+                    <!--<div class="level-value"></div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow-y:hidden;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">CC攻击</h4>
+            </div>
+            <div class="modal-body">
+                <div class="main">
+                    <div class="m-header">攻击源</div>
+                    <div class="m-content source">
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="m-header">攻击目标</div>
+                    <div class="m-content target">
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="m-header">攻击影响</div>
+                    <div class="m-content">
+                        <div class="alarm">
+                            <div class="circle bg-red">
+                                <div class="pie_left"><div class="left"></div></div>
+                                <div class="pie_right"><div class="right"></div></div>
+                                <div class="mask"><span class="value">15</span>%</div>
+                            </div>
+                            <div class="alarm-info">
+                                <p class="a-level  msg-info">告警</p>
+                                <p class="a-name">CPU</p>
+
+                            </div>
+                        </div>
+                        <div class="alarm clear">
+                            <div class="circle bg-orange">
+                                <div class="pie_left"><div class="left"></div></div>
+                                <div class="pie_right"><div class="right"></div></div>
+                                <div class="mask"><span class="value">85</span>%</div>
+                            </div>
+                            <div class="alarm-info">
+                                <p class="a-level  msg-info">预警</p>
+                                <p class="a-name">内存</p>
+                            </div>
+                        </div>
+                        <div class="alarm clear">
+                            <div class="circle bg-green">
+                                <div class="pie_left"><div class="left"></div></div>
+                                <div class="pie_right"><div class="right"></div></div>
+                                <div class="mask"><span class="value">55</span>%</div>
+                            </div>
+                            <div class="alarm-info">
+                                <p class="a-level  msg-info">正常</p>
+                                <p class="a-name">流量</p>
+                                <span class="a-num flow-msg-info"></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</body>
+<footer>
+    <script type="text/javascript" src="__PUBLIC__/asset/js/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/script/main.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="__PUBLIC__/asset/js/bootstrap/js/html5shiv.min.js"></script>
+    <script type="text/javascript"  src="__PUBLIC__/asset/js/bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/asset/js/echarts/dist/echarts.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/asset/js/scrool/scrollNum.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/asset/js/scrool/item-scoller.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/script/Comm/location-reflect.js"></script>
+
+    <script type="text/javascript" src="__PUBLIC__/script/Home/screen.js"></script>
+</footer>
+</html>
+
+
+
+
+</body>
+</html>

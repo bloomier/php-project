@@ -1,0 +1,11 @@
+JBoss弱口令漏洞修复方案：
+    1.给jmx-console加上访问密码，并限制在公网的访问。同时检查版本是否有漏洞，是否需要升级。
+    2.在 ${jboss.server.home.dir}/deploy下面找到jmx-console.war目录编辑WEB-INF/web.xml文件
+    去掉 security-constraint 块的注释，使其起作用
+    3.编辑WEB-INF/classes/jmx-console-users.properties或
+    server/default/conf/props/jmx-console-users.properties
+    (version >=4.0.2)和 WEB-INF/classes/jmx-console-roles.properties
+    或server/default/conf/props/jmx-console-roles.properties(version >=4.0.2)
+    添加用户名密码
+    4.编辑WEB-INF/jboss-web.xml去掉 security-domain 块的注释 ，
+    security-domain值的映射文件为 login-config.xml (该文件定义了登录授权方式)

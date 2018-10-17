@@ -1,0 +1,4 @@
+apacheGeronimo默认管理员账户漏洞描述：
+    Apache Geronimo是Apache软件基金会的开放源码J2EE服务器。
+    Apache Geronimo的实现上存在，远程者可能利用此获取非授权访问。
+    远程者可以使用中不存在的用户名通过SQLLoginModule模块成功的认证到服务器，获得非授权访问。

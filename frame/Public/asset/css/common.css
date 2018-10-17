@@ -1,0 +1,122 @@
+/**@name common.css
+ * @author Sean.xiang
+ *@date 15-3-30
+ *@version
+ *@dec 风暴中心大屏整体风格 颜色、背景、字体大小
+ */
+
+@charset "UTF-8";
+/*css reset*/
+body,div,ul,li,a,input,select,button,th,td{margin: 0;padding: 0;}
+/*table{border-collapse: collapse; border-spacing: 0;}*/
+img{border: 0;}
+ul,li{list-style: none outside none;}
+
+body, html {font-family: Simsun;font-size: 12px;}
+a{ outline: none;text-decoration: none;}
+
+.c-red{color: #e8200b!important;}
+.c-yellow{color: #ffbf00!important;}
+.c-orange{color: #fe863d!important;}
+.c-green{color:#3ab852!important;}
+.c-blue{color:#00a2fd!important;}
+
+.bg-red{background-color: #f0412f!important;}
+.bg-grey{background-color: grey!important}
+.bg-yellow{background-color: #f5942c!important;}
+.bg-orange{background-color: #c3b760!important;}
+.bg-green{background-color:#2ecd73!important;}
+.bg-blue{background-color:#00a2fd!important;}
+.mt-10{margin-top: 10px;!important;}
+.mt-20{margin-top: 20px;!important;}
+.clear {clear: both;}
+
+@font-face {
+    /*font-family: "fzltzh"; src: url('../font/fzltzh.TTF') format('truetype');*/
+    font-family: 'Verdana';
+}
+
+
+/** 必填项 */
+.needWrite {
+    color: #e02222;
+    font-size: 12px;
+    padding-left: 2px;
+}
+
+
+/*开关按钮 选择框*/
+.switch{
+    display: inline-block;
+    width: 70px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+
+}
+.switch input{
+    width: 70px;
+    height: 22px;
+    line-height: 22px;
+    vertical-align: top;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+
+}
+
+.switch-animate{
+    -webkit-transition: background-color .5s, left 1s ease;
+    -moz-transition: background-color .5s, left 1s ease;
+    -ms-transition: background-color .5s, left 1s ease;
+    transition: background-color .5s, left 1s ease;
+}
+.switch-default{
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 22px;
+    background-color: #c9caca;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+.switch-default>span.label{
+    position: absolute;
+    top: 2px;
+    left: 50px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    padding: 0;
+
+}
+.switch-default>span.text{
+    position: absolute;
+    top: 1px;
+    left: 18px;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    vertical-align: top;
+
+}
+.switch>.on{
+    background-color: #3ab852;
+}
+.on>span.label{
+    left: 2px;
+}
+.on>span.text{
+    left: 30px;
+}

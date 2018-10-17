@@ -1,0 +1,212 @@
+<!--综合评级-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">综合评级</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="detail" id="vuls_summary" style="width: 50%">
+            <h5>网站风险等级</h5>
+            <div class="total"><span class="c-red rank_level">未知</span></div>
+            <div class="total-desc">高危漏洞<span class="c-red rank_vuls_total">-</span>个 、中危漏洞<span class="c-orange rank_info_total">-</span></div>
+        </div>
+        <!--<div class="detail" style="width: 33.3%">-->
+        <!--<h5>同网段网站风险等级</h5>-->
+        <!--<div class="total"><span class="c-orange">中危</span></div>-->
+        <!--<div class="total-desc">高危漏洞<span class="c-red">5</span>个 、中危漏洞<span class="c-orange">5</span>个</div>-->
+        <!--</div>-->
+        <div class="detail" style="width: 50%">
+            <h5>未处理事件</h5>
+            <div class="total"><span class="c-orange rank_security_total">-</span>件</div>
+            <div class="total-desc">当月安全事件<span class="c-red rank_security_month_total">-</span>件</div>
+        </div>
+    </div>
+</div>
+<!--网站漏洞-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">网站漏洞</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content" id="vuls">
+        <div class="detail no-border  vuls_echarts" id="high_vuls_pie" style="width: 230px;height: 200px;">
+        </div>
+        <div class="detail no-border vuls_echarts" id="mid_vuls_pie" style="width: 230px;height: 200px;">
+        </div>
+        <div class="detail no-border vuls_echarts" id="low_vuls_pie"style="width: 230px;height: 200px;">
+        </div>
+        <div class="detail no-border vuls_echarts" id="info_vuls_pie"style="width: 230px;height: 200px;">
+        </div>
+    </div>
+</div>
+<!--安全事件-->
+<div class="widget" id="web_vuls_security">
+    <div class="widget-heading">
+        <div class="widget-title">安全事件</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="">
+            <ul class="list-nav" id="web_vuls_security_tag">
+                <!--<li  class="active" ><a href="#2016" data-toggle="tab">2016年</a></li>-->
+                <!--<li><a href="#2015" data-toggle="tab">2015年</a></li>-->
+            </ul>
+        </div>
+        <div class="list-content scrollbar mt-20" style="height: 280px; padding-right: 100px;">
+            <div class="tab-content" id="web_vuls_security_wrapper" >
+            </div>
+        </div>
+    </div>
+</div>
+<!--安全态势-->
+<div class="widget" d="web_safe_state">
+    <div class="widget-heading">
+        <div class="widget-title">安全态势</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="monitor-nav ">
+            <ul class="nav-tab" id="web_safe_state_tag">
+                <li class="active"><a href="#web_safe_sub" data-toggle="tab">子域名</a></li>
+                <li><a href="#web_safe_ip" data-toggle="tab">同IP网站</a></li>
+                <li><a href="#web_safe_rom" data-toggle="tab">同机房域名</a></li>
+            </ul>
+        </div>
+        <div class="tab-content" id="web_safe_content">
+            <div role="tabpanel" class="tab-pane active" id="web_safe_sub">
+                <div class="row">
+                    <div class="col-md-12 mt-20">
+                        <table class="u-grid"  id="web_safe_sub_table" style="width: 100%">
+                            <thead>
+                            <tr>
+                                <th>网址</th>
+                                <th>安全等级</th>
+                                <th>安全事件</th>
+                                <th>高危漏洞</th>
+                                <th>中危漏洞</th>
+                                <th>低危漏洞</th>
+                                <th>信息</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody class="tbody_value">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="web_safe_ip">
+                <div class="row">
+                    <div class="col-md-12 mt-20">
+                        <table class="u-grid" id="web_safe_ip_table"  style="width: 100%">
+                            <thead >
+                            <tr>
+                                <th>网址</th>
+                                <th>安全等级</th>
+                                <th>安全事件</th>
+                                <th>高危漏洞</th>
+                                <th>中危漏洞</th>
+                                <th>低危漏洞</th>
+                                <th>信息</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody class="tbody_value">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="web_safe_rom">
+                <div class="row">
+                    <div class="col-md-12 mt-20 ">
+                        <table class="u-grid" id="web_safe_room_table" style="width: 100%">
+                            <thead>
+                            <tr>
+                                <th>网址</th>
+                                <th>安全等级</th>
+                                <th>安全事件</th>
+                                <th>高危漏洞</th>
+                                <th>中危漏洞</th>
+                                <th>低危漏洞</th>
+                                <th>信息</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody class="tbody_value">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- tab 标签 -->
+<li style="display: none" role="presentation" id="one-vuls-tab-li">
+    <a href="" data-toggle="tab" role="tab" class="tab-href-set">
+    </a>
+</li>
+
+<!-- tab div -->
+<div class="tab-pane fade" role="tabpanel" id="tab-vuls-tag" style="display: none">
+</div>
+<!-- tab table -->
+<div class="panel panel-default mt-40" style="display: none"  id="tab-vuls-table">
+    <div class="panel-group no-margin" id="accordionLow" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading panel-tip" role="tab">
+                <h4 class="panel-title">
+                    <div class="panel-sub-title">
+                        <a data-toggle="collapse" class="col-span-href collapsed" data-parent="#accordion" href="" aria-expanded="true" aria-controls="collapseOne"></a>
+                    </div>
+                </h4>
+            </div>
+            <div class="panel-collapse dataTables_wrapper form-inline collapse panel-body" role="tabpanel" aria-labelledby="headingOne">
+                <span>当天网站整体可用性良好，全国36个监测节点中有超过2/3的节点可正常访问，全天出现网站故障3 次， 共计时长123分钟，主要出现在新疆和台湾节点；网站首页访问效率为中等，用时123秒，有待进一步提高。</span>
+                <div class="panel-body" style="padding:0px 0px">
+                    <table class="table table-striped vuls-content-table table-bordered table-hover datatable dataTable no-margin" style="boder:0px 0px" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <td style="widht:10%">编号</td>
+                            <td style="width:80%">url</td>
+                            <td style="width:10%">详情</td>
+                        </tr>
+                        </thead>
+                        <tbody class="tab-vuls-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 一年安全事件tab -->
+<div class="tab-pane" id="one_year_security_event" style="display:none"></div>
+
+<!-- 一个安全事件 -->
+<div class="list-item" style="display: none" id="one_security_event_div">
+    <div class="list-item-tit event_time"></div>
+    <div class="list-item-info">
+        <div class="i-status event_status"></div>
+        <div class="i-info-detail">
+            <div class="d-tit event_type">篡改</div>
+            <div class="d-info event_url"></div>
+        </div>
+    </div>
+</div>

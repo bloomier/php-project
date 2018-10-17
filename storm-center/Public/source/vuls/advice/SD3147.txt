@@ -1,0 +1,4 @@
+Options方法漏洞修复建议：
+    1、禁用WebDAV功能；
+    2、使用URLSCAN禁用OPTIONS；
+    3、使用URLSCAN禁用OPTIONS和其他HTTP方法或者只允许GET/POST/HEAD方法。

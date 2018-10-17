@@ -1,0 +1,2 @@
+Ecshop 2.7.2 SQL注入漏洞修复方案：
+    在function bonus_info($bonus_id, $bonus_sn = '')函数里把$bonus_id intval一下不，就OK了

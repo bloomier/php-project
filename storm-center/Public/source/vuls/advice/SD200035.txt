@@ -1,0 +1,3 @@
+trace xss plugin漏洞修复建议：
+	1、用rewrite功能禁用tarce
+	2、直接在apache的配置文件中配置相应参数：TraceEnable off

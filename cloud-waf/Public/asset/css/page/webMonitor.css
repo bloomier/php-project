@@ -1,0 +1,622 @@
+/**
+ * @author Sean.xiang
+ *@date 15-3-25
+ *@version
+ *@example
+ */
+/*�?*/
+.box{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow:0 0 10px #0f2440 inset;
+    -webkit-box-shadow:0 0 10px #0f2440 inset;
+    box-shadow:0 0 10px #0f2440 inset;
+    /*background-color: #001623;*/
+    border: 1px solid #0f2440;
+    background-color: rgba(0,8,28,.3);
+    overflow: hidden;
+}
+.box-heading{
+    padding: 0 10px;
+    height: 30px;
+    /*border-bottom: 1px solid #002e4b;*/
+    /*background-color: rgba(20,92,147,.15);*/
+    background-color: rgba(20,92,147,.4);
+
+}
+.box-title{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.4rem;
+    color: #00bbff;
+    font-family: "SimSun";
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+}
+.box-count{
+    display:inline-block;
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+
+}
+.box-count span{
+    display: inline-block;
+    font-size: 2.0rem;
+    font-family: "Verdana";
+    letter-spacing: 2px;
+    color: #fff803;
+
+}
+.box-count b{
+    font-family: 'SimSun';
+    font-size: 1.2rem;
+    color: #fff803;
+}
+.box-body{
+    padding: 10px;
+}
+.box-heading-border{
+    text-align: center;
+    background: none;
+    border-bottom: none;
+}
+.box-border{
+    background: url("../../image/screen/box-border.png") no-repeat;
+    background-size: 100% 1px;
+    height: 1px;
+    margin-top: -5px;
+}
+
+@font-face {
+    font-family: "fangZ";
+    src: url("../../font/fzltzh.TTF") format("truetype");
+}
+@font-face {
+    font-family: "Verdana";
+    src: url("../../font/Verdana.ttf") ;
+    src: url("../../font/verdanab.ttf");
+    src: url("../../font/verdanai.ttf");
+    src: url("../../font/verdanaz.ttf") format("truetype");
+}
+.bg{
+    background: url("../../image/screen/base-bg.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.header{
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+}
+.header .title{
+    width: 360px;
+    height: 38px;
+    margin-top: 12px;
+    margin-left: 40px;
+    text-align: center;
+
+}
+.header .title h1{
+    margin: 0 ;
+    font-family: "fangZ";
+    color: #d3f3ff;
+    font-size: 2.6rem;
+    height: 36px;
+    line-height: 36px;
+}
+
+@media screen and (min-width: 1441px) {
+    .header{
+        height: 60px;
+    }
+    .header .title{
+        width: 520px;
+        height: 47px;
+    }
+    .header .title h1{
+        height: 45px;
+        line-height: 45px;
+    }
+}
+.header .tip{
+    position: absolute;
+    left: 32%;
+    top: 0;
+    width: 100%;
+    height: 40px;
+}
+.header .tip .notice, .header .tip .alert{
+    display: inline-block;
+}
+.header .simple{
+    position: absolute;
+    top: 1%;
+    right: 0;
+}
+.header .simple button{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid #00a2fd;
+    color: #00a2fd;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transition: all 0.5s linear;
+}
+.header .simple button:hover{
+    transition: all 0.5s linear;
+    opacity: 1;
+}
+/*.tip .notice{height: 24px;}*/
+.tip .alert a{
+    display: inline-block;
+    font-size: 1.6rem;
+    font-family: "SimSun";
+}
+.tip .notice .n-icon{
+    color: #00a2fd;
+    font-size: 1.6rem;
+    margin-right: 6px;
+}
+.tip .notice ul{
+    display: inline-block;
+    background: red;
+    padding: 0;
+    margin: 0;
+}
+.tip .notice li{
+    list-style: none;
+    display: inline-block;
+    background: #ffff00;
+}
+.tip .notice li a{
+    color: #b4fbff;
+    display: inline-block;
+    font-size: 1.6rem;
+    font-family: "SimSun";
+}
+.tip .alert a{
+    color: #febed3;
+}
+
+.tip .alert a i{
+    color: #ff3902;
+    margin-right: 6px;
+}
+@media (max-width: 1440px){
+    .content{
+        padding: 4px 27px 16px;
+        overflow: hidden;
+    }
+}
+@media (min-width: 1441px){
+    .content{
+        padding: 5px 35px 20px;
+        overflow: hidden;
+    }
+}
+
+#areaRank tr,#ipRank tr,#attackUrl tr,#hole-type tr,#attackIp tr,#visitIp tr{
+    display: block;
+    margin-bottom: 2px;
+}
+.u-gd-list thead th ,.u-gd-list td{
+    font-family: 'SimSun';
+    font-size: 1.4rem;
+    color: #00bbff;
+}
+/*访客区域*/
+.visitArea{
+
+}
+/*#areaRank{height: 220px;}*/
+.male-color{
+    color: #005bff!important;
+}
+.male-color-default{
+    color: #ddd!important;
+}
+i.fa-male{
+    font-size: 1.8rem;
+    color: #0b2b4c;
+    margin-left: 4px;
+}
+
+#areaRank  tbody tr td:nth-of-type(1){
+    width: 35px!important;
+}
+#areaRank  tbody tr td:nth-of-type(2){
+    width: 70px!important;
+    padding-left: 10px;
+}
+#areaRank  tbody tr td:nth-of-type(3){
+    width: 160px!important;
+}
+#areaRank  tbody tr td:last-child{
+    color:#fff;
+}
+
+/*访客IP*/
+
+#ipRank  tbody tr{
+    margin-bottom: 6px;
+}
+#ipRank  tbody tr td{
+    vertical-align: middle;
+}
+#ipRank  tbody tr:nth-child(even){
+    margin-top: -26px;
+}
+#ipRank  tbody tr:nth-child(odd){
+    z-index: 1111;
+}
+#ipRank  tbody .progress{
+    height: 20px;
+    background-color: #4d5c65;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+#ipRank  tbody .progress .progress-bar{
+    background-color: #f9b700;
+}
+#ipRank  tbody tr{
+    width: 100%;
+}
+#ipRank  tbody tr td img{
+    display: inline-block;
+    margin-bottom: 4px;
+}
+#ipRank  tbody tr td:nth-of-type(1){
+    width: 30px!important;
+}
+#ipRank  tbody tr td:nth-of-type(2){
+    width: 70px!important;
+    padding-left: 10px;
+    color: #00bbff;
+}
+#ipRank  tbody tr td:nth-of-type(3){
+    width: 120px!important;
+    color: #051a44;
+}
+
+#ipRank  tbody tr td:last-child{
+    color:#fff;
+    text-align: right;
+    /*margin-right: 10px;*/
+    width: 60px;
+}
+/*漏洞类型*/
+.holeType{
+    background: url("../../image/screen/holeType.png") no-repeat;
+    width: 178px;
+    height: 100px;
+    margin: 20px auto 0;
+}
+.hole tbody td span{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;}
+.hole tbody .progress{
+    height: 20px;
+    background-color: #4d5c65;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.hole tbody .progress .progress-bar{
+    background-color: #f9b700;
+    text-align: left;
+}
+.hole tbody .progress .progress-bar span{
+    padding-left: 10px;
+    color: #fff!important;
+}
+.hole tbody tr td:nth-child(1) span{
+    display: inline-block;
+    width: 40px;
+    vertical-align: middle;
+    height: 20px;
+}
+.hole tbody tr td:nth-child(2){
+    width: 140px!important;
+    max-width: 140px;
+    text-align: center;
+}
+.hole tbody tr td:nth-child(3){
+    width: 240px!important;
+    max-width: 240px;
+}
+#hole-type{
+    height: 220px;
+    padding-right: 20px;
+    overflow-y: auto;
+}
+
+/*攻击URL*/
+#attackUrl tbody tr td:nth-of-type(1){
+    width: 35px!important;
+}
+#attackUrl tbody tr td:nth-of-type(1) i{
+    display: inline-block;
+    font-style: normal;
+    font-family: Verdana;
+    color: #000;
+    background-color: #b5b5b6;
+    text-align: center;
+    width: 22px!important;
+    font-size: 12px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+#attackUrl tbody tr td:nth-of-type(2){
+    width: 30px!important;
+    text-align: right;
+}
+#attackUrl tbody tr td:nth-of-type(3){
+    max-width: 220px!important;
+    padding-left: 20px;
+    overflow:hidden!important;
+}
+@media screen and (min-width: 1441px){
+    #attackUrl tbody tr td:nth-of-type(3){
+        max-width: 360px!important;
+        padding-left: 20px;
+        overflow:hidden!important;
+    }
+}
+#attackUrl  tbody tr:nth-child(1) td{
+    color:#ff0000!important;
+}
+#attackUrl  tbody tr:nth-child(1) td:nth-child(1) i{
+    background: #ff0000;
+}
+#attackUrl  tbody tr:nth-child(2) td{
+    color:#ff9900!important;
+}
+#attackUrl  tbody tr:nth-child(2) td:nth-child(1) i{
+    background: #ff9900;
+}
+#attackUrl  tbody tr:nth-child(3) td{
+    color:#f9e400!important;
+}
+#attackUrl  tbody tr:nth-child(3) td:nth-child(1) i{
+    background: #f9e400;
+}
+
+/** 漏洞类型 */
+#hole-type tbody tr td:nth-of-type(1){
+    width: 35px!important;
+}
+#hole-type tbody tr td:nth-of-type(1) i{
+    display: inline-block;
+    font-style: normal;
+    font-family: Verdana;
+    color: #000;
+    background-color: #b5b5b6;
+    text-align: center;
+    width: 22px!important;
+    font-size: 12px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+#hole-type tbody tr td:nth-of-type(2){
+    width: 30px!important;
+    text-align: right;
+}
+#hole-type tbody tr td:nth-of-type(3){
+    max-width: 220px!important;
+    padding-left: 20px;
+    overflow:hidden!important;
+}
+@media screen and (min-width: 1441px){
+    #hole-type tbody tr td:nth-of-type(3){
+        max-width: 360px!important;
+        padding-left: 20px;
+        overflow:hidden!important;
+    }
+}
+#hole-type  tbody tr:nth-child(1) td{
+    color:#ff0000!important;
+}
+#hole-type  tbody tr:nth-child(1) td:nth-child(1) i{
+    background: #ff0000;
+}
+#hole-type  tbody tr:nth-child(2) td{
+    color:#ff9900!important;
+}
+#hole-type  tbody tr:nth-child(2) td:nth-child(1) i{
+    background: #ff9900;
+}
+#hole-type  tbody tr:nth-child(3) td{
+    color:#f9e400!important;
+}
+#hole-type  tbody tr:nth-child(3) td:nth-child(1) i{
+    background: #f9e400;
+}
+
+/*攻击IP*/
+#attackIp  tbody tr,#visitIp  tbody tr{
+    margin-bottom: 6px;
+}
+#attackIp  tbody tr td,#visitIp  tbody tr td{
+    vertical-align: middle;
+    color: #00bbff;
+    }
+#attackIp  tbody tr:nth-child(odd),#visitIp  tbody tr:nth-child(odd){
+    z-index: 1111;
+}
+#attackIp  tbody .progress,#visitIp  tbody .progress{
+    height: 20px;
+    background-color: #4d5c65;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+#attackIp  tbody .progress .progress-bar,#visitIp  tbody .progress .progress-bar{
+    background-color: #58b4ff;
+}
+
+#attackIp  tbody tr td:nth-of-type(1),#visitIp  tbody tr td:nth-of-type(1){
+    width: 30px!important;
+}
+#attackIp  tbody tr td:nth-of-type(2),#visitIp  tbody tr td:nth-of-type(2){
+    width: 70px!important;
+    padding-left: 10px;
+}
+#attackIp  tbody tr td:nth-of-type(3),#visitIp  tbody tr td:nth-of-type(3){
+    width: 150px!important;
+}
+#attackIp  tbody tr td:nth-of-type(4),#visitIp  tbody tr td:nth-of-type(4){
+    text-align: right;
+    width: 100px;
+}
+#attackIp  tbody tr td:nth-child(2),#visitIp  tbody tr td:nth-child(2){
+    color:#00bbff;
+}
+#attackIp  tbody tr:nth-child(1) td,#visitIp  tbody tr:nth-child(1) td{
+    color:#ff0000!important;
+}
+
+#attackIp  tbody tr:nth-child(2) .progress .progress-bar,#visitIp  tbody tr:nth-child(2) .progress .progress-bar{
+    background-color: #ff0000;
+}
+#attackIp  tbody tr:nth-child(2) td,#visitIp  tbody tr:nth-child(2) td{
+    color:#ff9900!important;
+}
+#attackIp  tbody tr:nth-child(3) td,#visitIp  tbody tr:nth-child(3) td{
+    color:#f9e400!important;
+}
+/*
+#attackIp  tbody tr:nth-child(4) .progress .progress-bar{
+    background-color: #ff9900;
+}
+#attackIp  tbody tr:nth-child(5) td:nth-child(2){
+    color:#f9e400!important;
+}
+#attackIp  tbody tr:nth-child(6) .progress .progress-bar{
+    background-color: #f9e400;
+}
+*/
+
+/*仪表�?*/
+#riskGrade,#serverGrade,#serverQuality,#threatLevel,#securityEvent{
+    display: inline-block;
+}
+
+/*map*/
+.map{
+    position: relative;
+    width: 100%;
+
+}
+#chinaMap,#asia,#northAmerica,#southAmerica,#africa,#oceania,#europe,
+#asiaName,#northAmericaName,#southAmericaName,#africaName,#oceaniaName,#europeName
+{
+    position: absolute;
+}
+#chinaMap{
+    top: 4%;
+    left: -3%
+}
+
+#asia{
+    top: 0;
+    left: -5%;
+}
+#africa{
+    top: 35%;
+    left: -10%;
+}
+#europe{
+    top: 70%;
+    left: 0;
+}
+#northAmerica{
+    top: 0;
+    right: -5%;
+}
+#southAmerica{
+    top: 35%;
+    right: -5%;
+}
+#oceania{
+    top: 60%;
+    right: 5%;
+}
+
+
+
+
+
+/*攻击�?*/
+.nav-tabs {
+    border-bottom: 1px solid transparent;
+    z-index: 1000;
+}
+.nav-tabs>li>a,.nav-tabs>li>a:link,.nav-tabs>li>a:visited{
+    display: inline-block;
+    color: rgba(255,255,255,.4);
+    background: transparent;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+
+.nav-tabs>li>a:hover,
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:focus {
+    cursor: pointer;
+    background: #061620;
+    border: 1px solid #002e4b;
+    border-bottom-color: transparent!important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+
+.change-tip{
+    height: 20px;
+    -moz-box-shadow:0 0 5px #00517d;
+    -webkit-box-shadow:0 0 5px #00517d;
+    box-shadow:0 0 4px #00517d ;
+    border: 1px solid #0088d2;
+    background: -moz-linear-gradient(top, #0045b0, #00173a)!important; /* Firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0045b0), color-stop(1, #00173a))!important; /* Saf4+, Chrome */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0045b0', endColorstr='#00173a', GradientType='0')!important; /* IE*/
+    z-index: 99999;
+}
+
+/*---滚动条默认显示样式--*/
+
+::-webkit-scrollbar-thumb{
+    background-color:#112d50;
+    height:30px;
+    -webkit-border-radius:6px;
+}
+
+
+/*---滚动条大小--*/
+
+::-webkit-scrollbar{
+    width:6px;
+    height:12px;
+}
+
+/*---滚动框背景样式--*/
+
+::-webkit-scrollbar-track-piece{
+    background-color: transparent;
+    -webkit-border-radius:6px;
+}

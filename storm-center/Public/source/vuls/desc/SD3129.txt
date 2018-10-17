@@ -1,0 +1,6 @@
+flash crossdomain：
+    flash在跨域时唯一的限制策略就是crossdomain.xml文件，该文件限制了flash是否可以跨域读写数据以及允许从什么地方跨域读写数据。
+    位于www.a.com域中的SWF文件要访问www.b.com的文件时，SWF首先会检查www.b.com服务器目录下是否有crossdomain.xml文件，
+    如果没有，则访问不成功；若crossdomain.xml文件存在，且里边设置了允许www.a.com域访问，那么通信正常。所以要使Flash可以
+    跨域传输数据，其关键就是crossdomain.xml。
+    如果该策略文件里允许访问任何域，就可能允许发起对网络服务器的跨站点请求伪造和跨站点脚本攻击。

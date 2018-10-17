@@ -1,0 +1,4 @@
+mall-builder sql注入漏洞描述：
+    MallBuilder一款基于PHP+MYSQL的多用户网上商城解决方案。
+    MallBuilder存在一个未明SQL注入漏洞，
+    允许攻击者利用漏洞获取敏感数据库信息或者控制应用系统。

@@ -1,0 +1,2 @@
+Reverse_Proxy_Bypass 漏洞修复建议：
+    安装厂家补丁。

@@ -1,0 +1,247 @@
+<include file="./App/Service/View/header.html" />
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="index">首页</a> </li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="dashboard">
+            <!-- BEGIN DASHBOARD STATS -->
+            <div class="row">
+                <div class="col-md-3 responsive" data-tablet="col-md-6" data-desktop="col-md-3">
+                    <div class="dashboard-stat blue">
+                        <div class="visual"><i class="ion ion-grid"></i></div>
+                        <div class="details">
+                            <div class="details">
+                                <div class="number">33</div>
+                                <div class="desc">服务节点</div>
+                            </div>
+                        </div>
+                        <a class="more" href="__ROOT__/index.php/Service/WebSite/siteManage">详情<i class="fa fa-arrow-right"></i> </a>
+                    </div>
+                </div>
+                <div class="col-md-3 responsive" data-tablet="col-md-6" data-desktop="col-md-3">
+                    <div class="dashboard-stat green">
+                        <div class="visual">
+                            <i class="ion ion-android-call"></i>
+                        </div>
+                        <div class="details">
+                            <div class="details">
+                                <div class="number">4539</div>
+                                <div class="desc">监控网站</div>
+                            </div>
+                        </div>
+                        <a class="more" href="__ROOT__/index.php/Service/WebSite/siteManage">详情<i class="fa fa-arrow-right"></i> </a>
+                    </div>
+                </div>
+                <div class="col-md-3 responsive" data-tablet="col-md-6 fix-offset" data-desktop="col-md-3">
+                    <div class="dashboard-stat purple">
+                        <div class="visual">
+                            <i class="ion ion-image"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">4539</div>
+                            <div class="desc">到期合同数</div>
+                        </div>
+                        <a class="more" href="__ROOT__/index.php/Service/WebSite/siteManage">详情<i class="fa fa-arrow-right"></i> </a>
+                    </div>
+                </div>
+                <div class="col-md-3 responsive" data-tablet="col-md-6" data-desktop="col-md-3">
+                    <div class="dashboard-stat yellow">
+                        <div class="visual">
+                            <i class="ion ion-calendar"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">300</div>
+                            <div class="desc">当日故障数</div>
+                        </div>
+                        <a class="more" href="__ROOT__/index.php/Service/WebSite/siteFault">详情<i class="fa fa-arrow-right"></i> </a>
+                    </div>
+                </div>
+            </div>
+            <!-- END DASHBOARD STATS -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN REGIONAL STATS PORTLET-->
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="fa fa-globe"></i>节点监测</div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong><i class="fa fa-exclamation-circle"></i></strong> 发现武汉节点不可用
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="map"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- END REGIONAL STATS PORTLET-->
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- BEGIN PORTLET-->
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-comments"></i>到期合同</div>
+                        </div>
+
+                        <div class="portlet-body light-grey">
+                            <table class="table table-bordered" >
+                                <thead class="bg-lightgrey">
+                                <tr>
+                                    <th>合同号</th>
+                                    <th>客户名称</th>
+                                    <th>站点地址</th>
+                                    <th>到期日期</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>15-06-0001</td>
+                                    <td>滨江区政府</td>
+                                    <td>www.binjiang.gov.cn</td>
+                                    <td> 2015-06-15</td>
+                                </tr>
+                                <tr>
+                                    <td>15-06-0001</td>
+                                    <td>滨江区政府</td>
+                                    <td>www.binjiang.gov.cn</td>
+                                    <td>2015-06-15</td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                            <div class="row no-margin">
+                                <ul class="pagination pull-right">
+                                    <li><a href="#">上一页</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li class="active"><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">下一页</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PORTLET-->
+                <div class="col-md-6">
+                    <!-- BEGIN PORTLET-->
+                    <div class="portlet box red">
+                        <div class="portlet-title line">
+                            <div class="caption"><i class="icon-comments"></i>最新故障</div>
+                        </div>
+                        <div class="portlet-body">
+                            <table class="table table-bordered" >
+                                <thead class="bg-lightgrey" >
+                                <tr>
+                                    <th>站点地址</th>
+                                    <th>检测日期</th>
+                                    <th class="hidden-480"> 故障描述</th>
+                                    <th>故障时长</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>www.binjiang.gov.cn</td>
+                                    <td>2015-06-09 12:00</td>
+                                    <td class="hidden-480">404 NOT FOUND</td>
+                                    <td>60 ms</td>
+                                </tr>
+                                <tr>
+                                    <td>Jacob</td>
+                                    <td>Nilson</td>
+                                    <td class="hidden-480">jac123</td>
+                                    <td><span class="label label-info">Pending</span></td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                            <div class="row no-margin">
+                                <ul class="pagination pull-right">
+                                    <li><a href="#">上一页</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li class="active"><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">下一页</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PORTLET-->
+                </div>
+            </div>
+        </div>
+        <!--
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title"><div class="caption"><i class="fa fa-comments"></i>事件类型统计</div></div>
+
+                    <div class="portlet-body light-grey">
+                        <table class="table table-bordered" >
+                            <thead class="bg-lightgrey">
+                            <tr>
+                                <th>合同号</th>
+                                <th>客户名称</th>
+                                <th class="hidden-480">站点地址</th>
+                                <th>到期日期</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>15-06-0001</td>
+                                <td>滨江区政府</td>
+                                <td class="hidden-480">www.binjiang.gov.cn</td>
+                                <td> 2015-06-15</td>
+                            </tr>
+                            <tr>
+                                <td>15-06-0001</td>
+                                <td>滨江区政府</td>
+                                <td class="hidden-480">www.binjiang.gov.cn</td>
+                                <td>2015-06-15</td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+                        <div class="row">
+                            <ul class="pagination pull-right">
+                                <li><a href="#">上一页</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li class="active"><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">下一页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        -->
+    </div>
+</div>
+<assign name='plugins' value='echarts'/>
+<include file="./App/Service/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/script/Service/index.js"></script>

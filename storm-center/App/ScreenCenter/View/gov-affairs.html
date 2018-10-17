@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="__PUBLIC__/js/swiper/css/swiper.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/js/fancybox/jquery.fancybox.css"/>
+    <link href="__PUBLIC__/css/Home/page/gov-affairs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header class="header">
+    <a class="home" href="#"></a>
+    <h1>全国政务网站安全概况</h1>
+    <div class="box-tab pull-left" style="margin-top: 20px;">
+        <ul class="nav nav-tabs " role="tablist">
+            <li role="presentation" class="active"><a href="#Home"  role="tab" data-toggle="tab">Home</a></li>
+            <li role="presentation"><a href="#RiskRank" role="tab" data-toggle="tab">风险等级</a></li>
+            <li role="presentation"><a href="#HoleType" role="tab" data-toggle="tab">漏洞类型</a></li>
+            <li role="presentation"><a href="#ZeroDay" role="tab" data-toggle="tab">0day</a></li>
+            <li role="presentation"><a href="#SecurityEvent" role="tab" data-toggle="tab">安全事件</a></li>
+            <li role="presentation"><a href="#HighPort" role="tab" data-toggle="tab">高危端口</a></li>
+            <li role="presentation"><a href="#WebService" role="tab" data-toggle="tab">网站实时</a></li>
+            <li role="presentation"><a href="#SafeProof" role="tab" data-toggle="tab">安全举证</a></li>
+        </ul>
+    </div>
+    <div class="safety pull-right">
+        <div class="safety-chart"></div>
+        <div class="safety-posture">当月安全态势：<span class="s-p-name">中危</span></div>
+    </div>
+</header>
+
+<div class="container-fluid content clear">
+    <div class="row no-padding no-margin">
+        <div class="col-md-3 no-padding">
+            <div class="box mb-10 risk-level">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">风险等级分布</div>
+                        <div class="sub-title">高危网站：<span class="num">1,234</span> 个</div>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div id="risk-level-chart">风险等级分布图</div>
+                </div>
+
+            </div>
+            <div class="box mb-10 hole-type">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">漏洞类型分布</div>
+                    </div>
+                    <div class="box-tab pull-right">
+                        <ul class="nav nav-tabs " role="tablist">
+                            <li role="presentation" class="active"><a href="#high" role="tab" data-toggle="tab">高危漏洞</a></li>
+                            <li role="presentation"><a href="#mid" role="tab" data-toggle="tab">中危漏洞</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="high">
+                            <div id="high-hole-type-chart">高危漏洞分布图</div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="mid">
+                            <div id="mid-hole-type-chart">低危漏洞分布图</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box zero-day-hole">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">0Day漏洞分布</div>
+                        <div class="sub-title">风险等级：高危</div>
+                    </div>
+                    <div class="box-tab pull-right">
+                        <ul class="nav nav-tabs " role="tablist">
+                            <li role="presentation" class="active"><a href="#OpenSSL"  role="tab" data-toggle="tab">OpenSSL</a></li>
+                            <li role="presentation"><a href="#IIS7" role="tab" data-toggle="tab">IIS7</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content box-content-bottom">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="OpenSSL">
+                            <table class="grid">
+                                <tbody>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 100%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 90%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 80%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 70%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 60%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 50%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 40%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 30%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 20%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 20%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 20%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 20%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 20%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                <tr>
+                                    <td>安徽</td>
+                                    <td><div class="progress"><div class="progress-bar" style="width: 20%;"></div></div></td>
+                                    <td>4570</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="IIS7">ISS7</div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 padding-10">
+            <div class="tab-content">
+                <!--主页-->
+                <div role="tabpanel" class="tab-pane active" id="Home">
+                    <div class="main">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-title pull-left">
+                                    <div class="title">网站量区域分布</div>
+                                    <div class="sub-title">网站总量：<span class="num">1,234</span> 个</div>
+                                </div>
+                                <div class="reply pull-right">
+                                    <a href="#" class="prev"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-margin">
+                            <div class="col-md-7">
+                                <div id="map-chart" style="height: 366px;">地图</div>
+                            </div>
+                            <div class="col-md-5" style="height: 366px;padding-top: 70px;">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div id="domain-pie" class="pie">饼图</div>
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="server-pie" class="pie">饼图</div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="paper-pie" class="pie">饼图</div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="col-md-4">
+                                        <div  class="pie">饼图</div>
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="pie">饼图</div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div  class="pie">饼图</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="row mb-10">
+                            <div class="col-md-7">
+                                <div class="row no-margin">
+                                    <div class="col-md-4">
+                                        <div class="web-num">
+                                            <span class="order">NO.1</span>
+                                            <span class="name">北京</span>
+                                        </div>
+                                        <div id="pie1" class="web-pie">地图</div>
+                                        <div class="total red">网站量：<span>1234</span></div>
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="web-num">
+                                            <span class="order">NO.2</span>
+                                            <span class="name">北京</span>
+                                        </div>
+                                        <div id="pie2"  class="web-pie">地图</div>
+                                        <div class="total yellow">网站量：<span>1234</span></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="web-num">
+                                            <span class="order">NO.3</span>
+                                            <span class="name">北京</span>
+                                        </div>
+                                        <div id="pie3" class="web-pie">地图</div>
+                                        <div class="total orange">网站量：<span>1234</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <table class="blue-grid">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 25%;">排行</th>
+                                        <th style="width: 25%;">区域</th>
+                                        <th style="width: 25%;">访问量</th>
+                                        <th style="width: 25%;">网站占比</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                                <div class="blue-grid-body" style="height: 145px;">
+                                    <table class="blue-grid blue-grid-rank">
+                                        <tbody>
+                                        <tr>
+                                            <td style="width: 25%">1</td>
+                                            <td style="width: 25%">北京</td>
+                                            <td style="width: 25%">12345</td>
+                                            <td style="width: 25%">35%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 25%">1</td>
+                                            <td style="width: 25%">北京</td>
+                                            <td style="width: 25%">12345</td>
+                                            <td style="width: 25%">35%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 25%">1</td>
+                                            <td style="width: 25%">北京</td>
+                                            <td style="width: 25%">12345</td>
+                                            <td style="width: 25%">35%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 25%">1</td>
+                                            <td style="width: 25%">北京</td>
+                                            <td style="width: 25%">12345</td>
+                                            <td style="width: 25%">35%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 25%">1</td>
+                                            <td style="width: 25%">北京</td>
+                                            <td style="width: 25%">12345</td>
+                                            <td style="width: 25%">35%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 25%">1</td>
+                                            <td style="width: 25%">北京</td>
+                                            <td style="width: 25%">12345</td>
+                                            <td style="width: 25%">35%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 25%">1</td>
+                                            <td style="width: 25%">北京</td>
+                                            <td style="width: 25%">12345</td>
+                                            <td style="width: 25%">35%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 25%">1</td>
+                                            <td style="width: 25%">北京</td>
+                                            <td style="width: 25%">12345</td>
+                                            <td style="width: 25%">35%</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>-->
+
+                        <div class="row mb-10">
+                            <div class="col-md-12 mb-10">
+                                <div class="box-title pull-left">
+                                    <div class="title">网站清单</div>
+                                </div>
+                                <div class="search pull-right">
+                                    <form action="" method="">
+                                        <input type="text"/>
+                                        <a href="javascript:;"><i class="fa fa-search"></i></a>
+                                    </form>
+
+                                </div>
+                            </div>
+                            <div class="web-list clear">
+                                <div class="col-md-4">
+                                    <div class="list">
+                                        <div class="l-rank bg-red">高危</div>
+                                        <div class="l-web">浙江省政府网站</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="list">
+                                        <div class="l-rank bg-red">高危</div>
+                                        <div class="l-web">浙江省政府网站</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="list">
+                                        <div class="l-rank bg-red">高危</div>
+                                        <div class="l-web">浙江省政府网站</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="list">
+                                        <div class="l-rank bg-red">高危</div>
+                                        <div class="l-web">浙江省政府网站</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="list">
+                                        <div class="l-rank bg-red">高危</div>
+                                        <div class="l-web">浙江省政府网站</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--风险等级-->
+                <div role="tabpanel" class="tab-pane" id="RiskRank">
+                    <div class="main">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-title pull-left">
+                                    <div class="title">网站量区域分布</div>
+                                    <div class="box-tab-sub">
+                                        <ul class="nav nav-tabs " role="tablist">
+                                            <li role="presentation" class="active"><a href="#HighRisk"  role="tab" data-toggle="tab">高危等级</a></li>
+                                            <li role="presentation"><a href="#MidRisk" role="tab" data-toggle="tab">中危等级</a></li>
+                                            <li role="presentation"><a href="#LowRisk" role="tab" data-toggle="tab">低危等级</a></li>
+                                            <li role="presentation"><a href="#InfoRisk" role="tab" data-toggle="tab">信息等级</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="reply pull-right">
+                                    <a href="#" class="prev"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <!--高危等级-->
+                            <div role="tabpanel" class="tab-pane active" id="HighRisk">
+                                <div class="row no-margin">
+                                    <div class="col-md-7">
+                                        <div  style="height: 366px;">地图</div>
+                                    </div>
+                                    <div class="col-md-5" style="height: 366px;padding-top: 20px;">
+                                        <table class="blue-grid">
+                                            <thead>
+                                            <tr>
+                                                <th style="width: 20%;">区域</th>
+                                                <th style="width: 20%;">站点</th>
+                                                <th style="width: 20%;">高危站点比</th>
+                                                <th style="width: 20%;">中站点比</th>
+                                                <th style="width: 20%;">低危站点比</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                        <div class="blue-grid-body" style="height: 296px;">
+                                            <table class="blue-grid">
+                                                <tbody>
+                                                <tr>
+                                                    <td style="width: 20%">1</td>
+                                                    <td style="width: 20%">北京</td>
+                                                    <td style="width: 20%">12345</td>
+                                                    <td style="width: 20%">35%</td>
+                                                    <td style="width: 20%">35%</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-10">
+                                    <div class="col-md-7">
+                                        <div class="row no-margin">
+                                            <div class="col-md-3" style="height:184px;border: 1px solid #ff0000">
+
+                                            </div>
+                                            <div class="col-md-3" style="height:184px;border: 1px solid #ff0000">
+                                            </div>
+                                            <div class="col-md-3" style="height:184px;border: 1px solid #ff0000">
+                                            </div>
+                                            <div class="col-md-3" style="height:184px;border: 1px solid #ff0000">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <table class="blue-grid">
+                                            <thead>
+                                            <tr>
+                                                <th style="width: 25%;">排行</th>
+                                                <th style="width: 25%;">漏洞名称</th>
+                                                <th style="width: 25%;">漏洞级别</th>
+                                                <th style="width: 25%;">扫出次数</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                        <div class="blue-grid-body" style="height: 145px;">
+                                            <table class="blue-grid blue-grid-rank">
+                                                <tbody>
+                                                <tr>
+                                                    <td style="width: 25%">1</td>
+                                                    <td style="width: 25%">SQL注入</td>
+                                                    <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                    <td style="width: 25%">35%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 25%">1</td>
+                                                    <td style="width: 25%">SQL注入</td>
+                                                    <td style="width: 25%"><span class="label label-warning">高危</span></td>
+                                                    <td style="width: 25%">35%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 25%">1</td>
+                                                    <td style="width: 25%">SQL注入</td>
+                                                    <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                    <td style="width: 25%">35%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 25%">1</td>
+                                                    <td style="width: 25%">SQL注入</td>
+                                                    <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                    <td style="width: 25%">35%</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--中级等级-->
+                            <div role="tabpanel" class="tab-pane active" id="MidRisk">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--漏洞类型-->
+                <div role="tabpanel" class="tab-pane" id="HoleType">
+                    <div class="main">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-title pull-left">
+                                    <div class="title">漏洞区域分布</div>
+                                </div>
+                                <div class="reply pull-right">
+                                    <a href="#" class="prev"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-margin">
+                            <div class="col-md-7">
+                                <div  style="height: 366px;">地图</div>
+                            </div>
+                            <div class="col-md-5" style="height: 366px;padding-top: 20px;">
+                                <table class="blue-grid">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 33.33%;">网址名称</th>
+                                        <th style="width: 33.33%;">网址地址</th>
+                                        <th style="width: 33.33%;">漏洞个数</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                                <div class="blue-grid-body" style="height: 296px;">
+                                    <table class="blue-grid">
+                                        <tbody>
+                                        <tr>
+                                            <td style="width: 33.33%;">XX省人民政府</td>
+                                            <td style="width: 33.33%;">www.jxf.gov.cn</td>
+                                            <td style="width: 33.33%;">35%</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-10" style="height: 184px;">
+                            <div class="col-md-2">
+                                <div class="desc">
+                                    <p class="d-title">漏洞名称</p>
+                                    <p class="d-info">漏洞名称</p>
+                                </div>
+                                <div class="desc" style="margin-top: 40px;">
+                                    <p class="d-title">漏洞名称</p>
+                                    <p class="d-info red" style="font-weight: bold">高危</p>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="desc">
+                                    <p class="d-title">漏洞名称</p>
+                                    <p class="d-info" style="height: 130px;">所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。具体来说，它是利用现有应用程序，将（恶意）的SQL命令注入到后台数据库引擎执行的能力。[1]  比如先前的很多影视网站泄露VIP会员密码大多就是通过WEB表单递交查询字符暴出的，这类表单特别容易受到SQL注入式攻击．
+                                        所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。具体来说，它是利用现有应用程序，将（恶意）的SQL命令注入到后台数据库引擎执行的能力。[1]  比如先前的很多影视网站泄露VIP会员密码大多就是通过WEB表单递交查询字符暴出的，这类表单特别容易受到SQL注入式攻击．
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="desc">
+                                    <p class="d-title">漏洞名称</p>
+                                    <p class="d-info" style="height: 130px;">所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。具体来说，它是利用现有应用程序，将（恶意）的SQL命令注入到后台数据库引擎执行的能力。[1]  比如先前的很多影视网站泄露VIP会员密码大多就是通过WEB表单递交查询字符暴出的，这类表单特别容易受到SQL注入式攻击．</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--0day分布-->
+                <div role="tabpanel" class="tab-pane" id="ZeroDay">
+                    <div class="main">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-title pull-left">
+                                    <div class="title">openssl影响页面</div>
+                                </div>
+                                <div class="reply pull-right">
+                                    <a href="#" class="prev"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-margin">
+                            <div class="col-md-7">
+                                <div  style="height: 366px;">地图</div>
+                            </div>
+                            <div class="col-md-5" style="height: 366px;padding-top: 20px;">
+                                <table class="blue-grid">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 20%;">区域</th>
+                                        <th style="width: 20%;">网站总量</th>
+                                        <th style="width: 20%;">影响网站量</th>
+                                        <th style="width: 20%;">影响面占比</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                                <div class="blue-grid-body" style="height: 296px;">
+                                    <table class="blue-grid">
+                                        <tbody>
+                                        <tr>
+                                            <td style="width: 20%;">XX省人民政府</td>
+                                            <td style="width: 20%;">www.jxf.gov.cn</td>
+                                            <td style="width: 20%;">35%</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-10" style="height: 184px;">
+                            <div class="col-md-7">
+                                <div class="desc">
+                                    <p class="d-title">openssl描述</p>
+                                    <p class="d-info">OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及SSL协议，并提供丰富的应用程序供测试或其它目的使用。
+                                        在OpenSSL被曝出现严重安全漏洞后，发现多数通过SSL协议加密的网站使用名为OpenSSL的开源软件包。OpenSSL漏洞不仅影响以https开头的网站，黑客还可利用此漏洞直接对个人电脑发起“心脏出血”（Heartbleed）攻击。据分析，Windows上有大量软件使用了存在漏洞的OpenSSL代码库，可能被黑客攻击抓取用户电脑上的内存数据。</p>
+                                </div>
+
+                            </div>
+                            <div class="col-md-5">
+                                <table class="blue-grid">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 50%;">版本</th>
+                                        <th style="width: 50%;">网站量</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                                <div class="blue-grid-body" style="height: 145px;">
+                                    <table class="blue-grid">
+                                        <tbody>
+                                        <tr>
+                                            <td style="width: 50%;">V1.00.</td>
+                                            <td style="width: 50%;">30M</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--安全事件-->
+                <div role="tabpanel" class="tab-pane" id="SecurityEvent">
+                    <div class="main">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-title pull-left">
+                                    <div class="title">安全事件区域分布</div>
+                                    <div class="box-tab-sub">
+                                        <ul class="nav nav-tabs " role="tablist">
+                                            <li role="presentation" class="active"><a href="#Heiye"  role="tab" data-toggle="tab">黑页</a></li>
+                                            <li role="presentation"><a href="#Fangong" role="tab" data-toggle="tab">反共</a></li>
+                                            <li role="presentation"><a href="#Bocai" role="tab" data-toggle="tab">博彩</a></li>
+                                            <li role="presentation"><a href="#Seqing" role="tab" data-toggle="tab">色情</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="reply pull-right">
+                                    <a href="#" class="prev"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <!--黑页-->
+                            <div role="tabpanel" class="tab-pane active" id="Heiye">
+                                <div class="row no-margin">
+                                    <div class="col-md-7">
+                                        <div  style="height: 366px;">地图</div>
+                                    </div>
+                                    <div class="col-md-5" style="height: 366px;padding-top: 20px;">
+                                        <table class="blue-grid">
+                                            <thead>
+                                            <tr>
+                                                <th style="width: 20%;">区域</th>
+                                                <th style="width: 20%;">站点</th>
+                                                <th style="width: 20%;">高危站点比</th>
+                                                <th style="width: 20%;">中站点比</th>
+                                                <th style="width: 20%;">低危站点比</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                        <div class="blue-grid-body" style="height: 296px;">
+                                            <table class="blue-grid">
+                                                <tbody>
+                                                <tr>
+                                                    <td style="width: 20%">1</td>
+                                                    <td style="width: 20%">北京</td>
+                                                    <td style="width: 20%">12345</td>
+                                                    <td style="width: 20%">35%</td>
+                                                    <td style="width: 20%">35%</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-10">
+                                    <div class="col-md-7">
+                                        <div class="row no-margin">
+                                            <div class="col-md-3" style="height:184px;border: 1px solid #ff0000">
+
+                                            </div>
+                                            <div class="col-md-3" style="height:184px;border: 1px solid #ff0000">
+                                            </div>
+                                            <div class="col-md-3" style="height:184px;border: 1px solid #ff0000">
+                                            </div>
+                                            <div class="col-md-3" style="height:184px;border: 1px solid #ff0000">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <table class="blue-grid">
+                                            <thead>
+                                            <tr>
+                                                <th style="width: 25%;">排行</th>
+                                                <th style="width: 25%;">漏洞名称</th>
+                                                <th style="width: 25%;">漏洞级别</th>
+                                                <th style="width: 25%;">扫出次数</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                        <div class="blue-grid-body" style="height: 145px;">
+                                            <table class="blue-grid blue-grid-rank">
+                                                <tbody>
+                                                <tr>
+                                                    <td style="width: 25%">1</td>
+                                                    <td style="width: 25%">SQL注入</td>
+                                                    <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                    <td style="width: 25%">35%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 25%">1</td>
+                                                    <td style="width: 25%">SQL注入</td>
+                                                    <td style="width: 25%"><span class="label label-warning">高危</span></td>
+                                                    <td style="width: 25%">35%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 25%">1</td>
+                                                    <td style="width: 25%">SQL注入</td>
+                                                    <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                    <td style="width: 25%">35%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 25%">1</td>
+                                                    <td style="width: 25%">SQL注入</td>
+                                                    <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                    <td style="width: 25%">35%</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--反共-->
+                            <div role="tabpanel" class="tab-pane active" id="Fangong">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--高危端口-->
+                <div role="tabpanel" class="tab-pane" id="HighPort">
+                    <div class="main">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-title pull-left">
+                                    <div class="title">高危端口区域分布</div>
+                                </div>
+                                <div class="reply pull-right">
+                                    <a href="#" class="prev"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-margin">
+                            <div class="col-md-7">
+                                <div  style="height: 366px;">地图</div>
+                            </div>
+                            <div class="col-md-5" style="height: 366px;padding-top: 20px;">
+                                <table class="blue-grid">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 20%;">区域</th>
+                                        <th style="width: 20%;">网站总量</th>
+                                        <th style="width: 20%;">影响网站量</th>
+                                        <th style="width: 20%;">影响面占比</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                                <div class="blue-grid-body" style="height: 296px;">
+                                    <table class="blue-grid">
+                                        <tbody>
+                                        <tr>
+                                            <td style="width: 20%;">XX省人民政府</td>
+                                            <td style="width: 20%;">www.jxf.gov.cn</td>
+                                            <td style="width: 20%;">35%</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-10" style="height: 184px;">
+                            <div class="col-md-2">
+                                <div class="desc">
+                                    <p class="d-title">端口号</p>
+                                    <p class="d-info">3389</p>
+                                </div>
+                                <div class="desc" style="margin-top: 40px;">
+                                    <p class="d-title">风险等级</p>
+                                    <p class="d-info red" style="font-weight: bold">高危</p>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="desc">
+                                    <p class="d-title">端口号描述</p>
+                                    <p class="d-info" style="height: 130px;">
+                                        3389端口是Windows 2000(2003) Server远程桌面的服务端口，可以通过这个端口，用"远程桌面"等连接工具来连接到远程的服务器，如果连接上了，输入系统管理员的用户名和密码后，将变得可以像操作本机一样操作远程的电脑，因此远程服务器一般都将这个端口修改数值或者关闭。
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <table class="blue-grid">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 50%;">版本</th>
+                                        <th style="width: 50%;">网站量</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                                <div class="blue-grid-body" style="height: 145px;">
+                                    <table class="blue-grid">
+                                        <tbody>
+                                        <tr>
+                                            <td style="width: 50%;">V1.00.</td>
+                                            <td style="width: 50%;">30M</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--网站实时-->
+                <div role="tabpanel" class="tab-pane" id="WebService">
+                    <div class="box mb-10" style="height: 610px;">
+                        <div class="row border-bottom">
+                            <div class="col-md-2">
+                                <div class="m-head border-right">
+                                    <div class="m-h-name">事件类型</div>
+                                    <h1 class="m-h-info red">反共</h1>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="m-head">
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td class="m-h-key">网站标题：</td>
+                                            <td class="m-h-value">浙江省桐乡市人民检察院浙江省桐乡市人民检察院</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="m-h-key">IP地址：</td>
+                                            <td class="m-h-value">123.123.123.23</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="m-h-key">域名注册日期：</td>
+                                            <td class="m-h-value">2005-07-01</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="m-head">
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td class="m-h-key">网站域名：</td>
+                                            <td class="m-h-value">http://www.jxtx.jcy.gov.cn/</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="m-h-key">IP归属：</td>
+                                            <td class="m-h-value">浙江杭州</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="m-h-key">域名过期日期：</td>
+                                            <td class="m-h-value">2025-07-01</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="reply pull-right">
+                                    <a href="#" class="prev"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="m-content">
+                                    <div class="box-tab-sub">
+                                        <ul class="nav nav-tabs " role="tablist">
+                                            <li role="presentation" class="active"><a href="#WebHome"  role="tab" data-toggle="tab">网站首页</a></li>
+                                            <li role="presentation"><a href="#WeaknessInfo" role="tab" data-toggle="tab">弱点信息</a></li>
+                                            <li role="presentation"><a href="#SecurityQuality" role="tab" data-toggle="tab">服务质量</a></li>
+                                            <li role="presentation"><a href="#SafeEvent" role="tab" data-toggle="tab">安全事件</a></li>
+                                            <li role="presentation"><a href="#SonDomain" role="tab" data-toggle="tab">子域名</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="row">
+                                        <div class="tab-content">
+                                            <!--网站首页-->
+                                            <div role="tabpanel" class="tab-pane active" id="WebHome">
+                                                <div class="col-md-7 mt-14">
+                                                    <div class="screenshot"></div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="m-head" style="height: 270px;">
+                                                        <table>
+                                                            <tbody>
+                                                            <tr>
+                                                                <td class="m-h-key">首页地址：</td>
+                                                                <td class="m-h-value">浙江省桐乡市人民检察院浙江省桐乡市人民检察院</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="m-h-key">首页大小：</td>
+                                                                <td class="m-h-value">123.123.123.23</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="m-h-key">加载时长：</td>
+                                                                <td class="m-h-value">2005-07-01</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <table class="blue-grid">
+                                                        <thead>
+                                                        <tr>
+                                                            <th style="width: 25%;">排行</th>
+                                                            <th style="width: 25%;">漏洞名称</th>
+                                                            <th style="width: 25%;">漏洞级别</th>
+                                                            <th style="width: 25%;">扫出次数</th>
+                                                        </tr>
+                                                        </thead>
+                                                    </table>
+                                                    <div class="blue-grid-body" style="height: 145px;">
+                                                        <table class="blue-grid blue-grid-rank">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-warning">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--弱点信息-->
+                                            <div role="tabpanel" class="tab-pane" id="WeaknessInfo">
+                                                <div class="col-md-7 mt-14">
+                                                    <div class="screenshot"></div>
+                                                </div>
+                                                <div class="col-md-5 mt-14">
+                                                    <div class="box-tab-border">
+                                                        <ul class="nav nav-tabs " role="tablist">
+                                                            <li role="presentation" class="active"><a href="#HighHole"  role="tab" data-toggle="tab">高危漏洞</a></li>
+                                                            <li role="presentation"><a href="#MidHole" role="tab" data-toggle="tab">中危漏洞</a></li>
+                                                            <li role="presentation"><a href="#LowHole" role="tab" data-toggle="tab">低危漏洞</a></li>
+                                                            <li role="presentation"><a href="#InfoHole" role="tab" data-toggle="tab">信息漏洞</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="tab-content mt-14">
+                                                        <div role="tabpanel" class="tab-pane active" id="HighHole">
+                                                            <table class="blue-grid">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th style="width: 25%;">排行</th>
+                                                                    <th style="width: 25%;">漏洞名称</th>
+                                                                    <th style="width: 25%;">漏洞级别</th>
+                                                                    <th style="width: 25%;">扫出次数</th>
+                                                                </tr>
+                                                                </thead>
+                                                            </table>
+                                                            <div class="blue-grid-body" style="height: 145px;">
+                                                                <table class="blue-grid blue-grid-rank">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td style="width: 25%">1</td>
+                                                                        <td style="width: 25%">SQL注入</td>
+                                                                        <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                        <td style="width: 25%">35%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 25%">1</td>
+                                                                        <td style="width: 25%">SQL注入</td>
+                                                                        <td style="width: 25%"><span class="label label-warning">高危</span></td>
+                                                                        <td style="width: 25%">35%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 25%">1</td>
+                                                                        <td style="width: 25%">SQL注入</td>
+                                                                        <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                        <td style="width: 25%">35%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 25%">1</td>
+                                                                        <td style="width: 25%">SQL注入</td>
+                                                                        <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                        <td style="width: 25%">35%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 25%">1</td>
+                                                                        <td style="width: 25%">SQL注入</td>
+                                                                        <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                        <td style="width: 25%">35%</td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td style="width: 25%">1</td>
+                                                                        <td style="width: 25%">SQL注入</td>
+                                                                        <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                        <td style="width: 25%">35%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width: 25%">1</td>
+                                                                        <td style="width: 25%">SQL注入</td>
+                                                                        <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                        <td style="width: 25%">35%</td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                            </div>
+                                            <!--服务质量-->
+                                            <div role="tabpanel" class="tab-pane" id="SecurityQuality">
+                                                <div class="col-md-7 mt-14">
+                                                    <div class="screenshot"></div>
+                                                </div>
+                                                <div class="col-md-5 mt-14">
+                                                    <table class="blue-grid">
+                                                        <thead>
+                                                        <tr>
+                                                            <th style="width: 25%;">排行</th>
+                                                            <th style="width: 25%;">漏洞名称</th>
+                                                            <th style="width: 25%;">漏洞级别</th>
+                                                            <th style="width: 25%;">扫出次数</th>
+                                                        </tr>
+                                                        </thead>
+                                                    </table>
+                                                    <div class="blue-grid-body" style="height: 145px;">
+                                                        <table class="blue-grid blue-grid-rank">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-warning">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--安全事件-->
+                                            <div role="tabpanel" class="tab-pane" id="SafeEvent">
+                                                <div class="col-md-7 mt-14">
+                                                    <div class="screenshot"></div>
+                                                </div>
+                                                <div class="col-md-5 mt-14">
+                                                    <table class="blue-grid">
+                                                        <thead>
+                                                        <tr>
+                                                            <th style="width: 25%;">排行</th>
+                                                            <th style="width: 25%;">漏洞名称</th>
+                                                            <th style="width: 25%;">漏洞级别</th>
+                                                            <th style="width: 25%;">扫出次数</th>
+                                                        </tr>
+                                                        </thead>
+                                                    </table>
+                                                    <div class="blue-grid-body" style="height: 145px;">
+                                                        <table class="blue-grid blue-grid-rank">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-warning">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--子域名-->
+                                            <div role="tabpanel" class="tab-pane" id="SonDomain">
+                                                <div class="col-md-7 mt-14">
+                                                    <div class="screenshot"></div>
+                                                </div>
+                                                <div class="col-md-5 mt-14">
+                                                    <table class="blue-grid">
+                                                        <thead>
+                                                        <tr>
+                                                            <th style="width: 25%;">排行</th>
+                                                            <th style="width: 25%;">漏洞名称</th>
+                                                            <th style="width: 25%;">漏洞级别</th>
+                                                            <th style="width: 25%;">扫出次数</th>
+                                                        </tr>
+                                                        </thead>
+                                                    </table>
+                                                    <div class="blue-grid-body" style="height: 145px;">
+                                                        <table class="blue-grid blue-grid-rank">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-warning">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="width: 25%">1</td>
+                                                                <td style="width: 25%">SQL注入</td>
+                                                                <td style="width: 25%"><span class="label label-danger">高危</span></td>
+                                                                <td style="width: 25%">35%</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--安全举证-->
+                <div role="tabpanel" class="tab-pane" id="SafeProof">
+                    <div class="box mb-10" style="height: 610px;">
+                        <div class="row border-bottom">
+                            <div class="col-md-2">
+                                <div class="m-head border-right">
+                                    <div class="m-h-name">事件类型</div>
+                                    <h1 class="m-h-info red">反共</h1>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="m-head">
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td class="m-h-key">网站标题：</td>
+                                            <td class="m-h-value">浙江省桐乡市人民检察院浙江省桐乡市人民检察院</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="m-h-key">IP地址：</td>
+                                            <td class="m-h-value">123.123.123.23</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="m-h-key">域名注册日期：</td>
+                                            <td class="m-h-value">2005-07-01</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="m-head">
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td class="m-h-key">网站域名：</td>
+                                            <td class="m-h-value">http://www.jxtx.jcy.gov.cn/</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="m-h-key">IP归属：</td>
+                                            <td class="m-h-value">浙江杭州</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="m-h-key">域名过期日期：</td>
+                                            <td class="m-h-value">2025-07-01</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="reply pull-right">
+                                    <a href="#" class="prev"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="m-content">
+                                    <div class="row">
+                                        <div class="col-md-7 mt-14">
+                                            <div class="screenshot"></div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="m-head" style="height: 270px;">
+                                                <table>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td class="m-h-key">首页URL：</td>
+                                                        <td class="m-h-value">浙江省桐乡市人民检察院浙江省桐乡市人民检察院</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="m-h-key">监测日期：</td>
+                                                        <td class="m-h-value">123.123.123.23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="m-h-key">修复状态：</td>
+                                                        <td class="m-h-value red">2005-07-01</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="m-h-key">事件描述：</td>
+                                                        <td class="m-h-value">2005-07-01</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">安全事件举证</div>
+                    </div>
+                </div>
+                <div class="box-content box-content-bottom">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class='event-type'><span class='type'>暗链</span></div>
+                                <a class='fancybox' href='__PUBLIC__/image/4.png' data-fancybox-group='gallery' >
+                                    <img src="__PUBLIC__/image/4.png" alt="...">
+                                </a>
+                                <div class="info">
+                                    <p class="title">百度</p>
+                                    <p class="domain">www.baidu.com</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class='event-type'><span class='type'>暗链</span></div>
+                                <a class='fancybox' href='__PUBLIC__/image/4.png' data-fancybox-group='gallery' >
+                                    <img src="__PUBLIC__/image/4.png" alt="...">
+                                </a>
+                                <div class="info">
+                                    <p class="title">百度</p>
+                                    <p class="domain">www.baidu.com</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class='event-type'><span class='type'>暗链</span></div>
+                                <a class='fancybox' href='__PUBLIC__/image/4.png' data-fancybox-group='gallery' >
+                                    <img src="__PUBLIC__/image/4.png" alt="...">
+                                </a>
+                                <div class="info">
+                                    <p class="title">百度</p>
+                                    <p class="domain">www.baidu.com</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class='event-type'><span class='type'>暗链</span></div>
+                                <a class='fancybox' href='__PUBLIC__/image/4.png' data-fancybox-group='gallery' >
+                                    <img src="__PUBLIC__/image/4.png" alt="...">
+                                </a>
+                                <div class="info">
+                                    <p class="title">百度</p>
+                                    <p class="domain">www.baidu.com</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class='event-type'><span class='type'>暗链</span></div>
+                                <a class='fancybox' href='__PUBLIC__/image/4.png' data-fancybox-group='gallery' >
+                                    <img src="__PUBLIC__/image/4.png" alt="...">
+                                </a>
+                                <div class="info">
+                                    <p class="title">百度</p>
+                                    <p class="domain">www.baidu.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 no-padding">
+            <div class="box mb-10">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">安全事件分析</div>
+                    </div>
+                    <div class="box-tab pull-right">
+                        <ul class="nav nav-tabs " role="tablist">
+                            <li role="presentation" class="active"><a href="#event-type"  role="tab" data-toggle="tab">事件类型</a></li>
+                            <li role="presentation"><a href="#event-spread"  role="tab" data-toggle="tab">事件分布</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="event-type">
+                            事件类型
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="event-spread">
+                            事件分布
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="box mb-10">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">高危端口分布</div>
+                    </div>
+                </div>
+                <div class="box-content">
+                    图
+                </div>
+            </div>
+            <div class="box web-service">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">网站服务质量</div>
+                    </div>
+                </div>
+                <div class="grid">
+                    <table class="table">
+                        <thead>
+                        <th>时间</th>
+                        <th>单位</th>
+                        <th>风险</th>
+                        </thead>
+                    </table>
+                    <div class="box-border" style="margin: 4px 0 6px;"></div>
+                    <div class="gridRoll">
+                        <div class="gridList" id="service-quality-list">
+                            <table class="table" style="height: 230px">
+                                <tbody class="waf-items">
+                                <tr>
+
+                                    <td>8-21 09:16</td>
+                                    <td>XX财政厅网站——真诚欢迎您...</td>
+                                    <td><span class="label label-danger">断网</span></td>
+                                </tr>
+                                <tr>
+                                    <td>8-21 09:16</td>
+                                    <td>XX财政厅网站——真诚欢迎您...</td>
+                                    <td><span class="label label-success">恢复</span></td>
+                                </tr>
+                                <tr>
+                                    <td>8-21 09:16</td>
+                                    <td>XX财政厅网站——真诚欢迎您...</td>
+                                    <td><span class="label label-warning">首页过大</span></td>
+                                </tr>
+                                <tr>
+                                    <td>8-21 09:16</td>
+                                    <td>XX财政厅网站——真诚欢迎您...</td>
+                                    <td><span class="label label-warning" style="width: 60px;">首页过大</span></td>
+                                </tr>
+                                <tr>
+                                    <td>8-21 09:16</td>
+                                    <td>XX财政厅网站——真诚欢迎您...</td>
+                                    <td><span class="label label-warning">首页过大</span></td>
+                                </tr>
+                                <tr>
+                                    <td>8-21 09:16</td>
+                                    <td>XX财政厅网站——真诚欢迎您...</td>
+                                    <td><span class="label label-danger" style="width: 60px;">断网</span></td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<script src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+<script src="__PUBLIC__/js/bootstrap/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/js/d3/d3.v3.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/swiper/js/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/fancybox/jquery.fancybox.pack.js"></script>
+<script>
+    var swiper = {
+        init: function(){
+            var mySwiper = new Swiper('.swiper-container', {
+                loop: true,
+                slidesPerView: 4,
+                pagination: '.swiper-pagination',
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                paginationClickable: true,
+                preloadImages:false,
+                updateOnImagesReady : true,
+                spaceBetween: 5,
+                centeredSlides: false,
+                autoplay: 2500,
+                autoplayDisableOnInteraction: false
+            });
+            $('.swiper-container').hover(function(){
+                mySwiper.stopAutoplay();
+            },function(){
+                mySwiper.startAutoplay();
+            });
+        }
+    };
+    var scroll=function(dom){
+
+
+        var y = 0;
+        var innerEl = $('#'+dom);
+        var rollEl = innerEl.parent();
+        var waitEl = innerEl.clone(true).removeAttr('id');
+        rollEl.append(waitEl);
+        var time;
+        function start(){
+            time = setInterval(function(){
+                y = y - 0.2;
+                innerEl.css({
+                    top: y
+                });
+                waitEl.css({
+                    top: y + innerEl.height()
+                });
+
+                if(y * -1 > innerEl.height()){
+                    y = 0;
+                    var tmp = innerEl;
+
+                    innerEl = waitEl;
+                    waitEl = tmp;
+                }
+            },20);
+        }
+        function stop(){
+            clearInterval(time);
+        }
+
+
+        innerEl.mouseenter(function(){
+            stop();
+        });
+        innerEl.mouseleave(function(){
+            start();
+        });
+       /* innerEl.touchmove(function(){
+            stop();
+        });
+        innerEl.touchend(function(){
+            start();
+        });*/
+        start();
+
+
+
+
+    };
+    swiper.init();
+    scroll('service-quality-list');
+    $('.fancybox').fancybox();
+</script>
+</body>
+</html>

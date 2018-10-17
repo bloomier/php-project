@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<project name="storm-center" default="build.svn">
+    <property name="projectName" value="storm-center"/>
+    <property file="svn.properties"/>
+    <property name="svn.build.rev" value="build/SVN_Build_REV"/>
+    <property name="svn.patch.log" value="build/SVN_patch_log.xml"/>
+    <property name="svn.info.file" value="build/SVN_info.xml"/>
+
+    <property name="svn.tmp.rev.file" value="third_part/TMP_REV"/>
+
+    <property name="svn.url" value="https://192.168.3.2/svn/stormcenter/design/2015-design/UI/storm-center"/>
+
+    <property name="runtime.dir" value="App/Runtime"/>
+    <property name="conf.dir" value="App/Common/Conf"/>
+
+    <property name="scripts.dir" value="Public/script"/>
+    <property name="scripts.origin.dir" value="Public/origin/script"/>
+    <property name="scripts.minify.dir" value="Public/script"/>
+
+    <property name="css.dir" value="Public/css"/>
+    <property name="css.origin.dir" value="Public/origin/css"/>
+    <property name="css.minify.dir" value="Public/css"/>
+
+
+    <path id="svnkit.libs">
+        <fileset dir="third_part/svntask-1.0.8">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+    <!-- compier path-->
+    <property name="google_closure_jar" value="third_part/compiler.jar"/>
+    <property name="yui_compress_jar" value="third_part/yuicompressor-2.4.7.jar"/>
+
+
+
+    <target name="build.local" depends="init">
+
+        <copy todir="build">
+            <fileset dir=".">
+            </fileset>
+        </copy>
+        <antcall target="afterBuildProject"/>
+        <antcall target="getSvnBuild"/>
+
+        <antcall target="finish"/>
+    </target>
+
+    <target name="build.svn" depends="init">
+        <echo message="svn.username=${svn.username}"></echo>
+        <echo message="svn.password=${svn.password}"></echo>
+        <echo message="check svn files......."></echo>
+        <java classname="org.tmatesoft.svn.cli.SVN"
+              dir="build" fork="true">
+            <arg value="co"/>
+            <arg value="--username"/>
+            <arg value="${svn.username}"/>
+            <arg value="--password"/>
+            <arg value="${svn.password}"/>
+            <arg value="${svn.url}"/>
+            <classpath refid="svnkit.libs"/>
+        </java>
+
+        <move todir="build">
+            <fileset dir="build/storm-center">
+            </fileset>
+        </move>
+        <delete dir="build/${projectName}"/>
+        <antcall target="afterBuildProject"/>
+        <antcall target="getSvnBuild"/>
+        <antcall target="finish"/>
+    </target>
+    <target name="afterBuildProject">
+        <delete defaultexcludes="false">
+            <fileset dir="./build">
+                <include name=".*"/>
+                <include name="*.zip"/>
+                <include name="ip.php"/>
+                <include name="svn*"/>
+                <include name="App/Runtime/"/>
+            </fileset>
+        </delete>
+        <delete dir="build/.idea"/>
+        <delete dir="build/.svn"/>
+        <delete dir="build/init"/>
+        <delete dir="build/ThinkPHP/Tpl"/>
+        <delete dir="build/report"/>
+        <delete dir="build/third_part"/>
+        <delete dir="build/upload"/>
+        <delete dir="build/build"/>
+
+
+        <antcall target="js_minify"/>
+        <antcall target="css_minify"/>
+        <copy tofile="build/update.sh" file="third_part/update.sh"></copy>
+    </target>
+
+
+
+    <target name="build.patch" depends="init">
+        <fail unless="svn_start" message="ERROR:you have not set property 'svn_start' !"/>
+        <fail unless="svn_end" message="ERROR:you have not set property 'svn_end' !"/>
+
+        <echo message="check svn-patch ${svn_start}-${svn_end}"></echo>
+        <antcall target="createSvnLogXml"/>
+        <antcall target="createSvnInfoXml"/>
+        <echo message="build patch${svn_start}-${svn_end}...."></echo>
+        <patchBuilder svnUserName="${svn.username}" svnPassword="${svn.password}"
+                      logXmlPath="${svn.patch.log}" currentSvnRevision="${svn_end}" svnInfoXmlPath="${svn.info.file}"
+                      patchPath="build" projectPath="." />
+        <antcall target="afterBuildProject"/>
+        <echo message="create version desc file...."></echo>
+        <echo file="build/patch.txt">patch_${svn_start}_to_${svn_end}</echo>
+        <echo file="${svn.build.rev}">${svn_end}</echo>
+        <delete file="./patch_${svn_start}_to_${svn_end}.zip"/>
+        <zip destfile="./patch_${svn_start}_to_${svn_end}.zip">
+            <zipfileset dir="build"/>
+        </zip>
+        <delete dir="build"/>
+        <echo message="build patch successful..."></echo>
+
+    </target>
+
+
+    <target name="init" depends="defTasks,checkSvnProperties">
+        <delete dir="build"/>
+        <mkdir dir="build"/>
+    </target>
+    <target name="finish">
+        <delete file="build/${conf.dir}/config.php"/>
+        <move file="build/${conf.dir}/config.php.dist" tofile="build/${conf.dir}/config.php"/>
+        <delete file="./build.zip"/>
+        <zip destfile="./build.zip">
+            <zipfileset dir="build"/>
+        </zip>
+        <delete dir="build"/>
+    </target>
+
+
+
+    <target name="js_minify">
+        <mkdir dir="build/${scripts.origin.dir}"/>
+        <mkdir dir="build/${scripts.minify.dir}"/>
+
+        <copy todir="build/${scripts.origin.dir}">
+            <fileset dir="build/${scripts.dir}"/>
+        </copy>
+        <copy todir="build/${scripts.minify.dir}">
+            <fileset dir="build/${scripts.dir}"/>
+        </copy>
+        <delete defaultexcludes="false">
+            <fileset dir="build/${scripts.minify.dir}" includes="**/*.js"/>
+        </delete>
+        <apply executable="java" parallel="false">
+            <fileset dir="build/${scripts.origin.dir}">
+                <include name="**/*.js"/>
+            </fileset>
+            <arg line="-jar"/>
+            <arg path="${google_closure_jar}"/>
+            <arg value="--warning_level"/>
+            <arg value="VERBOSE"/>
+            <arg value="--compilation_level"/>
+            <arg value="WHITESPACE_ONLY"/>
+            <arg value="--js_output_file"/>
+            <targetfile />
+            <arg value="--js"/>
+            <mapper type="glob" from="*.js" to="build/${scripts.minify.dir}/*.js"/>
+        </apply>
+
+    </target>
+
+    <target name="css_minify">
+        <mkdir dir="build/${css.origin.dir}"/>
+        <mkdir dir="build/${css.minify.dir}"/>
+
+        <copy todir="build/${css.origin.dir}">
+            <fileset dir="build/${css.dir}"/>
+        </copy>
+        <copy todir="build/${css.minify.dir}">
+            <fileset dir="build/${css.dir}"/>
+        </copy>
+        <delete defaultexcludes="false">
+            <fileset dir="build/${css.minify.dir}" includes="**/*.css"/>
+        </delete>
+
+        <apply executable="java" parallel="false">
+            <fileset dir="build/${css.origin.dir}">
+                <include name="**/*.css"/>
+            </fileset>
+            <arg line="-jar"/>
+            <arg path="${yui_compress_jar}"/>
+            <arg line="--charset utf-8" />
+            <arg line="--type css" />
+            <srcfile/>
+            <arg line="-v"/>
+            <arg line="-o"/>
+            <targetfile/>
+            <mapper type="glob" from="*.css" to="build/${css.minify.dir}/*.css"/>
+        </apply>
+
+    </target>
+
+
+
+    <!--获取SVN的最新版本-->
+    <target name="getSvnBuild">
+        <echo message="svn.username=${svn.username}"></echo>
+        <echo message="svn.password=${svn.password}"></echo>
+        <java classname="org.tmatesoft.svn.cli.SVN" dir="." fork="true" output="${svn.tmp.rev.file}">
+            <arg value="log"/>
+            <arg value="--username"/>
+            <arg value="${svn.username}"/>
+            <arg value="--password"/>
+            <arg value="${svn.password}"/>
+            <arg value="${svn.url}"/>
+            <arg value="--limit"/>
+            <arg value="1"/>
+            <classpath refid="svnkit.libs"/>
+        </java>
+        <loadfile property="last_revision" srcfile="${svn.tmp.rev.file}">
+            <filterchain>
+                <replaceregex flags="s" byline="false" pattern="r(\d+)\s.*" replace="\1"/>
+                <replaceregex flags="s" byline="false" pattern=".*?(\d+)" replace="\1"/>
+            </filterchain>
+        </loadfile>
+        <echo>the current svn is ${last_revision}</echo>
+        <echo file="${svn.build.rev}">${last_revision}</echo>
+        <delete file="${svn.tmp.rev.file}"/>
+    </target>
+
+    <target name="createSvnLogXml">
+        <echo message="svn.username=${svn.username}"></echo>
+        <echo message="svn.password=${svn.password}"></echo>
+
+        <java classname="org.tmatesoft.svn.cli.SVN" dir="." fork="true" output="${svn.patch.log}">
+            <arg value="log"/>
+            <arg value="--username"/>
+            <arg value="${svn.username}"/>
+            <arg value="--password"/>
+            <arg value="${svn.password}"/>
+            <arg value="${svn.url}"/>
+            <arg value="--verbose"/>
+            <arg value="--revision"/>
+            <arg value="${svn_start}:${svn_end}"/>
+            <arg value="--xml"/>
+            <classpath refid="svnkit.libs"/>
+
+        </java>
+    </target>
+    <target name="createSvnInfoXml">
+        <echo message="svn.username=${svn.username}"></echo>
+        <echo message="svn.password=${svn.password}"></echo>
+        <java classname="org.tmatesoft.svn.cli.SVN" dir="." fork="true" output="${svn.info.file}">
+            <arg value="info"/>
+            <arg value="--username"/>
+            <arg value="${svn.username}"/>
+            <arg value="--password"/>
+            <arg value="${svn.password}"/>
+            <arg value="${svn.url}"/>
+            <arg value="--xml"/>
+            <classpath refid="svnkit.libs"/>
+        </java>
+
+    </target>
+    <target name="defTasks">
+        <taskdef name="patchBuilder" classname="com.dbapp.ant.target.PatchBuilder">
+            <classpath refid="svnkit.libs"/>
+        </taskdef>
+
+    </target>
+    <target name="checkSvnProperties">
+		<echo message="${svn.username}"/>
+        <fail unless="svn.username" message="svn.properties file missing,please check svn.username  !"/>
+        <fail unless="svn.password" message="svn.properties file missing,please check svn.password !"/>
+
+    </target>
+
+
+
+
+
+
+
+</project>

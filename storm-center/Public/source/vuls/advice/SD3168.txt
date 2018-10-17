@@ -1,0 +1,3 @@
+webdav安全防范建议：
+    1、安装微软的安全加固工具Urlscan；
+    2、限制对httpext.dll的访问权限。

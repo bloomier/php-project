@@ -1,0 +1,924 @@
+<html class="cn-zh ext-strict x-viewport fp-enabled" style="overflow: hidden; height: 100%;"><head>
+    <title>日志中心</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit|ie-stand">
+    <meta name="robots" content="noindex,nofollow,noarchive">
+
+    <link rel="stylesheet" href="ac/lib/ext/resources/css/ext-all.css?201607092016">
+    <link rel="stylesheet" href="ac/css/all.css?201607092016">
+    <link rel="stylesheet" href="common/css/all.css?201607092016">
+    <script type="text/javascript">SFUserName="liang";</script>
+    <script type="text/javascript">SFReportVesion ="v11.2R1";</script>
+    <script type="text/javascript">SFIsAdmin="";</script>
+
+    <script type="text/javascript">SFIsDkeyOn="";</script>
+    <script type="text/javascript">VERSION="201607092016";</script>
+    <link id="https---58-248-14-20-dc-ui-res-pkg-4e02c0f00846f90f-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/res/pkg-4e02c0f00846f90f.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-home-mod-common-nav-index-en-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/home/mod-common/nav/index.en.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-home-mod-common-header-new-lib-jquery-fullPage-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/home/mod-common/header/new/lib/jquery.fullPage.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-home-mod-common-header-new-index-en-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/home/mod-common/header/new/index.en.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-home-mod-common-header-index-en-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/home/mod-common/header/index.en.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-home-mod-common-debugger-lib-jquery-jsonview-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/home/mod-common/debugger/lib/jquery.jsonview.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-res-pkg-4f8035b0836b3529-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/res/pkg-4f8035b0836b3529.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-home-mod-index-Dashboard-Portal-index-en-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/home/mod-index/Dashboard/Portal/index.en.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-home-mod-index-Welcome-index-en-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/home/mod-index/Welcome/index.en.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-res-pkg-15c8c0dc5d8b67df-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/res/pkg-15c8c0dc5d8b67df.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-res-pkg-8a164c6c55e567e3-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/res/pkg-8a164c6c55e567e3.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-home-mod-component-base-form-Search-en-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/home/mod-component/base/form/Search.en.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-home-mod-component-list-RankDepend-index-en-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/home/mod-component/list/RankDepend/index.en.css?version=201607092016"><link id="https---58-248-14-20-dc-ui-home-mod-component-base-form-StatSearch-en-css" charset="utf-8" rel="stylesheet" href="https://58.248.14.20/dc/ui/home/mod-component/base/form/StatSearch.en.css?version=201607092016"></head>
+<body x-ms-format-detection="none" class="ext-webkit ext-chrome x-border-layout-ct fp-viewing-0" id="ext-gen3" style="overflow: hidden; height: 100%;"><div id="nav" class=" x-border-panel" style="width: 200px; left: 0px; top: 0px; height: 327px;"><div id="ext-comp-1022" class=" x-border-layout-ct" style="width: 200px; height: 327px;"><div id="ext-comp-1023" class=" x-border-panel" style="height: 50px; left: 0px; top: 0px; width: 200px;"><div id="acdc-logo">v11.2R1</div></div><div id="acdc-nav-body" class=" x-border-panel" style="left: 0px; top: 50px; width: 200px; height: 277px;">
+<ul>
+
+
+<li class="default nav  active" id="ext-gen48">
+    <div class="tag"></div>
+
+
+    <a class="nav-item hand" href="#mod=/mod-index/index"><em>首页</em></a>
+
+
+</li>
+
+
+
+<li class="log_query nav" id="ext-gen49">
+    <div class="tag"></div>
+
+    <div class="arrow"></div>
+    <span class="nav-item sim-link" href=""><em>日志查询</em></span>
+
+
+
+    <div class="subMenu">
+
+
+        <dl id="ext-gen50">
+            <dt><h4>用户行为查询</h4></dt>
+
+
+            <dd id="ext-gen51"><a class="sim-link" href="#mod=/mod-log/all_action_logs/index">所有行为日志</a></dd>
+
+
+
+            <dd id="ext-gen52"><a class="sim-link" href="#mod=/mod-log/access_web_logs/index">网站访问日志</a></dd>
+
+
+
+            <dd id="ext-gen53"><a class="sim-link" href="#mod=/mod-log/post_docs_logs/index">文件审计日志</a></dd>
+
+
+
+            <dd id="ext-gen54"><a class="sim-link" href="#mod=/mod-log/IM_logs/index">即时通讯日志</a></dd>
+
+
+
+            <dd id="ext-gen55"><a class="sim-link" href="#mod=/mod-log/mail_recv_send_logs/index">邮件收发日志</a></dd>
+
+
+
+            <dd id="ext-gen56"><a class="sim-link" href="#mod=/mod-log/post_bbs_weibo_logs/index">发帖/发微博日志</a></dd>
+
+
+
+            <dd id="ext-gen57"><a class="sim-link" href="#mod=/mod-log/search_keyword_logs/index">搜索关键字日志</a></dd>
+
+
+        </dl>
+
+
+
+        <dl id="ext-gen58">
+            <dt><h4>终端接入日志</h4></dt>
+
+
+            <dd id="ext-gen59"><a class="sim-link" href="#mod=/mod-log/proxy_logs/index">防共享接入日志</a></dd>
+
+
+
+            <dd id="ext-gen60"><a class="sim-link" href="#mod=/mod-log/wireless_logs/index">移动终端发现日志</a></dd>
+
+
+
+            <dd id="ext-gen61"><a class="sim-link" href="#mod=/mod-log/singress_logs/index">准入日志</a></dd>
+
+
+
+            <dd id="ext-gen62"><a class="sim-link" href="#mod=/mod-log/sign_logs/index">登录/注销日志</a></dd>
+
+
+        </dl>
+
+
+
+        <dl id="ext-gen63">
+            <dt><h4>安全日志</h4></dt>
+
+
+            <dd id="ext-gen64"><a class="sim-link" href="#mod=/mod-log/virus_logs/index">网关杀毒</a></dd>
+
+
+
+            <dd id="ext-gen65"><a class="sim-link" href="#mod=/mod-log/ips_logs/index">安全事件</a></dd>
+
+
+
+
+        </dl>
+
+
+    </div>
+
+</li>
+
+
+
+<li class="flux_time nav" id="ext-gen67">
+    <div class="tag"></div>
+
+    <div class="arrow"></div>
+    <span class="nav-item sim-link" href=""><em>流量时长分析</em></span>
+
+
+
+    <div class="subMenu">
+
+
+        <dl id="ext-gen68">
+            <dt><h4>流量分析</h4></dt>
+
+
+
+
+            <dd id="ext-gen70"><a class="sim-link" href="#mod=/mod-flux/app_flux_rank/index">应用流量排行</a></dd>
+
+
+
+            <dd id="ext-gen71"><a class="sim-link" href="#mod=/mod-flux/web_flux_rank/index">网站分类流量排行</a></dd>
+
+
+
+            <dd id="ext-gen72"><a class="sim-link" href="#mod=/mod-flux/domain_flux_rank/index">域名流量排行</a></dd>
+
+
+
+            <dd id="ext-gen73"><a class="sim-link" href="#mod=/mod-flux/app_flux_speed_trend/index">应用流速趋势</a></dd>
+
+
+
+            <dd id="ext-gen74"><a class="sim-link" href="#mod=/mod-flux/flux_channel_trend/index">流控通道趋势</a></dd>
+
+
+
+            <dd id="ext-gen75"><a class="sim-link" href="#mod=/mod-flux/web_flux_speed_trend/index">网站分类流速趋势</a></dd>
+
+
+        </dl>
+
+
+
+        <dl id="ext-gen76">
+            <dt><h4>时长分析</h4></dt>
+
+
+            <dd id="ext-gen77"><a class="sim-link" href="#mod=/mod-flux/app_time_rank/index">应用时长排行</a></dd>
+
+
+
+            <dd id="ext-gen78"><a class="sim-link" href="#mod=/mod-flux/web_time_rank/index">网站分类时长排行</a></dd>
+
+
+
+            <dd id="ext-gen79"><a class="sim-link" href="#mod=/mod-flux/domain_time_rank/index">域名时长排行</a></dd>
+
+
+        </dl>
+
+
+    </div>
+
+</li>
+
+
+
+<li class="user_action nav" id="ext-gen80">
+    <div class="tag"></div>
+
+    <div class="arrow"></div>
+    <span class="nav-item sim-link" href=""><em>用户行为分析</em></span>
+
+
+
+    <div class="subMenu">
+
+
+        <dl id="ext-gen81">
+            <dt><h4>用户行为分析</h4></dt>
+
+
+            <dd id="ext-gen82"><a class="sim-link" href="#mod=/mod-behavior/behavior_all_rank/index">行为汇总排行</a></dd>
+
+
+
+            <dd id="ext-gen83"><a class="sim-link" href="#mod=/mod-behavior/file_audit_rank/index">文件审计排行</a></dd>
+
+
+
+            <dd id="ext-gen84"><a class="sim-link" href="#mod=/mod-behavior/msg_blog_rank/index">发帖/发微博排行</a></dd>
+
+
+
+            <dd id="ext-gen85"><a class="sim-link" href="#mod=/mod-behavior/im_rank/index">即时通讯排行</a></dd>
+
+
+
+            <dd id="ext-gen86"><a class="sim-link" href="#mod=/mod-behavior/mail_recv_send_rank/index">邮件收发排行</a></dd>
+
+
+
+            <dd id="ext-gen87"><a class="sim-link" href="#mod=/mod-behavior/search_keyword_rank/index">搜索关键字排行</a></dd>
+
+
+
+            <dd id="ext-gen88"><a class="sim-link" href="#mod=/mod-behavior/hot_app_rank/index">热门应用排行</a></dd>
+
+
+
+            <dd id="ext-gen89"><a class="sim-link" href="#mod=/mod-behavior/app_behavior_trend/index">应用行为趋势</a></dd>
+
+
+        </dl>
+
+
+
+        <dl id="ext-gen90">
+            <dt><h4>网站分类分析</h4></dt>
+
+
+            <dd id="ext-gen91"><a class="sim-link" href="#mod=/mod-behavior/web_sort_behavior_trend/index">网站分类行为趋势</a></dd>
+
+
+
+            <dd id="ext-gen92"><a class="sim-link" href="#mod=/mod-behavior/web_sort_behavior_rank/index">网站分类行为排行</a></dd>
+
+
+
+            <dd id="ext-gen93"><a class="sim-link" href="#mod=/mod-behavior/domain_behavior_rank/index">域名行为排行</a></dd>
+
+
+
+            <dd id="ext-gen94"><a class="sim-link" href="#mod=/mod-behavior/hot_bbs_msg_rank/index">论坛热帖访问排行</a></dd>
+
+
+        </dl>
+
+
+
+        <dl id="ext-gen95">
+            <dt><h4>单用户分析</h4></dt>
+
+
+            <dd id="ext-gen96"><a class="sim-link" href="#mod=/mod-behavior/single_user_analyse/index">单用户分析</a></dd>
+
+
+        </dl>
+
+
+    </div>
+
+</li>
+
+
+
+<li class="terminal_insert nav" id="ext-gen97">
+    <div class="tag"></div>
+
+    <div class="arrow"></div>
+    <span class="nav-item sim-link" href=""><em>终端接入分析</em></span>
+
+
+
+    <div class="subMenu">
+
+
+        <dl id="ext-gen98">
+            <dt><h4>终端接入分析</h4></dt>
+
+
+            <dd id="ext-gen99"><a class="sim-link" href="#mod=/mod-terminal/share_ingress_rank/index">共享接入排行</a></dd>
+
+
+
+            <dd id="ext-gen100"><a class="sim-link" href="#mod=/mod-terminal/share_ingress_trend/index">共享接入趋势</a></dd>
+
+
+
+            <dd id="ext-gen101"><a class="sim-link" href="#mod=/mod-terminal/terminal_type_rank/index">终端类型排行</a></dd>
+
+
+
+            <dd id="ext-gen102"><a class="sim-link" href="#mod=/mod-terminal/terminal_risk_trend/index">终端发现趋势</a></dd>
+
+
+
+            <dd id="ext-gen103"><a class="sim-link" href="#mod=/mod-terminal/user_active_days_rank/index">用户活跃天数排行</a></dd>
+
+
+
+            <dd id="ext-gen104"><a class="sim-link" href="#mod=/mod-terminal/ingress_user_trend/index">接入用户数趋势</a></dd>
+
+
+        </dl>
+
+
+
+        <dl id="ext-gen105">
+            <dt><h4>终端接入安全</h4></dt>
+
+
+            <dd id="ext-gen106"><a class="sim-link" href="#mod=/mod-terminal/virus_rank/index">网关杀毒分析</a></dd>
+
+
+        </dl>
+
+
+    </div>
+
+</li>
+
+
+
+<li class="search_center nav" id="ext-gen107">
+    <div class="tag"></div>
+
+    <div class="arrow"></div>
+    <span class="nav-item sim-link" href=""><em>搜索中心</em></span>
+
+
+
+    <div class="subMenu">
+
+
+        <dl id="ext-gen108">
+            <dt><h4>搜索中心</h4></dt>
+
+
+            <dd id="ext-gen109"><a class="sim-link" href="#mod=/mod-search/center/index">搜索中心</a></dd>
+
+
+
+
+        </dl>
+
+
+    </div>
+
+</li>
+
+
+
+<li class="form_center nav" id="ext-gen111">
+    <div class="tag"></div>
+
+    <div class="arrow"></div>
+    <span class="nav-item sim-link" href=""><em>报表中心</em></span>
+
+
+
+    <div class="subMenu">
+
+
+        <dl id="ext-gen112">
+            <dt><h4>收藏</h4></dt>
+
+
+            <dd id="ext-gen113"><a class="sim-link" href="#mod=/mod-report/favorite/report/index">报表收藏</a></dd>
+
+
+        </dl>
+
+
+
+        <dl id="ext-gen114">
+            <dt><h4>订阅</h4></dt>
+
+
+            <dd id="ext-gen115"><a class="sim-link" href="#mod=/mod-report/report_rss/index">报表订阅</a></dd>
+
+
+        </dl>
+
+
+    </div>
+
+</li>
+
+
+
+<li class="sys_manage nav" id="ext-gen116">
+    <div class="tag"></div>
+
+    <div class="arrow"></div>
+    <span class="nav-item sim-link" href=""><em>系统管理</em></span>
+
+
+
+    <div class="subMenu">
+
+
+        <dl id="ext-gen117">
+            <dt><h4>系统状态</h4></dt>
+
+
+
+
+            <dd id="ext-gen119"><a class="sim-link" href="#mod=/mod-system/sys-status/disk/index">磁盘空间</a></dd>
+
+
+
+
+        </dl>
+
+
+
+        <dl id="ext-gen121">
+            <dt><h4>系统配置</h4></dt>
+
+
+
+
+
+
+            <dd id="ext-gen124"><a class="sim-link" href="#mod=/mod-system/sys-conf/sys-option/index">系统选项</a></dd>
+
+
+
+
+        </dl>
+
+
+
+
+    </div>
+
+</li>
+
+
+</ul>
+<div class="nav-tool expanded"></div></div></div></div><div id="ext-comp-1002" class=" x-panel x-panel-noborder x-border-panel" style="left: 200px; top: 0px; width: 1400px;"><div class="x-panel-bwrap" id="ext-gen4"><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder x-border-layout-ct" id="ext-gen5" style="width: 1400px; height: 327px;"><div id="ext-comp-1001" class=" x-border-panel" style="height: 50px; left: 0px; top: 0px; width: 1400px;"><div id="header" style="height: 50px; width: 1400px;"><div id="ext-comp-1024" class=" x-border-layout-ct" style="width: 1400px; height: 50px;"><div id="acdc-tab" class=" acdc-page-tabs x-border-panel" style="left: 0px; top: 0px; width: 1224px; height: 50px;"><li class="acdc-page-scroll acdc-page-scroll-left x-unselectable" style="display: none;" id="ext-gen138">&lt;</li><ul class="acdc-page-group-tabs" id="ext-gen137" style="width: 1224px;"><li class="acdc-page-group-item acdc-page-group-active-item" data-group="group-1479264392389"><ul class="acdc-page-item-tabs "><li id="ext-gen130" class="acdc-page-item first last active " data-id="#mod=%2Fmod-index%2Findex#group=group-1479264392389#data={}"><strong id="ext-gen136" style="width: 140px;"><div class="close"></div><em>首页</em></strong></li></ul></li></ul><li class="acdc-page-scroll acdc-page-scroll-right x-unselectable" style="display: none;" id="ext-gen139">&gt;</li>
+</div><div id="acdc-administrator" class=" x-border-panel" style="width: 160px; left: 1240px; top: 0px; height: 50px;"><strong class="new-module">重要功能</strong><div class="user-name"><span class="user-name-text" title="liang">liang</span></div></div></div></div><div id="sub-header" class=" x-hide-display" style="height: 50px; width: 1400px;"></div></div><div id="sf_main_tabpanel" class=" x-border-panel" style="width: 1400px; height: 248px; left: 0px; top: 50px;"><div id="ext-comp-1060" class=" sf-page-wrap" style="width: 1400px; height: 248px;"><div id="ext-comp-1120" class=" x-panel x-panel-noborder" style="width: 1400px;"><div class="x-panel-bwrap" id="ext-gen141"><div class="x-panel-tbar x-panel-tbar-noheader x-panel-tbar-noborder" id="ext-gen142" style="width: 1400px;"><div id="ext-comp-1106" class="x-toolbar x-small-editor acdc-titlebar x-toolbar-layout-ct" style="width: 1392px;"><table cellspacing="0" class="x-toolbar-ct"><tbody><tr><td class="x-toolbar-left" align="left"><table cellspacing="0"><tbody><tr class="x-toolbar-left-row"><td class="x-toolbar-cell" id="ext-gen144"><div id="ext-comp-1107" class=" acdc-titlebar-title">首页 Dashboard</div></td><td class="x-toolbar-cell" id="ext-gen145"><div id="ext-comp-1108" class=" acdc-titlebar-detail"></div></td></tr></tbody></table></td><td class="x-toolbar-right" align="right"><table cellspacing="0" class="x-toolbar-right-ct"><tbody><tr><td><table cellspacing="0"><tbody><tr class="x-toolbar-right-row"><td class="x-toolbar-cell" id="ext-gen146"><table id="ext-comp-1070" cellspacing="0" class="x-btn   x-btn-text-icon" style="width: auto;"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="x-btn-arrow" unselectable="on"><button type="button" id="ext-gen147" class=" x-btn-text acdc-date-week-month-select-ico">本周</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td><td class="x-toolbar-cell" id="ext-gen148"><table id="ext-comp-1075" cellspacing="0" class="x-btn   x-btn-text-icon" style="width: auto;"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="x-btn-arrow" unselectable="on"><button type="button" id="ext-gen149" class=" x-btn-text acdc-select-report">选择报表</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td><td class="x-toolbar-cell" id="ext-gen150"><table id="ext-comp-1105" cellspacing="0" class="x-btn   x-btn-text-icon" style="width: auto;"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen151" class=" x-btn-text sf-ico-export">导出报表</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td></tr></tbody></table></td><td><table cellspacing="0"><tbody><tr class="x-toolbar-extras-row"></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></div></div><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder" id="ext-gen143" style="width: 1400px; height: 197px;"><div id="ext-comp-1110" class=" x-panel x-portal x-panel-noborder" style="width: 1388px;"><div class="x-panel-bwrap" id="ext-gen152"><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder x-portal-body" id="ext-gen153" style="overflow: auto; width: 1388px; height: 197px;"><div id="ext-comp-1111" class=" x-panel x-portlet x-panel-noborder " style="width: 1359px;"><div class="x-panel-header x-panel-header-noborder x-unselectable" id="ext-gen154" style="cursor: move;"><div class="x-tool x-tool-close" id="ext-gen158">&nbsp;</div><div class="x-tool x-tool-maximize" id="ext-gen157">&nbsp;</div><span class="x-panel-header-text" id="ext-gen159">用户流量-应用类型统计报表</span></div><div class="x-panel-bwrap" id="ext-gen155"><div class="x-panel-body x-panel-body-noborder" id="ext-gen156" style="width: 1359px;"><div id="ext-comp-1112" class=" x-panel  acdc-chartgrid x-panel-noborder exist-data" style="width: 1359px;"><div class="x-panel-bwrap" id="ext-gen160"><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder" id="ext-gen161" style="width: 1359px;"><div id="ext-comp-1115" style="width: 1359px;"><div id="ext-comp-1114" data-highcharts-chart="0" style="height: 300px; width: 1359px;"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 1359px; height: 300px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1359" height="300"><desc>Created with Highcharts 4.1.5</desc><defs><clipPath id="highcharts-1"><rect x="0" y="0" width="1339" height="275"></rect></clipPath></defs><rect x="0" y="0" width="1359" height="300" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)" style="cursor:pointer;"><path fill="#33a2e7" d="M 669.477621406744 27.62500227895991 A 109.875 109.875 0 0 1 708.5962341249833 34.816018278192516 L 691.0029287687408 81.02381005300589 A 60.43125 60.43125 0 0 0 669.4876917737092 77.06875125342796 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#79cd6a" d="M 708.6988985414756 34.85516584778803 A 109.875 109.875 0 0 1 742.4274746632473 55.316674049771905 L 709.610111064786 92.29917072737454 A 60.43125 60.43125 0 0 0 691.0593941978116 81.04534121628342 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#aadd64" d="M 742.5096215117659 55.38964260394012 A 109.875 109.875 0 0 1 765.3928027775769 83.86152499874053 L 722.2410415276673 107.9988387493073 A 60.43125 60.43125 0 0 0 709.6552918314712 92.33930343216707 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#f8db60" d="M 765.446393297241 83.95744460477124 A 109.875 109.875 0 0 1 774.9428240857319 106.60782503892958 L 727.4935532471526 120.50930377141127 A 60.43125 60.43125 0 0 0 722.2705163134826 108.0515945326242 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#f6ac60" d="M 774.9736635341367 106.71328329152769 A 109.875 109.875 0 0 1 778.5848488644435 124.34662122412999 L 729.4966668754439 130.2656416732715 A 60.43125 60.43125 0 0 0 727.5105149437752 120.56730581034023 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path><path fill="#f3534b" d="M 778.5979476986073 124.45571263150246 A 109.875 109.875 0 1 1 669.3473858293044 27.625105989061794 L 669.4160622061174 77.06880829398399 A 60.43125 60.43125 0 1 0 729.503871234234 130.32564194732635 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"></path></g><g class="highcharts-markers" visibility="visible" zIndex="0.1" transform="translate(10,10) scale(1 1)"></g></g><g class="highcharts-data-labels highcharts-tracker" visibility="visible" zIndex="6" transform="translate(10,10) scale(1 1)" opacity="1" style="cursor:pointer;"><path fill="none" d="M 700.1664299231506 0 L 691.4075795909944 18.626859293344797 L 689.4139218826102 29.44468388712521" stroke="#33a2e7" stroke-width="1" visibility="inherit"></path><path fill="none" d="M 758.9557021461547 26 L 732.2468505122725 34.18689155876426 L 726.5366924511764 43.588704943282096" stroke="#79cd6a" stroke-width="1" visibility="inherit"></path><path fill="none" d="M 785.2012449116992 52 L 763.7530160504646 61.8221657921497 L 755.1756991813427 68.7090834863491" stroke="#aadd64" stroke-width="1" visibility="inherit"></path><path fill="none" d="M 801.0889632827443 78 L 780.9803833603069 90.77859429727062 L 770.8353226201755 95.03038716370307" stroke="#f8db60" stroke-width="1" visibility="inherit"></path><path fill="none" d="M 811.5385160454414 109.47392740565833 L 787.9238114530311 113.28086488049294 L 777.1468772153199 115.48488131329194" stroke="#f6ac60" stroke-width="1" visibility="inherit"></path><path fill="none" d="M 571.6546500219536 242.11719080750578 L 589.266350823261 227.90645532695092 L 596.5678618134916 219.67918741715602" stroke="#f3534b" stroke-width="1" visibility="inherit"></path><g zIndex="1" style="cursor:pointer;" transform="translate(705,-10)"></g><g zIndex="1" style="cursor:pointer;" transform="translate(764,16)"></g><g zIndex="1" style="cursor:pointer;" transform="translate(790,42)"></g><g zIndex="1" style="cursor:pointer;" transform="translate(806,68)"></g><g zIndex="1" style="cursor:pointer;" transform="translate(817,99)"></g><g zIndex="1" style="cursor:pointer;" transform="translate(484,232)"></g></g><g class="highcharts-legend" zIndex="7"><g zIndex="1"><g></g></g></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(0,-9999)"><path fill="none" d="M 1 0 L 15 0 C 16 0 16 0 16 1 L 16 15 C 16 16 16 16 15 16 L 1 16 C 0 16 0 16 0 15 L 0 1 C 0 0 0 0 1 0" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path><path fill="none" d="M 1 0 L 15 0 C 16 0 16 0 16 1 L 16 15 C 16 16 16 16 15 16 L 1 16 C 0 16 0 16 0 15 L 0 1 C 0 0 0 0 1 0" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path><path fill="none" d="M 1 0 L 15 0 C 16 0 16 0 16 1 L 16 15 C 16 16 16 16 15 16 L 1 16 C 0 16 0 16 0 15 L 0 1 C 0 0 0 0 1 0" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path><path fill="rgba(249, 249, 249, .85)" d="M 1 0 L 15 0 C 16 0 16 0 16 1 L 16 15 C 16 16 16 16 15 16 L 1 16 C 0 16 0 16 0 15 L 0 1 C 0 0 0 0 1 0"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" transform="translate(0,20)"></text></g></svg><span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 18px; white-space: nowrap; color: rgb(51, 51, 51); display: block; margin-left: 0px; margin-top: 0px; left: 644px; top: 145px;" class="highcharts-title" zindex="4" transform="translate(0,0)"><div class="hchart-title-sub" style="font-size: 18px; width:100%; white-space: nowrap;" ext:qtip="用户流量">用户流量</div></span><div class="highcharts-data-labels" style="position: absolute; left: 10px; top: 10px; visibility: visible;"><div class="null" style="position: absolute; left: 705px; top: -10px; visibility: inherit;"><span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: normal; color: black; margin-left: 0px; margin-top: 0px; left: 5px; top: 6px;" zindex="1"><div style="max-width:300px;" class="ellipsis" ext:qtip="luozz(罗振振)：5.8%">luozz(罗振振)：5.8%</div></span></div><div class="null" style="position: absolute; left: 764px; top: 16px; visibility: inherit;"><span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: normal; color: black; margin-left: 0px; margin-top: 0px; left: 5px; top: 6px;" zindex="1"><div style="max-width:300px;" class="ellipsis" ext:qtip="wumian(吴勉)：5.77%">wumian(吴勉)：5.77%</div></span></div><div class="null" style="position: absolute; left: 790px; top: 42px; visibility: inherit;"><span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: normal; color: black; margin-left: 0px; margin-top: 0px; left: 5px; top: 6px;" zindex="1"><div style="max-width:300px;" class="ellipsis" ext:qtip="sunyl(孙义礼)：5.32%">sunyl(孙义礼)：5.32%</div></span></div><div class="null" style="position: absolute; left: 806px; top: 68px; visibility: inherit;"><span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: normal; color: black; margin-left: 0px; margin-top: 0px; left: 5px; top: 6px;" zindex="1"><div style="max-width:300px;" class="ellipsis" ext:qtip="10.10.15.9：3.58%">10.10.15.9：3.58%</div></span></div><div class="null" style="position: absolute; left: 817px; top: 99px; visibility: inherit;"><span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: normal; color: black; margin-left: 0px; margin-top: 0px; left: 5px; top: 6px;" zindex="1"><div style="max-width:300px;" class="ellipsis" ext:qtip="xiongwp(熊伟平)：2.63%">xiongwp(熊伟平)：2.63%</div></span></div><div class="null" style="position: absolute; left: 484px; top: 232px; visibility: inherit;"><span style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 11px; white-space: nowrap; font-weight: normal; color: black; margin-left: 0px; margin-top: 0px; left: 0px; top: 6px;" zindex="1"><div style="max-width:300px;" class="ellipsis" ext:qtip="其他：76.88%">其他：76.88%</div></span></div></div></div></div></div><div id="ext-comp-1116" style="width: 1359px;"><div id="ext-comp-1113" class=" acdc-chart-further">
+<div></div><dl class="further-item first" style="margin-left: 137px; height: 187px;">
+    <dt class="further-item-title" style="background-color:#33a2e7;">
+    <table class="further-item-title-table" cellspacing="0">
+        <tbody><tr>
+            <td class="further-item-title-text">
+                <span ext:qtip="luozz(罗振振)" class="further-item-text">luozz(罗振振)</span>
+                <strong class="further-item-value">5<small>.8 %</small></strong>
+            </td>
+        </tr>
+        </tbody></table>
+
+    </dt>
+    <dd class="further-item-body">
+        <ol class="further-sub-item-wrap">
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='PPStream'>PPStream</span>" class="further-sub-item-text"><span ext:qtip="PPStream">PPStream</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:18.615%"></div>
+                    <strong class="further-sub-item-value">37.23&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='IT相关'>IT相关</span>" class="further-sub-item-text"><span ext:qtip="IT相关">IT相关</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:15.72%"></div>
+                    <strong class="further-sub-item-value">31.44&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='其他'>其他</span>" class="further-sub-item-text"><span ext:qtip="其他">其他</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:11.96%"></div>
+                    <strong class="further-sub-item-value">23.92&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='网上购物'>网上购物</span>" class="further-sub-item-text"><span ext:qtip="网上购物">网上购物</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:3.695%"></div>
+                    <strong class="further-sub-item-value">7.39&nbsp;%</strong>
+                </div>
+            </li>
+
+        </ol>
+    </dd>
+</dl>
+
+<dl class="further-item" style="height: 187px;">
+    <dt class="further-item-title" style="background-color:#79cd6a;">
+    <table class="further-item-title-table" cellspacing="0">
+        <tbody><tr>
+            <td class="further-item-title-text">
+                <span ext:qtip="wumian(吴勉)" class="further-item-text">wumian(吴勉)</span>
+                <strong class="further-item-value">5<small>.77 %</small></strong>
+            </td>
+        </tr>
+        </tbody></table>
+
+    </dt>
+    <dd class="further-item-body">
+        <ol class="further-sub-item-wrap">
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='战网'>战网</span>" class="further-sub-item-text"><span ext:qtip="战网">战网</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:43.175%"></div>
+                    <strong class="further-sub-item-value">86.35&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='其他'>其他</span>" class="further-sub-item-text"><span ext:qtip="其他">其他</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:4.355%"></div>
+                    <strong class="further-sub-item-value">8.71&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='优酷视频'>优酷视频</span>" class="further-sub-item-text"><span ext:qtip="优酷视频">优酷视频</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:1.65%"></div>
+                    <strong class="further-sub-item-value">3.3&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='百度网盘[下载]'>百度网盘[下载]</span>" class="further-sub-item-text"><span ext:qtip="百度网盘[下载]">百度网盘[下载]</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:0.81%"></div>
+                    <strong class="further-sub-item-value">1.62&nbsp;%</strong>
+                </div>
+            </li>
+
+        </ol>
+    </dd>
+</dl>
+
+<dl class="further-item" style="height: 187px;">
+    <dt class="further-item-title" style="background-color:#aadd64;">
+    <table class="further-item-title-table" cellspacing="0">
+        <tbody><tr>
+            <td class="further-item-title-text">
+                <span ext:qtip="sunyl(孙义礼)" class="further-item-text">sunyl(孙义礼)</span>
+                <strong class="further-item-value">5<small>.32 %</small></strong>
+            </td>
+        </tr>
+        </tbody></table>
+
+    </dt>
+    <dd class="further-item-body">
+        <ol class="further-sub-item-wrap">
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='PPStream'>PPStream</span>" class="further-sub-item-text"><span ext:qtip="PPStream">PPStream</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:32.835%"></div>
+                    <strong class="further-sub-item-value">65.67&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='非营利组织'>非营利组织</span>" class="further-sub-item-text"><span ext:qtip="非营利组织">非营利组织</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:15.455%"></div>
+                    <strong class="further-sub-item-value">30.91&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='其他'>其他</span>" class="further-sub-item-text"><span ext:qtip="其他">其他</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:1.235%"></div>
+                    <strong class="further-sub-item-value">2.47&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='新浪视频'>新浪视频</span>" class="further-sub-item-text"><span ext:qtip="新浪视频">新浪视频</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:0.46%"></div>
+                    <strong class="further-sub-item-value">0.92&nbsp;%</strong>
+                </div>
+            </li>
+
+        </ol>
+    </dd>
+</dl>
+
+<dl class="further-item" style="height: 187px;">
+    <dt class="further-item-title" style="background-color:#f8db60;">
+    <table class="further-item-title-table" cellspacing="0">
+        <tbody><tr>
+            <td class="further-item-title-text">
+                <span ext:qtip="10.10.15.9" class="further-item-text">10.10.15.9</span>
+                <strong class="further-item-value">3<small>.58 %</small></strong>
+            </td>
+        </tr>
+        </tbody></table>
+
+    </dt>
+    <dd class="further-item-body">
+        <ol class="further-sub-item-wrap">
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='PPStream'>PPStream</span>" class="further-sub-item-text"><span ext:qtip="PPStream">PPStream</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:48.73%"></div>
+                    <strong class="further-sub-item-value">97.46&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='奇艺高清视频'>奇艺高清视频</span>" class="further-sub-item-text"><span ext:qtip="奇艺高清视频">奇艺高清视频</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:0.825%"></div>
+                    <strong class="further-sub-item-value">1.65&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='其他'>其他</span>" class="further-sub-item-text"><span ext:qtip="其他">其他</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:0.36%"></div>
+                    <strong class="further-sub-item-value">0.72&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='在线影音及下载'>在线影音及下载</span>" class="further-sub-item-text"><span ext:qtip="在线影音及下载">在线影音及下载</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:0.075%"></div>
+                    <strong class="further-sub-item-value">0.15&nbsp;%</strong>
+                </div>
+            </li>
+
+        </ol>
+    </dd>
+</dl>
+
+<dl class="further-item last" style="height: 187px;">
+    <dt class="further-item-title" style="background-color:#f6ac60;">
+    <table class="further-item-title-table" cellspacing="0">
+        <tbody><tr>
+            <td class="further-item-title-text">
+                <span ext:qtip="xiongwp(熊伟平)" class="further-item-text">xiongwp(熊伟平)</span>
+                <strong class="further-item-value">2<small>.63 %</small></strong>
+            </td>
+        </tr>
+        </tbody></table>
+
+    </dt>
+    <dd class="further-item-body">
+        <ol class="further-sub-item-wrap">
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='百度网盘[下载]'>百度网盘[下载]</span>" class="further-sub-item-text"><span ext:qtip="百度网盘[下载]">百度网盘[下载]</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:29.525%"></div>
+                    <strong class="further-sub-item-value">59.05&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='其他'>其他</span>" class="further-sub-item-text"><span ext:qtip="其他">其他</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:9.785%"></div>
+                    <strong class="further-sub-item-value">19.57&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='虾米音乐'>虾米音乐</span>" class="further-sub-item-text"><span ext:qtip="虾米音乐">虾米音乐</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:6.475%"></div>
+                    <strong class="further-sub-item-value">12.95&nbsp;%</strong>
+                </div>
+            </li>
+
+            <li class="further-sub-item">
+                <label ext:qtip="<span ext:qtip='IT相关'>IT相关</span>" class="further-sub-item-text"><span ext:qtip="IT相关">IT相关</span></label>
+                <div class="further-sub-item-body">
+                    <div class="further-sub-item-progress" style="width:4.205%"></div>
+                    <strong class="further-sub-item-value">8.41&nbsp;%</strong>
+                </div>
+            </li>
+
+        </ol>
+    </dd>
+</dl>
+
+<div class="x-form-clear-left"></div></div></div><div id="ext-comp-1119" style="width: 1359px;"><div id="ext-comp-1117" class=" x-panel  acdc-log-grid x-panel-noborder x-grid-panel" style="width: 1359px;"><div class="x-panel-bwrap" id="ext-gen162"><div class="x-panel-tbar x-panel-tbar-noheader x-panel-tbar-noborder" id="ext-gen163" style="width: 1359px;"><div id="ext-comp-1118" class="x-toolbar x-small-editor x-toolbar-layout-ct" style="width: 1335px;"><table cellspacing="0" class="x-toolbar-ct"><tbody><tr><td class="x-toolbar-left" align="left"><table cellspacing="0"><tbody><tr class="x-toolbar-left-row"></tr></tbody></table></td><td class="x-toolbar-right" align="right"><table cellspacing="0" class="x-toolbar-right-ct"><tbody><tr><td><table cellspacing="0"><tbody><tr class="x-toolbar-right-row"></tr></tbody></table></td><td><table cellspacing="0"><tbody><tr class="x-toolbar-extras-row"></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></div></div><div class="x-panel-body x-panel-body-noheader x-panel-body-noborder" id="ext-gen164" style="height: 279px; width: 1357px;"><div class="x-grid3" hidefocus="true" id="ext-gen166" style="width: 1357px; height: 279px;"><div class="x-grid3-viewport" id="ext-gen167"><div class="x-grid3-header" id="ext-gen168"><div class="x-grid3-header-inner" id="ext-gen174" style="width: 1357px;"><div class="x-grid3-header-offset" style="width:1353px;"><table border="0" cellspacing="0" cellpadding="0" style="width:1334px;"><thead><tr class="x-grid3-hd-row"><td class="x-grid3-hd x-grid3-cell x-grid3-td-0 x-grid3-cell-first  " style="width:97px;"><div ext:qtip="排行" class="x-grid3-hd-inner x-grid3-hd-0" unselectable="on" style=""><a class="x-grid3-hd-btn" href="#" id="ext-gen411" style="height: 23px;"></a>排行</div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-1  " style="width:245px;"><div ext:qtip="用户名" class="x-grid3-hd-inner x-grid3-hd-1" unselectable="on" style=""><a class="x-grid3-hd-btn" href="#"></a>用户名</div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-2  " style="width:245px;"><div ext:qtip="应用" class="x-grid3-hd-inner x-grid3-hd-2" unselectable="on" style=""><a class="x-grid3-hd-btn" href="#"></a>应用</div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-3  " style="width:245px;"><div ext:qtip="上行流量" class="x-grid3-hd-inner x-grid3-hd-3" unselectable="on" style=""><a class="x-grid3-hd-btn" href="#"></a>上行流量</div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-4  " style="width:245px;"><div ext:qtip="下行流量" class="x-grid3-hd-inner x-grid3-hd-4" unselectable="on" style=""><a class="x-grid3-hd-btn" href="#"></a>下行流量</div></td><td class="x-grid3-hd x-grid3-cell x-grid3-td-5 x-grid3-cell-last  " style="width:245px;"><div ext:qtip="总流量" class="x-grid3-hd-inner x-grid3-hd-5" unselectable="on" style=""><a class="x-grid3-hd-btn" href="#"></a>总流量</div></td></tr></thead></table></div></div><div class="x-clear"></div></div><div class="x-grid3-scroller" id="ext-gen169" style="overflow-x: hidden; width: 1357px; height: 252px;"><div class="x-grid3-body" style="width:1334px;" id="ext-gen170"><div class="x-grid3-row  x-grid3-row-first" style="width:1334px;"><table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width:1334px;"><tbody><tr><td class="x-grid3-col x-grid3-cell x-grid3-td-0 x-grid3-cell-first " style="width:97px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">1</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-1 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-1" unselectable="on">luozz(罗振振)</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-2 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-2" unselectable="on"><span ext:qtip="PPStream">PPStream</span><br><span ext:qtip="IT相关">IT相关</span><br><span ext:qtip="网上购物">网上购物</span><br><span ext:qtip="其他">其他</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-3 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-3" unselectable="on"><span ext:qtip="13.63GB">13.63GB</span><br><span ext:qtip="349.21MB">349.21MB</span><br><span ext:qtip="98.43MB">98.43MB</span><br><span ext:qtip="1.08GB">1.08GB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-4 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-4" unselectable="on"><span ext:qtip="1.51GB">1.51GB</span><br><span ext:qtip="12.44GB">12.44GB</span><br><span ext:qtip="2.91GB">2.91GB</span><br><span ext:qtip="8.65GB">8.65GB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-5 x-grid3-cell-last " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-5" unselectable="on"><span ext:qtip="15.14GB">15.14GB</span><br><span ext:qtip="12.79GB">12.79GB</span><br><span ext:qtip="3.01GB">3.01GB</span><br><span ext:qtip="9.73GB">9.73GB</span></div></td></tr></tbody></table></div><div class="x-grid3-row x-grid3-row-alt" style="width:1334px;"><table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width:1334px;"><tbody><tr><td class="x-grid3-col x-grid3-cell x-grid3-td-0 x-grid3-cell-first " style="width:97px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">2</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-1 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-1" unselectable="on">wumian(吴勉)</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-2 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-2" unselectable="on"><span ext:qtip="战网">战网</span><br><span ext:qtip="优酷视频">优酷视频</span><br><span ext:qtip="百度网盘[下载]">百度网盘[下载]</span><br><span ext:qtip="其他">其他</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-3 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-3" unselectable="on"><span ext:qtip="728.36MB">728.36MB</span><br><span ext:qtip="20.55MB">20.55MB</span><br><span ext:qtip="11.62MB">11.62MB</span><br><span ext:qtip="375.39MB">375.39MB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-4 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-4" unselectable="on"><span ext:qtip="34.26GB">34.26GB</span><br><span ext:qtip="1.32GB">1.32GB</span><br><span ext:qtip="647.63MB">647.63MB</span><br><span ext:qtip="3.16GB">3.16GB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-5 x-grid3-cell-last " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-5" unselectable="on"><span ext:qtip="34.99GB">34.99GB</span><br><span ext:qtip="1.34GB">1.34GB</span><br><span ext:qtip="659.25MB">659.25MB</span><br><span ext:qtip="3.53GB">3.53GB</span></div></td></tr></tbody></table></div><div class="x-grid3-row " style="width:1334px;"><table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width:1334px;"><tbody><tr><td class="x-grid3-col x-grid3-cell x-grid3-td-0 x-grid3-cell-first " style="width:97px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">3</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-1 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-1" unselectable="on">sunyl(孙义礼)</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-2 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-2" unselectable="on"><span ext:qtip="PPStream">PPStream</span><br><span ext:qtip="非营利组织">非营利组织</span><br><span ext:qtip="新浪视频">新浪视频</span><br><span ext:qtip="其他">其他</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-3 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-3" unselectable="on"><span ext:qtip="22.05GB">22.05GB</span><br><span ext:qtip="5.84GB">5.84GB</span><br><span ext:qtip="10.87MB">10.87MB</span><br><span ext:qtip="133.41MB">133.41MB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-4 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-4" unselectable="on"><span ext:qtip="2.48GB">2.48GB</span><br><span ext:qtip="5.7GB">5.7GB</span><br><span ext:qtip="336.3MB">336.3MB</span><br><span ext:qtip="792.05MB">792.05MB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-5 x-grid3-cell-last " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-5" unselectable="on"><span ext:qtip="24.52GB">24.52GB</span><br><span ext:qtip="11.54GB">11.54GB</span><br><span ext:qtip="347.17MB">347.17MB</span><br><span ext:qtip="925.46MB">925.46MB</span></div></td></tr></tbody></table></div><div class="x-grid3-row x-grid3-row-alt" style="width:1334px;"><table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width:1334px;"><tbody><tr><td class="x-grid3-col x-grid3-cell x-grid3-td-0 x-grid3-cell-first " style="width:97px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">4</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-1 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-1" unselectable="on">10.10.15.9</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-2 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-2" unselectable="on"><span ext:qtip="PPStream">PPStream</span><br><span ext:qtip="奇艺高清视频">奇艺高清视频</span><br><span ext:qtip="在线影音及下载">在线影音及下载</span><br><span ext:qtip="其他">其他</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-3 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-3" unselectable="on"><span ext:qtip="21.1GB">21.1GB</span><br><span ext:qtip="7.78MB">7.78MB</span><br><span ext:qtip="8.25MB">8.25MB</span><br><span ext:qtip="23.44MB">23.44MB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-4 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-4" unselectable="on"><span ext:qtip="3.38GB">3.38GB</span><br><span ext:qtip="407.68MB">407.68MB</span><br><span ext:qtip="31.65MB">31.65MB</span><br><span ext:qtip="157.59MB">157.59MB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-5 x-grid3-cell-last " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-5" unselectable="on"><span ext:qtip="24.48GB">24.48GB</span><br><span ext:qtip="415.46MB">415.46MB</span><br><span ext:qtip="39.9MB">39.9MB</span><br><span ext:qtip="181.03MB">181.03MB</span></div></td></tr></tbody></table></div><div class="x-grid3-row " style="width:1334px;"><table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width:1334px;"><tbody><tr><td class="x-grid3-col x-grid3-cell x-grid3-td-0 x-grid3-cell-first " style="width:97px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">5</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-1 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-1" unselectable="on">xiongwp(熊伟平)</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-2 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-2" unselectable="on"><span ext:qtip="百度网盘[下载]">百度网盘[下载]</span><br><span ext:qtip="虾米音乐">虾米音乐</span><br><span ext:qtip="IT相关">IT相关</span><br><span ext:qtip="其他">其他</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-3 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-3" unselectable="on"><span ext:qtip="198.06MB">198.06MB</span><br><span ext:qtip="46.29MB">46.29MB</span><br><span ext:qtip="66.41MB">66.41MB</span><br><span ext:qtip="474.66MB">474.66MB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-4 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-4" unselectable="on"><span ext:qtip="10.69GB">10.69GB</span><br><span ext:qtip="2.34GB">2.34GB</span><br><span ext:qtip="1.49GB">1.49GB</span><br><span ext:qtip="3.14GB">3.14GB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-5 x-grid3-cell-last " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-5" unselectable="on"><span ext:qtip="10.89GB">10.89GB</span><br><span ext:qtip="2.39GB">2.39GB</span><br><span ext:qtip="1.55GB">1.55GB</span><br><span ext:qtip="3.61GB">3.61GB</span></div></td></tr></tbody></table></div><div class="x-grid3-row x-grid3-row-alt" style="width:1334px;"><table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width:1334px;"><tbody><tr><td class="x-grid3-col x-grid3-cell x-grid3-td-0 x-grid3-cell-first " style="width:97px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">6</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-1 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-1" unselectable="on">其他</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-2 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-2" unselectable="on">-</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-3 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-3" unselectable="on"><span ext:qtip="112.52GB">112.52GB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-4 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-4" unselectable="on"><span ext:qtip="426.47GB">426.47GB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-5 x-grid3-cell-last " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-5" unselectable="on"><span ext:qtip="538.99GB">538.99GB</span></div></td></tr></tbody></table></div><div class="x-grid3-row  x-grid3-row-last" style="width:1334px;"><table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width:1334px;"><tbody><tr><td class="x-grid3-col x-grid3-cell x-grid3-td-0 x-grid3-cell-first " style="width:97px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">7</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-1 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-1" unselectable="on">所有用户</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-2 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-2" unselectable="on">-</div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-3 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-3" unselectable="on"><span ext:qtip="178.77GB">178.77GB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-4 " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-4" unselectable="on"><span ext:qtip="522.3GB">522.3GB</span></div></td><td class="x-grid3-col x-grid3-cell x-grid3-td-5 x-grid3-cell-last " style="width:245px;" tabindex="0"><div class="x-grid3-cell-inner x-grid3-col-5" unselectable="on"><span ext:qtip="701.06GB">701.06GB</span></div></td></tr></tbody></table></div></div><a href="#" class="x-grid3-focus" tabindex="-1" id="ext-gen171" style="left: 0px; top: 1px;"></a></div></div><div class="x-grid3-resize-marker" id="ext-gen172">&nbsp;</div><div class="x-grid3-resize-proxy" id="ext-gen173">&nbsp;</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div id="footer" class=" x-border-panel" style="height: 28px; left: 0px; top: 298px; width: 1400px;"><div id="ext-comp-1017" class="x-toolbar x-small-editor x-toolbar-layout-ct" style="width: 1396px; height: 23px;"><table cellspacing="0" class="x-toolbar-ct"><tbody><tr><td class="x-toolbar-left" align="left"><table cellspacing="0"><tbody><tr class="x-toolbar-left-row"></tr></tbody></table></td><td class="x-toolbar-right" align="right"><table cellspacing="0" class="x-toolbar-right-ct"><tbody><tr><td><table cellspacing="0"><tbody><tr class="x-toolbar-right-row"><td class="x-toolbar-cell" id="ext-gen46"><table id="ext-comp-1018" cellspacing="0" class="x-btn   x-btn-icon"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen47" class=" x-btn-text sf-ico-news-yes" title="您有21条未读消息!">&nbsp;</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td></tr></tbody></table></td><td><table cellspacing="0"><tbody><tr class="x-toolbar-extras-row"></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></div></div></div></div></div>
+
+<div id="loading-mask" style="display: none;"></div>
+<div id="loading" style="display: none;">
+    <div id="loading-msg" style="display: none;">正在加载...</div>
+    <div id="progress-bar">
+        <div id="progress-bar-inner" style="width: 100%;"></div>
+    </div>
+</div>
+
+<!--scripts-->
+<script type="text/javascript">
+    var loadingMsg = '正在加载...';
+    window.g_Lang = window.g_Lang || {};
+    document.getElementById('loading-msg').innerHTML = window.g_Lang[loadingMsg] || loadingMsg;
+    function loadStatus(w){
+        var p = document.getElementById('progress-bar-inner');
+        p.style.width = w + '%';
+        if (w === 90) {
+            seajs.use('home/mod-common/router', function () {
+                loadStatus(100);
+                setTimeout(function () {
+                    var loadingEl = document.getElementById('loading'),
+                            maskEl = document.getElementById('loading-mask');
+                    loadingEl.style.display = 'none';
+                    maskEl.style.display = 'none';
+                }, 100);
+            });
+        }
+    }
+    loadStatus(0);
+
+    var SFDebugMode = false;
+    var SFIsLinux = false;
+    var SFIsEnglish = false;
+    var SFIsLowPlat = false;
+
+</script>
+
+<script type="text/javascript">
+    SFIsLinux = true;
+</script><script type="text/javascript">
+    SFIsLowPlat = true;
+</script>
+
+<script src="common/lib/seajs.js?201607092016"></script>
+<script type="text/javascript">
+    window.ACDC = seajs;
+    ACDC.config({
+        preload : [
+
+        ],
+        token: "1479264299896",
+        debug : !!SFDebugMode,
+        version : VERSION,
+        isEnglish : !!SFIsEnglish,
+        isLinux : !!SFIsLinux,
+        userName : SFUserName,
+        reportVesion : SFReportVesion,
+        isAdmin: SFIsAdmin,
+        flowUnit: "byteps",
+        flowHex: "1000",
+        grpFlux: "off",
+        isLowPlat: !!SFIsLowPlat,
+        isDkeyOn : !!SFIsDkeyOn
+    });
+    SFDebugMode = undefined;
+    SFIsLinux = undefined;
+    SFUserName = undefined;
+    SFReportVesion = undefined;
+    SFIsAdmin = undefined;
+    SFIsLowPlat = undefined;
+    SFIsDkeyOn = undefined;
+</script>
+<script type="text/javascript"> loadStatus(10); </script>
+<script src="./seaConf.js?201607092016"></script>
+
+
+<script src="mms/all.js?201607092016"></script>
+
+<!-- 这里要判断下是不是要加载debug/index.js -->
+
+<!--<script>seajs.use('home/mod-common/loading/index');</script>-->
+
+
+<script src="ac/lib/extjs.js?201607092016"></script>
+<script type="text/javascript"> loadStatus(30); </script>
+<script src="ac/lib/override.js?201607092016"></script>
+<script type="text/javascript"> loadStatus(60); </script>
+<script src="ac/lib/framework.js?201607092016"></script>
+<script type="text/javascript"> loadStatus(90); </script>
+
+<script type="text/javascript">
+    var title = "";
+    if (title) {
+        title = _("{0}-日志中心", title);
+    } else {
+        title = _("日志中心");
+    }
+    document.title = title;
+</script>
+
+<!--<script src="debug/sync-browser/client/lib/jquery-1.11.1.js?201607092016"></script>-->
+<!--<script src="debug/sync-browser/client/sync-browser.js?201607092016"></script>-->
+
+<div id="ext-comp-1004" class=" x-tip" style="position: absolute; z-index: 20000; visibility: hidden; display: none;"><div class="x-tip-tl"><div class="x-tip-tr"><div class="x-tip-tc"><div class="x-tip-header x-unselectable" id="ext-gen6"><span class="x-tip-header-text"></span></div></div></div></div><div class="x-tip-bwrap" id="ext-gen7"><div class="x-tip-ml"><div class="x-tip-mr"><div class="x-tip-mc" id="ext-gen10"><div class="x-tip-body" id="ext-gen8" style="height: auto;"></div></div></div></div><div class="x-tip-bl x-panel-nofooter" id="ext-gen9"><div class="x-tip-br"><div class="x-tip-bc"></div></div></div></div><div class="x-tip-anchor x-tip-anchor-top" id="ext-gen11" style="z-index: 20001;"></div></div><div class="x-window-proxy" id="ext-gen21" style="display: none;"></div><div class="ext-el-mask" id="ext-gen22" style="display: none; width: 1600px; height: 164px; top: 0px; left: 0px; z-index: 9000;"></div><div id="ext-comp-1010" class=" x-window x-window-noborder x-window-plain x-window-dlg" style="position: absolute; z-index: 9003; visibility: hidden; left: -10000px; top: -10000px; width: 250px; display: block;"><div class="x-window-tl"><div class="x-window-tr"><div class="x-window-tc"><div class="x-window-header x-window-header-noborder x-unselectable x-window-draggable" id="ext-gen12"><div class="x-tool x-tool-close" id="ext-gen44" style="display: none;">&nbsp;</div><span class="x-window-header-text" id="ext-gen23">请稍候...</span></div></div></div></div><div class="x-window-bwrap" id="ext-gen13"><div class="x-window-ml"><div class="x-window-mr"><div class="x-window-mc" id="ext-gen17"><div class="x-window-body x-window-body-noborder" id="ext-gen14" style="width: 228px; height: auto;"><div id="ext-gen32"><div class="ext-mb-icon x-hidden" id="ext-gen33"></div><div class="ext-mb-content"><span class="ext-mb-text" id="ext-gen34">加载页面中</span><br><div class="ext-mb-fix-cursor"><input type="text" class="ext-mb-input" id="ext-gen35" style="display: none;"><textarea class="ext-mb-textarea" id="ext-gen36" style="display: none;"></textarea></div></div><div class="x-progress-wrap" id="ext-comp-1011" style="width: 226px;"><div class="x-progress-inner"><div class="x-progress-bar" id="ext-gen38" style="height: 16px; width: 0px;"><div class="x-progress-text  x-hidden" id="ext-gen39" style="z-index: 99; width: 0px;"><div id="ext-gen41" style="width: 226px; height: 18px;">&nbsp;</div></div></div><div class="x-progress-text x-progress-text-back" id="ext-gen40"><div id="ext-gen42" style="width: 226px; height: 18px;">&nbsp;</div></div></div></div><div class="x-clear" id="ext-gen43"></div></div></div></div></div></div><div class="x-window-bl" id="ext-gen16"><div class="x-window-br"><div class="x-window-bc"><div class="x-window-footer x-window-footer-noborder x-panel-btns" id="ext-gen15" style="width: 238px;"><div id="ext-comp-1009" class="x-panel-fbar x-small-editor x-toolbar-layout-ct" style="width: auto;"><table cellspacing="0" class="x-toolbar-ct"><tbody><tr><td class="x-toolbar-left" align="center"><table cellspacing="0"><tbody><tr class="x-toolbar-left-row"><td class="x-toolbar-cell x-hide-offsets" id="ext-gen24"><table id="ext-comp-1005" cellspacing="0" class="x-btn   x-btn-noicon" style="width: 75px;"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen25" class=" x-btn-text">确定</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td><td class="x-toolbar-cell x-hide-offsets" id="ext-gen26"><table id="ext-comp-1006" cellspacing="0" class="x-btn   x-btn-noicon" style="width: 75px;"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen27" class=" x-btn-text">是</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td><td class="x-toolbar-cell x-hide-offsets" id="ext-gen28"><table id="ext-comp-1007" cellspacing="0" class="x-btn   x-btn-noicon" style="width: 75px;"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen29" class=" x-btn-text">否</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td><td class="x-toolbar-cell x-hide-offsets" id="ext-gen30"><table id="ext-comp-1008" cellspacing="0" class="x-btn   x-btn-noicon" style="width: 75px;"><tbody class="x-btn-small x-btn-icon-small-left"><tr><td class="x-btn-tl"><i>&nbsp;</i></td><td class="x-btn-tc"></td><td class="x-btn-tr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-ml"><i>&nbsp;</i></td><td class="x-btn-mc"><em class="" unselectable="on"><button type="button" id="ext-gen31" class=" x-btn-text">取消</button></em></td><td class="x-btn-mr"><i>&nbsp;</i></td></tr><tr><td class="x-btn-bl"><i>&nbsp;</i></td><td class="x-btn-bc"></td><td class="x-btn-br"><i>&nbsp;</i></td></tr></tbody></table></td></tr></tbody></table></td><td class="x-toolbar-right" align="right"><table cellspacing="0" class="x-toolbar-right-ct"><tbody><tr><td><table cellspacing="0"><tbody><tr class="x-toolbar-right-row"></tr></tbody></table></td><td><table cellspacing="0"><tbody><tr class="x-toolbar-extras-row"></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></div><div class="x-clear" id="ext-gen19"></div></div></div></div></div></div><a href="#" class="x-dlg-focus" tabindex="-1" id="ext-gen20">&nbsp;</a></div><div class="x-layer acdc-new-module-layer" id="ext-gen128" style="position: absolute; z-index: 11000; visibility: hidden; left: -10000px; top: -10000px;"><div class="back" style="z-index:11001;" id="ext-gen129"></div><div id="ext-comp-1029" class="fullpage-wrapper" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px);"><div class="section search-center fp-section active" style="height: 327px;">
+    <h1 class="header">
+        <span class="logo"></span>
+        <strong class="header-text">新特性功能展示</strong>
+    </h1>
+    <div class="body">
+        <div class="body-inner">
+            <div class="absolute linear search-body"></div>
+            <div class="absolute linear slow circle"></div>
+            <div class="absolute rotate target-small"></div>
+            <div class="absolute linear target-small-bg"></div>
+            <div class="absolute rotate target-middle"></div>
+            <div class="absolute linear target-middle-bg"></div>
+            <div class="absolute rotate target-big"></div>
+            <div class="absolute linear target-big-bg"></div>
+            <div class="absolute linear slow arw"></div>
+            <h2 class="absolute linear title">搜索中心</h2>
+            <p class="absolute linear slow tip">精确定位，快速查询，极简操作，轻松解决监管、合规性问题。</p>
+        </div>
+        <button class="goto absolute linear slower" type="button" data-mod="home/mod-search/center/index">立即使用</button>
+    </div>
+</div>
+    <div class="section report fp-section" style="height: 327px;">
+        <div class="body">
+            <div class="body-inner">
+                <div class="absolute linear report-body">
+                    <div class="absolute dd">
+                        <div class="absolute mouse"></div>
+                    </div>
+                    <div class="absolute pie rotate"></div>
+                </div>
+                <div class="absolute linear slow circle"></div>
+                <div class="absolute linear slow arw"></div>
+                <h2 class="absolute linear title">自定义报表</h2>
+                <p class="absolute linear slow tip">任意拖拽，随意组合，让您汇报领导、发布报表随心所欲</p>
+            </div>
+            <button class="goto absolute linear slower" type="button" data-mod="home/mod-report/report_rss/index">立即使用</button>
+        </div>
+    </div>
+    <div class="section stat fp-section" style="height: 327px;">
+        <div class="body">
+            <div class="body-inner">
+                <div class="absolute linear stat-body">
+                    <div class="absolute stat-user-text"></div>
+                    <div class="absolute stat-app-text"></div>
+                    <div class="absolute stat-app-type-text"></div>
+                </div>
+                <div class="absolute linear slow circle"></div>
+                <div class="absolute linear slow arw"></div>
+                <h2 class="absolute linear title">多维统计</h2>
+                <p class="absolute linear slow tip">多维度、多角度分析、递进统计、下钻数据，清晰呈现繁复关系。</p>
+            </div>
+            <button class="goto absolute linear slower" type="button" data-mod="home/mod-flux/app_flux_rank/index">立即使用</button>
+        </div>
+    </div>
+
+</div></div><div id="fp-nav" class="right" style="margin-top: -33.5px; display: none;"><ul><li><a href="#" class="active"><span></span></a></li><li><a href="#"><span></span></a></li><li><a href="#"><span></span></a></li></ul></div><div id="ext-gen179" style="position: absolute; left: -1000px; top: -1000px; visibility: hidden; font-size: 12px; font-style: normal; font-weight: normal; font-family: &quot;Microsoft YaHei&quot;, tahoma, Arial, SimSun, sans-serif, serif; line-height: normal; text-transform: none; letter-spacing: normal;"></div><div id="ext-comp-1020" class=" x-tip sf-tip" style="position: absolute; z-index: 20000; visibility: hidden; width: 258px; left: 4491px; top: 811px; display: none;"><div class="x-tip-tl"><div class="x-tip-tr"><div class="x-tip-tc"><div class="x-tip-header x-unselectable" id="ext-gen182"><div class="x-tool x-tool-close" id="ext-gen190">&nbsp;</div><span class="x-tip-header-text" id="ext-gen189">消息提示</span><span class="sf-tip-date" id="ext-gen188">(2016-11-16 11:22:37)</span></div></div></div></div><div class="x-tip-bwrap" id="ext-gen183"><div class="x-tip-ml"><div class="x-tip-mr"><div class="x-tip-mc" id="ext-gen186"><div class="x-tip-body" id="ext-gen184" style="width: 246px; height: auto;"><table width="100%" class="sf-news">
+    <tbody><tr>
+        <td colspan="2" class="sf-news-content">
+            与服务器通信失败，可能是以下原因：<br>1. 服务器繁忙<br>2. 服务器有错误发生<br>3. 网络故障
+        </td>
+    </tr>
+    <tr>
+        <td style="width:40%" align="left" class="sf-news-left">
+
+        </td>
+        <td style="width:60%" align="right" class="sf-news-paging">
+            <a actionname="first" class="sf-news-move-first x-item-disabled" title="第一条"></a>
+            <a actionname="prev" class="sf-news-move-prev x-item-disabled" title="上一条"></a>
+            <span>1/21</span>
+            <a actionname="next" class="sf-news-move-next " title="下一条"></a>
+            <a actionname="last" class="sf-news-move-last " title="最后一条"></a>
+        </td>
+    </tr>
+    </tbody></table>
+</div></div></div></div><div class="x-tip-bl x-panel-nofooter" id="ext-gen185"><div class="x-tip-br">
+    <div class="x-tip-bc"></div></div></div></div><div class="x-tip-anchor x-tip-anchor-bottom" id="ext-gen187" style="left: 33264px; top: 2646px; visibility: hidden; display: block;">
+
+    </div>
+</div>
+<div class="x-css-shadow" role="presentation" id="ext-gen45" style="z-index: 19999; left: 1398px; top: 98px; width: 195px; height: 40px; box-shadow: rgb(136, 136, 136) 0px 0px 6px; display: none;"></div>
+<div id="ext-comp-1021" class=" x-tip sf-tip" style="position: absolute; z-index: 20000; visibility: hidden; width: 187px; left: 1394px; top: 94px; display: none;">
+    <div class="x-tip-tl">
+        <div class="x-tip-tr">
+            <div class="x-tip-tc"></div>
+        </div>
+    </div>
+    <div class="x-tip-bwrap" id="ext-gen191">
+        <div class="x-tip-ml">
+            <div class="x-tip-mr">
+                <div class="x-tip-mc" id="ext-gen194">
+                    <div class="x-tip-body" id="ext-gen192" style="height: auto; width: 175px;">
+                        <div class="sf-news sf-news-no-content">注意：仍有<b> 21 </b>条未阅览信息！</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="x-tip-bl x-panel-nofooter" id="ext-gen193">
+            <div class="x-tip-br">
+                <div class="x-tip-bc">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="ext-gen195" style="position: absolute; left: -1000px; top: -1000px; visibility: hidden; font-size: 12px; font-style: normal; font-weight: normal; font-family: &quot;Microsoft YaHei&quot;, tahoma, Arial, SimSun, sans-serif, serif; line-height: normal; text-transform: none; letter-spacing: normal; width: auto;"></div>
+</body></html>

@@ -1,0 +1,149 @@
+<include file="./App/Common/View/header.html" />
+<link href="__PUBLIC__/asset/css/page/wafsite.css" rel="stylesheet" type="text/css" />
+<style>
+    table.dataTable tbody tr.selected {
+        background-color: #b0bed9;
+    }
+</style>
+
+<input type="hidden" id="currentUserId" value="{$useId}">
+<input type="hidden" id="addActionId" value="{$addAction}">
+<input type="hidden" id="isSystemRoleId" value="{$isSystemRole}">
+<input type="hidden" id="clickWhichCountId" value="allCount">
+<div class="main fixed">
+    <div class="m-inner">
+        <div class="widget">
+            <div class="widget-heading">
+                <div class="widget-title">实时概况</div>
+            </div>
+            <div class="widget-content cloudwaf-summary">
+                <div class="safe-item">
+                    <img src="__PUBLIC__/asset/image/safe1.png" alt=""/>
+                    <div class="i-info">
+                        <div class="i-info-tit">站点总数/防护站点数</div>
+                        <div class="i-info-num"><span class="allCount c-blue font-num">{$allCount}</span><em>/</em><span class="saveCount c-blue font-num">{$saveCount}</span></div>
+                    </div>
+                </div>
+                <div class="safe-item">
+                    <img src="__PUBLIC__/asset/image/safe2.png" alt="高危漏洞站点数"/>
+                    <div class="i-info">
+                        <div class="i-info-tit">高危站点/中危站点数</div>
+                        <div class="i-info-num"><span class="highVulsCount c-red font-num">{$highVulsCount}</span><em>/</em><span class="midVulsCount c-yellow font-num">{$midVulsCount}</span></div>
+                        <!--<div class="highVulsCount i-info-num c-red font-num">{$noAccessCount}</div>-->
+                    </div>
+                </div>
+                <div class="safe-item">
+                    <img src="__PUBLIC__/asset/image/safe3.png" alt="无法访问站点数"/>
+                    <div class="i-info">
+                        <div class="i-info-tit">无法访问站点数</div>
+                        <div class="noAccessCount i-info-num c-orange font-num">{$noAccessCount}</div>
+                    </div>
+                </div>
+                <div class="safe-item">
+                    <img src="__PUBLIC__/asset/image/safe4.png" alt="受攻击站点数"/>
+                    <div class="i-info">
+                        <div class="i-info-tit">受攻击站点数</div>
+                        <div class="attackCount i-info-num c-red font-num">{$attackCount}</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="widget">
+            <div class="widget-heading">
+                <div class="widget-title">云防护站点列表</div>
+            </div>
+
+            <div class="widget-content">
+                <!--<div class="col-sm-2">-->
+
+                <!--</div>-->
+                <div class="col-sm-12">
+                    <table class="u-grid" id="waf_site_table" width="100%">
+                        <thead>
+                        <tr>
+                            <th><input type="checkbox" id="checkAll_id"/></th>
+                            <th>站点名称</th>
+                            <th>源站信息</th>
+                            <th>服务质量</th>
+                            <th>漏洞等级</th>
+                            <th>访问次数</th>
+                            <th>攻击次数</th>
+                            <th>当日流量</th>
+                            <th>关停站点</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class='waf-dialog-content' style="display: none;">
+    <form class="form-horizontal" id="wafForm" action="#" data-parsley-validate>
+        <input name="waf_id" type="hidden">
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span style="color: red">*</span>名称</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="title" required data-parsley-length="[2, 40]" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span style="color: red">*</span>域名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="domain" required data-parsley-length="[2, 100]" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span style="color: red">*</span>ip地址</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="ip" required data-parsley-length="[2, 20]" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span style="color: red">*</span>端口</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="port" required data-parsley-length="[2, 20]" >
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class='waf-attention-dialog-content' style="display: none;">
+    <form class="form-horizontal" id="attentionForm" action="#" data-parsley-validate>
+        <input type="hidden" name="domain">
+        <div class="form-group">
+            <label class="control-label col-sm-2">关注人</label>
+            <div class="col-sm-10">
+                <div class="col-sm-8" style="padding-left: 0px;">
+                    <input type="text" class="form-control" name="queryParam">
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn attention-search">查询</a>
+                </div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label  class="col-sm-2 control-label"></label>
+            <div class="row col-sm-10">
+                <div class="col-sm-5 source-user" style="height:300px;border:1px solid #ECEEF0;margin-left: 15px;overflow:auto">
+
+                </div>
+                <div class="col-sm-5 col-sm-offset-1 result-user" style="height:300px;border:1px solid #ECEEF0;overflow:auto">
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<include file="./App/Common/View/footer.html" />
+
+<script type="text/javascript" src="__PUBLIC__/script/Home/sites.js"  charset="utf-8"></script>

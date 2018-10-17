@@ -1,0 +1,4 @@
+WebLogic远程代码执行漏洞描述：
+	Oracle WebLogic Server 10.3.6.0, 12.1.2.0, 12.1.3.0, 12.2.1.0版本中，WLS Security组件允许远程攻击者执行任意
+	命令。攻击者通过向TCP端口7001发送T3协议流量，其中包含精心构造的序列化Java对象利用此漏洞。此漏洞影响到WLS 
+	Security Handler的文件oracle_common/modules/com.bea.core.apache.commons.collections.jar内一个未知的函数。

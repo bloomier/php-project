@@ -1,0 +1,2 @@
+cmseasy ajaxargs sqlinject漏洞修复方案：
+    推荐在DB处理类里做类似的过滤，或者严格排查不在GPC的地方

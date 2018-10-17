@@ -1,0 +1,188 @@
+<include file="./App/Security/View/header.html" />
+<link href="__PUBLIC__/js/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css"/>
+<link href="__PUBLIC__/js/metronic-bootstrap/css/jquery.fancybox.css" rel="stylesheet">
+<link href="__PUBLIC__/js/metronic-bootstrap/css/select2_metro.css" rel="stylesheet">
+<style>
+    .hand{cursor: pointer;}
+</style>
+
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ul class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Security">首页</a> </li>
+                    <li><a href="__ROOT__/index.php/Security/ESearch">事件查询</a> </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="fa fa-search"></i>事件查询条件</div>
+                    </div>
+                    <div class="portlet-body form">
+                        <form id="form_id" action="__ROOT__/index.php/Security/ESearch/export" class="form-horizontal" >
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">网站域名</label>
+                                <div class="col-sm-6">
+                                    <input name="site_domain" id="site_domain_id" type="text" class="form-control m-wrap">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">网站名称</label>
+                                <div class="col-sm-6">
+                                    <input name="site_name" id="site_name_id" type="text" class="form-control m-wrap">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">事件来源</label>
+                                <div class="col-sm-6">
+                                    <input name="event_source" id="event_source_id" type="text" class="form-control m-wrap">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">通报日期</label>
+                                <div class="col-sm-2">
+                                    <input name="begin_time" id="begin_time_id" type="text" class="form-control m-wrap Wdate">
+                                </div>
+                                <label class="col-sm-2 control-label" style="">至</label>
+                                <div class="col-sm-2">
+                                    <input name="end_time" id="end_time_id" type="text" class="form-control m-wrap Wdate">
+                                </div>
+                            </div>
+                            <div class="form-group citys">
+                                <label class="col-sm-2 control-label">所在区域</label>
+                                <div class="col-sm-3">
+                                    <select class="form-control prov prov-location" name="province">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">处理状态</label>
+                                <div class="col-sm-6">
+                                    <select name="deal_state" id="deal_state_id" class=" m-wrap" data-placeholder="Choose a Category"  style="width:100%">
+                                        <foreach item="deal_state_config" name="deal_state_config" key="key">
+                                            <option value="{$deal_state_config}">{$key}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">事件类型</label>
+                                <div class="col-sm-6">
+                                    <select name="event_type" id="event_type_id" class=" m-wrap" data-placeholder="Choose a Category"  style="width:100%">
+                                        <foreach item="event_type_config" name="event_type_config" key="key">
+                                            <option value="{$event_type_config}">{$key}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">邮件地址</label>
+                                <div class="col-sm-6">
+                                    <input name="export_email" id="event_email_id" type="text" class="form-control m-wrap">
+                                </div>
+                            </div>
+                            <button style="margin-left: 160px;" id="button_search_id" type="button" class="btn blue">查询</button>
+                            <button id="button_export_id" type="button" class="btn green">导出为excel</button>
+                            <button id="button_export_detail_id" type="button" class="btn yellow">导出excel明细表</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title"><div class="caption"><i class="fa fa-edit"></i>事件类型统计</div></div>
+
+                    <div  class="row" id="div_view_id">
+                        <div class="col-md-12">
+                            <div id="bar_id">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body light-grey" id="showlist_id">
+                        <table class="table table-bordered margin-top-20" >
+                            <thead class="bg-lightgrey">
+                                <tr>
+                                    <th>序号</th>
+                                    <th>区域</th>
+                                    <!-- 遍历所有事件类型 -->
+                                    <foreach item="table_head" name="table_head" key="key">
+                                        <th>{$key}</th>
+                                    </foreach>
+                                    <!--
+                                    <th>黑页</th>
+                                    <th>暗链</th>
+                                    <th>反共</th>
+                                    <th>其他</th>
+                                    -->
+                                    <th>事件总数</th>
+                                    <th>整改次数</th>
+                                    <th>整改率</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class='modal-dialog detail-dialog-content' style="display: none;width: 100%;">
+        <div class="portlet-body light-grey" id="showDetaillist_id">
+            <table id="detail_table_id" class="table table-bordered margin-top-5">
+                <thead class="bg-lightgrey">
+                <tr>
+                    <th>网站标题</th>
+                    <th>网站域名</th>
+                    <th>区域</th>
+                    <th>事件类型</th>
+                    <th>监测时间</th>
+                    <th>通报时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <!--
+                    <tr>
+                        <td>发给第三方供电所覆盖</td>
+                        <td>是飞洒地方</td>
+                        <td>是打发斯蒂芬</td>
+                        <td>说都发生的</td>
+                        <td>2015-10-11 10:10：10</td>
+                        <td>2015-10-11 10:10：10</td>
+                    </tr>
+                    -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<assign name='plugins' value='echarts'/>
+<include file="./App/Security/View/footer.html" />
+<script src="__PUBLIC__/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script type="text/javascript" src="__PUBLIC__/js/cityselect/jquery.provinceselect.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Security/event_search.js"></script>
+
+
+
+

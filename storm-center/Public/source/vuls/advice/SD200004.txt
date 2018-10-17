@@ -1,0 +1,6 @@
+cvs库漏洞修复方案：
+    请尽快和您的产品供应商联系获得补丁程序和更详细的信息。
+    查询相关供应商信息请到下列网址：
+    http://www.cert.org/advisories/CA-2003-02.html#vendors
+    查询受影响系统信息请到下列网址：
+    http://www.kb.cert.org/vuls/id/650937#systems。

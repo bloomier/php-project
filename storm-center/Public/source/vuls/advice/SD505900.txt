@@ -1,0 +1,3 @@
+WordPress LeagueManager漏洞修复方案：
+    目前厂商还没有提供补丁或者升级程序，我们建议使用此软件的用户随时关注厂商的主页以获取最新版本：
+    http://wordpress.org/extend/plugins/leaguemanager/

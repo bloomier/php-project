@@ -1,0 +1,2 @@
+WebInfWebXML_Audit 漏洞：
+    WEB-INF目录越权访问web.xml敏感信息泄露

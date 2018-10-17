@@ -1,0 +1,6 @@
+iis51验证bypass漏洞修复方案：
+    用户可参考如下供应商提供的安全补丁：
+    Microsoft IIS 5.1
+    Microsoft Security Update for Windows XP (KB2290570)
+    http://www.microsoft.com/downloads/en/details.aspx?
+    familyid=AE55787E-4 A5C-48D5-AEDF-0ABADA514938&displaylang=en

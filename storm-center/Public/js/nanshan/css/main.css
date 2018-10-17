@@ -1,0 +1,240 @@
+/**
+ * @author Sean.xiang
+ *@date 2016/4/5
+ *@version
+ *@example
+ */
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    background:#333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.BMap_cpyCtrl{
+    display:none;
+}
+.wrapper{
+    width:100%;
+    height:100%;
+}
+.header {
+    position: relative;
+    z-index: 1;
+    height: 60px;
+    padding-left: 134px;
+    background-color: #0071C6;
+}
+.map{
+    width:100%;
+    height:100%;
+}
+.side {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 319px;
+    height: 100%;
+    -webkit-transition: right .5s ease;
+    -moz-transition: right .5s ease;
+    -o-transition: right .5s ease;
+    transition: right .5s ease;
+    border-left: 1px solid #1a1a1a;
+}
+.side .side-toggle {
+    position: absolute;
+    top: 50%;
+    left: -16px;
+    display: block;
+    overflow: hidden;
+    width: 15px;
+    height: 70px;
+    margin-top: -35px;
+    cursor: pointer;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-color: #C54331;
+}
+.side .side-toggle:before {
+    position: absolute;
+    top: 30px;
+    left: 5px;
+    content: " ";
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent #FFF;
+}
+.side .side-toggle:after {
+    position: absolute;
+    top: 30px;
+    left: 3px;
+    content: " ";
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent #C54331;
+}
+
+.side.close .side-toggle:before {
+    left: -2px;
+    border-style: solid;
+    border-color: transparent #FFF transparent transparent;
+}
+.side.close .side-toggle:after {
+    left: 0;
+    border-style: solid;
+    border-color: transparent #C54331 transparent transparent;
+}
+
+.side .side-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 319px;
+    height: 100%;
+}
+.search-container {
+    position: relative;
+    z-index: 999;
+    margin: 0 0 18px;
+    padding-left: 17px;
+}
+.search-container .search-box {
+    position: relative;
+    width: 284px;
+    height: 35px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+input[type=search] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.search-container .search-input {
+    font-size: 12px;
+    line-height: 33px;
+    display: block;
+    width: 237px;
+    height: 33px;
+    margin: 0;
+    padding: 0 35px 0 10px;
+    color: #4f5964;
+    border: 1px solid #393e45;
+    outline: 0;
+    background-repeat: no-repeat;
+    background-position: 260px 8px;
+    background-image: url("../img/search-icon.png");
+    background-color: #2f3640;
+    -webkit-appearance: none;
+}
+.active .search-input {
+    background-image: none
+}
+.search-container .focus-search-input,.active .search-input {
+    background-color: #E8ECF1
+}
+.search-container .focus-search-input {
+    background-image: url("../img/search-active.png");
+}
+.active .search-input {
+    background-image: none
+}
+.search-container .with-placeholder {
+}
+.search-container ::-webkit-search-cancel-button {
+    -webkit-appearance: none
+}
+.search-container ::-webkit-search-results-button {
+    -webkit-appearance: none
+}
+.search-container ::-ms-clear {
+    display: none
+}
+.seach-container :-ms-input-placeholder {
+    color: #888
+}
+.search-container ::-webkit-input-placeholder {
+    color: #888
+}
+.search-container ::-moz-placeholder {
+    opacity: 1!important;
+    color: #888
+}
+.search-container .search-close {
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    display: none;
+    width: 19px;
+    height: 19px;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #9C9C9C;
+    background-color: transparent\9;
+    _background-image: url("../img/search-close.gif");
+    background-repeat: no-repeat;
+}
+.search-container .search-close {
+    background-position: -143px -743px;
+}
+
+.list-scroll {
+    margin: 7px 0;
+}
+.scroll {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+.scroll-bar {
+    position: relative;
+    overflow: hidden;
+}
+.scroll-bar .scroll-bar-item {
+    position: relative;
+    top: 0;
+}
+.list {
+    font-size: 14px;
+    line-height: 44px;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.list li {
+    margin: 0 30px 0 0;
+    padding: 0 10px 0 20px;
+    cursor: pointer;
+}
+.list li a {
+    display: block;
+    margin-right: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #A2AAB0;
+    border-bottom: 1px dashed #323F47;
+}
+.list li .scenic {
+    display: inline-block;
+    overflow: hidden;
+    width: 6em;
+    margin-right: 5px;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    color: #A2AAB0;
+}
+.list li span {
+    cursor: pointer;
+}
+
+
+
+

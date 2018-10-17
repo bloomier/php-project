@@ -1,0 +1,36 @@
+.ztree *,.ztree {
+    background-color: #fff;
+    text-align: center;
+}
+ul.ztree {height:640px;overflow-y:scroll;overflow-x:auto;}
+.ztree li span.button.switch{
+    width: 20px;
+    height: 20px;
+}
+.ztree li a {
+    color: #444!important;
+}
+.ztree li a:hover{
+    text-decoration: none;
+
+}
+.ztree li a:hover span{
+    color:#000;
+}
+.ztree li a span{
+    font-size: 16px;
+}
+.ztree li span.button::before{
+    color: #444!important;
+
+}
+.ztree li a span.button {
+    display: none;
+}
+.ztree li a.curSelectedNode{
+    background-color:transparent;
+}
+.ztree li a.curSelectedNode span{
+    background-color: #000;
+    color: #fff;
+}

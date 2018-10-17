@@ -1,0 +1,2 @@
+Umbraco_CMS_Remote_Code_Execution 漏洞修复建议:
+    安装 厂家补丁。

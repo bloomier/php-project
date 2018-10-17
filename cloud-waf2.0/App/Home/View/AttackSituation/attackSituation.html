@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>玄武盾攻击态势监测</title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/asset_os/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset_os/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset_os/css/animation.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/asset_os/js/datatables/dataTables.style.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset_os/js/swiper/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/asset_os/js/scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/asset_os/js/select2/select2.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/asset_os/css/screen-v2.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset_os/css/modal.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset_os/css/page/attackSituation.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header class="header"  >
+    <h1 data-toggle="modal" data-target="#myModal2">玄武盾攻击态势监测</h1>
+    <div class="total pull-right">
+        <a class="node"><i class="fa fa-bullhorn"></i>当天受攻击站点<span class="attackedSiteCount">0</span>个</a>
+        <a class="site" ><i class="fa fa-cog"></i>当天受攻击总数<span class="dailyAttackCount">0</span>次</a>
+        <a class="survey"><i class="fa fa-bell"></i>当天攻击源IP数<span class="attack_ip_count">0</span>个</a>
+    </div>
+</header>
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<input id="echartPath" type="hidden" value="__PUBLIC__/asset_os/js/echarts/dist">
+<div class="container-fluid content clear">
+    <div class="row no-padding no-margin">
+        <div class="col-md-5 no-padding">
+            <div class="box box1">
+                <div class="box-heading">
+                    <div class="box-title">
+                        <div class="title pull-left">流量/CC攻击监测</div>
+                        <div class="sub-title pull-right"><span class="name"></span><span class="num"></span> </div>
+                    </div>
+
+                </div>
+                <div class="box-content-bottom">
+                    <table class="grid">
+                        <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>告警类型</th>
+                            <th>攻击站点</th>
+                            <th>流量/访问量/步长</th>
+                            <th>比例</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div class="box-border"></div>
+                    <div class="box-content-border scrollbar">
+                        <table class="grid ccAtackTable">
+                            <tbody>
+                            <!--<tr class="c-red">-->
+                                <!--<td>09:00</td>-->
+                                <!--<td>流量攻击</td>-->
+                                <!--<td>http://www.baidu.com</td>-->
+                                <!--<td>100M</td>-->
+                                <!--<td>300%</td>-->
+                            <!--</tr>-->
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    <div class="col-md-7 padding-10 ">
+        <div class="box mb-10">
+            <div class="box-heading">
+                <div class="box-title">
+                    <div class="title pull-left">总体访问/攻击量趋势</div>
+                </div>
+
+            </div>
+            <div class="box-content-bottom">
+                <div class="alert-flow echarts"  id="attack_line_id" ></div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+    <div class="row no-padding no-margin">
+        <div class="col-md-3 no-padding">
+            <div class="box box2">
+                <div class="box-heading">
+                    <div class="box-title">
+                        <div class="title pull-left">站点攻击量排行</div>
+                    </div>
+                    <div class="box-tab-sub pull-right">
+                        <ul class="nav nav-tabs " role="tablist">
+                            <li role="presentation" class="active"><a  class="tab-vlus-type-cloud btn-attackCountRank" toggle="lasest" role="tab" data-toggle="tab">实时</a></li>
+                            <li role="presentation"><a role="tab" class="tab-vlus-type-cloud btn-attackCountRank" toggle="all" data-toggle="tab">当天</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="attack-now">
+                            <table class="grid">
+                                <thead>
+                                <tr>
+                                    <th>站点</th>
+                                    <th>攻击量占比</th>
+                                    <th>攻击量</th>
+                                </tr>
+                                </thead>
+                            </table>
+                            <div class="box-border"></div>
+                            <div class="box-content-border scrollbar" id="real_time_attack_id">
+                                <table class="grid grid-rank">
+                                    <tbody>
+                                        <!--<tr>-->
+                                            <!--<td>xx省公安厅网站 </td>-->
+                                            <!--<td>-->
+                                                <!--<div class="progress">-->
+                                                    <!--<div class="progress-bar" style="width: 100%;">-->
+                                                        <!--<span>100%</span>-->
+                                                    <!--</div>-->
+                                                 <!--</div>-->
+                                            <!--</td>-->
+                                            <!--<td>1234567</td>-->
+                                        <!--</tr>-->
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="attack-day">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    <div class="col-md-9 padding-10 ">
+        <div class="box box3 mb-10">
+            <div class="box-heading">
+                <div class="box-title">
+                    <div class="title pull-left">IP TOP10 追踪</div>
+                </div>
+
+                <div class="box-tab-sub pull-right">
+                    <ul class="nav nav-tabs " role="tablist">
+                        <li role="presentation" class="active"><a class="tab-vlus-type-cloud btn-visitAndAttackTopN"  toggle="attack" role="tab" data-toggle="tab">攻击</a></li>
+                        <li role="presentation"><a  role="tab" class="tab-vlus-type-cloud btn-visitAndAttackTopN" toggle="visit" data-toggle="tab">访问</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="attackSource-now">
+                        <div class="row">
+                            <div class="col-md-4 no-padding">
+                                <table class="grid grid-rank visitAndAttackTable">
+                                    <tbody>
+                                    <!--<tr class="clickTr" ip="255.255.255.255">-->
+                                        <!--<td>123468</td>-->
+                                        <!--<td>【浙江】</td>-->
+                                        <!--<td>255.255.255.255</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr  class="clickTr"  ip="255.255.255.255">-->
+                                        <!--<td>123468</td>-->
+                                        <!--<td>【浙江】</td>-->
+                                        <!--<td>255.255.255.255</td>-->
+                                    <!--</tr>-->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-8 no-padding">
+                                <div class="arrow"></div>
+                                <div class="tab-panel">
+                                    <div class="tab-panel-data">
+                                        <div class="d-info">
+                                            <h3>IP反查</h3>
+                                            <p class="scrollbar-h">关联站点共计<span class="c-red allSiteCount">0</span>个，其中高危站点<span class="c-red highVulsSiteCount">0</span>个。</p>
+                                        </div>
+                                        <div class="d-info">
+                                            <h3>开放端口号</h3>
+                                            <p class="scrollbar-h ports_text"> </p>
+                                        </div>
+                                        <div class="d-info" id="asd">
+                                            <h3>主要攻击方式</h3>
+                                            <p class=" mainAttackStyle_text scrollbar-h" style="position: relative"> </p>
+                                        </div>
+                                    </div>
+                                    <div class="tab-panel-chart">
+                                        <div class="c-chart" id="daily_attack_id"></div>
+                                        <div class="c-chart" id="history_attack_id"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="attackSource-day">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+    <div class="row no-padding no-margin">
+        <div class="col-md-3 no-padding">
+            <div class="box box4">
+                <div class="box-heading">
+                    <div class="box-title">
+                        <div class="title pull-left">站点访问量排行</div>
+                    </div>
+                    <div class="box-tab-sub pull-right">
+                        <ul class="nav nav-tabs " role="tablist">
+                            <li role="presentation" class="active"><a class="tab-vlus-type-cloud btn-visitCountRank" toggle="lasest" role="tab" data-toggle="tab">实时</a></li>
+                            <li role="presentation"><a role="tab" class="tab-vlus-type-cloud btn-visitCountRank" toggle="all" data-toggle="tab">当天</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="visit-now">
+                            <table class="grid">
+                                <thead>
+                                <tr>
+                                    <th>站点</th>
+                                    <th>访问量占比</th>
+                                    <th>攻击量</th>
+                                </tr>
+                                </thead>
+                            </table>
+                            <div class="box-border"></div>
+                            <div class="box-content-border scrollbar" id="real_time_visit_id">
+                                <table class="grid grid-rank">
+                                    <tbody>
+                                    <!--<tr>-->
+                                        <!--<td>xx省公安厅网站 </td>-->
+                                        <!--<td>-->
+                                            <!--<div class="progress">-->
+                                                <!--<div class="progress-bar" style="width: 100%;">-->
+                                                    <!--<span>100%</span>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</td>-->
+                                        <!--<td>1234567</td>-->
+                                    <!--</tr>-->
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="visit-day">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    <div class="col-md-3 padding-10 ">
+        <div class="box box5">
+            <div class="box-heading">
+                <div class="box-title">
+                    <div class="title pull-left">WAF告警策略统计</div>
+                    <div class="sub-title pull-right"><span class="name">合计：</span><span class="num policyNum">5,656</span> 个</div>
+                </div>
+
+            </div>
+            <div class="box-content">
+                <table class="grid">
+                    <thead>
+                    <tr>
+                        <th>策略ID</th>
+                        <th>策略名称</th>
+                        <th>IP数</th>
+                        <th>站点数</th>
+                        <th>条数</th>
+                    </tr>
+                    </thead>
+                </table>
+                <div class="box-border"></div>
+                <div class="box-content-border scrollbar">
+                    <table class="grid wafPolicyTable">
+                        <tbody></tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-6 padding-10 ">
+        <div class="box box6">
+            <div class="box-heading">
+                <div class="box-title">
+                    <div class="title pull-left">防御能力分析</div>
+                    <div class="sub-title pull-right"><span class="name">告警数：</span><span class="num defebseNum">2,456</span> 个</div>
+                </div>
+
+            </div>
+            <div class="box-content">
+                <table class="grid">
+                    <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>类型</th>
+                        <th>攻击源</th>
+                        <th>攻击URL/Payload</th>
+                    </tr>
+                    </thead>
+                </table>
+                <div class="box-border"></div>
+                <div class="box-content-border scrollbar">
+                    <table class="grid defenseTable">
+                        <tbody>
+                            <tr class="c-red">
+                                <td>09:00</td>
+                                <td>WAF 阻断</td>
+                                <td>115.36.98.36</td>
+                                <td>http://echarts.baidu.com/echarts2/doc/example/map15.html</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+</div>
+
+
+<div class="modal a-bouncein" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-warning" role="document">
+        <!--<div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">CC攻击</h4>
+                <div class="modal-sub-title">09:30:25</div>
+            </div>
+            <div class="modal-body scrollbar">
+                <div class="modal-m-info">
+                    <label class="">访问次数</label>
+                    <div class="num">123,456</div>
+                </div>
+                <div class="modal-m-info">
+                    <label class="">超过预期</label>
+                    <div class="num"><i class="fa fa-arrow-up"></i>200%</div>
+                </div>
+
+
+                <div class="modal-info clear">
+                    <label class="col-md-3">攻击源IP</label>
+                    <div class="col-md-9">172.16.36.98 、 172.16.36.99 </div>
+                </div>
+                <div class="modal-info">
+                    <label class="col-md-3">攻击URL</label>
+                    <div class="col-md-9">www.baidu.com/sg/test.html</div>
+                </div>
+
+            </div>
+        </div>-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">流量异常</h4>
+                <div class="modal-sub-title">09:30:25</div>
+            </div>
+            <div class="modal-body scrollbar">
+                <div class="modal-m-info">
+                    <label class="">站点流量</label>
+                    <div class="num">123,45<span>Mb</span></div>
+                </div>
+                <div class="modal-m-info">
+                    <label class="">超过预期</label>
+                    <div class="num"><i class="fa fa-arrow-up"></i>200<span>%</span></div>
+                </div>
+
+
+                <div class="modal-info clear">
+                    <label class="col-md-3">攻击源IP</label>
+                    <div class="col-md-9">172.16.36.98 、 172.16.36.99 </div>
+                </div>
+                <div class="modal-info">
+                    <label class="col-md-3">攻击URL</label>
+                    <div class="col-md-9">www.baidu.com/sg/test.html</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-corner-lt"></div>
+        <div class="modal-corner-rt"></div>
+        <div class="modal-corner-lb"></div>
+        <div class="modal-corner-rb"></div>·
+    </div>
+
+</div>
+
+<div class="modal a-bouncein" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1Label">
+    <div class="modal-dialog modal-warning" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModal1Label">告警详情</h4>
+                <div class="modal-sub-title attackTime"></div>
+            </div>
+            <div class="modal-body">
+                <div class="m-main-b">
+                    <div class="m-main modal-border" style="display: none" id="modalTable">
+                        <!--<div class="m-header"><h4>攻击IP</h4></div>-->
+                        <table class="grid headTable">
+                            <thead>
+                            <tr>
+                                <!--<th>攻击IP</th>-->
+                                <!--<th>归属地</th>-->
+                                <!--<th>攻击量</th>-->
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="box-border"></div>
+                        <div style="height: 120px;">
+                            <table class="grid bodyTable">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <!--<div class="m-main modal-border">-->
+                        <!--&lt;!&ndash;<div class="m-header"><h4>攻击IP</h4></div>&ndash;&gt;-->
+                        <!--<table class="grid">-->
+                            <!--<thead>-->
+                            <!--<tr>-->
+                                <!--<th>攻击IP</th>-->
+                                <!--<th>归属地</th>-->
+                                <!--<th>攻击量</th>-->
+                            <!--</tr>-->
+                            <!--</thead>-->
+                        <!--</table>-->
+                        <!--<div class="box-border"></div>-->
+                        <!--<div class="scrollbar" style="height: 120px;" id="attackIPD">-->
+                            <!--<table class="grid attackIP">-->
+                                <!--<tbody>-->
+
+                                <!--</tbody>-->
+                            <!--</table>-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="m-main modal-border" id="flowNone">-->
+                        <!--&lt;!&ndash;<div class="m-header"><h4>被攻击URL</h4></div>&ndash;&gt;-->
+                        <!--<div>-->
+                            <!--<table class="grid tableHeard">-->
+                                <!--<thead>-->
+                                <!--<tr>-->
+                                    <!--<th>被攻击URL</th>-->
+                                    <!--<th>攻击IP</th>-->
+                                    <!--<th>攻击量</th>-->
+                                <!--</tr>-->
+                                <!--</thead>-->
+                            <!--</table>-->
+                            <!--<div class="box-border"></div>-->
+                            <!--<div class="box-content-border scrollbar" style="height: 120px;">-->
+                                <!--<table class="grid attackURL">-->
+                                    <!--<tbody>-->
+
+                                    <!--</tbody>-->
+                                <!--</table>-->
+
+                            <!--</div>-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-corner-lt"></div>
+        <div class="modal-corner-rt"></div>
+        <div class="modal-corner-lb"></div>
+        <div class="modal-corner-rb"></div>·
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/swiper/js/swiper.jquery.min.js"></script>
+<script src="__PUBLIC__/asset_os/js/scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/bootstrap/js/bootstrap.min.js"></script>
+
+<!--<script type="text/javascript" src="__PUBLIC__/asset/js/echarts-3/echarts.min.js"></script>-->
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/echarts/dist/echarts.js"  charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/datatables/dataTables.ext.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/select2/select2.min.js"></script>
+<!--<script type="text/javascript" src="__PUBLIC__/asset/js/select2/select2.min.js"></script>-->
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/scrool/item-scoller.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Home/Screen/attack_situation.js"></script>
+
+
+</body>
+</html>
+
+
+

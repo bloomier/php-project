@@ -1,0 +1,194 @@
+<include file="./App/MSSP/View/header.html" xmlns="http://www.w3.org/1999/html"/>
+<div class="main">
+    <div class="m-inner">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">安全概况</h3>
+            </div>
+            <div class="panel-body safe">
+                <div class="safe-item">
+                    <img src="__PUBLIC__/image/MSSP/safe1.png" alt=""/>
+                    <div class="i-info">
+                        <div class="i-info-tit">监测中的节点</div>
+                        <div class="i-info-num">{$total}</div>
+                    </div>
+                </div>
+                <div class="safe-item">
+                    <img src="__PUBLIC__/image/MSSP/safe2.png" alt=""/>
+                    <div class="i-info">
+                        <div class="i-info-tit">高/中危风险站点</div>
+                        <div class="i-info-num red">14/10</div>
+                    </div>
+                </div>
+                <div class="safe-item">
+                    <img src="__PUBLIC__/image/MSSP/safe3.png" alt=""/>
+                    <div class="i-info">
+                        <div class="i-info-tit">断网/域名劫持站点</div>
+                        <div class="i-info-num orange">3/0</div></div>
+                </div>
+                <div class="safe-item">
+                    <img src="__PUBLIC__/image/MSSP/safe4.png" alt=""/>
+                    <div class="i-info">
+                        <div class="i-info-tit">高危风险威胁</div>
+                        <div class="i-info-num red">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default ">
+           <!-- <div class="panel-heading">
+                <h3 class="panel-title">
+                    站点监测
+                </h3>
+            </div>-->
+
+            <div class="panel-body monitor">
+                <!--<div style="margin-bottom: 2px"></div>-->
+                <div class="monitor-nav">
+                    <ul class="grouptabs">
+                        <li class="active"><a href="#" package="0">全部站点</a></li>
+                        <li><a href="#" package="2">服务质量</a></li>
+                        <li><a href="#" package="4">云防护</a></li>
+                        <li><a href="#" package="1">漏洞扫描</a></li>
+                        <li><a href="#" package="8">安全事件</a></li>
+                    </ul>
+                </div>
+                <div class="form-search btn-right pull-right" style="margin-bottom: 15px;">
+                    <input class="form-search-input " id="currentDateKey" type="text"/>
+                    <button id="btn-search" class="form-search-submit btn-search"><i class="fa fa-search"></i></button>
+                </div>
+                <table class="table grid monitor-grid" id="site_table">
+                    <!--<thead class="bg-lightgrey">-->
+                    <!--<tr role="row">-->
+                        <!--<td>策略ID</td>-->
+                        <!--<td>策略名称</td>-->
+                        <!--<td>漏洞等级</td>-->
+                        <!--<td>策略描述</td>-->
+                        <!--<td>修复建议</td>-->
+                        <!--<td>操作</td>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                    <thead  style="text-align: center">
+                        <tr>
+                            <th rowspan="2" style="width: 50%">站点</th>
+                            <!--<th colspan="4">网站弱点扫描</th>-->
+                            <th colspan="4">服务质量监测</th>
+                            <th rowspan="2">云防护</th>
+                            <!--<th colspan="2">云防护</th>-->
+                        </tr>
+                        <tr>
+                            <!--<th>风险等级<i class="sort"></i></th>-->
+                            <!--<th>高危漏洞<i class="sort"></i></th>-->
+                            <!--<th>中危漏洞<i class="sort"></i></th>-->
+                            <!--<th>低危漏洞<i class="sort"></i></th>-->
+                            <th>当前状态</th>
+                            <th>可用率</th>
+                            <th>故障次数</th>
+                            <th>故障时长</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <!--<table class="grid monitor-grid">-->
+
+                    <!--<tbody>-->
+                    <!--<tr>-->
+                        <!--<td><a href="__ROOT__/index.php/MSSP/Site/detail">http://www.baidu.com</a></td>-->
+                        <!--<td><span class="red-label">高危</span></td>-->
+                        <!--<td>2</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td><span class="yellow-label">正常访问</span></td>-->
+                        <!--<td>98%</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td>1小时30分钟</td>-->
+                        <!--<td><span class="blue-label">高危</span></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><a href="__ROOT__/index.php/MSSP/Site/detail">http://www.baidu.com</a></td>-->
+                        <!--<td><span class="blue-label">高危</span></td>-->
+                        <!--<td>2</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td><span class="yellow-label">正常访问</span></td>-->
+                        <!--<td>98%</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td>1小时30分钟</td>-->
+                        <!--<td><span class="s-red-label">紧急</span></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><a href="__ROOT__/index.php/MSSP/Site/detail">http://www.baidu.com</a></td>-->
+                        <!--<td><span class="orange-label">高危</span></td>-->
+                        <!--<td>2</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td><span class="red-label">正常访问</span></td>-->
+                        <!--<td>98%</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td>1小时30分钟</td>-->
+                        <!--<td><span class="green-label">安全</span></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><a href="__ROOT__/index.php/MSSP/Site/detail">http://www.baidu.com</a></td>-->
+                        <!--<td><span class="yellow-label">高危</span></td>-->
+                        <!--<td>2</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td><span class="orange-label">正常访问</span></td>-->
+                        <!--<td>98%</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td>1小时30分钟</td>-->
+                        <!--<td><span class="red-label">高危</span></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><a href="__ROOT__/index.php/MSSP/Site/detail">http://www.baidu.com</a></td>-->
+                        <!--<td><span class="green-label">高危</span></td>-->
+                        <!--<td>2</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td><span class="green-label">正常访问</span></td>-->
+                        <!--<td>98%</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td>1小时30分钟</td>-->
+                        <!--<td><span class="green-label">安全</span></td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+                <!--<div class="grid-page">-->
+                    <!--<div class="page">-->
+                        <!--<div class="page-per">-->
+                            <!--<span>每页</span>-->
+                            <!--<select name="" >-->
+                                <!--<option value="">10</option>-->
+                                <!--<option value="">20</option>-->
+                                <!--<option value="">50</option>-->
+                            <!--</select>-->
+                            <!--<i class="sel"></i>-->
+                            <!--<span>条</span>-->
+                        <!--</div>-->
+                        <!--<div class="page-total">-->
+                            <!--<input type="text"/>-->
+                            <!--<span>/<span>2</span>页 共<span>19</span>条</span>-->
+                        <!--</div>-->
+                        <!--<ul class="page-num">-->
+                            <!--<li><a class="first" href=""></a></li>-->
+                            <!--<li><a class="prev" href=""></a></li>-->
+                            <!--<li><a class="next" href=""></a></li>-->
+                            <!--<li><a class="last" href=""></a></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+
+
+                <!--</div>-->
+
+            </div>
+        </div>
+    </div>
+</div>
+<form method="post" id="report-form">
+    <input type="hidden" name="packages">
+    <input type="hidden" name="domain">
+</form>
+<include file="./App/MSSP/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/script/MSSP/siteindex.js"></script>

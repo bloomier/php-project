@@ -1,0 +1,161 @@
+<include file="./App/Common/View/header_os.html" />
+<input type="hidden" name="rowkey" id="rowkey_id" value="{$rowkey}">
+<div class="main fixed">
+    <div class="m-inner">
+        <div class="widget">
+            <div class="widget-heading">
+                <div class="widget-title">日志详情</div>
+            </div>
+            <div class="panel-body">
+                <div class="portlet box light-grey">
+                    <div class="portlet-body form">
+                        <div class='basic-info'>
+                            <h3>时间</h3><hr>
+                            <div class='row'>
+                                <div class="col-md-offset-1 col-md-2">开始时间</div>
+                                <div class="col-md-8" id="startTime_id"></div>
+                            </div>
+                            <div class='row'>
+                                <div class="col-md-offset-1 col-md-2">结束时间</div>
+                                <div class="col-md-8"  id="endTime_id"></div>
+                            </div>
+                            <div class='row'>
+                                <div class="col-md-offset-1 col-md-2">采集器接收时间</div>
+                                <div class="col-md-8" id="collectorReceiptTime_id"></div>
+                            </div>
+                            <div class='row'>
+                                <div class="col-md-offset-1 col-md-2">设备接收时间</div>
+                                <div class="col-md-8" id="deviceReceiptTime_id"></div>
+                            </div>
+                            <h3>基本信息</h3><hr>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">原始事件</div>
+                                <div class="col-md-8" id="rawEvent_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">事件类型</div>
+                                <div class="col-md-8" id="eventType_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">事件名称</div>
+                                <div class="col-md-8" id="name_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">事件数量</div>
+                                <div class="col-md-8" id="eventCount_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">事件级别</div>
+                                <div class="col-md-8" id="severity_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">事件消息</div>
+                                <div class="col-md-8" id="message_id"></div>
+                            </div>
+                            <br/>
+                            <h3>来源信息</h3><hr>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">来源地理详细地址</div>
+                                <div class="col-md-8" id="srcGeoAddress_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">来源城市</div>
+                                <div class="col-md-8" id="srcGeoCity_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">来源端口</div>
+                                <div class="col-md-8" id="srcPort_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">来源地址</div>
+                                <div class="col-md-8" id="srcAddress_id"></div>
+                            </div>
+                            <br/>
+                            <h3>目的信息</h3><hr>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">目的地理详细地址</div>
+                                <div class="col-md-8" id="destGeoAddress_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">目的端口</div>
+                                <div class="col-md-8" id="destPort_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">目的地址</div>
+                                <div class="col-md-8" id="destAddress_id"></div>
+                            </div>
+                            <br/>
+                            <h3>事件分类信息</h3><hr>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">事件设备分类</div>
+                                <div class="col-md-8" id="deviceCat_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">事件特征分类</div>
+                                <div class="col-md-8" id="catSignificance_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">事件行为</div>
+                                <div class="col-md-8" id="catBehavior_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">事件技术分类</div>
+                                <div class="col-md-8" id="catTechnique_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">事件对象分类</div>
+                                <div class="col-md-8" id="catObject_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">事件结果分类</div>
+                                <div class="col-md-8" id="catOutcome_id"></div>
+                            </div>
+                            <br/>
+                            <h3>设备信息</h3><hr>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">资产名称</div>
+                                <div class="col-md-8" id="deviceName_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">设备型号</div>
+                                <div class="col-md-8" id="deviceVersion_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">设备厂商</div>
+                                <div class="col-md-8" id="deviceVendor_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">资产IP地址</div>
+                                <div class="col-md-8" id="deviceAddress_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">设备版本</div>
+                                <div class="col-md-8" id="deviceModel_id"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-2">资产主机名</div>
+                                <div class="col-md-8" id="deviceHostname_id"></div>
+                            </div>
+                            <br/>
+                            <h3>其他</h3><hr>
+                            <div id="append_id">
+                                <!--
+                                    <div class="row">
+                                        <div class="col-md-offset-1 col-md-2">test</div>
+                                        <div class="col-md-8"></div>
+                                    </div>
+                                 -->
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<include file="./App/Common/View/footer_os.html" />
+<script type="text/javascript" src="__PUBLIC__/script/Home/LogSearch/detail.js"></script>

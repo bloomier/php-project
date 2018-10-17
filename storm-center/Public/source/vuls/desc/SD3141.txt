@@ -1,0 +1,2 @@
+nsioncubeloaderwizard配置文件漏洞：
+    允许攻击者利用漏洞获取phpinfo信息，下载配置文件，进行反射型跨站脚本攻击，下载任意文件。

@@ -1,0 +1,96 @@
+<script type="text/javascript">
+    (function(){
+        $(document).ready(function(){
+            var pwdParsley=$("#resetPasswordForm").parsley();
+            var dialog=new BootstrapDialog({
+               title:"<h3>修改密码</h3>",
+               message:function(){
+                    return $(".reset-password-dialog-content").show();
+               },
+               autodestroy:false,
+               type:BootstrapDialog.TYPE_DEFAULT,
+               buttons: [
+                   {
+                       label: '确定',
+                       hotkey:13,
+                       cssClass: 'btn-primary',
+                       action: function(dialogItself){
+
+                           pwdParsley.validate();
+                           if(pwdParsley.isValid()){
+                               var pwdBefore=$(".password-before").val();
+                               var pwdAfter=$(".password-after").val();
+                               if(pwdBefore==pwdAfter){
+                                   storm.alert("修改后密码不能和原密码一样");
+                               }else{
+                                   dialogItself.enableButtons(false);
+                                   dialogItself.setClosable(false);
+                                   $.post(__WEBROOT__+"/Home/Login/resetPwd",{password: $.md5(pwdBefore),password2: $.md5(pwdAfter)}).success(function(json){
+                                       // alert(1);
+                                       dialogItself.enableButtons(true);
+                                       dialogItself.setClosable(true);
+                                       if(json.code>0){
+                                           dialogItself.close();
+                                           storm.confirm("修改密码成功,请重新登录",function(){
+                                              location.href=__WEBROOT__+"/Home/Login/logout";
+                                           });
+
+                                       }else{
+                                           storm.alert(json.msg);
+                                       }
+                                   });
+
+                               }
+                               //$.post(__ROOT__+"/Home/Login/resetPwd",{password: $.md5(),})
+                           }
+
+
+                       }
+                    },
+
+                   {
+                       label: '关闭',
+                       action: function(dialogItself){
+                           dialogItself.close();
+                       }
+                    }
+
+
+                ]
+            });
+            $(".resetPassword").bind("click",function(){
+                dialog.open();
+            });
+
+        });
+    })();
+
+
+</script>
+
+<div class='reset-password-dialog-content' style="display: none;">
+    <form class="form-horizontal" id="resetPasswordForm" action="" data-parsley-validate>
+
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">初始密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control password-before"  required data-parsley-length="[6, 20]" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input id="password-after" type="password" class="form-control password-after"  required data-parsley-length="[6, 20]" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">确认密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control password-reafter"  required data-parsley-length="[6, 20]"
+                       data-parsley-equalto="#password-after"
+                       data-parsley-equalto-message="两次密码输入不一致" >
+            </div>
+        </div>
+
+    </form>
+</div>

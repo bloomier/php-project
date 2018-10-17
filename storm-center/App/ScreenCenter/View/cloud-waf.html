@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>云防护</title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/animation.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/Home/screen.css" rel="stylesheet" type="text/css" />
+
+
+    <script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+
+    <style>
+        body,div,h1,h2,h3,p{margin: 0;padding: 0;}
+        @font-face {
+            font-family: "fashionBlack"; /*时尚中黑简体*/
+            src: url("__PUBLIC__/font/fashionblack.ttf") format("truetype");
+        }
+        @font-face {
+            font-family: "fzlthjt"; /*方正兰亭黑简体*/
+            src: url("__PUBLIC__/font/FZLTHJW_0.ttf") format("truetype");
+        }
+        @font-face {
+            font-family: "Digfacewide"; /**/
+            src: url("__PUBLIC__/font/digifacewide.ttf") format("truetype");
+        }
+        .bg{
+            /*width: 1440px;
+            height: 900px;*/
+            background: url("__PUBLIC__/image/screen/waf_bg.png") no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            /*-webkit-transform: rotate3d(1,0,0,90deg);*/
+        }
+        /*grid*/
+        .grid {
+            margin-top: 6px;
+            padding: 20px 10px;
+
+        }
+        .grid tbody tr{
+            width: 270px;
+            height: 24px;
+            margin-bottom: 4px;
+        }
+        .grid tbody tr td{
+            color:#00dcff;
+            font-family: "Simsun";
+            font-size: 14px;
+            height: 20px;
+        }
+        .grid tr:last-child{
+            margin-bottom: 0;
+        }
+        .grid tr .progress {
+            height: 24px;
+            overflow: hidden;
+            background-color: #9da0ab;
+            -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+            box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+        }
+        .progress-bar {
+            float: left;
+            width: 0;
+            height: 100%;
+            font-size: 14px;
+            line-height: 24px;
+            color: #0c1124;
+            padding-left: 8px;
+            background-color: #00adf9;
+            -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+            box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+            -webkit-transition: width .6s ease;
+            -o-transition: width .6s ease;
+            transition: width .6s ease;
+        }
+        .progress-bar span{
+            display: inline-block;
+        }
+        .grid  tbody tr:nth-child(1) td:nth-child(1){
+            color:#ff0000!important;
+
+        }
+        .grid  tbody tr:nth-child(1) .progress .progress-bar{
+            background-color: #ff0000;
+        }
+        .grid  tbody tr:nth-child(2) td:nth-child(1){
+            color:#ff9900!important;
+            /*width: 172px;*/
+            /*padding-left: 8px;*/
+        }
+        .grid  tbody tr:nth-child(2) .progress .progress-bar{
+            background-color: #ff9900;
+        }
+        .grid tbody tr:nth-child(3) td:nth-child(1){
+            color:#f9e400!important;
+        }
+        .grid  tbody tr:nth-child(3) .progress .progress-bar{
+            background-color: #f9e400;
+        }
+        /*logo*/
+        .logo{
+            position: absolute;
+            top: 2.88%;
+            left: 2.88%;
+            background: url("__PUBLIC__/image/screen/waf_title.png") no-repeat;
+            width: 530px;
+            height: 62px;
+            text-align: center;
+            z-index: 999;
+        }
+        .logo h1{
+            margin: 6px 0 6px 25px;
+            color: #7ef8fd;
+            font-size: 30px;
+            font-family: "fashionBlack";
+            height: 50px;
+            line-height: 50px;
+        }
+        /*整体结构*/
+        .real-time{
+            position: absolute;
+            top: 14.44%;
+            left: 4.44%;
+            background: url("__PUBLIC__/image/screen/waf_time.png") no-repeat;
+            width: 303px;
+            height: 277px;
+            z-index: 999;
+        }
+        .area-rank{
+            position: absolute;
+            top: 51.77%;
+            left: 4.44%;
+            background: url("__PUBLIC__/image/screen/waf_area.png") no-repeat;
+            width: 303px;
+            height: 366px;
+            z-index: 999;
+        }
+
+        .type-rank{
+            position: absolute;
+            top: 14.44%;
+            right: 4.22%;
+            background: url("__PUBLIC__/image/screen/waf_type.png") no-repeat;
+            width: 304px;
+            height: 368px;
+            z-index: 999;
+
+        }
+        .ip-rank{
+            position: absolute;
+            top: 56.88%;
+            right: 4.22%;
+            background: url("__PUBLIC__/image/screen/waf_type.png") no-repeat;
+            width: 304px;
+            height: 368px;
+            z-index: 999;
+
+        }
+        .main{
+            position: absolute;
+            top: 18.85%;
+            left: 50%;
+            background: url("__PUBLIC__/image/screen/waf_earth.png") center center no-repeat;
+            width: 600px;
+            height: 600px;
+            margin-left: -300px;
+            z-index: 99999;
+        }
+        .earth{
+            /*margin-left: -200px;*/
+            background: rgba('0','0','0',0);
+
+        }
+        /*标题*/
+        .title{
+            color: #f8f9fe;
+            font-size: 20px;
+            font-family: "fzlthjt";
+            height: 42px;
+            line-height: 42px;
+        }
+        .real-time .title{
+            margin-left: 20px;
+        }
+        .area-rank .title{
+            margin-left: 20px;
+        }
+        .type-rank .title{
+            margin-left: 164px;
+        }
+        .ip-rank .title{
+            margin-left: 144px;
+        }
+        /*实时防御*/
+        .real-time .item{
+            height: 60px;
+            padding: 10px 0 0 48px;
+            margin-bottom: 10px;
+        }
+        .real-time .item .sub-title{
+            font-size: 14px;
+            color: #898989;
+            font-family: "Simsun";
+        }
+        .real-time .item .num{
+            margin-top: 6px;
+            font-size: 30px;
+            color: #00dcff;
+            font-family: "Digfacewide";
+        }
+        /*攻击源区域排行*/
+        .area-rank .grid{
+            padding: 20px 28px;
+        }
+        .area-rank .grid tr td{
+            height: 20px!important;
+        }
+        .male-color{
+            color: #ff3902!important;
+        }
+        .area-rank i.fa-rocket{
+            /*font-size: 18px;*/
+            color: #0b2b4c;
+            /*margin-left: 4px;*/
+        }
+        .area-rank .grid tr td:nth-child(1){
+            width: 20px;
+            height: 20px;
+        }
+        .area-rank .grid tr td img{
+            width: 20px;
+            /*height: 20px!important;*/
+        }
+        .area-rank .grid tr td:nth-child(2){
+            width: 62px;
+            text-align: center;
+        }
+        .area-rank .grid tr td:nth-child(3){
+            width: 172px;
+            /*background-color: lawngreen;*/
+        }
+        .area-rank i.fa-rocket{
+            -webkit-transform:  rotate(-45deg);
+            -moz-transform:  rotate(-45deg);
+            -ms-transform:  rotate(-45deg);
+            -o-transform:  rotate(-45deg);
+            transform:  rotate(-45deg);
+        }
+        /*攻击类型分布*/
+
+        .type-rank  tbody tr td:nth-child(1){
+            width: 100px;
+            max-width: 100px;
+            padding-left: 8px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .type-rank  tbody tr td:nth-child(2){
+            width: 140px;
+        }
+        /*攻击源IP黑名单*/
+        .ip-rank  tbody tr td:nth-child(1){
+            width: 60px;
+            padding-left: 8px;
+
+        }
+        .ip-rank  tbody tr td:nth-child(2){
+            width: 130px;
+        }
+        .ip-rank  tbody tr td:nth-child(3){
+            width: 40px;
+            text-align: right;
+        }
+
+    table{
+        border-collapse: inherit;
+    }
+
+    div{
+        box-sizing: content-box;
+    }
+
+
+    </style>
+</head>
+<body class="bg">
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/js/echarts/dist">
+<input id="echartXPath" type="hidden" value="__PUBLIC__/js/echarts-x/dist">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<input id="domain" type="hidden" value="{:I('domain')}">
+<include file="./App/ScreenCenter/View/common/navigation.html" />
+
+<div class="logo">
+    <h1>玄武盾行业云防御中心</h1>
+</div>
+<div class="real-time">
+    <h2 class="title">实时防御概况</h2>
+    <div class="item">
+        <h3 class="sub-title">实时防护站点数</h3>
+        <p class="num attackProtectSite"></p>
+        <!--<p class="num attackProtectSite">78,495</p>-->
+    </div>
+    <div class="item">
+        <h3 class="sub-title">今日防护攻击数</h3>
+        <p class="num dayAttackProtectSite"></p>
+    </div>
+    <div class="item">
+        <h3 class="sub-title">历史防护攻击数</h3>
+        <p class="num historyAttackProtectSite"><span class="high-num"></span><span class="low-num"></span></p>
+    </div>
+</div>
+<div class="area-rank">
+    <h2 class="title">攻击源区域排行</h2>
+
+    <table class="grid">
+        <tbody></tbody>
+    </table>
+</div>
+<div class="type-rank">
+    <h2 class="title">攻击类型分布</h2>
+    <table class="grid">
+        <tbody></tbody>
+    </table>
+</div>
+<div class="ip-rank">
+    <h2 class="title">攻击源IP黑名单</h2>
+    <table class="grid">
+        <tbody></tbody>
+    </table>
+</div>
+
+<div class="main">
+    <canvas id="quakeCanvas" width="600" height="600" class="earth"></canvas>
+</div>
+
+<div id="earth" class="earth"></div>
+
+
+<script>
+//    var __PUBLIC__=$("#publicPath").val();
+</script>
+
+<script src="__PUBLIC__/js/map3d/d3.v3.min.js"></script>
+<script src="__PUBLIC__/js/map3d/topojson.v1.min.js"></script>
+<script src="__PUBLIC__/js/map3d/planetaryjs.min.js"></script>
+<script src="__PUBLIC__/js/map3d/quake.js"></script>
+<script src="__PUBLIC__/js/scrool/scrollNum.js"></script>
+<script src="__PUBLIC__/js/scrool/item-scoller.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/js/echarts/dist/echarts.js"></script>
+
+<script src="__PUBLIC__/script/ScreenCenter/cloud-waf.js" ></script>
+<include file="./App/ScreenCenter/View/common/autoruntwo.html" />
+<include file="./App/ScreenCenter/View/common/footer.html" />
+</body>
+</html>

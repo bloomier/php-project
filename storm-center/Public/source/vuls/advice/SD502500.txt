@@ -1,0 +1,2 @@
+Jenkins漏洞修复建议：
+    Jenkins CI Jenkins 1.491或1.480.1已经修复此漏洞，建议用户下载使用。

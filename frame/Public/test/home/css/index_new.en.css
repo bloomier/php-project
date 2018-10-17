@@ -1,0 +1,35 @@
+.en .acdc-new-module-layer .back {
+    background: url(./img/back.en.png) no-repeat center
+}
+
+.en .acdc-new-module-layer .section.search-center .search-body {
+    background: url(./img/search-body.en.png) no-repeat center
+}
+
+.en .acdc-new-module-layer .section.report .report-body {
+    background: url(./img/report-body.en.png) no-repeat center
+}
+
+.en .acdc-new-module-layer .section.stat .stat-body .stat-user-text {
+    background: url(./img/stat-user-text.en.png) no-repeat center;
+    width: 32px;
+    height: 38px;
+    top: 330px;
+    left: 130px
+}
+
+.en .acdc-new-module-layer .section.stat .stat-body .stat-app-text {
+    background: url(./img/stat-app-text.en.png) no-repeat center;
+    width: 38px;
+    height: 83px;
+    top: 130px;
+    left: 38px
+}
+
+.en .acdc-new-module-layer .section.stat .stat-body .stat-app-type-text {
+    background: url(./img/stat-app-type-text.en.png) no-repeat center;
+    width: 142px;
+    height: 88px;
+    top: 340px;
+    left: 360px
+}

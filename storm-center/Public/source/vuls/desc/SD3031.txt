@@ -1,0 +1,3 @@
+dedecms plus/search.php sql injection漏洞描述：
+    Dedecms最新版 plus/search.php 文件存在变量覆盖漏洞,
+    成功利用该漏洞可以获取管理员密码.

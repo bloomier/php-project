@@ -1,0 +1,10 @@
+bash远程代码执行漏洞修复方案：
+    红帽系可通过更新 bash 并重启系统来解决这个问题：
+    # yum update bash
+    或者：
+    # yum update bash-4.1.2-15.el6_5.1
+    此举只是更新了 bash 包，还需要重启系统才能生效。
+
+    Ubuntu 用户可以通过如下命令打补丁，无需重启：
+    apt-get update
+    apt-get install bash

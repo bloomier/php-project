@@ -1,0 +1,3 @@
+webdev plugin漏洞修复建议：
+	1、安装补丁或可以作用微软提供的IIS Lockdown工具来防止该漏洞被利用
+	2、手工修补漏洞可以把WebDAV功能停止掉

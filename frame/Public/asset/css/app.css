@@ -1,0 +1,152 @@
+/**
+ * @author Sean.xiang
+ *@date 2016/3/9
+ *@version
+ *@example
+ *@dec 组件样式重置 、新样式添加
+ */
+
+a,
+a:hover,
+a:active,
+a:link,
+a:focus
+{
+    text-decoration: none;
+    outline: none!important;
+}
+
+/*除掉标签的圆角*/
+/*div,button,a,span{
+    -webkit-border-radius: 0!important;
+    -moz-border-radius: 0!important;
+    border-radius: 0!important;
+}*/
+
+/*table中的进度条*/
+table td .progress{
+    margin-bottom: 0;
+    background-color: #eee;
+}
+/*dataTables底部样式修改*/
+.dataTables-bottom{
+    height: 32px;
+}
+.dataTables-bottom>.page{
+    /*float: right;*/
+    /*float: left;*/
+}
+.dataTables-bottom>.page>.page-length,
+.dataTables-bottom>.page>.page-info{
+    float: left;
+}
+.dataTables-bottom>.page>.page-num{
+    float: right;
+}
+.page-length{
+    padding: 4px 0;
+}
+.page-length .dataTables_length{
+    height: 32px;
+}
+.page-length label{
+    height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.page-length select{
+    width: 50px!important;
+    height: 22px;
+    padding: 0;
+    line-height: 22px;
+}
+.page-info{
+    margin: 0 20px;
+}
+.page-info .dataTables_info{
+    padding: 6px 0;
+    font-size: 14px;
+}
+
+.mg-l-5{
+    margin-left: 5px;
+}
+/*下拉框样式修改*/
+select {
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    padding-right: 14px;
+    background: url("../img/arrow.png") no-repeat scroll right center transparent!important;
+
+}
+select::-ms-expand { display: none; }
+
+/*select2 样式修改*/
+
+
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple{
+    border: 1px solid #e5e6e7;
+    border-radius: 1px;
+    font-size: 14px;
+    height: 34px;
+    line-height: 20px;
+    /* padding-right: 14px;
+     background: url("../img/arrow.png") no-repeat scroll right center transparent!important;*/
+    outline: none;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    padding-top: 7px;
+    line-height: 20px;
+    color: #999;
+}
+.select2-selection__clear{
+    display: none;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    top: 4px;
+}
+.select2-search__field,
+.select2-dropdown{
+    border-radius: 1px;
+    border: 1px solid #e5e6e7;
+    outline: none;
+}
+.select2-container--default.select2-selection--multiple::-ms-expand { display: none; }
+.select2-container--default.select2-container--focus .select2-selection--single
+.select2-container--default.select2-container--focus .select2-selection--multiple,
+.select2-container--default.select2-container--open .select2-selection--single,
+.select2-container--default.select2-container--open .select2-selection--multiple,
+.select2-container--default.select2-container--open .select2-dropdown,
+.select2-container--default.select2-container--open .select2-search__field{
+    border: 1px solid #1ab394;
+}
+.select2-container--default.select2-container--open .select2-selection--single,
+.select2-container--default.select2-container--open .select2-selection--multiple{
+    border-bottom: 0;
+}
+.select2-container--default.select2-container--open .select2-dropdown{
+    border-top: 0;
+}
+table td{
+    white-space: nowrap;
+}
+td.sorting_desc,
+td.sorting_asc{
+    cursor: pointer;
+}
+td.sorting_desc:after,
+td.sorting_asc:after{
+    display: inline-block;
+    width: 6px;
+    content: "\f0dd";
+    float: right;
+    font-family: fontawesome;
+}
+td.sorting_desc:after{
+    content: "\f0dd";
+}
+td.sorting_asc:after {
+    content: "\f0de";
+}

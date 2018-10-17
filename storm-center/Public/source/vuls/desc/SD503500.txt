@@ -1,0 +1,4 @@
+PhpMyadmin描述：
+    PhpMyadmin实现中错误的使用了simplexml_load_string函数用于xml解析，
+    但是该函数中默认并没有处理好外部实体的安全性，
+    导致用户可以借助xml文件读取和访问应用有权限访问的系统和网络资源

@@ -1,0 +1,3 @@
+jquery xss漏洞修复建议：
+	尽量不使用URL、cookie、input等作为append的参数，若需要使用转义。
+	

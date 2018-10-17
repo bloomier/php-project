@@ -1,0 +1,4 @@
+Oracle_Reports_Audit漏洞修复建议：
+    1、安装厂家补丁；
+    2、不允许用户通过SMB、Webdav、SAMBA、FTP等向应用服务器上传内存，或使用URLRewrite阻断有报表参数和绝对
+    或相对路径的危险URL。阻断以下字符串："report=.."、"report=/"、"report=c:\"、"report=d:\"

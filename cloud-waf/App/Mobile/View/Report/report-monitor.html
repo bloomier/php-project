@@ -1,0 +1,81 @@
+<div class="row p4 border-b">
+    <div class="col-xs-6">
+        <div class="thumbnail text-center mt10">
+            <div class="detail mb2">
+                <div class="circle font-num offline_time c-blue"></div>
+                <span>分</span>
+            </div>
+            <div class="title">当日故障时长</div>
+            <div class="value">当日故障共计<span class="offline_count c-blue"></span>次</div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="thumbnail text-center mt10">
+            <div class="detail mb2 text-center">
+                <div class="circle"><span class="font-num access_rate c-blue"></span><i style="font-size: 14px;font-style: normal; vertical-align: bottom;">%</i></div>
+            </div>
+            <div class="title">网站可用率</div>
+            <div class="value">可用时间/总时间<br><span></span></div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="thumbnail text-center mt10">
+            <div class="detail mb2 text-center">
+                <div class="circle home_load_desc c-blue"></div>
+            </div>
+            <div class="title">页面加载效率</div>
+            <div class="value">页面加载共用时 <br><span class="homepage_load_time c-blue"></span>毫秒</div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="thumbnail text-center mt10">
+            <div class="detail mb2 text-center">
+                <div class="circle font-num update_count c-blue"></div>
+                <span>次</span>
+            </div>
+            <div class="title">网页当月更新</div>
+            <div class="value">最后更新日期: <br><span class="last_update_time c-blue"></span></div>
+        </div>
+    </div>
+</div>
+<div class="row p4 border-b">
+    <div class="col-xs-12">
+        <h1 class="text-center"><span class="c-blue">可用性</span>分析</h1>
+        <div id="date_deal_map" style="overflow: hidden"></div>
+        <div class="dataRange text-center">
+            <span><em class="bg-green"></em><i>0~0.3秒</i></span>
+            <span><em class="bg-brown"></em><i>0.3~1秒</i></span>
+            <span><em class="bg-yellow"></em><i>1~10秒</i></span>
+            <span><em class="bg-grey"></em><i>>10秒</i></span>
+            <span><em class="bg-red"></em><i>无法访问</i></span>
+        </div>
+        <div id="date_deal_bar" style="margin: -40px -50px 0;"></div>
+    </div>
+</div>
+<div class="row p4 border-b">
+    <div class="col-xs-12 no-padding">
+        <h1 class="text-center"><span class="c-orange">故障</span>分析</h1>
+        <div id="gantt"></div>
+    </div>
+</div>
+<div class="row p4 border-b">
+    <div class="col-xs-12">
+        <h1 class="text-center"><span class="c-red">域名解析|CDN命中</span>分析</h1>
+        <div id="cdn_map"></div>
+    </div>
+</div>
+<div class="row p4 border-b">
+    <div class="col-xs-12">
+        <h1 class="text-center">首页<span class="c-blue">加载时长</span>分析</h1>
+        <h2 class="text-center">加载时长分布</h2>
+        <div id="resource_pie"></div>
+        <h2 class="text-center">加载文件分析</h2>
+        <div id="resource_leida"></div>
+    </div>
+</div>
+<div class="row p4 border-b">
+    <div class="col-xs-12">
+        <h1 class="text-center">网站<span class="c-blue">更新频率</span>分析</h1>
+        <div id="update_line" style="margin: 0 -60px;"></div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+mongo db管理工具moadmin远程代码执行漏洞修复方案：
+    1、建议在开发者修复该漏洞前停用phpMoAdmin。
+    2、使用htaccess对moadmin.php文件做访问限制。
+    3、使用分布式配置密码（htaccess password）限制未经授权的访问moadmin.php文件

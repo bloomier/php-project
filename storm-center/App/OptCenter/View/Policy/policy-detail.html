@@ -1,0 +1,90 @@
+<include file="./App/OptCenter/View/header.html" />
+
+<input type="hidden" name="policy-detail" id="policy-detail" value="{$policy_detail}">
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="javascript:;">首页</a> </li>
+                    <li>策略管理</li>
+                    <li><a href="__ROOT__/index.php/OptCenter/Policy/index">策略维护</a> </li>
+                    <li><a href="javascript:;">策略信息</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>策略信息</div>
+                    </div>
+                    <div class="portlet-body form">
+                        <form action="add" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"><span style="color: red">*</span>策略ID</label>
+                                <div class="col-sm-6">
+                                    <label class="form-control policy-id" placeholder="" >{$policy_detail_src['id']}</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"><span style="color: red">*</span>策略名称</label>
+                                <div class="col-sm-6">
+                                    <label class="form-control policy-name" placeholder="" >{$policy_detail_src['name']}</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"><span style="color: red">*</span>危害性</label>
+                                <div class="col-sm-6">
+                                    <label class="form-control policy_danger"></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"><span style="color: red">*</span>风险等级</label>
+                                <div class="col-sm-6">
+                                    <select style="width:100%" class="policy-level" id="policy-level">
+                                        <option value="20">信息</option>
+                                        <option value="30">低危</option>
+                                        <option value="40">中危</option>
+                                        <option value="50">高危</option>
+                                        <option value="60">安全事件</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">策略描述</label>
+                                <div class="col-sm-6">
+                                    <textarea style="resize: none; height: 250px" class="form-control policy-desc" rows="4">{$policy_detail_src['desc']}
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">修复建议</label>
+                                <div class="col-sm-6">
+                                    <textarea style="resize: none; height: 250px" class="form-control policy-repair" rows="4">{$policy_detail_src['repair_advice']}
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn blue update-policy">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="__PUBLIC__/script/OptCenter/policy/policydetail.js"></script>
+<include file="./App/Self/View/footer.html" />
+
+

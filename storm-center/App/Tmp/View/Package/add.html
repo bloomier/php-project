@@ -1,0 +1,79 @@
+<include file="./App/Service/View/header.html" />
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Service/index/">首页</a> </li>
+                    <li>策略管理</li>
+                    <li><a href="__ROOT__/index.php/Service/Package">服务套餐</a> </li>
+                    <li><a href="__ROOT__/index.php/Service/Package/add">新增服务套餐</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>新增服务套餐</div>
+                    </div>
+                    <div class="portlet-body form">
+                        <form  action="#" class="form-horizontal j-form" method="post">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span class="required">*</span>套餐名称</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control m-wrap">
+                                </div>
+                            </div>
+                            <div class="form-group" >
+                                <label class="col-sm-2 control-label">套餐描述</label>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control m-wrap" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">监控项</label>
+                                <div class="col-sm-6">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox1" value="option1"> 无CDN和智能DNS的解析变更
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox2" value="option2"> 首页加载时长分析
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox3" value="option3"> 各节点解析时长分析
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">立即启用</label>
+                                <div class="col-sm-6">
+                                    <label class="radio-line">
+                                        <input type="radio" name="inlineRadioOptions" value="option1">启用
+                                    </label>
+                                    <label class="radio-line">
+                                        <input type="radio" name="inlineRadioOptions" value="option2">禁用
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <button style="margin-left: 238px;" type="button" class="btn blue" onclick="save_click();">保存</button>
+                            <button type="button" class="btn">取消</button>
+                        </form>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<assign name='plugins' value='echarts'/>
+<include file="./App/Service/View/footer.html" />

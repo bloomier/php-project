@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+            font-size: 13px;
+            line-height: 18px;
+            color: #737373;
+            background-color: white;
+            margin: 10px 13px 10px 13px;
+        }
+        table {
+            margin: 10px 0 15px 0;
+            border-collapse: collapse;
+        }
+        td,th {
+            border: 1px solid #ddd;
+            padding: 3px 10px;
+        }
+        th {
+            padding: 5px 10px;
+        }
+
+        a {
+            color: #0069d6;
+        }
+        a:hover {
+            color: #0050a3;
+            text-decoration: none;
+        }
+        a img {
+            border: none;
+        }
+        p {
+            margin-bottom: 9px;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #404040;
+            line-height: 36px;
+        }
+        h1 {
+            margin-bottom: 18px;
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        h3 {
+            font-size: 18px;
+        }
+        h4 {
+            font-size: 16px;
+        }
+        h5 {
+            font-size: 14px;
+        }
+        h6 {
+            font-size: 13px;
+        }
+        hr {
+            margin: 0 0 19px;
+            border: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        blockquote {
+            padding: 13px 13px 21px 15px;
+            margin-bottom: 18px;
+            font-family:georgia,serif;
+            font-style: italic;
+        }
+        blockquote:before {
+            content:"\201C";
+            font-size:40px;
+            margin-left:-10px;
+            font-family:georgia,serif;
+            color:#eee;
+        }
+        blockquote p {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 18px;
+            margin-bottom: 0;
+            font-style: italic;
+        }
+        code, pre {
+            font-family: Monaco, Andale Mono, Courier New, monospace;
+        }
+        code {
+            background-color: #fee9cc;
+            color: rgba(0, 0, 0, 0.75);
+            padding: 1px 3px;
+            font-size: 12px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+        pre {
+            display: block;
+            padding: 14px;
+            margin: 0 0 18px;
+            line-height: 16px;
+            font-size: 11px;
+            border: 1px solid #d9d9d9;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        pre code {
+            background-color: #fff;
+            color:#737373;
+            font-size: 11px;
+            padding: 0;
+        }
+        sup {
+            font-size: 0.83em;
+            vertical-align: super;
+            line-height: 0;
+        }
+        * {
+            -webkit-print-color-adjust: exact;
+        }
+        @media screen and (min-width: 914px) {
+            body {
+                width: 854px;
+                margin:10px auto;
+            }
+        }
+        @media print {
+            body,code,pre code,h1,h2,h3,h4,h5,h6 {
+                color: black;
+            }
+            table, pre {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+    <title>风暴中心API</title>
+
+</head>
+<body>
+<h1>风暴中心API</h1>
+
+<h3>tokens说明</h3>
+
+<pre><code>url: http://api.websaas.cn/index.php （后期地址可能会改变 index.php也会在后期去掉）
+    X-BashTokid : tokenId
+    X-BashToken : md5(uri+pathinfo+key)
+    注意MD5转为小写
+    实例: md5(/API/WebSurvey/webInfo+/url/ningbo.gov.cn+yourkey)
+</code></pre>
+
+<h3>全国省份编码对照表</h3>
+
+<pre><code>代码 名    称          代码     名    称
+    11       北京市          43       湖南省
+    12       天津市          44       广东省
+    13       河北省          45       广西壮族自治区
+    14       山西省          46       海南省
+    15       内蒙古自治区     50       重庆市
+    21       辽宁省          51       四川省
+    22       吉林省          52       贵州省
+    23       黑龙江省        53       云南省
+    31       上海市          54       西藏自治区
+    32       江苏省          61       陕西省
+    33       浙江省          62       甘肃省
+    34       安徽省          63       青海省
+    35       福建省          64       宁夏回族自治区
+    36       江西省          65       新疆维吾尔自治区
+    37       山东省          71       台湾省
+    41       河南省          81       香港特别行政区
+    42       湖北省          82       澳门特别行政区
+    0        全国
+</code></pre>
+
+<h2>网站普查</h2>
+
+<h4>获取指定网站详细基本信息</h4>
+
+<ul>
+    <li><p>uri:  /API/WebSurvey/webInfo</p></li>
+    <li><p>Request (text/plain)</p>
+
+<pre><code>  url(String):网站域名或IP
+    X-BashTokid
+    X-BashToken
+</code></pre></li>
+    <li><p>Response 200 (application/json)</p>
+
+<pre><code>  样例：
+    {
+    code:1(其他)  1：成功 其他：失败
+    msg:成功或失败原因,
+    data:{
+    webName:'测试网站',
+    province:"浙江省",
+    city:"宁波市",
+    webDomian:'ningbo.gov.cn',
+    RegistrantId:"c1264404768334",
+    RegistrantName:"宁波市人民政府",
+    server:"apache/1.0.1",
+    responseTime:"10ms",
+    nslookupTime:"8ms"
+    }
+    }
+</code></pre></li>
+</ul>
+
+
+<h4>获取指定网站普查评分情况,提供各个类型的检测结果（是否更新、可用率、链接可用性），评分由调用者自行制评分定标准和计算结果,链接可用性目前只有部分数据，尚未完全返回</h4>
+
+<ul>
+    <li><p>uri: /API/WebSurvey/webScoreInfo</p></li>
+    <li><p>Request (text/plain)</p>
+
+<pre><code>  url(String):网站域名或IP
+    X-BashTokid
+    X-BashToken
+</code></pre></li>
+    <li><p>Response 200 (application/json)</p>
+
+<pre><code>  样例:      {
+    code=&gt;1,
+    msg:成功或失败原因
+    data:{
+    "simil_value":80,//网站相似度（和上次结果的比较 0~100） 可换请自行 算成更新率
+    "access_rate":1.00,//每天20次请求中 正常可访问的比例 0.00~1.00
+    "url":"www.gygt.gov.cn",//url
+    "link_data":"{//子链接可用性 1：连接正常 -1：连接异常  这部分目前正在汇总数据，大部分网站数据尚未回传，本周内处理完
+    link1:1,
+    link2:1,
+    link3:-1,
+    link4:-1
+
+    }"
+
+
+    }
+    }
+</code></pre></li>
+</ul>
+
+
+<h4>根据地区获取所有网站统计信息</h4>
+
+<ul>
+    <li><p>uri: /API/WebSurvey/webAvailStatistics</p></li>
+    <li><p>Request (text/plain)</p>
+
+<pre><code>  X-BashTokid
+    X-BashToken
+    province:省份编码
+</code></pre></li>
+    <li><p>Response 200 (application/json)</p>
+
+<pre><code>  样例
+    {
+    code=&gt;1,
+    msg:成功或失败原因,
+    data:{
+    上海:{accessok:2244,accessError:779},
+    云南:{accessok:4470,accessError:1540},
+    内蒙:{accessok:3786,accessError:3114},
+    北京:{accessok:7796,accessError:4153},
+    台湾:{accessok:3,accessError:5},
+    吉林:{accessok:3140,accessError:1097},
+    四川:{accessok:9933,accessError:2632},
+    天津:{accessok:1066,accessError:535},
+    ……………………
+    }
+    }
+</code></pre></li>
+</ul>
+
+
+<h4>根据地区获取WEB服务器使用数 尚不支持按省份检索</h4>
+
+<ul>
+    <li><p>uri: /API/WebSurvey/webServerStatistics</p></li>
+    <li><p>Request (text/plain)</p>
+
+<pre><code>  X-BashTokid
+    X-BashToken
+</code></pre></li>
+    <li><p>Response 200 (application/json)</p>
+
+<pre><code>  样例
+    {
+    code:1,
+    msg:'获取成功',
+    data:{
+    apache:111,
+    tomcat:222,
+    jboss:99,
+    nginx:305
+    }
+    }
+</code></pre></li>
+</ul>
+
+
+<h4>根据web服务器名获取各版本使用数</h4>
+
+<ul>
+    <li><p>uri: /API/WebSurvey/webServerVersionStatistics</p></li>
+    <li><p>Request (text/plain)</p>
+
+<pre><code>  X-BashTokid
+    X-BashToken
+    serverName:服务器名称
+</code></pre></li>
+    <li><p>Response 200 (application/json)</p>
+
+<pre><code>  样例
+    {
+    code:1,
+    msg:'获取成功',
+    data:{
+    "6.0":111,
+    "5.0":222,
+    "7.0":99,
+    "8.0":305
+    }
+    }
+</code></pre></li>
+</ul>
+
+</body>
+</html>

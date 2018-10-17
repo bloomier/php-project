@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>玄武盾漏洞和可用性监测</title>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="refresh" content="300">-->
+    <link href="__PUBLIC__/asset/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/css/animation.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/asset/js/datatables/dataTables.style.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/asset/js/scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/asset/js/select2/select2.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/asset/css/screen-v2.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/css/modal.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/js/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/asset/css/page/vulsAndValidate.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<!--<input id="domainTitle" type="hidden" value="{$domainTitle}"> {$serverNode|json_encode}-->
+<input id="echartPath" type="hidden" value="__PUBLIC__/asset/js/echarts/dist">
+<div id="domainTitle" style="display: none;">
+    {$domainTitle|json_encode}
+</div>
+<div id="serviceNote" style="display: none;">
+    {$serviceNote|json_encode}
+</div>
+<header class="header"  >
+    <h1 data-toggle="modal" data-target="#myModal1">玄武盾漏洞和可用性监测</h1>
+    <!--<div class="search-box">-->
+        <!--<div class="search-container">-->
+            <!--<label><i class="fa fa-search"></i></label>-->
+            <!--<input type="text" />-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="total pull-right">
+        <a class="node"><i class="fa fa-bullhorn"></i>高危站点<span>0</span>个</a>
+        <a class="site" ><i class="fa fa-cog"></i>质量下降<span>0</span>次</a>
+        <a class="survey"><i class="fa fa-bell"></i>高危端口站点<span>0</span>个</a>
+    </div>
+</header>
+<div class="container-fluid content clear">
+    <div class="row no-padding no-margin">
+        <div class="col-md-8 no-padding">
+            <div class="box box1" style="position: relative">
+                <div class="box-heading">
+                    <div class="box-title pull-left">
+                        <div class="title">站点可用性监测
+                            <span style="font-size: 80%;margin:0 10px 0 20px;"><div style="display:inline-block;background-color: green;height: 10px;width: 10px;"></div>0~0.3秒</span>
+                            <span style="font-size: 80%;margin:0 10px 0 0;"><div style="display:inline-block;background-color: #b36715;height: 10px;width: 10px;"></div>0.3~1秒</span>
+                            <span style="font-size: 80%;margin:0 10px 0 0;"><div style="display:inline-block;background-color: #f9e400;height: 10px;width: 10px;"></div>1~10秒</span>
+                            <span style="font-size: 80%;margin:0 10px 0 0;"><div style="display:inline-block;background-color: grey;height: 10px;width: 10px;"></div>大于10秒</span>
+                            <span style="font-size: 80%;margin:0 10px 0 0;"><div style="display:inline-block;background-color: #ff0000;height: 10px;width: 10px;"></div>无法访问</span>
+                            <span style="font-size: 80%;margin:0 10px 0 0;"><div style="display:inline-block;background-color: #080F4C;height: 10px;width: 10px;"></div>无访问数据</span>
+                        </div>
+                        <!--<div class="sub-title"><span class="name">高危网站：</span><span class="num">1,234</span> 个</div>-->
+                    </div>
+                    <div class="box-tab-sub pull-right">
+                        <ul class="nav nav-tabs " role="tablist">
+                            <li role="presentation" class="active"><a href="#quality" class="tab-vlus-type-cloud" data="1"  role="tab" data-toggle="tab">质量下降</a></li>
+                            <li role="presentation"><a href="#fault" role="tab" class="tab-vlus-type-cloud" data="2"  data-toggle="tab">持续故障</a></li>
+                            <li role="presentation"><a href="#monitor" role="tab" class="tab-vlus-type-cloud" data="3"  data-toggle="tab">重点监测</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content scrollbar" style="">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="quality">
+
+                        </div>
+
+                        <div class="tab-pane" id="fault"></div>
+                        <div class="tab-pane" id="monitor">
+                            <div class="col-md-3 model0 map" style="display: none">
+                                    <div class="mapChart"></div>
+                                    <a class="add"><i class="fa fa-plus-circle"></i></a>
+                                    <div class="select">
+                                        <select class="select2">
+                                        </select>
+                                        <a class="select-close" href="javascript:;">&times;</a>
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="page-left is_show_div">
+                    <a class="page-btn" data="0" title="首页"><i class="fa fa-angle-double-left"></i></a>
+                    <a class="page-btn" data="-1" title="上一页"><i class="fa fa-angle-left"></i></a>
+                </div>
+                <div class="page-right is_show_div">
+                    <a class="page-btn" data="1" title="下一页"><i class="fa fa-angle-right"></i></a>
+                    <a class="page-btn" data="2" title="末页"><i class="fa fa-angle-double-right"></i></a>
+                </div>
+
+            </div>
+            <div class="row no-margin mt-10">
+                <div class="col-md-6 no-padding">
+                    <div class="box box2">
+                        <div class="box-heading">
+                            <div class="box-title">
+                                <div class="title pull-left">高危端口分布</div>
+                                <div class="sub-title highPoint pull-right"><span class="name">合计：</span><span class="num">0</span> 个</div>
+                            </div>
+
+                        </div>
+                        <div class="box-content">
+                            <table class="grid">
+                                <thead>
+                                <tr>
+                                    <th>站点</th>
+                                    <th>端口</th>
+                                </tr>
+                                </thead>
+                            </table>
+                            <div class="box-border"></div>
+                            <div class="box-content-border highPointTable scrollbar">
+                                <table class="grid">
+                                    <tbody>
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                    <!--<td>1433、1521、3389、22</td>-->
+                                    <!--</tr>-->
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 padding-10 ">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="box box5">
+                                    <div class="box-heading">
+                                        <div class="box-title pull-left">
+                                            <div class="title">WEB指纹信息</div>
+                                        </div>
+                                    </div>
+                                    <div class="box-content">
+                                        <table class="grid">
+                                            <thead>
+                                            <tr>
+                                                <th>站点</th>
+                                                <th>指纹</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                        <div class="box-border"></div>
+                                        <div class="box-content-border strutsBugTable scrollbar">
+                                            <table class="grid">
+                                                <tbody>
+                                                <!--<tr>-->
+                                                <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<td>Struts 2.2.3.1、apacha</td>-->
+                                                <!--</tr>-->
+                                                <!--<tr>-->
+                                                <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<td>Struts 2.2.3.1、apacha</td>-->
+                                                <!--</tr>-->
+                                                <!--<tr>-->
+                                                <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<td>Struts 2.2.3.1、apacha</td>-->
+                                                <!--</tr>-->
+                                                <!--<tr>-->
+                                                <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<td>Struts 2.2.3.1、apacha</td>-->
+                                                <!--</tr>-->
+                                                <!--<tr>-->
+                                                <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<td>Struts 2.2.3.1、apacha</td>-->
+                                                <!--</tr>-->
+                                                <!--<tr>-->
+                                                <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<td>Struts 2.2.3.1、apacha</td>-->
+                                                <!--</tr>-->
+                                                <!--<tr>-->
+                                                <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<td>Struts 2.2.3.1、apacha</td>-->
+                                                <!--</tr>-->
+                                                <!--<tr>-->
+                                                <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<td>Struts 2.2.3.1、apacha</td>-->
+                                                <!--</tr>-->
+                                                <!--<tr>-->
+                                                <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<td>Struts 2.2.3.1、apacha</td>-->
+                                                <!--</tr>-->
+                                                <!--<tr>-->
+                                                <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<td>Struts 2.2.3.1、apacha</td>-->
+                                                <!--</tr>-->
+                                                <!--<tr>-->
+                                                <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<td>Struts 2.2.3.1、apacha</td>-->
+                                                <!--</tr>-->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--<div class="swiper-slide">-->
+                                <!--<div class="box box3">-->
+                                    <!--<div class="box-heading">-->
+                                        <!--<div class="box-title pull-left">-->
+                                            <!--<div class="title">远程代码执行漏洞</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="box-content strutsBugTable scrollbar">-->
+                                        <!--<table class="grid">-->
+                                            <!--<tbody>-->
+                                            <!--<!--<tr>-->
+                                                <!--<!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<!--<td>Struts 2.2.3.1、apacha</td>-->
+                                            <!--<!--</tr>-->
+                                            <!--<!--<tr>-->
+                                                <!--<!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<!--<td>Struts 2.2.3.1、apacha</td>-->
+                                            <!--<!--</tr>-->
+                                            <!--<!--<tr>-->
+                                                <!--<!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<!--<td>Struts 2.2.3.1、apacha</td>-->
+                                            <!--<!--</tr>-->
+                                            <!--<!--<tr>-->
+                                                <!--<!--<td>百度一下百度一下百度一下百度一下</td>-->
+                                                <!--<!--<td>Struts 2.2.3.1、apacha</td>-->
+                                            <!--<!--</tr>-->
+                                            <!--</tbody>-->
+                                        <!--</table>-->
+                                    <!--</div>-->
+
+                                <!--</div>-->
+                            <!--</div>-->
+
+                        </div>
+                        <!--<div class="swiper-button-next"></div>-->
+                        <!--<div class="swiper-button-prev"></div>-->
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4 padding-10 ">
+            <div class="box mb-10 box4">
+                <div class="box-heading">
+                    <div class="box-title">
+                        <div class="title pull-left">服务质量下降站点</div>
+                        <div class="sub-title serviceWarn pull-right"><span class="name">合计：</span><span class="num">0</span> 个</div>
+                    </div>
+
+                </div>
+                <div class="box-content-bottom">
+                    <table class="grid">
+                        <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>站点</th>
+                            <th>故障时长</th>
+                            <!--<th>故障率</th>-->
+                        </tr>
+                        </thead>
+                    </table>
+                    <div class="gridRoll">
+                        <div class="gridList" id="quality-site">
+                            <table class="grid" >
+                                <tbody class="waf-items">
+                                <!--<tr>-->
+                                    <!--<td>09:05</td>-->
+                                    <!--<td>网易新闻</td>-->
+                                    <!--<td>3周21小时16分</td>-->
+                                    <!--<td>7/29</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>09:05</td>-->
+                                    <!--<td>网易新闻</td>-->
+                                    <!--<td>3周21小时16分</td>-->
+                                    <!--<td>7/29</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>09:05</td>-->
+                                    <!--<td>网易新闻</td>-->
+                                    <!--<td>3周21小时16分</td>-->
+                                    <!--<td>7/29</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>09:05</td>-->
+                                    <!--<td>网易新闻</td>-->
+                                    <!--<td>3周21小时16分</td>-->
+                                    <!--<td>7/29</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>09:05</td>-->
+                                    <!--<td>网易新闻</td>-->
+                                    <!--<td>3周21小时16分</td>-->
+                                    <!--<td>7/29</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>09:05</td>-->
+                                    <!--<td>网易新闻</td>-->
+                                    <!--<td>3周21小时16分</td>-->
+                                    <!--<td>7/29</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>09:05</td>-->
+                                    <!--<td>网易新闻</td>-->
+                                    <!--<td>3周21小时16分</td>-->
+                                    <!--<td>7/29</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>09:05</td>-->
+                                    <!--<td>网易新闻</td>-->
+                                    <!--<td>3周21小时16分</td>-->
+                                    <!--<td>7/29</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>09:05</td>-->
+                                    <!--<td>网易新闻</td>-->
+                                    <!--<td>3周21小时16分</td>-->
+                                    <!--<td>7/29</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>09:05</td>-->
+                                    <!--<td>网易新闻</td>-->
+                                    <!--<td>3周21小时16分</td>-->
+                                    <!--<td>7/29</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>09:05</td>-->
+                                    <!--<td>网易新闻</td>-->
+                                    <!--<td>3周21小时16分</td>-->
+                                    <!--<td>7/29</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>09:05</td>-->
+                                    <!--<td>网易新闻</td>-->
+                                    <!--<td>3周21小时16分</td>-->
+                                    <!--<td>7/29</td>-->
+                                <!--</tr>-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="box box5 mb-10">
+                <div class="box-heading">
+                    <div class="box-title">
+                        <div class="title pull-left">高中风险站点分布</div>
+                        <div class="sub-title highDanger pull-right"><span class="name">合计：</span><span class="num">0</span> 个</div>
+                    </div>
+
+                </div>
+                <div class="box-content">
+                    <table class="grid">
+                        <thead>
+                        <tr>
+                            <th>站点</th>
+                            <th>漏洞分布</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div class="box-border"></div>
+                    <div class="box-content-border highDangerTable scrollbar">
+                        <table class="grid">
+                            <tbody>
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td><span class="c-red"><i class="fa fa-flash"></i> 高危：3</span></td>-->
+                            <!--<td><span class="c-yellow"><i class="fa fa-flash"></i> 低危：3</span></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td><span class="c-red"><i class="fa fa-flash"></i> 高危：3</span></td>-->
+                            <!--<td><span class="c-yellow"><i class="fa fa-flash"></i> 低危：3</span></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td><span class="c-red"><i class="fa fa-flash"></i> 高危：3</span></td>-->
+                            <!--<td><span class="c-yellow"><i class="fa fa-flash"></i> 低危：3</span></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td><span class="c-red"><i class="fa fa-flash"></i> 高危：3</span></td>-->
+                            <!--<td><span class="c-yellow"><i class="fa fa-flash"></i> 低危：3</span></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td><span class="c-red"><i class="fa fa-flash"></i> 高危：3</span></td>-->
+                            <!--<td><span class="c-yellow"><i class="fa fa-flash"></i> 低危：3</span></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td><span class="c-red"><i class="fa fa-flash"></i> 高危：3</span></td>-->
+                            <!--<td><span class="c-yellow"><i class="fa fa-flash"></i> 低危：3</span></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td><span class="c-red"><i class="fa fa-flash"></i> 高危：3</span></td>-->
+                            <!--<td><span class="c-yellow"><i class="fa fa-flash"></i> 低危：3</span></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td><span class="c-red"><i class="fa fa-flash"></i> 高危：3</span></td>-->
+                            <!--<td><span class="c-yellow"><i class="fa fa-flash"></i> 低危：3</span></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td><span class="c-red"><i class="fa fa-flash"></i> 高危：3</span></td>-->
+                            <!--<td><span class="c-yellow"><i class="fa fa-flash"></i> 低危：3</span></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td><span class="c-red"><i class="fa fa-flash"></i> 高危：3</span></td>-->
+                            <!--<td><span class="c-yellow"><i class="fa fa-flash"></i> 低危：3</span></td>-->
+                            <!--</tr>-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="box box5">
+                <div class="box-heading">
+                    <div class="box-title">
+                        <div class="title pull-left">站点故障统计</div>
+                        <div class="sub-title siteFault pull-right"><span class="name">合计：</span><span class="num">0</span> 个</div>
+                    </div>
+
+                </div>
+                <div class="box-content">
+                    <table class="grid">
+                        <thead>
+                        <tr>
+                            <th>站点</th>
+                            <th>故障时长</th>
+                            <th>故障次数</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div class="box-border"></div>
+                    <div class="box-content-border  scrollbar">
+                        <table class="grid siteFaultTable">
+                            <tbody>
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td>2小时16分</td>-->
+                            <!--<td>111</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td>2小时16分</td>-->
+                            <!--<td>111</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td>2小时16分</td>-->
+                            <!--<td>111</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td>2小时16分</td>-->
+                            <!--<td>111</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td>2小时16分</td>-->
+                            <!--<td>111</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td>2小时16分</td>-->
+                            <!--<td>111</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td>2小时16分</td>-->
+                            <!--<td>111</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td>2小时16分</td>-->
+                            <!--<td>111</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td>2小时16分</td>-->
+                            <!--<td>111</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td>2小时16分</td>-->
+                            <!--<td>111</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                            <!--<td>百度一下百度一下百度一下百度一下</td>-->
+                            <!--<td>2小时16分</td>-->
+                            <!--<td>111</td>-->
+                            <!--</tr>-->
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal a-bouncein" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-warning" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">可用性告警</h4>
+            </div>
+            <div class="modal-body scrollbar">
+               <div class="modal-info">
+                   <label class="col-md-3">监测目标</label>
+                   <div class="col-md-9 targetSite"></div>
+               </div>
+               <div class="modal-info">
+                   <label class="col-md-3">告警内容</label>
+                   <div class="col-md-9 warnCenter"></div>
+               </div>
+               <div class="modal-info">
+                   <label class="col-md-3">告警时间</label>
+                   <div class="col-md-9 warnTime"></div>
+               </div>
+               <div class="modal-info">
+                   <label class="col-md-3">节点可用率</label>
+                   <div class="col-md-9 availNode"></div>
+               </div>
+               <div class="modal-info">
+                   <label class="col-md-3">不可用节点</label>
+                   <div class="col-md-9 disableNode">
+                   </div>
+               </div>
+
+            </div>
+        </div>
+        <div class="modal-corner-lt"></div>
+        <div class="modal-corner-rt"></div>
+        <div class="modal-corner-lb"></div>
+        <div class="modal-corner-rb"></div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="__PUBLIC__/asset/js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/swiper/swiper.min.js"></script>
+<script src="__PUBLIC__/asset/js/scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="__PUBLIC__/asset/js/bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/asset/js/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/datatables/dataTables.ext.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/select2/select2.min.js"></script>
+
+<!-- bootstrap dialog -->
+<script type="text/javascript" src="__PUBLIC__/asset/js/dialog/bootstrap-dialog.min.js"></script>
+<!-- ECharts-->
+<script type="text/javascript" src="__PUBLIC__/asset/js/echarts/dist/echarts.js"  charset="utf-8"></script>
+
+<script type="text/javascript" src="__PUBLIC__/asset/js/metronic-bootstrap/js/message.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/main.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/script/Home/vulsAndValidate.js"></script>
+<script>
+    $(function(){
+        var w = this;
+        var scroll=function(dom){
+            var y = 0;
+            var innerEl = $('#'+dom);
+            var rollEl = innerEl.parent();
+            var waitEl = innerEl.clone(true).removeAttr('id');
+            rollEl.append(waitEl);
+            var time;
+            function start(){
+                time = setInterval(function(){
+                    y = y - 0.2;
+                    innerEl.css({
+                        top: y
+                    });
+                    waitEl.css({
+                        top: y + innerEl.height()
+                    });
+
+                    if(y * -1 > innerEl.height()){
+                        y = 0;
+                        var tmp = innerEl;
+
+                        innerEl = waitEl;
+                        waitEl = tmp;
+                    }
+                },20);
+            }
+            function stop(){
+                clearInterval(time);
+            }
+
+            rollEl.mouseover(function(e){
+                e.stopPropagation();
+                //console.info('over')
+                stop();
+            });
+            rollEl.mouseout(function(e){
+                e.stopPropagation();
+                //console.info('out')
+                start();
+            });
+            start();
+
+
+
+        };
+        var mySwiper;
+        var swiper = {
+            init: function(){
+
+                mySwiper = new Swiper('.swiper-container', {
+//                    loop: true,
+//                    slidesPerView: 1,
+                    effect: 'flip',
+                    pagination: '.swiper-pagination',
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    autoplay: 2500,
+                    observer:true,
+                    autoplayDisableOnInteraction: false
+                });
+                $('.swiper-container').hover(function(){
+                    mySwiper.stopAutoplay();
+                },function(){
+                    mySwiper.startAutoplay();
+                });
+            }
+        };
+        scroll('quality-site');
+        swiper.init();
+
+        $('.add').bind('click', function(e){
+//            $('#add-modal').html();
+//            $('#add-select-modal').modal();
+            $(this).hide();
+            $(this).parent('.map').find('.select').show();
+            e.stopPropagation()
+
+        });
+        $('.select .select-close').bind('click', function(e){
+            $(this).parent('.select').hide();
+            $(this).parents('.map').find('.add').show();
+            e.stopPropagation()
+
+        });
+
+
+
+
+    })
+</script>
+</body>
+</html>
+
+
+

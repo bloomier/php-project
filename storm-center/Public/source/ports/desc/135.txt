@@ -1,0 +1,6 @@
+c-serv MS RPC end-point mapper Microsoft在这个端口运行DCE
+RPC end-point mapper为它的DCOM服务。这与UNIX 111 端口的功
+能很相似。使用DCOM和/或RPC的服务利用机器上的end-point mapper
+注册它们的位置。远端客户连接到机器时，它们查询end-point
+mapper找到服务的位置。同样Hacker扫描机器的这个端口是为了找到
+诸如：这个机器上运行ExchangeServer吗?是什么版本？

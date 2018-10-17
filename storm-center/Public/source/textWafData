@@ -1,0 +1,238 @@
+{
+     "summary":{
+                "visit":{
+                   "count":16909120,
+                   "ipCount":21595
+                },
+                "attack":{
+                    "count":67890,
+                    "areaCount":56,
+                    "attackSrcCount":789,
+                    "blacklist":45
+
+                 },
+                "flow":{
+                     "all":36082000000,
+                     "attack_flow":36082000
+
+                }
+
+
+     },
+     "worldAreaRank":{
+        "visit":{
+            "中国":6357,
+            "美国":345,
+            "印度":346,
+            "新加坡":673,
+            "德国":456,
+            "法国":376,
+            "英国":123,
+            "日本":1234,
+            "韩国":2341,
+            "菲律宾":222,
+            "西班牙":444
+        },
+        "attack":{
+            "中国":5435,
+            "美国":345,
+            "印度":346,
+            "新加坡":673,
+            "德国":456,
+            "法国":376,
+            "英国":123,
+            "日本":1234,
+            "韩国":2341,
+            "菲律宾":222,
+            "西班牙":444
+        }
+
+     },
+     "chinaAreaRank":{
+        "visit":{
+            "浙江":6357,
+            "贵州":345,
+            "深圳":346,
+            "湖北":673,
+            "湖南":456,
+            "北京":376,
+            "上海":123,
+            "江苏":1234,
+            "山西":2341,
+            "河北":222,
+            "河南":444,
+            "甘肃":22,
+            "福建":99,
+            "宁夏":100
+        },
+         "attack":{
+            "浙江":1234,
+            "贵州":345,
+            "深圳":346,
+            "湖北":673,
+            "湖南":456,
+            "北京":376,
+            "上海":123,
+            "江苏":1234,
+            "山西":2341,
+            "河北":222,
+            "河南":444,
+            "甘肃":22,
+            "福建":99,
+            "宁夏":100
+        }
+
+     },
+     "ipTopN":{
+          "visit":[
+                {"ip":"192.168.1.1","location":"浙江","count":6},
+                {"ip":"192.168.1.2","location":"浙江","count":5},
+                {"ip":"192.168.1.3","location":"浙江","count":4},
+                {"ip":"192.168.1.4","location":"浙江","count":2},
+                {"ip":"192.168.1.4","location":"浙江","count":3},
+                {"ip":"192.168.1.4","location":"浙江","count":12},
+                {"ip":"192.168.1.4","location":"浙江","count":11},
+                {"ip":"192.168.1.4","location":"浙江","count":12},
+                {"ip":"192.168.1.4","location":"浙江","count":14},
+                {"ip":"192.168.1.4","location":"浙江","count":16}
+
+          ]
+
+
+     },
+     "visitPageRank":[
+            {"url":"www.websaas.cn1","pv":60,"uv":40,"ip":10},
+            {"url":"www.websaas.cn2","pv":60,"uv":40,"ip":10},
+            {"url":"www.websaas.cn3","pv":60,"uv":40,"ip":10},
+            {"url":"www.websaas.cn4","pv":60,"uv":40,"ip":10},
+            {"url":"www.websaas.cn5","pv":60,"uv":40,"ip":10},
+            {"url":"www.websaas.cn6","pv":60,"uv":40,"ip":10},
+            {"url":"www.websaas.cn7","pv":60,"uv":40,"ip":10},
+            {"url":"www.websaas.cn8","pv":60,"uv":40,"ip":10},
+            {"url":"www.websaas.cn9","pv":60,"uv":40,"ip":10},
+            {"url":"www.websaas.cn10","pv":60,"uv":40,"ip":10},
+            {"url":"www.websaas.cn11","pv":60,"uv":40,"ip":10},
+            {"url":"www.websaas.cn12","pv":60,"uv":40,"ip":10}
+
+
+     ],
+     "visitSrcRank":{
+            "搜索引擎":{
+                "count":56
+            },
+            "直接访问":{
+                "count":56
+            },
+            "外部链接":{
+                "count":100
+            }
+
+      },
+      "visitMethod":{
+           "device":{
+                "Lunix":30,
+                "Mac OS":40,
+                "windows":900,
+                "IOS":400,
+                "安卓":200
+
+           },
+           "deviceGroup":{
+                "PC端":900,
+                "移动端":500
+           },
+           "browser":{
+               "chrome":50,
+               "firefox":70,
+               "IE":90,
+               "safiri":20,
+               "360浏览器":10
+           },
+           "mobile":{
+               "苹果":90,
+               "小米":20,
+               "魅族":10,
+               "华为":70
+            }
+
+      },
+      "brokenLinkRank":[
+          {"url":"www.websaas.cn","refer":"www.baidu.com","pv":53},
+          {"url":"www.websaas.cn1","refer":"www.baidu.com","pv":123},
+          {"url":"www.websaas.cn2","refer":"www.baidu.com","pv":321},
+          {"url":"www.websaas.cn3","refer":"www.baidu.com","pv":23},
+          {"url":"www.websaas.cn4","refer":"www.baidu.com","pv":56},
+          {"url":"www.websaas.cn5","refer":"www.baidu.com","pv":78},
+          {"url":"www.websaas.cn6","refer":"www.baidu.com","pv":54},
+          {"url":"www.websaas.cn7","refer":"www.baidu.com","pv":35},
+          {"url":"www.websaas.cn8","refer":"www.baidu.com","pv":24},
+          {"url":"www.websaas.cn9","refer":"www.baidu.com","pv":56},
+          {"url":"www.websaas.cn10","refer":"www.baidu.com","pv":52},
+          {"url":"www.websaas.cn12","refer":"www.baidu.com","pv":43},
+          {"url":"www.websaas.cn13","refer":"www.baidu.com","pv":34}
+
+      ],
+      "staticSrc":[
+          {"url":"www.baidu.com","type":"html","pv":30},
+          {"url":"www.baidu.com","type":"html","pv":20},
+          {"url":"www.baidu.com","type":"html","pv":10},
+          {"url":"www.baidu.com","type":"js","pv":30},
+          {"url":"www.baidu.com","type":"js","pv":30},
+          {"url":"www.baidu.com","type":"image","pv":30},
+          {"url":"www.baidu.com","type":"image","pv":30},
+          {"url":"www.baidu.com","type":"css","pv":30},
+          {"url":"www.baidu.com","type":"css","pv":30},
+          {"url":"www.baidu.com","type":"other","pv":30}
+
+      ],
+      "httpCode":{
+            "group":{
+                "200":200,
+                "302":20,
+                "404":100,
+                "502":3,
+                "505":9
+
+            },
+            "_5xx_TopN":[
+                   {"url":"www.kk.com","pv":10},
+                   {"url":"www.kk.com","pv":20},
+                   {"url":"www.kk.com","pv":30}
+             ]
+
+      },
+      "webshell":[
+           {"url":"www.webshell.com1","visitIp":"192.211.233.22","location":"浙江宁波","visitTime":"2015-01-11"},
+           {"url":"www.webshell.com1","visitIp":"192.211.233.33","location":"浙江杭州","visitTime":"2015-01-11"},
+           {"url":"www.webshell.com2","visitIp":"192.211.233.22","location":"浙江宁波","visitTime":"2015-01-11"},
+           {"url":"www.webshell.com3","visitIp":"192.211.233.22","location":"浙江宁波","visitTime":"2015-01-11"},
+           {"url":"www.webshell.com4","visitIp":"192.211.233.22","location":"浙江宁波","visitTime":"2015-01-11"},
+           {"url":"www.webshell.com5","visitIp":"192.211.233.22","location":"浙江宁波","visitTime":"2015-01-11"},
+           {"url":"www.webshell.com6","visitIp":"192.211.233.22","location":"浙江宁波","visitTime":"2015-01-11"},
+           {"url":"www.webshell.com7","visitIp":"192.211.233.22","location":"浙江宁波","visitTime":"2015-01-11"},
+           {"url":"www.webshell.com8","visitIp":"192.211.233.22","location":"浙江宁波","visitTime":"2015-01-11"},
+           {"url":"www.webshell.com9","visitIp":"192.211.233.22","location":"浙江宁波","visitTime":"2015-01-11"},
+           {"url":"www.webshell.com12","visitIp":"192.211.233.22","location":"浙江宁波","visitTime":"2015-01-11"},
+           {"url":"www.webshell.com13","visitIp":"192.211.233.22","location":"浙江宁波","visitTime":"2015-01-11"}
+
+       ],
+
+       "attackDest":{
+           "数据":566,
+           "应用":199,
+           "其他":200,
+           "文件":400,
+           "服务器":100
+
+     },
+     "attackType":{
+            "SQL注入":800,
+             "文件包含":600,
+             "XSS":400,
+             "跨站脚本":300,
+             "远程代码执行":100,
+             "其他":234
+      }
+
+
+}

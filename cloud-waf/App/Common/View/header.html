@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>玄武盾</title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/asset/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+
+    <link href="__PUBLIC__/asset/js/datatables/dataTables.style.css" rel="stylesheet" type="text/css" />
+    <!--Message-->
+    <!--<link href="__PUBLIC__/asset/js/metronic-bootstrap/css/style-metro.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/js/metronic-bootstrap/css/style.css" rel="stylesheet" type="text/css" />
+    -->
+    <!-- bootstrap dialog -->
+    <link href="__PUBLIC__/asset/js/dialog/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <!-- 数据校验 -->
+    <link href="__PUBLIC__/asset/js/parsley/parsley.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/asset/js/scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/asset/css/sk-spinner.css" rel="stylesheet" type="text/css">
+
+    <link href="__PUBLIC__/asset/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/css/ui.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset/css/app.css" rel="stylesheet" type="text/css" />
+
+
+    <!--如果是IE,使用IE9 的内核来渲染-->
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <![endif]-->
+
+    <link rel="icon" href="__PUBLIC__/asset/image/fav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="__PUBLIC__/asset/image/fav.png" type="image/x-icon">
+
+</head>
+<body >
+<!-- 所有需要用到的插件在这里定义 -->
+
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<input id="echartPath" type="hidden" value="__PUBLIC__/asset/js/echarts/dist">
+<header class="header fixed">
+    <div class="h-nav">
+        <a class="logo" href="javascript:void(0)" >玄武盾</a>
+        <ul class="nav-bar">
+            <if condition="$user['isShow'] eq 1">
+                <li>
+                    <a href="https://yundun.console.aliyun.com/?p=sppc#/sppc/home">
+                        <!--<i class="fa fa-cog"></i>-->
+                        <img style="width: 20px;" src="https://img.alicdn.com/tps/TB1CNw.KXXXXXXIXVXXXXXXXXXX-128-128.png" />
+                        阿里云安全控制台
+                    </a>
+                </li>
+            </if>
+            <foreach name="user.menus" item="pMenu">
+                <if condition="$pMenu['children']">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"  pathInfo="{$pMenu.name}">
+                            <i class="fa navIcons"></i>
+                            <span class="title">{$pMenu.title}</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <foreach name="pMenu['children']" item="cMenu" >
+                                <li class='child'> <a target="{$cMenu.target}" href="__ROOT__/index.php/{$cMenu.name}" pathInfo="{$cMenu.name}">{$cMenu.title}</a> </li>
+                            </foreach>
+                        </ul>
+                    </li>
+                    <else/>
+                    <li class="parent">
+                        <a href="__ROOT__/index.php/{$pMenu.name}"  >
+                            <i class="fa navIcons"></i>
+                            <span class="title">{$pMenu.title}</span>
+                        </a>
+                    </li>
+                </if>
+            </foreach>
+            <!--<if condition="$user['isShow'] eq 1">-->
+                <!--<li>-->
+                    <!--<a href="https://yundun.console.aliyun.com/?p=sppc#/sppc/home">-->
+                        <!--<i class="fa fa-cog"></i>-->
+                        <!--控制台-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</if>-->
+
+        </ul>
+
+
+        <ul class="setting">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-user"></i>
+                    <span class="username">{$user.name}</span>
+                    <if condition="$user['isShow'] eq 1">
+                        <else/>
+                        <i class="fa fa-angle-down"></i>
+                    </if>
+                </a>
+                <if condition="$user['isShow'] eq 1">
+                    <else/>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="__ROOT__/index.php/Admin/Setting/index">
+                                <i class="fa fa-cog"></i>
+                                个人设置
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="javascript:void(0);" id="about_btn">
+                                <i class="fa fa-flag"></i>
+                                关于
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="__ROOT__/index.php/Admin/Login/logout">
+                                <i class="fa fa-sign-out"></i>
+                                退出系统
+                            </a>
+                        </li>
+                    </ul>
+                </if>
+            </li>
+
+            <!--<li><a href=""><i class="fa fa-power-off"></i></a></li>-->
+        </ul>
+
+    </div>
+</header>

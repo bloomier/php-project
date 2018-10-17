@@ -1,0 +1,4 @@
+php preg_replace信息泄漏漏洞描述：
+    phpwcms  1.5.4.6及其他版本在实现上存在多个代码注入漏洞，
+    通过身份验证的远程攻击者可以用"backend user"\"admin user"\"backend user"
+    账户利用这些漏洞（"frontend user"账户不能利用这些漏洞）在受影响计算机内执行任意PHP脚本代码。

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include  file="./App/Mobile/View/common/header.html"/>
+    <link href="__PUBLIC__/asset/css/animation.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="__PUBLIC__/asset/css/Mobile/page/survey.css"/>
+</head>
+<body>
+<input id="currentDomain" type="hidden" value="{$domain}" />
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<input id="echartPath" type="hidden" value="__PUBLIC__/asset/js/echarts/dist">
+<div class="text-center name mt2">{$name}</div>
+<div class="ptb3 m3 bg">
+    <h1 class="text-center"><span class="c-blue">网站实时概况</span></h1>
+    <div class="total prl4">
+        <a><i class="fa line-chart-in"></i><i class="txt">进流量</i><i class="count flow_in_count c-orange font-num"></i><span>兆(Mb)</span></a>
+        <a><i class="fa line-chart-out"></i><i class="txt">出流量</i><i class="count flow_out_count c-yellow font-num" ></i><span>兆(Mb)</span></a>
+        <a><i class="fa fa-bullhorn"></i><i class="txt">访问量</i><i class="count areaCount timer c-green font-num" ></i><span>次</span></a>
+        <a><i class="fa fa-bolt"></i><i class="txt">攻击量</i><i class="count ipCount timer c-red font-num" ></i><span>次</span></a>
+    </div>
+</div>
+<div class="ptb3 m3 bg">
+    <h1 class="text-center"><span class="c-blue">网站服务质量</span></h1>
+    <div id="mapVail"></div>
+    <div class="dataRange text-center">
+        <span><em class="bg-green"></em><i>0~0.3秒</i></span>
+        <span><em class="bg-brown"></em><i>0.3~1秒</i></span>
+        <span><em class="bg-yellow"></em><i>1~10秒</i></span>
+        <span><em class="bg-grey"></em><i>>10秒</i></span>
+        <span><em class="bg-red"></em><i>无法访问</i></span>
+    </div>
+</div>
+<div class="ptb3 m3 bg">
+    <h1 class="text-center"><span class="c-blue">攻击源URL排行</span></h1>
+    <div class="mt2" id="attackUrl">
+        <table class="m-grid m-grid-light m-grid-rank">
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<div class="ptb3 m3 bg">
+    <h1 class="text-center"><span class="c-blue">攻击源IP排行</span></h1>
+    <div class="mt2" id="attackIp">
+        <table class="m-grid m-grid-light m-grid-rank">
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+<div class="ptb3 m3 bg">
+    <h1 class="text-center"><span class="c-blue">网站漏洞分布</span></h1>
+    <div id="no-risk" style="display: none" class="holeType text-center">
+        <img src="__PUBLIC__/asset/image/mobile/holeType.png" alt="" width="60%"/>
+    </div>
+    <div class="mt2" id="hole-type">
+        <table class="m-grid m-grid-light m-grid-rank">
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="ptb3 m3 bg">
+    <h1 class="text-center"><span class="c-blue">攻击趋势</span></h1>
+    <div class="dataRange text-center">
+        <span><em class="bg-green"></em><i>访问次数</i></span>
+        <span><em class="bg-red"></em><i>攻击次数</i></span>
+        <span><em class="bg-orange"></em><i>输入流量</i></span>
+        <span><em class="bg-cyan"></em><i>输出流量</i></span>
+    </div>
+    <div id="attackLine" style="margin: 0 -50px;"></div>
+
+</div>
+<div class="ptb3 m3 bg">
+    <h1 class="text-center"><span class="c-blue">访问源区域排行</span></h1>
+    <div class="mt2" id="areaRank">
+        <table class="m-grid m-grid-light m-grid-rank">
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+<div class="ptb3 m3 bg">
+    <h1 class="text-center"><span class="c-blue">访问源IP排行</span></h1>
+    <div class="mt2" id="visitIp">
+        <table class="m-grid m-grid-light m-grid-rank">
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<include  file="./App/Mobile/View/common/footer.html"/>
+<script type="text/javascript" src="__PUBLIC__/asset/js/echarts/dist/echarts.js"  charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/scrool/scrollNum.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/scrool/item-scoller.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Comm/location-reflect.js"></script>
+<script src="__PUBLIC__/script/Mobile/survey.js" charset="utf-8"></script>
+</body>
+</html>

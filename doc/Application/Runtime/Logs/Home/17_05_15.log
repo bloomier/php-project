@@ -1,0 +1,648 @@
+[ 2017-05-15T10:06:21+08:00 ] ::1 /doc/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0190s ]
+SQL: SELECT * FROM `user` WHERE ( cookie_token = '245d2c83356a5b37079f1b3756d7e8ed'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.031002s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.031002s ]
+NOTIC: [8] Undefined variable: item D:\wamp\www\doc\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.052003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-05-15T10:06:22+08:00 ] ::1 /doc/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item D:\wamp\www\doc\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-05-15T10:06:24+08:00 ] ::1 /doc/index.php/Home/Item/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') D:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `item` WHERE ( uid = '2' or item_id in ( select item_id from item_member where uid = '2' )  )  [ RunTime:0.0110s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: item D:\wamp\www\doc\Application\Runtime\Cache\Home\fbd4024b257c0eb32531d23fc561bc4e.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-15T10:06:26+08:00 ] ::1 /doc/index.php/Home/Item/Show?item_id=24
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') D:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '24'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '24'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '24'  ) ORDER BY  `order` asc    [ RunTime:0.0250s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0200s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '24'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '52'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '53'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '24'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: page_id D:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-15T10:06:33+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=196
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '196'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item D:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-15T10:59:22+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=202
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '202'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item D:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2017-05-15T13:20:04+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=196
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '196'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: item D:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-05-15T17:42:50+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=196
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '196'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item D:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-15T17:42:53+08:00 ] ::1 /doc/index.php/Home/page/edit?page_id=196
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '196'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: item D:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-15T17:42:53+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=24
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '24'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-15T17:44:02+08:00 ] ::1 /doc/index.php/Home/page/save
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '196'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page_history` [ RunTime:0.0550s ]
+SQL: INSERT INTO `page_history` (`page_id`,`item_id`,`cat_id`,`page_title`,`page_content`,`order`,`addtime`,`author_uid`,`author_username`) VALUES ('196','24','52','流量流向分析','###### 1、页面 
+###### 	查询条件页面 appTrafficDirectionQuery.jsp ——&gt; ReportSearchController
+###### 	结果页面 appTrafficDirection.jsp ——&gt; ReportSearchController
+
+###### 2、Controller ——&gt; AppFlowController @RequestMapping(value = &quot;topn_flow&quot;)
+###### 3、service ——&gt; AppFlowServiceImpl 
+###### 3.1、详情 getAppDetailChart 
+###### 3.2、topn getAppFlowTopNChart
+###### 4、Dao ——&gt; AppFlowDaoImpl 
+###### 4.1、详情 getAppFlowDetail(param)
+###### 4.2、topn getAppFlowTopN(param)','4','1492764249','2','admin') [ RunTime:0.0890s ]
+SQL: UPDATE `page` SET `page_title`='流量流向分析',`page_content`='###### 1、页面 
+###### 	查询条件页面 appTrafficDirectionQuery.jsp ——&gt; ReportSearchController
+###### 	结果页面 appTrafficDirection.jsp ——&gt; ReportSearchController
+
+###### 2、Controller ——&gt; AppFlowController @RequestMapping(value = &quot;topn_flow&quot;)
+###### 3、service ——&gt; AppFlowServiceImpl 
+###### 3.1、详情 getAppDetailChart 
+###### 3.2、topn getAppFlowTopNChart
+###### 4、Dao ——&gt; AppFlowDaoImpl 
+###### 4.1、详情 getAppFlowDetail(param)
+###### 4.2、topn getAppFlowTopN(param)
+
+###### 查询bar图
+###### SELECT
+	trafficdirection AS apptypeid,
+	trafficname AS apptypename,
+	SUM (apptraffic_total) AS total,
+	MAX (apptraffic_total) AS maxtotal,
+	MIN (apptraffic_total) AS mintotal,
+	(SUM(apptraffic_total) * 8.0) / 86400 AS totalspeed,
+	(MAX(apptraffic_total) * 8.0) / 3600 AS maxtotalspeed,
+	(MIN(apptraffic_total) * 8.0) / 3600 AS mintotalspeed,
+	SUM (apptraffic_up) AS up,
+	MAX (apptraffic_up) AS maxup,
+	MIN (apptraffic_up) AS minup,
+	(SUM(apptraffic_up) * 8.0) / 86400 AS upspeed,
+	(MAX(apptraffic_up) * 8.0) / 3600 AS maxupspeed,
+	(MIN(apptraffic_up) * 8.0) / 3600 AS minupspeed,
+	SUM (apptraffic_dn) AS dn,
+	MAX (apptraffic_dn) AS maxdn,
+	MIN (apptraffic_dn) AS mindn,
+	(SUM(apptraffic_dn) * 8.0) / 86400 AS dnspeed,
+	(MAX(apptraffic_dn) * 8.0) / 3600 AS maxdnspeed,
+	(MIN(apptraffic_dn) * 8.0) / 3600 AS mindnspeed
+FROM
+	app_traffic_hour
+WHERE
+	starttime &gt;= \'2017-05-15 00:00:00\'
+AND starttime &lt; \'2017-05-16 00:00:00\'
+GROUP BY
+	trafficdirection,
+	trafficname
+ORDER BY
+	total DESC OFFSET 0
+LIMIT 10;
+
+###### 查询area堆积图
+###### SELECT 
+	trafficname AS s_province,
+	trafficname AS d_province,
+	date_hour,
+	(SUM(apptraffic_total) * 8.0) / 3600 AS totalspeed,
+	(SUM(apptraffic_up) * 8.0) / 3600 AS upspeed,
+	(SUM(apptraffic_dn) * 8.0) / 3600 AS dnspeed
+FROM
+	app_traffic_hour
+WHERE
+	starttime &gt;= \'2017-05-15 00:00:00\'
+AND starttime &lt; \'2017-05-16 00:00:00\'
+AND trafficdirection in (
+select DISTINCT t.trafficdirection from 
+(select trafficdirection, (SUM(apptraffic_total) * 8.0) / 3600 AS totalspeed 
+from app_traffic_hour WHERE
+	starttime &gt;= \'2017-05-15 00:00:00\'
+AND starttime &lt; \'2017-05-16 00:00:00\' 
+GROUP BY
+	trafficdirection
+ORDER BY totalspeed DESC 
+OFFSET 0 LIMIT 10) t
+)
+GROUP BY
+	trafficname,
+	s_province,
+	d_province,
+	date_hour
+ORDER BY
+	totalspeed DESC ',`order`='4',`item_id`='24',`cat_id`='52',`addtime`='1494841441',`author_uid`='2',`author_username`='admin' WHERE (  page_id = '196'  ) [ RunTime:0.1410s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0100s ]
+SQL: UPDATE `item` SET `last_update_time`='1494841442' WHERE (  item_id = '24'  ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '196'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-15T17:44:02+08:00 ] ::1 /doc/index.php/Home/item/show?page_id=196&item_id=24
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') D:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '24'  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '24'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '24'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '52'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '53'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: page_id D:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-15T17:44:02+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=196
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '196'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item D:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-05-15T17:45:07+08:00 ] ::1 /doc/index.php/Home/page/edit?page_id=196
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '196'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: item D:\wamp\www\doc\Application\Runtime\Cache\Home\647ced87fad8125be8d20ab06e614491.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-15T17:45:07+08:00 ] ::1 /doc/index.php/Home/catalog/catList?item_id=24
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `catalog` WHERE (  item_id = '24'  ) ORDER BY  'order', addtime asc    [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-05-15T17:47:57+08:00 ] ::1 /doc/index.php/Home/page/save
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '196'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page_history` [ RunTime:0.0050s ]
+SQL: INSERT INTO `page_history` (`page_id`,`item_id`,`cat_id`,`page_title`,`page_content`,`order`,`addtime`,`author_uid`,`author_username`) VALUES ('196','24','52','流量流向分析','###### 1、页面 
+###### 	查询条件页面 appTrafficDirectionQuery.jsp ——&gt; ReportSearchController
+###### 	结果页面 appTrafficDirection.jsp ——&gt; ReportSearchController
+
+###### 2、Controller ——&gt; AppFlowController @RequestMapping(value = &quot;topn_flow&quot;)
+###### 3、service ——&gt; AppFlowServiceImpl 
+###### 3.1、详情 getAppDetailChart 
+###### 3.2、topn getAppFlowTopNChart
+###### 4、Dao ——&gt; AppFlowDaoImpl 
+###### 4.1、详情 getAppFlowDetail(param)
+###### 4.2、topn getAppFlowTopN(param)
+
+###### 查询bar图
+###### SELECT
+	trafficdirection AS apptypeid,
+	trafficname AS apptypename,
+	SUM (apptraffic_total) AS total,
+	MAX (apptraffic_total) AS maxtotal,
+	MIN (apptraffic_total) AS mintotal,
+	(SUM(apptraffic_total) * 8.0) / 86400 AS totalspeed,
+	(MAX(apptraffic_total) * 8.0) / 3600 AS maxtotalspeed,
+	(MIN(apptraffic_total) * 8.0) / 3600 AS mintotalspeed,
+	SUM (apptraffic_up) AS up,
+	MAX (apptraffic_up) AS maxup,
+	MIN (apptraffic_up) AS minup,
+	(SUM(apptraffic_up) * 8.0) / 86400 AS upspeed,
+	(MAX(apptraffic_up) * 8.0) / 3600 AS maxupspeed,
+	(MIN(apptraffic_up) * 8.0) / 3600 AS minupspeed,
+	SUM (apptraffic_dn) AS dn,
+	MAX (apptraffic_dn) AS maxdn,
+	MIN (apptraffic_dn) AS mindn,
+	(SUM(apptraffic_dn) * 8.0) / 86400 AS dnspeed,
+	(MAX(apptraffic_dn) * 8.0) / 3600 AS maxdnspeed,
+	(MIN(apptraffic_dn) * 8.0) / 3600 AS mindnspeed
+FROM
+	app_traffic_hour
+WHERE
+	starttime &gt;= \'2017-05-15 00:00:00\'
+AND starttime &lt; \'2017-05-16 00:00:00\'
+GROUP BY
+	trafficdirection,
+	trafficname
+ORDER BY
+	total DESC OFFSET 0
+LIMIT 10;
+
+###### 查询area堆积图
+###### SELECT 
+	trafficname AS s_province,
+	trafficname AS d_province,
+	date_hour,
+	(SUM(apptraffic_total) * 8.0) / 3600 AS totalspeed,
+	(SUM(apptraffic_up) * 8.0) / 3600 AS upspeed,
+	(SUM(apptraffic_dn) * 8.0) / 3600 AS dnspeed
+FROM
+	app_traffic_hour
+WHERE
+	starttime &gt;= \'2017-05-15 00:00:00\'
+AND starttime &lt; \'2017-05-16 00:00:00\'
+AND trafficdirection in (
+select DISTINCT t.trafficdirection from 
+(select trafficdirection, (SUM(apptraffic_total) * 8.0) / 3600 AS totalspeed 
+from app_traffic_hour WHERE
+	starttime &gt;= \'2017-05-15 00:00:00\'
+AND starttime &lt; \'2017-05-16 00:00:00\' 
+GROUP BY
+	trafficdirection
+ORDER BY totalspeed DESC 
+OFFSET 0 LIMIT 10) t
+)
+GROUP BY
+	trafficname,
+	s_province,
+	d_province,
+	date_hour
+ORDER BY
+	totalspeed DESC ','4','1494841441','2','admin') [ RunTime:0.0010s ]
+SQL: UPDATE `page` SET `page_title`='流量流向分析',`page_content`='###### 1、页面 
+###### 	查询条件页面 appTrafficDirectionQuery.jsp ——&gt; ReportSearchController
+###### 	结果页面 appTrafficDirection.jsp ——&gt; ReportSearchController
+
+###### 2、Controller ——&gt; AppFlowController @RequestMapping(value = &quot;topn_flow&quot;)
+###### 3、service ——&gt; AppFlowServiceImpl 
+###### 3.1、详情 getAppDetailChart 
+###### 3.2、topn getAppFlowTopNChart
+###### 4、Dao ——&gt; AppFlowDaoImpl 
+###### 4.1、详情 getAppFlowDetail(param)
+###### 4.2、topn getAppFlowTopN(param)
+
+###### 查询bar图
+###### 
+	SELECT
+		trafficdirection AS apptypeid,
+		trafficname AS apptypename,
+		SUM (apptraffic_total) AS total,
+		MAX (apptraffic_total) AS maxtotal,
+		MIN (apptraffic_total) AS mintotal,
+		(SUM(apptraffic_total) * 8.0) / 86400 AS totalspeed,
+		(MAX(apptraffic_total) * 8.0) / 3600 AS maxtotalspeed,
+		(MIN(apptraffic_total) * 8.0) / 3600 AS mintotalspeed,
+		SUM (apptraffic_up) AS up,
+		MAX (apptraffic_up) AS maxup,
+		MIN (apptraffic_up) AS minup,
+		(SUM(apptraffic_up) * 8.0) / 86400 AS upspeed,
+		(MAX(apptraffic_up) * 8.0) / 3600 AS maxupspeed,
+		(MIN(apptraffic_up) * 8.0) / 3600 AS minupspeed,
+		SUM (apptraffic_dn) AS dn,
+		MAX (apptraffic_dn) AS maxdn,
+		MIN (apptraffic_dn) AS mindn,
+		(SUM(apptraffic_dn) * 8.0) / 86400 AS dnspeed,
+		(MAX(apptraffic_dn) * 8.0) / 3600 AS maxdnspeed,
+		(MIN(apptraffic_dn) * 8.0) / 3600 AS mindnspeed
+	FROM
+		app_traffic_hour
+	WHERE
+		starttime &gt;= \'2017-05-15 00:00:00\'
+		AND starttime &lt; \'2017-05-16 00:00:00\'
+	GROUP BY
+		trafficdirection,
+		trafficname
+	ORDER BY
+		total DESC OFFSET 0
+	LIMIT 10;
+
+###### 查询area堆积图
+###### 
+	SELECT 
+		trafficname AS s_province,
+		trafficname AS d_province,
+		date_hour,
+		(SUM(apptraffic_total) * 8.0) / 3600 AS totalspeed,
+		(SUM(apptraffic_up) * 8.0) / 3600 AS upspeed,
+		(SUM(apptraffic_dn) * 8.0) / 3600 AS dnspeed
+	FROM
+		app_traffic_hour
+	WHERE
+		starttime &gt;= \'2017-05-15 00:00:00\'
+		AND starttime &lt; \'2017-05-16 00:00:00\'
+		AND trafficdirection in (
+			select DISTINCT t.trafficdirection from 
+			(select trafficdirection, (SUM(apptraffic_total) * 8.0) / 3600 AS totalspeed 
+			from app_traffic_hour WHERE
+				starttime &gt;= \'2017-05-15 00:00:00\'
+				AND starttime &lt; \'2017-05-16 00:00:00\' 
+			GROUP BY
+				trafficdirection
+			ORDER BY totalspeed DESC 
+			OFFSET 0 LIMIT 10) t
+			)
+	GROUP BY
+		trafficname,
+		s_province,
+		d_province,
+		date_hour
+	ORDER BY
+		totalspeed DESC ',`order`='4',`item_id`='24',`cat_id`='52',`addtime`='1494841677',`author_uid`='2',`author_username`='admin' WHERE (  page_id = '196'  ) [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0020s ]
+SQL: UPDATE `item` SET `last_update_time`='1494841677' WHERE (  item_id = '24'  ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '196'  ) LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-15T17:47:57+08:00 ] ::1 /doc/index.php/Home/item/show?page_id=196&item_id=24
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Home\Controller\ItemController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') D:\wamp\www\doc\Application\Home\Controller\ItemController.class.php 第 4 行.
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `item` WHERE ( item_id = '24'  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '0' and item_id = '24'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `catalog` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `catalog` WHERE ( item_id = '24'  ) ORDER BY  `order` asc    [ RunTime:0.0010s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '52'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+SQL: SELECT * FROM `page` WHERE ( cat_id = '53'  ) ORDER BY  `order` asc    [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: page_id D:\wamp\www\doc\Application\Runtime\Cache\Home\a45e27ab7210323bbf6beb0424918ca7.php 第 99 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-05-15T17:47:57+08:00 ] ::1 /doc/index.php/Home/page/index?page_id=196
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `page` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `page` WHERE (  page_id = '196'  ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: item D:\wamp\www\doc\Application\Runtime\Cache\Home\68bce0ec7afdf8798ef65138f610dc8c.php 第 5 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+

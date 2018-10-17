@@ -1,0 +1,47 @@
+<include file="./App/MSSP/View/header.html" />
+<div class="main">
+    <div class="m-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>合同列表</div>
+                    </div>
+                    <div class="portlet-body light-grey">
+                        <div class="row margin-bottom-15">
+                            <div class="col-md-12">
+                                <form action="#" class="form-search pull-right">
+                                    <div class="input-group" style="display: inline-table;vertical-align: top;">
+                                        <input class="m-wrap medium" type="text" placeholder="ip/域名" id="searchD">
+                                        <button class="btn green btn-search" type="button">查询</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-striped table-bordered table-hover table-condensed datatable" id="policy-group-table">
+                                    <thead class="bg-lightgrey">
+                                    <tr role="row">
+                                        <td>ip</td>
+                                        <td>端口</td>
+                                        <td>域名</td>
+                                        <td>rule</td>
+                                        <td>bypass</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/script/MSSP/TaskList/TaskList.js"></script>
+
+<include file="./App/MSSP/View/footer.html" />

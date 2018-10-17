@@ -1,0 +1,3 @@
+apacheGeronimo默认管理员账户漏洞修复方案：
+    目前厂商已经发布了升级补丁以修复这个问题，请到厂商的主页下载：
+    https://issues.apache.org/jira/secure/attachment/12368114/GERONIMO-3543.patch

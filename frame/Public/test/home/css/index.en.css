@@ -1,0 +1,13 @@
+.en .x-portlet .hchart-title-sub {
+    display: block;
+    width: 100px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 18px!important;
+    color: #999!important
+}
+
+.en .x-portlet .exist-data .hchart-title-sub {
+    overflow: hidden;
+    text-overflow: ellipsis
+}

@@ -1,0 +1,67 @@
+<include file="./App/Common/View/header.html" />
+<link href="__PUBLIC__/asset/js/zTree_v3/css/metroStyle/metroStyle.css" rel="stylesheet" type="text/css" />
+
+<div class="main fixed">
+    <div class="m-inner">
+        <!--<div class="panel panel-default">-->
+            <!--<div class="panel-heading">-->
+                <!--<h3 class="panel-title">角色管理</h3>-->
+            <!--</div>-->
+            <!--<div class="panel-body safe">-->
+                <!--<div class="safe-item">-->
+                    <!--<img src="__PUBLIC__/asset/image/safe1.png" alt=""/>-->
+                    <!--<div class="i-info">-->
+                        <!--<div class="i-info-tit">已创建角色</div>-->
+                        <!--<div class="i-info-num " id="region_total"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="widget">
+            <!--<div class="panel-heading">-->
+                <!--<h3 class="panel-title">-->
+                    <!--角色列表-->
+                <!--</h3>-->
+            <!--</div>-->
+            <div class="widget-heading">
+                <div class="widget-title">角色列表</div>
+            </div>
+            <table class="u-grid" id="role_table">
+                <thead  style="text-align: center">
+                <tr>
+                    <th>角色名</th>
+                    <th>操作</th>
+
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+<div class='role-dialog-content' style="display: none;">
+    <form class="form-horizontal" id="roleForm" action="#" data-parsley-validate>
+        <input name="_id" type="hidden">
+        <div class="form-group">
+            <label  class="col-sm-3 control-label"><span style="color: red">*</span>角色名称</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="name" required data-parsley-length="[2, 20]" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-3 control-label"><span style="color: red">*</span>操作权限</label>
+            <div class="col-sm-9">
+                <ul id="ztree" class="ztree" style="overflow:auto;"></ul>
+            </div>
+        </div>
+    </form>
+</div>
+
+<include file="./App/Common/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/asset/js/zTree_v3/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Admin/role.js"></script>
+
+

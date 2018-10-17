@@ -1,0 +1,2 @@
+flash 跨域漏洞描述：
+	flash跨域策略crossdomain.xml文件限制不严，造成flash csrf。

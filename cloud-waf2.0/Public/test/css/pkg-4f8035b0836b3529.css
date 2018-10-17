@@ -1,0 +1,164 @@
+.x-portal {
+    background: #E4E4E4;
+    padding-left: 12px
+}
+
+.x-portal .x-panel-dd-spacer {
+    float: left;
+    margin: 12px 12px 0 0;
+    border-radius: 5px;
+    border: dashed #99bbe8 2px
+}
+
+.x-portal .x-portal-body {
+    overflow-x: hidden!important;
+    overflow-y: scroll!important
+}
+
+.x-portal .x-portal-body:after {
+    content: "";
+    display: table;
+    clear: both;
+    zoom: 1
+}
+
+.x-portlet {
+    float: left;
+    margin: 12px 12px 0 0;
+    min-height: 360px;
+    background: #FFF
+}
+
+.x-portlet:last-child {
+    margin-bottom: 12px
+}
+
+.x-portlet>.x-panel-header {
+    background: #FFF;
+    border: none;
+    padding: 8px 16px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px
+}
+
+.x-portlet>.x-panel-bwrap {
+    background: #FFF;
+    padding-bottom: 8px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px
+}
+
+.x-portlet .x-panel-header .x-panel-header-text {
+    color: #555;
+    font-size: 14px!important;
+    font-weight: 700;
+    height: 26px;
+    line-height: 26px
+}
+
+.x-portlet .x-panel-header .x-tool {
+    width: 20px;
+    height: 26px;
+    line-height: 26px
+}
+
+.x-portlet .x-panel-header .x-tool-comp {
+    float: right;
+    margin-right: 5px
+}
+
+.x-panel-header .x-tool-close {
+    background: url(../images/pkg/25458ee43a61ae70.png) no-repeat center!important
+}
+
+.x-panel-header .x-tool-maximize {
+    background: url(../images/pkg/87bdecc6b8f2d5a0.png) no-repeat center!important
+}
+
+.x-panel-ghost .x-panel-header .x-tool-comp {
+    display: none
+}
+
+.x-portlet-wait-msg {
+    background-image: none;
+    border: none;
+    background: 0 0;
+    z-index: 9000
+}
+
+.x-portlet-wait-msg div {
+    border-color: #ccc;
+    padding: 6px 10px
+}
+
+.x-portlet-wait {
+    background-color: #fff!important;
+    -moz-opacity: .6!important;
+    opacity: .6!important;
+    filter: alpha(opacity=60)!important
+}
+
+.x-portlet .acdc-chart-further .further-item {
+    margin: 0 -4px 0 0
+}
+
+.x-portlet .acdc-chartgrid {
+    margin-bottom: 0;
+    padding: 0
+}
+
+.x-portlet .acdc-chartgrid .acdc-log-grid-auto-height .x-grid3-scroller {
+    height: 168px!important;
+    overflow-y: auto!important
+}
+
+.x-portlet .highcharts-title {
+    font-size: 18px!important;
+    color: #999!important;
+    text-align: center
+}
+
+.x-portlet .highcharts-title .ring-title {
+    display: block;
+    font-family: inherit!important;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 18px!important
+}
+
+.x-portlet .highcharts-title .value {
+    font-size: 18px!important;
+    color: #666
+}
+
+.x-portlet .highcharts-title .unit {
+    font-size: 18px!important
+}
+
+.x-portlet .hchart-title-sub {
+    font-size: 18px!important
+}
+
+.acdc-chartgrid.exist-data .hchart-title-sub {
+    width: 100px;
+    font-size: 18px!important;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.acdc-select-report {
+    background: url(../images/pkg/40fab39bee15a9a4.png) no-repeat left center!important
+}
+
+.acdc-welcome-page-logo {
+    overflow: auto
+}
+
+.acdc-welcome-page-logo div {
+    background: url(../images/pkg/0c22c6fbad326bfb.png) no-repeat center;
+    margin-top: 18px;
+    min-width: 640px;
+    min-height: 480px
+}

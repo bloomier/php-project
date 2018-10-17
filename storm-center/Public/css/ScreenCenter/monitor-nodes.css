@@ -1,0 +1,235 @@
+/**
+ * @author Sean.xiang
+ *@date 2015/12/28
+ *@version
+ *@example
+ */
+
+/*header 统计信息*/
+.total{
+    height: 40px;
+    line-height: 40px;
+    margin-top: 20px;
+    margin-right: 5%;
+}
+.total a{
+    display: inline-block;
+    font-size: 20px;
+    color: #067aeb;
+    text-decoration: none;
+}
+.total .node strong, .total .site strong{
+    font-size: 30px;
+    font-family: "customUUSUN";
+    color: #f9e400;
+}
+/**/
+.sub-title{
+    z-index: 99999;
+}
+.sub-title strong{
+    color: #fff;
+}
+.sub-title strong span{
+    color: #f0412f;
+    font-size: 12px;
+    margin-left: 6px;
+}
+
+/*节点实时监测列表*/
+.fault-tracing {
+    padding: 8px 10px;
+    color: #00dcff;
+    overflow: hidden;
+}
+.f-info span{
+    display: inline-block;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding-right: 8px;
+}
+.f-list{
+    width: 100%;
+    height: 52px;
+    margin-bottom: 4px;
+
+}
+.f-status{
+    float: left;
+    width: 30%;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    font-size: 16px;
+    font-family: simsun;
+    color: #fff;
+}
+.f-content{
+    float: left;
+    width: 70%;
+    background: rgba(245, 251, 254, .1);
+    overflow: hidden;
+    padding: 8px 12px ;
+    height: 52px;
+}
+.f-title{
+    display: inline-block;
+    font-size: 16px;
+    color: #067aeb;
+    font-family: "Verdana", "Simsun";
+    cursor: pointer;
+}
+.f-info{
+    color:#6dbdff;
+    font-size: 12px;
+
+}
+
+/*表格 表头*/
+.grid table{
+    table-layout: fixed;
+    margin-bottom: 0;
+}
+.grid table th{
+    border: 0!important;
+    color: #067aeb;
+    font-size: 14px;
+    text-align: center;
+}
+.grid thead td{
+    white-space: nowrap;
+}
+.grid td{
+    border: 0!important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    overflow: hidden;
+}
+/*节点状态列表*/
+.node-info{
+    display: inline-block;
+    margin-top: 40px;
+
+ }
+.node-info .node-info-name{
+    margin-top: 10px;
+    color: #00dcff;
+}
+.node-detail{
+    display: inline-block;
+    margin-left: 15px;
+    vertical-align: top;
+
+}
+.node-detail>div{
+    color: #00dcff;
+    font-size: 16px;
+    margin-bottom: 4px;
+    text-align: left;
+}
+.node-detail>div>span{
+    font-size: 14px;
+    margin-left: 4px;
+}
+
+.red>td{color: #f0412f!important;}
+
+/*弹出框重置*/
+
+.modal-content{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.modal-panel{
+    margin-bottom: 20px;
+}
+.modal-panel-heading{
+    background-color: transparent;
+    color: #101010;
+    border-bottom: 2px solid #efefef;
+}
+.modal-panel-title{
+    display: inline-block;
+    padding: 8px 10px;
+    border-bottom: 2px solid #1b72d4;
+    margin-bottom: -2px;
+    font-size: 16px;
+    margin-top: 0;
+}
+.modal-panel-body{
+    padding-top: 10px;
+}
+.b-info{
+    display: inline-block;
+    margin-top: 40px;
+}
+.b-info .name{
+    margin-top: 4px;
+    font-size: 20px;
+    text-align: center;
+    color: #101010;
+}
+.b-detail{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+}
+.d-item>div{
+    color: #101010;
+}
+.d-item>div>span{
+    margin-left: 4px;
+    font-size: 12px;
+}
+
+
+/*仪表盘 等级*/
+
+.chart{
+    position: relative;
+    width: 90px;
+    height: 50px;
+    text-align: center;
+}
+.chart .chart-gauge{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 90px;
+    height: 44px;
+    background: url("../../image/screen/rank-chart.png") no-repeat;
+}
+.chart .chart-gauge-pointer{
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    width: 10px;
+    height: 40px;
+    background: url("../../image/screen/rank-pointer.png") no-repeat;
+
+}
+.chart>.green-pointer{
+    background-position: 0 0;
+    transform: rotate(-60deg);
+    -webkit-transform: rotate(-60deg);
+    -moz-transform: rotate(-60deg);
+    transform-origin:6px 35px;
+    -webkit-transform-origin: 6px 35px;
+    -moz-transform-origin: 6px 35px;
+}
+
+.chart>.orange-pointer{
+    background-position: -10px 0;
+}
+.chart>.red-pointer{
+    background-position: -20px 0;
+    transform: rotate(60deg);
+    -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    transform-origin:6px 35px;
+    -webkit-transform-origin: 6px 35px;
+    -moz-transform-origin: 6px 35px;
+}

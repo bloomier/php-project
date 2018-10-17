@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include  file="./App/Mobile/View/common/header.html"/>
+    <link rel="stylesheet" href="__PUBLIC__/asset/css/Mobile/page/report.css"/>
+</head>
+<body>
+    <div id="cloudwaf_data" style="display: none;">
+        {$cloudwaf_data|json_encode}
+    </div>
+    <div id="monitor_data" style="display: none;">
+        {$monitor_data|json_encode}
+    </div>
+
+    <input id="currentDomain" type="hidden" value="{$domain}" />
+    <input id="currentDateKey" type="hidden" value="{$dateKey}" />
+    <input id="echartPath" type="hidden" value="__PUBLIC__/asset/js/echarts/dist">
+    <div class="list-header">
+        <a class="active" _type="monitor_id" package="2">服务质量</a>
+        <a  _type="cloudwaf_id"  package="4">安全防护</a>
+    </div>
+    <!--
+    <div class="tab-content">
+        <div class="tab-pane active" id="service">
+            <div class="row p4 border-b">
+                <div class="col-xs-6">
+                    <div class="thumbnail text-center mt10">
+                        <div class="detail mb2">
+                            <div class="circle font-num">0</div>
+                            <span>分</span>
+                        </div>
+                        <div class="title">当日故障时长</div>
+                        <div class="value j-siteVail">当日故障共计0次</div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="thumbnail text-center mt10">
+                        <div class="detail mb2 text-center">
+                            <div class="circle font-num">100%</div>
+                        </div>
+                        <div class="title">网站可用率</div>
+                        <div class="value j-siteVail">可用时间/一天总时间</div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="thumbnail text-center mt10">
+                        <div class="detail mb2 text-center">
+                            <div class="circle">低</div>
+                        </div>
+                        <div class="title">页面加载效率</div>
+                        <div class="value j-siteVail">页面加载共用时 123456.789毫秒</div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="thumbnail text-center mt10">
+                        <div class="detail mb2 text-center">
+                            <div class="circle font-num">16</div>
+                            <span>次</span>
+                        </div>
+                        <div class="title">网页当月更新</div>
+                        <div class="value j-siteVail">最后更新日期 <br>2016-06-06</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p4 border-b">
+               <div class="col-xs-12">
+                    <div id="date_deal_map"></div>
+               </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="defend">安全防护</div>
+    </div>
+    -->
+    <div id="monitor_id"  class="product" >
+        <include file="./App/Mobile/View/Report/report-monitor.html"/>
+    </div>
+    <div id="cloudwaf_id"  class="product" style="display: none;">
+        <include file="./App/Mobile/View/Report/report-cloudwaf.html"/>
+    </div>
+
+
+    <include  file="./App/Mobile/View/common/footer.html"/>
+    <script type="text/javascript" src="__PUBLIC__/asset/js/echarts/dist/echarts.js"  charset="utf-8"></script>
+    <script type="text/javascript"  src="__PUBLIC__/asset/js/highcharts/js/highcharts.js"></script>
+    <script type="text/javascript"  src="__PUBLIC__/asset/js/highcharts/js/highcharts-more.js"></script>
+    <script src="__PUBLIC__/script/Mobile/report-monitor.js"></script>
+    <script src="__PUBLIC__/script/Mobile/report-cloudwaf.js"></script>
+    <script src="__PUBLIC__/script/Mobile/report.js"></script>
+</body>
+</html>
+

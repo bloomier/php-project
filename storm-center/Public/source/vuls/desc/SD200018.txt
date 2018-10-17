@@ -1,0 +1,3 @@
+jquery xss漏洞描述：
+	使用jQuery.append()、jQuery.html()方法时，如果其中内容包含<script>脚本而没有经过任何处理的话，会执行它。
+	

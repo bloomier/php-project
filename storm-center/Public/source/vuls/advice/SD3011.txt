@@ -1,0 +1,14 @@
+tomcat examples directory disclosure修复方案：
+    1、编辑apache的httpd.conf
+    找到“ Options Indexes MultiViews ”中的Indexs去掉，
+    更改为“ Options  MultiViews”即可。
+    2、编辑tomcat的conf/web.xml
+    找到
+    default
+    org.apache.catalina.servlets.DefaultServlet
+    debug 0
+    listings
+    true
+    1
+    将“true”此行的true改为false即可。
+    编辑好后，记得重启相应的服务生效。

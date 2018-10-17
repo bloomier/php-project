@@ -1,0 +1,125 @@
+<include file="./App/Service/View/header.html" />
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Service/index/">首页</a> </li>
+                    <li><a href="javascript:;">网站监测</a> </li>
+                    <li><a href="__ROOT__/index.php/Service/WebSite/siteManage">站点管理</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>站点统计</div>
+                    </div>
+                    <div class="portlet-body light-grey">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="paper"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="monitor"></div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>站点列表</div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row margin-bottom-15">
+                            <div class="col-md-12">
+                                <div class="inline">
+                                    <a class="btn" href="addSite"><i class="fa fa-plus"></i>
+                                        新增站点
+                                    </a>
+                                    <a class="btn"><i class="fa fa-play"></i>
+                                        开始监控
+                                    </a>
+                                    <a class="btn"><i class="fa fa-stop"></i>
+                                        终止监控
+                                    </a>
+                                </div>
+                                <form action="#" class="form-search pull-right">
+                                    <div class="input-group" style="display: inline-table;vertical-align: top;">
+                                        <input class="m-wrap medium" type="text">
+                                        <button class="btn green btn-search" type="button">查询</button>
+                                    </div>
+                                </form></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-striped table-bordered table-hover dataTable" id="site">
+                                    <thead class="bg-lightgrey">
+                                    <tr role="row">
+                                        <th><input type="checkbox" class="group-checkable" data-set="#site.checkboxes"></th>
+                                        <th>监测站点</th>
+                                        <th>监控状态</th>
+                                        <th>服务套餐</th>
+                                        <th>最后监控时间</th>
+                                        <th>合同号</th>
+                                        <th>合同到期时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th><input type="checkbox" class="checkboxes" value="1"></th>
+                                        <td>滨江区政府
+                                            <a href="">www.binjiang.gov.cn</a></td>
+                                        <td class="hidden-480">监控中</td>
+                                        <td>全方面监测套餐</td>
+                                        <td>2015-06-01 12:00:00</td>
+                                        <td>15-06-01</td>
+                                        <td>16-06-06（正常）</td>
+                                        <td>
+                                            <a href="siteView" class="btn blue-stripe mini">查看</a>
+                                            <a href="../Report/index" class="btn yellow-stripe mini">报告</a>
+                                            <a href="#" class="btn red-stripe mini">停止</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row no-margin">
+                            <ul class="pagination pull-right">
+                                <li><a href="#">上一页</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li class="active"><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">下一页</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<assign name='plugins' value='echarts'/>
+<include file="./App/Service/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/script/Service/siteManage.js"></script>

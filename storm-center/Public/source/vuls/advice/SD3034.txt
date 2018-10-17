@@ -1,0 +1,3 @@
+Huawei SEQ Analyst - XML External Entity Injection XXE漏洞修复方案：
+    目前厂商已经发布了升级补丁以修复此安全问题，补丁获取链接：
+    http://download.huawei.com/download/filedownload.do?modelID=bulletin&refID=IN0000056669,101

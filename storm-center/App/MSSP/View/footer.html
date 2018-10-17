@@ -1,0 +1,83 @@
+<footer class="footer clear">
+    <div class="f-inner">
+        <div class="footer-title">XXXX技术有限公司 风暴中心</div>
+        <div class="footer-info">
+            <div class="contact">
+                <p><i class="telephone"></i>7*24值班电话：400-694-0110 0571-2813576 13148322519</p>
+                <p><i class="mobile"></i>紧急联系电话：18605819908 1518013560</p>
+                <p><i class="email"></i>服务电子邮箱：<a href="Mailto:securitycenter@dbappsecurity.com.cn" target="_self">securitycenter@dbappsecurity.com.cn</a></p>
+            </div>
+            <div class="code">
+                <img src="__PUBLIC__/image/MSSP/weixin.jpg" alt=""/>
+                <div class="code-detail">
+                    <p>关注XXXX微信</p>
+                    <p>了解XXX最新资讯</p>
+                    <a href="http://www.dbappsecurity.com.cn" target="_blank">http://www.dbappsecurity.com.cn</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+<script src="__PUBLIC__/js/scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery/jquery.md5.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/parsley/parsley.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery/jquery.form.js"></script>
+<script  type="text/javascript" src="__PUBLIC__/js/gritter/js/jquery.gritter.min.js"></script>
+<script  type="text/javascript" src="__PUBLIC__/js/dataTables/jquery.dataTables.js"></script>
+<script  type="text/javascript" src="__PUBLIC__/js/dataTables/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/metronic-bootstrap/js/select2.min.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/script/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/admin.main.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/js/metronic-bootstrap/js/jquery.uniform.min.js"></script>
+
+<script src="__PUBLIC__/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+
+<script  type="text/javascript" src="__PUBLIC__/js/dialog/bootstrap-dialog.min.js"></script>
+<!--<script type="text/javascript" src="__PUBLIC__/js/metronic-bootstrap/js/app.js"></script>-->
+<script type="text/javascript" src="__PUBLIC__/js/metronic-bootstrap/js/message.js"></script>
+
+<in name="echarts" value="$plugins">
+    <script type="text/javascript" src="__PUBLIC__/js/echarts/dist/echarts.js"></script>
+</in>
+<script>
+    $(function(){
+        /*多选框*/
+        $('div.check-box div').click(function(){
+            $(this).toggleClass('checked');
+        })
+        /*开关按钮*/
+        $('.switch div').filter(function(){
+            $(this).hasClass('on')?$(this).children('span.text').text('开启'):$(this).children('span.text').text('关闭');
+        });
+        $('.switch div').click(function(){
+            $(this).toggleClass('on');
+            $(this).hasClass('on')?$(this).children('span.text').text('开启'):$(this).children('span.text').text('关闭');
+
+
+        })
+
+        /*回到顶部*/
+        $(window).scroll( function() {
+            var scrollValue=$(window).scrollTop();
+            scrollValue > 50 ? $('.scroll').slideDown():$('.scroll').slideUp();
+        });
+
+        $('.scroll').click(function(){
+            $("html,body").animate({scrollTop:0},200);
+        });
+
+
+
+    })
+</script>
+
+</body>
+
+</html>

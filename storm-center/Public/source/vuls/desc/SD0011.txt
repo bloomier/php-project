@@ -1,0 +1,7 @@
+Robots信息泄露：
+    Robots协议（也称为爬虫协议、机器人协议等）的全称是“网络爬虫排除标准”（Robots Exclusion Protocol），
+    网站通过Robots协议告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取。
+    robots.txt文件是一个文本文件，使用任何一个常见的文本编辑器，
+    比如Windows系统自带的Notepad，就可以创建和编辑它[1]  。
+    robots.txt是一个协议，而不是一个命令。robots.txt是搜索引擎中访问网站的时候要查看的第一个文件。
+    robots.txt文件告诉蜘蛛程序在服务器上什么文件是可以被查看的。

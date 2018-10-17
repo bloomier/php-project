@@ -1,0 +1,6 @@
+ms12_050 漏洞修复建议：
+    厂商补丁：
+    Microsoft
+    ---------
+    Microsoft已经为此发布了一个安全公告（MS12-050）以及相应补丁:
+    MS12-050：Vulnerabilities in SharePoint Could Allow Elevation of Privilege (2695502)

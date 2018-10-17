@@ -1,0 +1,4 @@
+rompager server buffer overf低漏洞：
+    该漏洞由华为感知到Allegro公司开发的RomPager Embedded Web Server存在信息泄露的漏洞，
+    华为HG520c、MT880和MT886等接入路由器使用了Allegro RomPager Embedded Web Server，
+    并确认受此漏洞的影响。经过进一步调查，这些产品已经EOS（End of Service），不再提供服务。

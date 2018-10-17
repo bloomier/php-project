@@ -1,0 +1,109 @@
+<include file="./App/Home/View/Index/header.html" />
+<style>
+    html{overflow: hidden;}
+    body{
+        background: #000;
+
+    }
+    .tree{margin: 0 auto; _background: #ff0000!important;}
+    .net-base,.net-level{
+        position: absolute;
+        border: 1px solid #002133;
+        border-radius: 4px;
+        background: -moz-linear-gradient(top, #05171a, #00111a);
+        background: -webkit-linear-gradient(top, #05171a, #00111a);
+        display: none;
+    }
+    .net-base{
+        top: 20%;
+        left: 5%;
+        alpha(opacity=50); opacity: 0.5;
+    }
+    .net-link{
+        top: 15%;
+        right: 5%;
+        position: absolute;
+        /*border: 1px solid #002133;*/
+        border-radius: 4px;
+        background: -moz-linear-gradient(top, #05171a, #00111a);
+        background: -webkit-linear-gradient(top, #05171a, #00111a);
+        /*display: none;*/
+    }
+
+    .net-level{top: 20%;right: 5%;}
+    .head{
+        font-size: 18px;
+        color: #fff;
+        padding:4px  20px;
+        /*background: #000;*/
+        border-bottom: 1px solid #1c242f;
+    }
+    .info{
+       padding: 0 20px;
+    }
+
+    .info p{
+        font-size: 16px;
+        color: #01e9ff;
+    }
+    .info p span{
+        font-size: 14px;
+        color: #fff;
+        margin-left: 10px;
+    }
+
+</style>
+<input type="hidden" id="safe-domain" name="safe-domain" value="{$url}"/>
+<input type="hidden" id="safe-ip" name="safe-ip" value="{$ip}">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="tree" class="tree"></div>
+        </div>
+
+    </div>
+    <div class="row net-base">
+        <div class="row">
+            <div class="col-md-6 head">
+                信息
+            </div>
+            <div class="col-md-6" align="right">
+                <!--<a href="#"></a></div>-->
+                <span style="color:#ffffff" title="关闭" class="close-tag">关闭</span>
+            </div>
+        </div>
+        <div class="info ">
+            <p class="name">网站名称<span class="webName"></span></p>
+            <p class="name">归属公司<span class="company"></span></p>
+            <p class="name">IP地址<span class="ip"></span></p>
+            <p class="name">isp<span class="port"></span></p>
+            <p class="name">DNS<span class="dns"></span></p>
+            <p class="name">所有人<span class="owner"></span></p>
+        </div>
+
+    </div>
+    <div class="row net-link">
+        <div class="info">
+            <p class="name ip-info-stats">IP旁站信息正在加载&nbsp;<i class='fa fa-spinner fa-spin fa-2x'></i><span class="userName"></span></p>
+            <p class="name sub-info-stats">子域名信息正在加载&nbsp;<i class='fa fa-spinner fa-spin fa-2x'></i><span class="qq"></span></p>
+            <p class="name room-info-stats">机房旁站正在加载&nbsp;<i class='fa fa-spinner fa-spin fa-2x'></i><span class="email"></span></p>
+        </div>
+    </div>
+    <div class="row net-level">
+        <div class="head">机房信息</div>
+        <div class="info">
+            <p class="name">安全事件数<span></span></p>
+            <p class="name">节点平均时延</p>
+            <p class="name">主动攻击数量</p>
+        </div>
+
+    </div>
+
+    </div>
+</div>
+
+<assign name='plugins' value="echarts,awesome"/>
+<include file="./App/Home/View/Index/footer.html" />
+
+<script type="text/javascript" src="__PUBLIC__/script/Home/safe-web.js"></script>
+

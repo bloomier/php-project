@@ -1,0 +1,2 @@
+IIS_v5_NTML_Basic_Auth_Bypass漏洞修复建议：
+    安装厂家补丁

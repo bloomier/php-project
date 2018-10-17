@@ -1,0 +1,3 @@
+Plesk_Agent_SQL注入漏洞：
+    Parallels Plesk Panel 7.6.1-10.3.1在admin/plib/api-rpc/Agent.php的实现上存在SQL注入漏洞，
+    可允许远程攻击者执行任意SQL命令。

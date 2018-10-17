@@ -1,0 +1,2 @@
+glass fish audit漏洞修复建议：
+    安装厂家补丁。

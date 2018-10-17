@@ -1,0 +1,4 @@
+Umbraco_CMS_Remote_Code_Execution 漏洞：
+    Umbraco CMS 6.0.4之前版本，在实现上存在安全漏洞，这可使远程攻击者通过构造的SOAP请求，
+    利用此漏洞执行任意ASP.NET代码。该漏洞位于TemplateService组件umbraco.webservices/
+    templates/templateService.cs内，源于update函数没有进行身份验证，有漏洞的代码

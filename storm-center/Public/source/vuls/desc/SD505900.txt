@@ -1,0 +1,4 @@
+WordPress LeagueManager漏洞描述：
+    WordPress LeagueManager是管理和显示Sports Leagues的插件。
+    LeagueManager 3.8及其他版本在leaguemanager_export页面内的’league_id’参数的实现上存在SQL注入漏洞，
+    利用此漏洞可允许攻击者执行未授权数据库操作。

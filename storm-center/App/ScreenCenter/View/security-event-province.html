@@ -1,0 +1,170 @@
+<include file="./App/ScreenCenter/View/common/header.html" />
+<link rel="stylesheet" href="__PUBLIC__/js/swiper/css/swiper.min.css"/>
+<link rel="stylesheet" href="__PUBLIC__/js/fancybox/jquery.fancybox.css"/>
+<link href="__PUBLIC__/css/Home/page/govWeb.css" rel="stylesheet" type="text/css" />
+
+<input type="hidden" value="{$province}" id="select-province" name="select-province"/>
+<input type="hidden" value="{$eventType}" id="eventType" name="eventType"/>
+
+
+<div class="title-wraper" id="title-wraper1">
+</div>
+<div class="tip">
+    <div class="total-info">
+    </div>
+</div>
+<div class="alert-info fade" >
+    <p><span class="title">告警</span><span class="info">流量超出<i class="num">20%</i></span><span class="time"></span></p>
+</div>
+<div class="container-fluid">
+    <div class="row mt-10">
+        <div class="col-md-3">
+            <div class="panel panel-blue webIndex">
+                <div class="panel-heading">
+                    <h2 class="panel-title">网站首页过大</h2>
+                </div>
+                <div class="panel-body">
+                    <div style="height:260px">
+                        <table class="table u-gd-list">
+                            <tbody class="big-domain-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-blue highRisk" >
+                <div class="panel-heading">
+                    <h2 class="panel-title">高危网站明细</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="grid" style="height: 240px;">
+                        <div class="gridRoll" id="highRisk-roll">
+                            <div class="gridList" id="highRisk-list" >
+                                <table class="table u-gd-list">
+                                    <tbody class="province-high-rick-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-5">
+                    <div id="map"></div>
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div id="govWeb"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="subDomain"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="voidDomain"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div id="highRisk"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="inAccess"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="securityEvent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="domain"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="panel panel-blue eventRank">
+                <div class="panel-heading">
+                    <h2 class="panel-title">安全事件量排行</h2>
+                </div>
+                <div class="panel-body" >
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="event" style="margin-top: -20px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-blue eventTime">
+                <div class="panel-heading">
+                    <h2 class="panel-title">实时安全事件</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="grid" style="height: 250px;">
+                        <div class="gridRoll" id="eventTime-roll">
+                            <div class="gridList" id="eventTime-list">
+                                <table class="table u-gd-list">
+                                    <tbody class="actualTime-SafeEvent-table">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="swiper-container">
+                <div class="swiper-wrapper" id="showphoto_id">
+                   <!-- <div class="swiper-slide">
+                        <a class="fancybox" href="__PUBLIC__/image/4.png" data-fancybox-group="gallery"><img src="__PUBLIC__/image/4.png" alt=""></a>
+                        <div class="info">
+                            <p class="title">百度</p>
+                            <p class="domain">www.baidu.com</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="fancybox" href="__PUBLIC__/image/4.png" data-fancybox-group="gallery"><img src="__PUBLIC__/image/4.png" alt=""></a>
+                        <div class="info">
+                            <p class="title">百度</p>
+                            <p class="domain">www.baidu.com</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                    <a class="fancybox" href="__PUBLIC__/image/4.png" data-fancybox-group="gallery"><img src="__PUBLIC__/image/4.png" alt=""></a>
+                        <div class="info">
+                            <p class="title">百度</p>
+                            <p class="domain">www.baidu.com</p>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+
+<assign name='plugins' value='echarts'/>
+<script src="__PUBLIC__/js/d3/d3.v3.min.js"></script>
+<include file="./App/ScreenCenter/View/common/autorun.html" />
+<include file="./App/ScreenCenter/View/common/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/js/swiper/js/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/script/ScreenCenter/security-event-province.js"  charset="utf-8"></script>
+<script>
+    $(function(){
+        $("#vavigation-wraper").css("position","static");
+    });
+</script>

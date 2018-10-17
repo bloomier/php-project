@@ -1,0 +1,83 @@
+<include file="./App/Common/View/header.html" />
+<link href="__PUBLIC__/asset/css/page/daily_report.css" rel="stylesheet" type="text/css" />
+<div id="cloudwaf_data" style="display: none;">
+    {$cloudwaf_data|json_encode}
+</div>
+<div id="monitor_data" style="display: none;">
+    {$monitor_data|json_encode}
+</div>
+<div id="vuls_data" style="display: none;">
+    {$vuls_data|json_encode}
+</div>
+<div id="attackTypeId" style="display: none;">
+    {$attackTypeId|json_encode}
+</div>
+
+<div class="main fixed">
+    <div class="m-nav search_report">
+        <div class="inner">
+            <div class="reply">
+                <a href="" class="u-btn u-btn-default return-btn"><i class="fa fa-reply"></i> 返回</a>
+            </div>
+            <div class="site-select">
+                <span>当前网站</span>
+                <select name="" id="domainSelector" style="width: 200px;" >
+                    <option value="">请选择</option>
+                </select>
+                <input id="currentDomain" type="hidden" value="{$domain}" />
+            </div>
+            <div class="search-date pull-right">
+                <input class="WdateMax" id="currentDateKey" type="text" value="{$dateKey}" onfocus="WdatePicker({maxDate:'{$curDate}'})"/>
+                <!--<button class="u-btn u-btn-default j-date"><i class="fa fa-calendar"></i></button>-->
+                <button id="btn-search" class="u-btn u-btn-default search" style="margin-left: 5px;"><i class="fa fa-search"></i></button>
+            </div>
+
+        </div>
+    </div>
+    <div class="m-inner">
+        <div class="monitor-nav ">
+            <ul class="nav-tab" id="reportTab">
+                <li class="active" _type="monitor_id" package="2"><a href="#">服务质量</a></li>
+                <li  _type="cloudwaf_id"  package="4"><a href="#">安全防护</a></li>
+                <li  _type="vuls_id" package="1" style="display: none;"><a href="#">漏洞扫描</a></li>
+            </ul>
+        </div>
+        <div id="monitor_id"  class="product" >
+            <include file="./App/Home/View/page/Report/monitor.html"/>
+        </div>
+
+        <div id="cloudwaf_id"  class="product" style="display: none;">
+            <include file="./App/Home/View/page/Report/cloudwaf.html"/>
+        </div>
+
+        <div id="vuls_id"  class="product" style="display: none;">
+            <include file="./App/Home/View/page/Report/vuls.html"/>
+        </div>
+
+    </div>
+
+</div>
+<div class="go-top">
+    <a class="icon send_report" style="display: none;" href="javascript:;"><i class="fa fa-send fa-2x"></i></a>
+    <a class="icon export_report" href="javascript:;"><i class="fa fa-download domina-report-export fa-2x"></i></a>
+    <a class="icon scroll" href="javascript:;"><i class="fa fa-angle-double-up fa-2x"></i></a>
+</div>
+<div class="tip">
+    <a class="icon send_report" style="display: none;" href="javascript:;">发送<br>报告</a>
+    <a class="icon export_report" href="javascript:;">导出<br>报告</a>
+    <a class="icon scroll" href="javascript:;">回到<br>顶部</a>
+</div>
+<include file="./App/Common/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/asset/js/echarts/dist/echarts.js"  charset="utf-8"></script>
+<script type="text/javascript"  src="__PUBLIC__/asset/js/highcharts/js/highcharts.js"></script>
+<script type="text/javascript"  src="__PUBLIC__/asset/js/highcharts/js/highcharts-more.js"></script>
+<script type="text/javascript"  src="__PUBLIC__/asset/js/jquery/jquery.showLoading.js"></script>
+<script src="__PUBLIC__/asset/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="__PUBLIC__/script/Report/report-detail-monitor.js"  charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Report/report-detail-cloudwaf.js"  charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Report/report-detail-vuls.js"  charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Home/report-detail.js"  charset="utf-8"></script>
+
+
+

@@ -1,0 +1,2 @@
+umail任意密码获取漏洞修复方案：
+    用id_list_filter()函数或者数组遍历，intval

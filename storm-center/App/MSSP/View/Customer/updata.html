@@ -1,0 +1,81 @@
+<include file="./App/MSSP/View/header.html" />
+<div class="main">
+    <div class="m-inner">
+        <input type="hidden"  id="state_id" value=""/>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>查看客户信息</div>
+                    </div>
+                    <div class="portlet-body form">
+                        <form action="add" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"><span class="required">*</span>客户ID</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="id" id="id" class="form-control" placeholder="ID" value="{$customer.id}" disabled="disabled">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"><span class="required">*</span>客户姓名</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="用户名" value="{$customer.name}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"><span class="required">*</span>手机</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="phone" id="phone" class="form-control" value="{$customer.phone}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"><span class="required">*</span>邮箱</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="email" id="email" class="form-control" value="{$customer.email}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"><span class="required">*</span>状态</label>
+                                <div class="col-sm-6">
+                                    <select name="state" style="width: 240px;">
+                                        <if condition="$customer.state eq 1">
+                                                <option value='1'  selected>有效</option>
+                                                <option value='0'>无效</option>
+                                            <else/>
+                                            <option value='1' >有效</option>
+                                            <option value='0' selected>无效</option>
+                                        </if>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">备注</label>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control" name="remark" id="remark" rows="3">{$customer.desc}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn blue notify-user-save">保存</button>
+                                    <button type="button" class="btn" onclick="window.location.href='__ROOT__/index.php/MSSP/Customer/index'">取消</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="__PUBLIC__/script/MSSP/customerupdata.js"></script>
+
+<include file="./App/MSSP/View/footer.html" />
+
+

@@ -1,0 +1,5 @@
+cmseasy ajaxargs sqlinject漏洞描述：
+    cmseasy后台可以未授权访问，在/lib/admin/admin.php中，
+    这个抽象类是所有后台类继承得到的，
+    当用户IP（可以通过x-forwarded-for伪造）和服务器IP相同且ishtml=1的话，
+    就能不执行check_admin，造成未授权访问。

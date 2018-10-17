@@ -1,0 +1,3 @@
+PHP_CGI_RCE_Force_Redirect漏洞：
+    以特定的CGI方式被调用时（例如Apache的mod_cgid），php-cgi接收处理过的查询格式字符串作为命令行参数，
+    允许命令行开关（例如-s、-d 或-c）传递到php-cgi程序，导致源代码泄露和任意代码执行。FastCGI不受影响。

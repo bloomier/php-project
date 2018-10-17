@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/asset_os/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset_os/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset_os/css/animation.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="__PUBLIC__/asset_os/js/swiper/swiper.min.css"/>
+    <link href="__PUBLIC__/asset_os/js/scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset_os/css/screen-v1.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/asset_os/css/page/G20.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/asset_os/js/echarts/dist">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<div class="header">
+    <div class="title">
+        <h1>G20官网安全态势分析</h1>
+    </div>
+    <div class="total">
+        <a><i class="fa fa-time"></i><i class="txt">无故障稳定运行</i><span class="time"><i class="font-num _day"></i>天<i class="font-num _hour"></i>时<i class="font-num _min"></i>分<i class="font-num _sec"></i>秒</span></a>
+        <a><i class="fa fa-"></i><i class="txt">成功保障会议</i><i class="c-green font-num" style="font-size: 30px;">4</i>次</a>
+    </div>
+</div>
+<div class="container-fluid content">
+    <div class="row no-margin">
+        <div class="col-md-12 no-padding">
+            <div class="box a-flipinY attack no-border">
+                <div class="box-heading" style="text-align: center;">
+                    <h2 class="box-title">攻击量区域分布</h2>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6 attack-world ">
+                            <div class="summary pull-left">
+                                <div class="detail pull-left">攻击总量：<span class="font-num" id="attackCount"></span></div>
+                                <div class="detail  pull-right">攻击国家：<span class="font-num" id="attackCountryCount"> </span></div>
+                            </div>
+                            <div class="map clear">
+                                <div class="map-chart" id="attackWorldMap"></div>
+                                <div class="map-grid">
+                                    <table class="grid">
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 attack-china">
+                            <div class="summary  pull-left">
+                                <div class="detail pull-left">境内攻击总量：<span class="font-num" id="attackChinaCount"></span></div>
+                                <div class="detail pull-right">攻击地区：<span class="font-num" id="attackProvinceCount"></span></div>
+                            </div>
+                            <div class="map">
+                                <div class="map-chart" id="attackChinaMap"></div>
+                                <div class="map-grid">
+                                    <table class="grid">
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h2 class="box-title">攻击方式 TOP10</h2>
+                            <div class="chart" id="barWay"></div>
+                        </div>
+                        <div class="col-md-2 attackIp">
+                            <h2 class="box-title">攻击源IP区域分布</h2>
+                            <div class="chart" id="pieIp" style="margin-left: -40px;"></div>
+                            <div class="chart-info"></div>
+                        </div>
+                        <div class="col-md-6" style="position: relative">
+                            <h2 class="box-title">区域攻击/访问时段</h2>
+                            <div class="box-tip pull-right" style="font-size: 12px;"><i class="fa fa-info-circle" style="margin-right: 6px;"></i>攻击/访问时间都为北京时间</div>
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper" >
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row no-margin" >
+        <div class="col-md-12 no-padding">
+            <div class="box a-flipinY visit no-border">
+                <div class="box-heading" style="text-align: center">
+                    <h2 class="box-title" >访问量区域分布</h2>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6 visit-world">
+                            <div class="summary pull-left">
+                                <div class="detail pull-left">访问总量：<span class="font-num" id="visitCount"></span></div>
+                                <div class="detail pull-right">访问国家：<span class="font-num" id="visitCountryCount"></span></div>
+                            </div>
+                            <div class="map clear">
+                                <div class="map-chart" id="visitWorldMap"></div>
+                                <div class="map-grid">
+                                    <table class="grid">
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 visit-china">
+                            <div class="summary pull-left">
+                                <div class="detail pull-left">境内访问总量：<span class="font-num" id="visitChinaCount"></span></div>
+                                <div class="detail pull-right">访问省级区域：<span class="font-num" id="visitProvinceCount"></span></div>
+                            </div>
+                            <div class="map clear">
+                                <div class="map-chart" id="visitChinaMap"></div>
+                                <div class="map-grid">
+                                    <table class="grid">
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h2 class="box-title">访问终端</h2>
+                            <div class="chart device-chart" id="deviceChart">
+                                <img src="__PUBLIC__/asset_os/image/G20/device2.png" alt=""/>
+                            </div>
+                        </div>
+                        <div class="col-md-3 visit-content">
+                            <h2 class="box-title">访问栏目</h2>
+                            <div class="chart">
+                                <table class="grid grid-rank">
+                                    <tbody></tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h2 class="box-title">访问/攻击走势分析</h2>
+                            <div class="chart" id="lineFlow" style="margin-top: -40px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row no-margin">
+        <div class="col-md-3 no-padding" >
+            <div class="box mt-5">
+                <div class="box-heading">
+                    <h2 class="box-title">安全保障在进行</h2>
+                </div>
+                <div class="box-body">
+                    <div class="event security-event">
+                        <table class="grid">
+                            <tbody>
+                            <tr>
+                                <td>2015-11-12</td>
+                                <td>深度安全评估</td>
+                            </tr>
+                            <tr>
+                                <td>2015-11-26</td>
+                                <td>官网系统初验</td>
+                            </tr>
+                            <tr>
+                                <td> 2015-12-01</td>
+                                <td>官网上线</td>
+                            </tr>
+                            <tr>
+                                <td>2015-12-15</td>
+                                <td>第二届世界互联网大会期间重点安全保障</td>
+                            </tr>
+                            <tr>
+                                <td> 2016-02-04</td>
+                                <td>春节期间重点安全保障</td>
+                            </tr>
+                            <tr>
+                                <td>2016-02-19</td>
+                                <td>全面安全评估</td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9" style="padding: 0 0 0  5px;">
+            <div class="box mt-5">
+                <div class="box-heading">
+                    <h2 class="box-title">G20大事记</h2>
+                    <div class="box-tip pull-right" style="display: none">距离下次安全保障还剩<span class="font-num">98</span>天</div>
+                </div>
+                <div class="box-body">
+                    <div class="event">
+                        <div class="time-line">
+                            <div class="line"></div>
+                            <div class="big-event"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/jquery/jquery-1.8.3.min.js"></script>
+
+<script src="__PUBLIC__/asset_os/js/scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/swiper/swiper.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/scrool/countUp.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/clock/clock.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset_os/js/echarts/dist/echarts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Home/Screen/g20.js"></script>
+
+<!--<script type="text/javascript" src="__PUBLIC__/asset/js/echarts-3/echarts.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/echarts-3/map/china.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/echarts-3/map/world.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Home/g20-3.js"></script>-->
+
+</body>
+</html>

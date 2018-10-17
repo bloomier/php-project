@@ -1,0 +1,9 @@
+PHP_CGI_RCE_Force_Redirect漏洞修复建议：
+    1、使用RewriteRule来过滤请求：
+       RewriteRule规则如下
+       RewriteEngine on
+       RewriteCond %{QUERY_STRING} ^[^=]*$
+       RewriteCond %{QUERY_STRING} %2d|\- [NC]
+       RewriteRule .? - [F,L]
+
+    2、安装厂商补丁

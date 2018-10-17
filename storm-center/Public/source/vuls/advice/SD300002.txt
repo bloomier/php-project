@@ -1,0 +1,6 @@
+apachehttponlycookie泄露漏洞修复方案：
+    Apache官方提供4种错误处理方式（http://httpd.apache.org/docs/2.0/mod/core.html#errordocument），如下
+    1. output asimple hardcoded error message输出一个简单生硬的错误代码信息
+    2. output acustomized message输出一段信息
+    3. redirect to alocal URL-path to handle the problem/error转向一个本地的自定义页面
+    4. redirect to an external URL to handle theproblem/error转向一个外部URL

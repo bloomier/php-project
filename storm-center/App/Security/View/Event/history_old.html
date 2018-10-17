@@ -1,0 +1,162 @@
+<include file="./App/Security/View/header.html" />
+<link href="__PUBLIC__/css/Security/timeline.css" rel="stylesheet">
+
+<input type="hidden" value="{$event_id}" name="event_id" id="event_id"/>
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ul class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Security">首页</a> </li>
+                    <li><a href="#">事件管理</a></li>
+                    <li><a href="__ROOT__/index.php/Security/Event/trace">事件跟踪</a> </li>
+                    <li><a href="__ROOT__/index.php/Security/Event/traceView?eventId={$event_id}">事件查看</a> </li>
+                    <li><a href="__ROOT__/index.php/Security/Event/history">历史事件</a> </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>历史事件</div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row bg-lightgrey no-margin">
+                            {$info}
+                            <!--
+                            <div class="page-header" align="center">
+                                <h2>网站名称 <small><a href="">域名</a></small></h2>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="timeline">
+                                    <ul class="event_year">
+                                        <li class="current"><label for="2015">2015</label></li>
+                                        <li><label for="2014">2014</label></li>
+                                        <li><label for="2013">2013</label></li>
+                                    </ul>
+
+                                    <ul class="event_list">
+                                        <div class="list">
+                                            <h3 id="2015">2015</h3>
+                                            <li>
+                                                <span>06-18</span>
+                                                <p>
+                                                    <span>
+                                                        <i class="type">篡改</i>
+                                                        <a href="#">http://news.cntv.cn/2015/06/18/VIDE1434627023997782.shtml</a>
+                                                        <i class="repair">已修复</i>
+                                                    </span>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span>05-12</span>
+                                                <p>
+                                            <span> <i class="type">反共</i>
+                                                <a href="#">http://news.cntv.cn/2015/05/12/VIDE1434627023997782.shtml</a>
+                                                <i class="unrepair">未修复</i>
+                                            </span>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span>03-16</span>
+                                                <p>
+                                            <span>
+                                                <i class="type">篡改</i>
+                                                <a href="#">http://news.cntv.cn/2015/06/18/VIDE1434627023997782.shtml</a>
+                                                <i class="repair">已修复</i>
+                                            </span>
+                                                </p>
+                                            </li>
+                                        </div>
+                                        <div class="list">
+                                            <h3 id="2014">2014</h3>
+                                            <li>
+                                                <span>06-18</span>
+                                                <p>
+                                            <span>
+                                                <i class="type">篡改</i>
+                                                <a href="#">http://news.cntv.cn/2015/06/18/VIDE1434627023997782.shtml</a>
+                                                <i class="repair">已修复</i>
+                                            </span>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span>05-12</span>
+                                                <p>
+                                            <span> <i class="type">反共</i>
+                                                <a href="#">http://news.cntv.cn/2015/05/12/VIDE1434627023997782.shtml</a>
+                                                <i class="unrepair">未修复</i>
+                                            </span>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span>03-16</span>
+                                                <p>
+                                            <span>
+                                                <i class="type">篡改</i>
+                                                <a href="#">http://news.cntv.cn/2015/06/18/VIDE1434627023997782.shtml</a>
+                                                <i class="repair">已修复</i>
+                                            </span>
+                                                </p>
+                                            </li>
+                                        </div>
+
+                                        <div class="list">
+                                            <h3 id="2013">2013</h3>
+                                            <li>
+                                                <span>06-18</span>
+                                                <p>
+                                            <span>
+                                                <i class="type">篡改</i>
+                                                <a href="#">http://news.cntv.cn/2015/06/18/VIDE1434627023997782.shtml</a>
+                                                <i class="repair">已修复</i>
+                                            </span>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span>05-12</span>
+                                                <p>
+                                            <span> <i class="type">反共</i>
+                                                <a href="#">http://news.cntv.cn/2015/05/12/VIDE1434627023997782.shtml</a>
+                                                <i class="unrepair">未修复</i>
+                                            </span>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span>03-16</span>
+                                                <p>
+                                            <span>
+                                                <i class="type">篡改</i>
+                                                <a href="#">http://news.cntv.cn/2015/06/18/VIDE1434627023997782.shtml</a>
+                                                <i class="repair">已修复</i>
+                                            </span>
+                                                </p>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                             -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<include file="./App/Security/View/footer.html" />
+<script type="text/javascript">
+    $(function(){
+        $('.timeline li label').click(function(){
+            $('.event_year>li').removeClass('current');
+            $(this).parent('li').addClass('current');
+            var year = $(this).attr('for');
+            $('#'+year).parent().prevAll('div').slideUp(800);
+            $('#'+year).parent().slideDown(800).nextAll('div').slideDown(800);
+        });
+    });
+</script>

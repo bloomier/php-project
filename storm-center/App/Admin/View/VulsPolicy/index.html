@@ -1,0 +1,99 @@
+<include file="./App/Admin/View/header.html" />
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Admin/User/index">系统管理</a> </li>
+                    <li><a href="javascript:void(0)">漏洞策略管理</a></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN PORTLET-->
+                <div class="portlet box light-grey">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="fa fa-comment"></i>漏洞策略列表</div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="inline">
+                                    <a  class="btn blue btn-add-user"><i class="fa fa-plus"></i>
+                                        新增
+                                    </a>
+                                    <a  class="btn red bth-batch-delete"><i class="fa fa-trash"></i>
+                                        删除
+                                    </a>
+                                </div>
+                                <form action="#" class="form-search pull-right margin-bottom-10">
+                                    <div class="input-group" style="display: inline-table;vertical-align: top;">
+                                        <input class="m-wrap" type="text"  id="vname" name="vname" placeholder="漏洞策略ID|名称|级别">
+                                        <button class="btn green btn-search" type="button">查询</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row" >
+                            <div class="col-md-12">
+                                <table id="vulsTable" class="table table-striped table-bordered table-hover table-condensed datatable" >
+                                    <thead>
+                                    <tr class="well">
+                                        <th><input type="checkbox" > </th>
+                                        <th>ID</th>
+                                        <th>名称</th>
+                                        <th>级别</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<div class='user-dialog-content' style="display: none;">
+    <form class="form-horizontal" id="vulsForm" action="__ROOT__/index.php/Admin/VulsPolicy/insertOrUpdate" data-parsley-validate>
+        <!-- 用于区分是插入还是更新 -->
+        <input name="id" id='id_id' type="hidden">
+        <div class="form-group">
+            <label  class="col-sm-2 control-label" >ID</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="vid" required data-parsley-length="[3, 20]" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">名称</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="vname"   required data-parsley-length="[2, 20]">
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">级别</label>
+            <div class="col-sm-10">
+                <select name="level" style="width:100%;" required  >
+
+
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script type="text/javascript" src="__PUBLIC__/script/Admin/vuls.js"></script>
+
+<include file="./App/Admin/View/footer.html" />

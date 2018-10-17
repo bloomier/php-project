@@ -1,0 +1,2 @@
+>Plesk_SSO_XXE 漏洞：
+    Parallels Plesk Panel存在XML外部实体注入漏洞，允许攻击者利用漏洞通过特制的XML文档，获取敏感文件信息。

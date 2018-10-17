@@ -1,0 +1,7 @@
+git库漏洞修复方案：
+    厂商补丁：
+    目前厂商已经发布了升级补丁以修复这个安全问题，请到厂商的主页下载：
+    https://www.kernel.org/pub/software/scm/git/
+    https://kernel.googlesource.com/pub/scm/git/git
+    https://code.google.com/p/git-core/
+    https://github.com/gitster/git

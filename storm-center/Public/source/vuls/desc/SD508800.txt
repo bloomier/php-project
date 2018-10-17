@@ -1,0 +1,3 @@
+Mercurial库漏洞描述：
+    一项影响Mercurial的严重安全漏洞公布，它使攻击者可以在客户机上执行任意命令。
+    该漏洞只影响运行在OS X （HFS+）和Windows（NTFS、FAT）上的客户端。

@@ -1,0 +1,2 @@
+client access policy漏洞修复建议：
+    下载更新版本至Fortinet FortiClient 5.2.4.0650。

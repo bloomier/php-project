@@ -1,0 +1,81 @@
+<include file="./App/Common/View/header.html" />
+<div class="main fixed">
+    <div class="m-inner">
+        <!--<div class="panel panel-default">-->
+            <!--<div class="panel-heading">-->
+                <!--<h3 class="panel-title">用户管理</h3>-->
+            <!--</div>-->
+            <!--<div class="panel-body safe">-->
+                <!--<div class="safe-item">-->
+                    <!--<img src="__PUBLIC__/asset/image/safe1.png" alt=""/>-->
+                    <!--<div class="i-info">-->
+                        <!--<div class="i-info-tit">已创建用户</div>-->
+                        <!--<div class="i-info-num " id="region_total"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="widget">
+            <div class="widget-heading">
+                <div class="widget-title">用户列表</div>
+            </div>
+            <table class="u-grid" id="user_table">
+                <thead  style="text-align: center">
+                <tr>
+                    <th>用户名</th>
+                    <th>用户姓名</th>
+                    <th>角色</th>
+                    <th>角色</th>
+                    <th>邮箱</th>
+                    <th>手机号</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+<div class='role-dialog-content' style="display: none;">
+    <form class="form-horizontal" id="userForm" action="#" data-parsley-validate>
+        <input name="_id" type="hidden">
+        <div class="form-group">
+            <label  class="col-sm-3 control-label"><span style="color: red">*</span>用户名</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="username" required data-parsley-length="[5, 20]" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-3 control-label"><span style="color: red">*</span>用户姓名</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="name"   required data-parsley-length="[2, 20]">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-sm-3 control-label"><span style="color: red">*</span>角色(可多选)</label>
+            <div class="col-sm-9">
+                <select id="select_role" multiple="multiple" name="roles" style="width:100%" required>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-3 control-label">邮箱</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="email" email >
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-3 control-label"><span style="color: red">*</span>手机号</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="phone" required data-parsley-length="[11, 11]" >
+            </div>
+        </div>
+
+    </form>
+</div>
+<include file="./App/Common/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/script/Admin/user.js"></script>

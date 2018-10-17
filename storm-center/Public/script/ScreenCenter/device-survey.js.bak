@@ -1,0 +1,226 @@
+/**
+ * Created by jianghaifeng on 2015/11/13.
+ */
+(function(){
+    var _intervals={
+        filterAttackRefresh:30*1000,//拦截攻击次数
+        warningRefresh:10*1000,//告警的刷新时间
+        deviceRefresh:10*1000,//设备的刷新时间
+        warningToggleTime:300
+    };
+    var __ROOT__=$("#rootPath").val();
+    function App(){
+        this.init=function(){
+            var w=this;
+            this.view.call();
+            this.event.call();
+
+        };
+        this.view=function(){
+            __view__.clock.call(this);
+
+        };
+        this.event=function(){
+            __event__.filterCount.call(this);
+            //__event__.startWarner.call(this);
+            __event__.device.call(this);
+
+        }
+    }
+
+
+    function WarningChain(warnable){
+        this.execute=function(){
+            $(".m-content").addClass("border01").removeClass("border02");
+            $(".thumbnail",$(".protect-area")).removeClass("bg03");
+            this.boradWarning.call(this);
+            this.appWarning.call(this);
+            this.dataWarning.call(this);
+            this.manageWaning.call(this);
+        }
+        this.boradWarning=function(){
+            var w=this;
+            if((1&warnable.type)==1){
+                var subType=warnable.subType;
+                if(!subType){
+                    return;
+                }
+                var obj=$(".m-content",$(".protect-area"));
+                var cls={
+                    1:'dev01',
+                    2:'dev02',
+                    4:'dev04',
+                    8:'dev05',
+                    16:'dev06'
+                }
+                $.each(cls,function(k,v){
+                    if((k&subType)==k){
+                        var subObj=$("."+v,obj);
+                        w.subwarn(subObj);
+                    }
+                });
+
+
+            }
+        }
+        this.appWarning=function(){
+            if((2&warnable.type)==2){
+                var obj=$(".m-content",$(".apply-area"));
+                this.warn(obj);
+            }
+        }
+        this.dataWarning=function(){
+            if((4&warnable.type)==4){
+                var obj=$(".m-content",$(".data-area"));
+                this.warn(obj);
+            }
+        }
+        this.manageWaning=function(){
+            if((8&warnable.type)==8){
+                var obj=$(".m-content",$(".manage-area"));
+                this.warn(obj);
+            }
+        }
+        this.warn=function(obj){
+            var count=0;
+            var ins=setInterval(function(){
+                if(obj.hasClass("border02")){
+                    obj.addClass("border01").removeClass("border02");
+                }else{
+                    obj.addClass("border02").removeClass("border01");
+                }
+                count++;
+                if(count>=20){
+                    obj.addClass("border02").removeClass("border01");
+                    clearInterval(ins);
+                }
+            },_intervals.warningToggleTime);
+
+
+        }
+        this.subwarn=function(obj){
+            var count=0;
+            var ins=setInterval(function(){
+                if(obj.hasClass("bg03")){
+                    obj.removeClass("bg03");
+                }else{
+                    obj.addClass("bg03");
+                }
+                count++;
+                if(count>=20){
+                    obj.addClass("bg03");
+                    clearInterval(ins);
+                }
+            },_intervals.warningToggleTime);
+
+        }
+    }
+
+    var __view__={
+        clock:function(){
+            var w=this;
+            var  str ="2015-11-07 00:00:00";
+            var  startDate = new Date(str.replace(/-/g,   "/")).getTime()/1000;
+
+            var nowDate=new Date().getTime()/1000;    //结束时间
+
+            w.clock=$("#clock").clock();
+            //w.clock.load.call(w.clock,nowDate-startDate);
+        }
+
+    }
+    var __event__={
+
+        filterCount:function(){
+            //do ajax
+            var w=this;
+            var run=function() {
+                //下面替换成ajax获取数据
+
+
+                $.getJSON(__ROOT__ + '/ScreenCenter/DeviceSurvey/defend', null).success(function (json) {
+                    if (!w.currentFilterCount) {
+                        w.prevFilterCount = 0;
+                        w.currentFilterCount = json.size;
+                    } else {
+                        w.prevFilterCount = w.currentFilterCount;
+                        w.currentFilterCount = json.size;
+                        if (w.currentFilterCount < w.prevFilterCount) {
+                            w.currentFilterCount = w.prevFilterCount;
+                        }
+                    }
+
+                    __functions__.runFilterCount(w.prevFilterCount, w.currentFilterCount);
+                });
+            }
+
+            run();
+            setInterval(function(){
+                run();
+            },_intervals.filterAttackRefresh);
+
+
+        },
+        startWarner:function(){
+            var w=this;
+            var warnable={type:7};
+
+            var run=function(){
+                warnable.type=  Math.random()*17;
+                warnable.subType=7;
+                var warner=new WarningChain(warnable);
+                warner.execute();
+            }
+            run();
+            setInterval(function(){
+                run();
+            },_intervals.warningRefresh);
+
+        },
+        device: function(){
+            var w=this;
+            var run= function(){
+                var i=1;
+                //$('.device-info'+'-'+(i++)).html('');
+                $.getJSON(__ROOT__ + '/ScreenCenter/DeviceSurvey/device', null).success(function (json) {
+                    $.each(json.hostinfo,function(k,item){
+
+                       var el= " <div class='text06'>流量<span class='text07'>"+ (item.io/1024).toFixed(2)+"</span><i class='text08'>M/s</i></div>" +
+                           "<div class='text06'>cpu<span class='text07'>"+ item.cpu +"</span><i class='text08'>%</i></div> " +
+                           "<div class='text06'>内存<span class='text07'>"+ item.memery +"</span><i class='text08'>%</i></div> " +
+                           "<div class='text06'>硬盘<span class='text07'>"+ item.disk +"</span><i class='text08'>%</i></div>"
+                        $('.device-info'+'-'+(i++)).html(el)
+
+                    })
+
+                });
+            };
+            run();
+            setInterval(function(){
+                run();
+            },_intervals.deviceRefresh)
+
+        }
+
+
+    };
+    var __functions__={
+       runFilterCount:function(prev,current){
+           var obj=$(".filter-count");
+           startCount(obj,{
+               from:prev,
+               to:current,
+               speed:_intervals.filterAttackRefresh
+           });
+       }
+
+    };
+
+
+
+    $(document).ready(function(){
+        var app=new App();
+        app.init();
+    });
+
+})();

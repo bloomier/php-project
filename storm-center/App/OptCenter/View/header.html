@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>网站服务监测平台</title>
+    <meta charset="utf-8">
+    <!-- css -->
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/style-metro.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/select2_metro.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/css/ionicons.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/dialog/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/parsley/parsley.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+
+    <!--如果是IE,使用IE9 的内核来渲染-->
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <![endif]-->
+
+    <link rel="icon" href="__PUBLIC__/image/fav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="__PUBLIC__/image/fav.png" type="image/x-icon">
+
+
+</head>
+<body class="page-header-fixed page-sidebar-fixed page-footer-fixed">
+
+<!--- 可用插件定义  -->
+<assign name="echarts" value="echarts" />
+<assign name="datatable" value="datatable" />
+<assign name="gritter" value="gritter"/>
+
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/js/echarts/dist">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<div class="header navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">网站服务监测平台</a>
+            <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse"></a>
+            <ul class="nav navbar-nav navbar-right ">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff">
+                        <i class="fa fa-user fa-2x"></i>
+                        <span class="username">{$user.name}</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="__ROOT__/index.php/Login/viewModels.html">
+                                <i class="fa fa-th-large"></i>
+                                主菜单
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class='resetPassword'>
+                                <i class="fa fa-key"></i>
+                                修改密码
+                            </a>
+                        </li>
+                        <li>
+                            <a href="__ROOT__/index.php/Home/Login/logout">
+                                <i class="fa fa-sign-out"></i>
+                                退出系统
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+            </ul>
+        </div>
+    </div>
+    <!-- END TOP NAVIGATION BAR -->
+</div>
+<div class="page-container">
+    <div class="page-sidebar">
+        <ul id="navigator" class="page-sidebar-menu">
+            <li>
+                <div class="sidebar-toggler hidden-phone"><i class="fa fa-bars fa-2x"></i></div>
+            </li>
+            <foreach name="moudels" item="pMod">
+                <if condition="$pMod['m_type'] eq 7">
+                    <if condition="$pMod['children']">
+                        <li class="parent">
+                            <a href="javascript:void(0);"  pathInfo="{$pMod.page_action}">
+                                <i class="fa navIcons"></i>
+                                <span class="title">{$pMod.title}</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+                                <foreach name="pMod['children']" item="cMod" >
+                                    <li class='child'> <a  href="__ROOT__/index.php/{$cMod.page_action}" pathInfo="{$cMod.page_action}">{$cMod.title}</a> </li>
+
+                                </foreach>
+                            </ul>
+                        </li>
+                        <else/>
+                        <li class="parent">
+                            <a href="__ROOT__/index.php/{$pMod.page_action}"  pathInfo="{$pMod.page_action}">
+                                <i class="fa navIcons"></i>
+                                <span class="title">{$pMod.title}</span>
+                            </a>
+                        </li>
+                    </if>
+                </if>
+
+            </foreach>
+
+        </ul>
+    </div>
+    <include file="./App/Admin/View/reset-pwd.html" />
+
+    <input type="hidden" id="pathInfo" value="{$pathInfo}">
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            var navIcons={
+                "首页":"fa-home",
+                "系统维护":"fa-cogs",
+                "网站监测":"fa-group",
+                "事件管理":"fa-bell",
+                "统计查询":"fa-search"
+            };
+            $.each($(".navIcons",$("#navigator")),function(i,icon){
+                var span=$(icon).next("span");
+                if(span){
+                    var text= $.trim(span.text());
+                    if(text.indexOf("首页")!=-1){
+                        text="首页";
+                        span.text("首页");
+                    }
+                    if(navIcons[text]){
+                        $(icon).addClass(navIcons[text]);
+                    }
+
+
+                }
+            });
+            var pathInfo=$("#pathInfo").val();
+            var current=$("[pathInfo='"+pathInfo+"']");
+            var li=$(current).parent("li");
+            li.addClass("active");
+            $(current).append("<span class='selected'></span>");
+            if(li.hasClass("child")){
+                var parent=li.closest(".parent");
+                parent.addClass("active");
+                $("a",parent).append("<span class='selected'></span>");
+            }
+        });
+    </script>

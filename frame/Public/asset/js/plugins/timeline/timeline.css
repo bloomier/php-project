@@ -1,0 +1,120 @@
+/**
+ * @author Sean.xiang
+ *@date 2015/7/7
+ *@version
+ *@example
+ */
+ul li{list-style:none;}
+label[for]{cursor:pointer;}
+.timeline{
+    /*width: 700px;*/
+    margin:18px auto 0 auto;
+}
+.event_year {
+    text-align: center;
+    float: left;
+    margin-top: 10px;
+}
+
+.event_year li {
+    height: 40px;
+    line-height: 40px;
+    background: #676767;
+    margin-bottom: 1px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    padding: 0 10px
+}
+
+.event_year li.current {
+    background: #0066ff;
+    color: #FFF;
+    text-align: left;
+    position: relative;
+}
+.event_year li.current:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 10px;
+    height: 40px;;
+    background:  url('image/timeline.png') no-repeat;
+}
+
+.event_list {
+
+    float: left;
+    background: url('image/timeline-list.png') 143px 0 repeat-y;
+    margin: 10px 0 20px 0;
+}
+.event_list .list{
+    position: relative;
+}
+
+.event_list h3 {
+    margin: 0 0 20px 96px;
+    padding-left: 25px;
+    font-size: 24px;
+    font-family: Georgia;
+    color: #0066ff;
+    background: url('image/timeline.png') 0 -45px no-repeat;
+    height: 38px;
+    line-height: 30px;
+    font-style: italic;
+}
+
+.event_list li {
+    background: url('image/timeline.png') 40px -80px no-repeat; /*136px*/
+    margin-left: 60px;
+}
+
+.event_list li span.event_date ,.event_list li p span.event_main{
+    text-align: right;
+    display: block;
+    float: left;
+    margin-top: 10px;
+}
+.event_list li span.time{
+    margin-left: -50px;
+    width: 80px;
+}
+
+.event_list li p.event_content {
+    margin-left: 24px;
+    display: inline-block;
+    padding-left: 10px;
+    background:  url('image/timeline.png') -21px 0 no-repeat;
+    line-height: 25px;
+    _float: left;
+}
+
+.event_list li p.event_content span.event_main {
+    text-align: left;
+    border-bottom: 2px solid #DDD;
+    padding: 10px 15px;
+    background: #f0f0f0;
+    margin: 0;
+}
+.event_list li p span a{
+    font-size: 14px;
+}
+
+/*history*/
+.timeline i{
+    font-style: normal;
+}
+.timeline i.type{
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+}
+.timeline i.repair{
+    font-size:12px;
+    color: #35ff33;
+}
+.timeline i.unrepair{
+    font-size: 12px;
+    color: #e23e29;
+}

@@ -1,0 +1,917 @@
+<!--综合评级-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">综合评级</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+    <div class="widget-content cloudwaf-summary">
+        <div class="detail">
+            <h5>网站访问次数</h5>
+            <div class="total"><span class="c-blue visit_count">--</span>次</div>
+            <div class="total-desc">访问IP数<span class="c-blue visit_ip_count">--</span>个</div>
+        </div>
+        <div class="detail">
+            <h5>拦截攻击次数</h5>
+            <div class="total"><span class="c-red attack_count">--</span>次</div>
+            <div class="total-desc">攻击源区域<span class="c-blue attack_area_count">--</span>个</div>
+        </div>
+        <div class="detail">
+            <h5>网站总流量</h5>
+            <div class="total"><span class="c-blue flow_all">--</span></div>
+            <div class="total-desc">攻击流量<span class="c-blue flow_attack">--</span>M</div>
+        </div>
+
+        <div class="detail">
+            <h5>疑似攻击源</h5>
+            <div class="total"><span class="c-blue attck_src_count">--</span>个</div>
+            <div class="total-desc">IP黑名单：<span class="c-blue black_ip_count">--</span>个</div>
+        </div>
+    </div>
+</div>
+<!--访问/攻击时间分布-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">访问/攻击量时间分布</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">通过展现站点访问量、攻击量、进/出流量变化趋势，了解当天访客对站点的关注情况，发现当天黑客高频率攻击时段和判断是否遭受流量攻击</span>
+        </div>
+        <div id="attack_visit_line" class="echarts" style=" height: 300px; width: 960px; margin-bottom: 10px;"></div>
+        <div id="flow_line" class="echarts" style="height: 300px; width: 960px; margin-bottom: 10px;"></div>
+    </div>
+</div>
+<!-- 专家服务 -->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">攻击告警信息</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">当网站流量异常或受到CC攻击的时候,风暴中心将会自动发送告警。重要网站,会在进行人工确认后通知用户。</span>
+        </div>
+        <table class="u-grid attackWarn" style="width: 100%">
+            <thead>
+            <tr>
+                <th>告警时间</th>
+                <th>告警类型</th>
+                <!--<th>攻击站点</th>-->
+                <th>流量/攻击/步长</th>
+                <th>IPs</th>
+                <th>比例</th>
+                <th>URLs</th>
+            </tr>
+
+            </thead>
+            <tbody>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--攻击目标-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">攻击目标</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">展现当天遭受攻击的目标类型，为下一步安全保障提供数据支持</span>
+        </div>
+        <div class="clear echarts" id="attack_dest_leida" style="float: left;width: 400px; height: 320px;margin-left: -50px;">
+        </div>
+        <div style="float: right; width: 50%;" >
+            <table class="u-grid" id="attack_dest_table" >
+                <thead>
+                <tr>
+                    <th>攻击目标</th>
+                    <th>攻击量</th>
+                    <th>攻击量占比</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                </tr>
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </div>
+</div>
+<!--<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">攻击目标</h3>
+    </div>
+    <div class="panel-tip">
+        <span class="dots"></span>
+        <span class="panel-tip-info">主要攻击目标是服务器和数据</span>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-6">
+            <div class="clear echarts" id="attack_dest_leida" style="float: left;width: 400px; height: 320px;margin-left: -50px; margin-top: -60px;">
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div style="float: right; " class="grid-wraper">
+                <table class="grid" id="attack_dest_table" style="width: 100%;">
+                    <thead>
+                    <tr>
+                        <th>攻击目标</th>
+                        <th>攻击量</th>
+                        <th>攻击量占比</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>-->
+<!--攻击源区域分布-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">攻击源区域分布</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">展现当天网络攻击源的全球分布，了解主要全球攻击源区域，为下一步安全保障提供数据支撑</span>
+        </div>
+        <div class="clear echarts" id="world_attack_pie" style="float: left; width: 50%; height: 400px;">
+        </div>
+        <div style="float: right; width: 50%;">
+            <table class="u-grid" id="world_attack_table" >
+                <thead>
+                <tr>
+                    <th>区域</th>
+                    <th>攻击量</th>
+                    <th>攻击量占比</th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </div>
+</div>
+<!--攻击源境内分布-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">攻击源境内分布</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">展现当天网络攻击源的境内分布，了解主要境内攻击源，为下一步安全保障提供数据支撑</span>
+        </div>
+        <div class="clear echarts" id="china_attack_map" style="float: left; width: 400px; height: 460px;margin-left: -50px; margin-top: -60px;">
+        </div>
+        <div style="float: right;width: 50%;">
+            <table class="u-grid" id="china_attack_table">
+                <thead>
+                <tr>
+                    <th>区域</th>
+                    <th>攻击量</th>
+                    <th>攻击量占比</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+<!--攻击源IP Top 10-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">攻击源IP Top 10</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info"></span>
+        </div>
+        <div class="clear echarts" id="attack_topn_bar" style="float: left; width: 50%; height: 400px; margin-left: -50px;margin-top: -50px;"></div>
+        <div style="float: right;width: 50%;">
+            <table class="u-grid" id="attack_topn_table">
+                <thead>
+                <tr>
+                    <th>IP</th>
+                    <th>区域</th>
+                    <th>攻击量</th>
+                    <th>攻击量占比</th>
+                </tr>
+                </thead>
+                <tbody> </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<!--攻击轨迹分析-->
+<!--<div class="widget">-->
+<!--<div class="widget-heading">-->
+<!--<div class="widget-title">攻击轨迹分析</div>-->
+<!--<div class="widget-tool">-->
+<!--<a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="widget-content">-->
+<!--<div class="clear" id="attack_trail_sankey" style="float: left;width: 500px; height: 460px;">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="panel panel-default hide">
+    <div class="panel-heading">
+        <h3 class="panel-title">攻击轨迹分析</h3>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-12">
+            <div class="clear " id="attack_trail_sankey" style="float: left;width: 500px; height: 460px;margin-left: -50px; margin-top: -60px;">
+
+            </div>
+        </div>
+    </div>
+
+</div>-->
+<!--攻击类型分布-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">攻击类型分布</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">展现当天遭受的网络攻击类型，有助于分析与评估攻击风险所在，为下一步的安全保障提供数据支撑</span>
+        </div>
+        <div class="clear echarts" id="attack_type_pie" style="float: left;width: 500px; height: 460px;margin-left: -50px; margin-top: -60px;">
+        </div>
+        <div style="float: right;width: 50%;">
+            <table class="u-grid"  id="attack_type_table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>攻击类型</th>
+                    <th>攻击量</th>
+                    <th>攻击量占比</th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+<!--访问源区域分布-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">访问源区域分布</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="widget-tip-info">展现全球各区域带来访问数，了解访客的国家或地区地域分布，帮忙站长针对特定区域有效运营和推广</span>
+        </div>
+        <div class="clear echarts" id="world_visit_pie" style="float: left;width: 500px; height: 460px;margin-left: -50px; margin-top: -60px;">
+        </div>
+        <div style="float: right;width: 50%;">
+            <table class="u-grid"  id="world_visit_table" >
+                <thead>
+                <tr>
+                    <th>区域</th>
+                    <th>访问量</th>
+                    <th>访问量占比</th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<!--访问源境内分布-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">访问源境内分布</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">展现境内各区域带来访问数，了解访客的境内区域分布，帮忙站长针对特定区域有效运营和推广</span>
+        </div>
+        <div class="clear echarts" id="china_visit_map" style=" float: left; width: 500px; height: 400px; margin-left: -50px; margin-top: -30px;"></div>
+            <div style="float: right;width: 50%;">
+                <table class="u-grid" id="china_visit_table">
+                    <thead>
+                    <tr>
+                        <th>区域</th>
+                        <th>访问量</th>
+                        <th>访问量占比</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+
+    </div>
+</div>
+<!--访问源IP Top 10-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">访问源IP Top 10</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">展现访客访问量前十的IP，了解最关注站点的用户区域分布</span>
+        </div>
+        <div class="clear echarts" id="visitip_topn_bar" style="float: left; width: 50%; height: 400px; margin-left: -50px;margin-top: -50px;"></div>
+            <div style="float: right;width: 50%;">
+                <table class="u-grid" id="visitip_topn_table">
+                    <thead>
+                    <tr>
+                        <th>IP</th>
+                        <th>区域</th>
+                        <th>访问量</th>
+                        <th>访问量占比</th>
+                    </tr>
+                    </thead>
+                    <tbody> </tbody>
+                </table>
+
+            </div>
+    </div>
+</div>
+<!--访问页面排行-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">访问页面排行</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">展现访客对站点各页面的访问情况，重点从浏览量、独立访客、访问独立IP数等维度进行分析，发现最受欢迎的页面</span>
+        </div>
+        <table class="u-grid"  id="visitPageRank_table">
+            <thead>
+            <tr>
+                <th>栏目/URL</th>
+                <th>浏览数</th>
+                <th>独立访客</th>
+                <th>访问次数</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--访问来源分析-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">访问来源分析</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">展现站点流量的来源方式及点比，帮助站点有效运营和制作最佳推广方案</span>
+        </div>
+        <div class="clear echarts" id="visit_src_pie" style="float: left;width: 50%; height: 400px; margin-left: -50px;margin-top: -50px; "></div>
+        <div style="float: right; width: 50%;">
+            <table class="u-grid collapse-grid" id="visit_src_table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>类型</th>
+                        <th>访问次数</th>
+                        <th>访问占比</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                   <!-- <tr>
+                        <td>直接访问</td>
+                        <td>1</td>
+                        <td>1</td>
+
+                    </tr>
+                    <tr>
+                        <td>搜索引擎</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>外部链接</td>
+                        <td>3</td>
+                        <td>3</td>
+                    </tr>-->
+                    </tbody>
+                </table>
+
+                <!--<div id="collapseOne" class="collapse"  aria-labelledby="headingOne">
+                    <table class="grid">
+                        <thead>
+                        <tr>
+                            <th>类型</th>
+                            <th>访问次数</th>
+                            <th>访问占比</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>-->
+            </div>
+    </div>
+</div>
+<!--<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">访问来源分析</h3>
+    </div>
+    <div class="panel-tip">
+        <span class="dots"></span>
+        <span class="panel-tip-info">访问来源以直接访问和搜索引擎为主</span>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-6">
+            <div class="clear echarts" id="visit_src_pie" style="float: left;width: 500px; height: 460px;margin-left: -50px; margin-top: -60px;">
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div style="float: right; " class="grid-wraper">
+                <table class="grid collapse-grid" id="visit_src_table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>类型</th>
+                        <th>访问次数</th>
+                        <th>访问占比</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>直接访问</td>
+                        <td>1</td>
+                        <td>1</td>
+
+                    </tr>
+                    <tr>
+                        <td>搜索引擎</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>外部链接</td>
+                        <td>3</td>
+                        <td>3</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>-->
+<!--访问终端分析-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">访问终端分析</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">展现访客设备终端的配置情况，为站点设计、开发、优化提供数据参考，兼程各种终端设备，有效提高用户体验</span>
+        </div>
+        <div class="clear " style="float: left;width: 50%; height: 320px; ">
+            <div class="widget-sub-title">设备终端分布</div>
+            <div id="device_spread_pie" class="echarts" style="width: 425px;height: 300px;"></div>
+        </div>
+        <div style="float: left;width: 50%; height: 320px; ">
+            <div class="widget-sub-title">设备浏览器分布</div>
+            <div id="browser_spread_pie"  class="echarts" style="width: 425px;height: 300px;"></div>
+        </div>
+    </div>
+</div>
+<!--<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">访问终端分析</h3>
+    </div>
+    <div class="panel-tip">
+        <span class="dots"></span>
+        <span class="panel-tip-info">访问终端以PC端为主，但移动端也呈三分之一的比例。</span>
+    </div>
+    <div class="panel-body">
+        <div class="clear col-md-6" style="float: left;width: 500px; height: 320px;margin-left: -50px; margin-top: -60px;">
+            <div class="panel-sub-title">设备终端分布</div>
+            <div id="device_spread_pie" class="echarts" style="width: 500px;height: 300px;"></div>
+        </div>
+        <div class="col-md-6" style="float: left;width: 500px; height: 320px;margin-left: -50px; margin-top: -60px;">
+            <div class="panel-sub-title">设备浏览器分布</div>
+            <div id="browser_spread_pie"  class="echarts" style="width: 500px;height: 300px;"></div>
+        </div>
+
+    </div>
+</div>-->
+<!--死链分析-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">死链分析</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">死链就是服务器的地址已经改变了．无法找到当前地址位置。通过发现死链，更好的优化页面，提高站点响应速度，加强用户体验</span>
+        </div>
+        <table class="u-grid" id="brokenlink_table" >
+            <thead>
+            <tr>
+                <th>栏目/URL</th>
+                <th>refer</th>
+                <th>访问次数</th>
+                <th>访问占比</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--静态资源分析-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">静态资源分析</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">通过发现访问量最多的静态资源，对其进行压缩优化，提高站点响应速度，加强用户体验</span>
+        </div>
+        <div class="clear echarts" id="static_src_bar" style="float: left; width: 400px; height: 400px;margin-left: -50px;">
+        </div>
+            <div style="float: right; width: 50%;">
+                <table class="u-grid" id="static_src_table" >
+                    <thead>
+                    <tr>
+                        <th >文件类型</th>
+                        <th >url</th>
+                        <th >访问次数</th>
+                        <th >访问占比</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+    </div>
+</div>
+<!--<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">静态资源分析</h3>
+    </div>
+
+    <div class="panel-body">
+        <div class="col-md-6">
+            <div class="clear echarts" id="static_src_bar" style="float: left; width: 500px; height: 460px;margin-left: -50px; margin-top: -60px;">
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div style="float: right;" class="grid-wraper" >
+                <table   id="static_src_table" style="width: 100%;">
+
+                    <thead>
+                    <tr>
+                        <th >文件类型</th>
+                        <th >url</th>
+                        <th >访问次数</th>
+                        <th >访问占比</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>-->
+<!--响应码分布-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">响应码分布</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">通过发现异常的响应码分布和发现有问题的页面，有针对性的整改，有效提高用户体验</span>
+        </div>
+        <div class="clear echarts" id="http_code_pie" style="float: left; width: 400px; height: 320px;margin-left: -50px;">
+        </div>
+        <div style="float: right;width: 50%;">
+                <div class="widget-tip">
+                    <span class="dots"></span>
+                    <span class="panel-tip-info">5XX状态码分布</span>
+                </div>
+                <table class="u-grid"  id="http_code_table">
+                    <thead>
+                    <tr>
+                        <th>URL</th>
+                        <th>访问次数</th>
+                        <th>访问占比</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+    </div>
+</div>
+<!--<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"> 响应码分布 </h3>
+    </div>
+
+    <div class="panel-body">
+        <div class="col-md-6">
+            <div class="clear echarts" id="http_code_pie" style="float: left; width: 400px; height: 320px;margin-left: -50px; margin-top: -60px;">
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div style="float: right;" class="grid-wraper">
+                <div class="panel-tip">
+                    <span class="dots"></span>
+                    <span class="panel-tip-info">5XX状态码分布</span>
+                </div>
+                <table class="grid"  id="http_code_table" style="width: 100%;">
+                    <thead>
+                    <tr>
+                        <th>URL</th>
+                        <th>访问次数</th>
+                        <th>访问占比</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>-->
+<!--疑似WebShell-->
+<div class="widget">
+    <div class="widget-heading">
+        <div class="widget-title">疑似Webshell</div>
+        <div class="widget-tool">
+            <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <div class="widget-content">
+        <div class="widget-tip">
+            <span class="dots"></span>
+            <span class="panel-tip-info">webshell即网站后台，及时发现和清理网站后门，有效保障网站的安全和服务器的安全</span>
+        </div>
+        <table class="u-grid" id="webshell_table">
+            <thead>
+            <tr>
+                <th>栏目/URL</th>
+                <th>访问IP</th>
+                <th>最后访问时间</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">疑似Webshell</h3>
+    </div>
+    <div class="panel-body">
+        <div class="mt-10">
+            <table class="grid"  id="webshell_table" style="width: 100%;">
+                <thead>
+                <tr>
+                    <th>栏目/URL</th>
+                    <th>访问IP</th>
+                    <th>最后访问时间</th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>-->
+<!-- url,ip详情弹框 -->
+<div class="modal a-bouncein" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-warning" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel" style="text-align: center;font-weight: 200px">攻击IP和被攻击URl详情</h4>
+            </div>
+            <div class="modal-body">
+                <div class="IPDetail">
+                    <!--<table class="u-grid">-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<th>IP</th>-->
+                            <!--<th>IP归属</th>-->
+                            <!--<th>攻击量</th>-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                            <!--<tr>-->
+                                <!--<td>111.47.111.17</td>-->
+                                <!--<td>湖北省</td>-->
+                                <!--<td>1756次</td>-->
+                            <!--</tr>-->
+
+
+                        <!--</tbody>-->
+                    <!--</table>-->
+                </div>
+                <div class="URLDetail">
+                    <!--<table class="u-grid">-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<th>URL</th>-->
+                            <!--<th>访问IP</th>-->
+                            <!--<th>访问量</th>-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                        <!--<tr>-->
+                            <!--<td>/images/niu.png</td>-->
+                            <!--<td>广东省深圳市</td>-->
+                            <!--<td>1756次</td>-->
+                        <!--</tr>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+                </div>
+                <div class="scanTable">
+                    <!--<table class="u-grid">-->
+                    <!--<thead>-->
+                    <!--<tr>-->
+                    <!--<th>URL</th>-->
+                    <!--<th>访问IP</th>-->
+                    <!--<th>访问量</th>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                    <!--<tr>-->
+                    <!--<td>/images/niu.png</td>-->
+                    <!--<td>广东省深圳市</td>-->
+                    <!--<td>1756次</td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                    <!--</table>-->
+                </div>
+            </div>
+        </div>
+        <div class="modal-corner-lt"></div>
+        <div class="modal-corner-rt"></div>
+        <div class="modal-corner-lb"></div>
+        <div class="modal-corner-rb"></div>
+    </div>
+
+</div>
+

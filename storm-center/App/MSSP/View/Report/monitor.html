@@ -1,0 +1,245 @@
+<!--综合评测-->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">综合评测</h3>
+    </div>
+    <div class="panel-tip">
+        <!--<span class="dots"></span>-->
+        <!--<span class="panel-tip-info">当天网站整体可用性良好，全国36个监测节点中有超过2/3的节点可正常访问，全天出现网站故障3 次，-->
+        <!--共计时长123分钟，主要出现在新疆和台湾节点；网站首页访问效率为中等，用时123秒，有待进一步提高。-->
+        <!--</span>-->
+    </div>
+    <div class="panel-body summary">
+        <div class="detail">
+            <h5>当时故障时长</h5>
+            <div class="total"><span class="blue offline_time"></span>分钟</div>
+            <div class="total-desc">当日故障共计<span class="blue offline_count"></span>次</div>
+        </div>
+        <div class="detail">
+            <h5>网站可用率</h5>
+            <div class="total"><span class="blue access_rate"></span>%</div>
+            <div class="total-desc">可用时间/一天总时间<span class="blue"></span></div>
+        </div>
+        <div class="detail">
+            <h5>页面加载效率</h5>
+            <div class="total"><span class="blue home_load_desc"></span></div>
+            <div class="total-desc">页面加载共用时<span class="blue homepage_load_time"></span>毫秒</div>
+        </div>
+
+        <div class="detail">
+            <h5>首页当月更新</h5>
+            <div class="total"><span class="blue update_count"></span>次</div>
+            <div class="total-desc">最后更新日期：<span class="blue last_update_time"></span></div>
+        </div>
+    </div>
+</div>
+<!--可用性分析-->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">可用性分析</h3>
+    </div>
+    <div class="panel-tip">
+        <span class="dots"></span>
+                    <span class="panel-tip-info">
+                        网站可用性是指网站真正能够提供客户功能信息的实用性。可用性分析是指通过部署在全国各省的监测节点对站点的响应状态和访问速率的测试，如无响应或响应时间较长，则该区域站点可用性差
+
+                    </span>
+    </div>
+    <div class="panel-body">
+        <div id="date_deal_map"  style="height: 500px;">
+        </div>
+        <div id="date_deal_bar"  style="height: 500px;">
+        </div>
+    </div>
+</div>
+<!--故障信息-->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">故障信息</h3>
+    </div>
+    <div class="alert alert-info alert-dismissible mt-20" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <i class="fa fa-info-circle"></i>&nbsp;说明：
+
+        服务质量下降：50%或以上的监测节点无法访问；服务质量提升：70%或以上的监测节点恢复正常
+        </strong>
+    </div>
+    <div class="panel-tip">
+        <!--<span class="dots"></span>-->
+        <!--<span class="panel-tip-info">-->
+        <!--当天网站整体可用性良好，全国36个监测节点中有超过2/3的节点可正常访问，全天出现网站故障3 次，-->
+        <!--共计时长123分钟，主要出现在新疆和台湾节点；网站首页访问效率为中等，用时123秒，有待进一步提高。-->
+        <!--</span>-->
+    </div>
+    <div class="panel-body">
+        <div class="fault-chart">
+            <button class="mod-btn view-gantt-all" _type="0">显示全部</button>
+            <div id="gantt"  style="height: 600px;min-width: 300px">
+            </div>
+        </div>
+        <table class="grid offline-record-table">
+            <thead>
+            <tr>
+                <th>故障类型</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th>持续时长</th>
+                <th>故障统计</th>
+                <th>故障节点分布</th>
+            </tr>
+
+            </thead>
+            <tbody>
+
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <td>合计</td>
+                <td colspan="5">
+                    <span class="summary-desc"></span><br/>
+                    <!--<span>【无法访问】1次，共计21秒</span><br/>-->
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+
+    </div>
+</div>
+
+<!--域名解析和CDN命中分析-->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">域名解析和CDN命中分析</h3>
+    </div>
+    <!--<div class="alert alert-danger alert-dismissible mt-20" role="alert">-->
+    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+    <!--<i class="fa fa-info-circle"></i>  告警：解析IP为118.16.32.114（美国），疑为<strong>域名劫持</strong>-->
+    <!--</div>-->
+    <div class="panel-tip">
+        <span class="dots"></span>
+        <span class="panel-tip-info">全国CDN节点共计<span id="cdn-count">6</span> 个，其中<span  id="cdn-max">北京</span>CDN覆盖范围最广。</span>
+    </div>
+    <div class="panel-body">
+        <div class="domain-chart clear " id="cdn_map" style="float: left; width: 520px;height: 454px;">
+
+        </div>
+        <div class="domain-table" style="float: right;">
+            <table class="grid cnd-table"  >
+                <thead>
+                <tr>
+                    <th>CDN节点所在地</th>
+                    <th>CDN节点IP</th>
+                    <th>CDN节点覆盖范围</th>
+                </tr>
+
+                </thead>
+                <tbody style="height: 200px;overflow-y: auto;">
+
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+
+<!--首页时长加载分析-->
+<div class="panel panel-default" >
+    <div class="panel-heading">
+        <h3 class="panel-title">首页时长加载分析</h3>
+    </div>
+    <div class="alert alert-danger alert-dismissible mt-20" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <i class="fa fa-info-circle"></i>
+
+        首页是网站主要的入口页面，首页加载时长是影响站点可用性的重点指标，首页文件的大小、个数、响应时长都有可能影响首页的加载效率。
+
+    </div>
+
+    <!--<div class="panel-tip">-->
+    <!--<span class="dots"></span>-->
+    <!--<span class="panel-tip-info">首页文件共计<span class="resource-count"></span> 个，大小合计<span class="resource-pageLen"></span>Mb，其中<span class="resource-max-pageLen-type"></span>文件占比最多，合计大小<span class="resource-max-pageLen"></span>Mb 首页加载时长为<span class="resource-homepage-loadtime"></span>秒，其中DNS解析和建立服首页文件共计32 个，-->
+    <!--大小合计23Mb，其中图片文件占比最多，合计大小16Mb 首页加载时长为123秒，其中DNS解析和建立服</span>-->
+    <!--</div>-->
+    <div class="panel-body">
+        <div class="domain-chart" style="float: left; width: 470px;">
+            <div class="panel-sub-title">加载时长分布</div>
+            <div id="resource_pie" style="height: 200px;"></div>
+        </div>
+        <div class="domain-chart" style="float: right; width:470px;">
+            <div class="panel-sub-title">加载文件分析</div>
+
+            <div id="resource_leida" style="height: 200px;"></div>
+        </div>
+        <table class="grid resource-table" >
+            <thead>
+            <tr>
+                <th>类型</th>
+                <th>文件</th>
+                <th>字节</th>
+                <th>状态</th>
+                <th>耗时(ms)</th>
+            </tr>
+
+            </thead>
+            <tbody>
+
+
+
+            </tbody>
+        </table>
+
+
+
+    </div>
+</div>
+
+<!--网站更新频率分析-->
+<div class="panel panel-default" >
+    <div class="panel-heading">
+        <h3 class="panel-title">网站更新频率分析</h3>
+    </div>
+    <div class="panel-tip">
+        <span class="dots"></span>
+        <span class="panel-tip-info">网站近期没有更新，最后更新日期为 --</span>
+    </div>
+    <div class="panel-body">
+        <div class="chart clear" style="width: 940px;">
+            <div id="update_line" style="height: 300px;"></div>
+        </div>
+    </div>
+</div>
+
+<!--风暴中心专家服务-->
+<div class="panel panel-default" >
+    <div class="panel-heading">
+        <h3 class="panel-title">风暴中心专家服务</h3>
+    </div>
+    <div class="panel-tip">
+        <span class="dots"></span>
+        <span class="panel-tip-info">当网站故障或者恢复5分钟以上的时候,风暴中心将会自动发送告警。重要网站,会在进行人工确认后通知用户。</span>
+    </div>
+    <div class="panel-body">
+        <table class="grid warning_table" >
+            <thead>
+            <tr>
+                <th>告警时间</th>
+                <th>告警类型</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th>持续时长</th>
+                <!--<th>处理人员</th>-->
+                <!--<th>处理描述</th>-->
+            </tr>
+
+            </thead>
+            <tbody style="height: 200px;overflow-y: auto;">
+
+
+            </tbody>
+        </table>
+
+    </div>
+</div>

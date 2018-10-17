@@ -1,0 +1,2 @@
+apache solrexposed漏洞修复建议：
+    添加访问验证

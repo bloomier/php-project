@@ -1,0 +1,21 @@
+1、安装方法：
+	将ZenTaoPMS.7.3.stable.zip文件解压后的文件家zentaopms，拷贝到容器中，然后访问 
+	http://localhost:port/zentaopms/www/index.php
+	一步一步按照提示安装即可
+
+	
+
+2、本地登录用户名和密码
+	用户名：ancyshi
+	密码：123456
+	
+	
+3、简洁登录地址配置
+	在容器中新建 index.php 文件，然后直接访问http://localhost:port 即可
+	如果index.php文件已存在 则新建任意名称的PHP文件，如：xxx.php 
+	然后直接访问http://localhost:port/xxx.php 即可
+	PHP文件内容如下：
+	<?php
+		die(header('location: zentaopms/www/index.php'));
+
+	?>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>世界互联网大会安全运营监测</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/Home/page/device-survey.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/animation.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/csshake-master/dist/csshake.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+</head>
+<body class="device-survey bg">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="cloudKey" type="hidden" value="{$key}">
+<include file="./App/ScreenCenter/View/common/navigation.html" />
+    <div class="header">
+        <div class="logo">
+            <h1 data-toggle="modal" data-target="#myModal1"  style="cursor: pointer">世界互联网大会安全运营监测</h1>
+        </div>
+        <div class="time" id="clock">
+            正常运行<span class="_day">0</span>天<span class="_hour">00</span>时<span class="_min">00</span>分<span class="_sec">00</span>秒
+        </div>
+    </div>
+    <div class="d-s-container clear">
+        <div class="main">
+            <div class="m-body">
+                <div class="visit-area">
+                    <div class="v-body"></div>
+                    <div class="title text01">外部访问区</div>
+                </div>
+                <div class="protect-area">
+                    <div class="title text01">边界防护区</div>
+                    <div class="m-content border01 wraper-defense">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_0 bg02">
+                                    <!--<img src="__PUBLIC__/image/screen/firewall.png" alt="防火墙"/>-->
+                                    <!--<div class="text02">网络DDOS</div>-->
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_1  bg02">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <div class="thumbnail dev_2 bg02">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" style="margin-top: 50px;">
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_3 bg02">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_4 bg02">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_5">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="apply-area ">
+                    <div class="title text01">应用区</div>
+                    <div class="m-content border01 wraper-application">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="thumbnail bg02" style="text-align: center">
+                                    <div class="col-md-12">
+                                        <div class="col-md-4">
+                                            <div class="thumbnail dev_0">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="thumbnail dev_1">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="thumbnail dev_2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text02">应用服务器群</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-md-4 ">
+                                <div class="thumbnail dev_3 bg02">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_4">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_5">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="manage-area">
+                    <div class="title text01">运维管理区</div>
+                    <div class="m-content border01  wraper-operation">
+                        <div class="row">
+                            <div class="col-md-4 ">
+                                <div class="thumbnail dev_0 bg02">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <div class="thumbnail dev_1 bg02">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_2 bg02">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 50px;">
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_3 bg02">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_4 ">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_5">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-area">
+                    <div class="title text01">数据区</div>
+                    <div class="m-content border01 wraper-datacenter">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="thumbnail bg02" style="text-align: center">
+                                    <div class="col-md-12">
+                                        <div class="col-md-4">
+                                            <div class="thumbnail dev_0">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="thumbnail dev_1">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="thumbnail dev_2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text02">数据库服务器群</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-md-4 ">
+                                <div class="thumbnail dev_3">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_4">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail dev_5">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="signal1 ani-h sign-h-success" style="position: absolute;"></div>
+                <div class="signal2 ani-h sign-h-success" style="position: absolute;"></div>
+                <div class="signal3 ani-v sign-v-success" style="position: absolute;"></div>
+
+                <div class="scan-apply scan">
+                    <div class="scan-line animate"></div>
+                </div>
+                <div class="scan-data scan">
+                    <div class="scan-line animate"></div>
+                </div>
+                <div class="visit-country">
+                    <!--<img class="ani-img" src="__PUBLIC__/image/attack-src/美国.png" alt=""/>
+                    <img class="a-fadeinL" src="__PUBLIC__/image/attack-src/美国.png" alt=""/>
+                    <img class="a-fadeinL" src="__PUBLIC__/image/attack-src/法国.png" alt=""/>
+                    <img class="a-fadeinL" src="__PUBLIC__/image/attack-src/法国.png" alt=""/>-->
+                </div>
+            </div>
+            <div class="process bg01">
+                <div class="p-body">
+                    <div class="p-content f-alarm">
+                        <div class="p-c-name">
+                            <div class="text03">0</div>
+                            <div class="text04">告警</div>
+                        </div>
+                        <div class="p-c-info">
+                            <div class="text05" style="margin-top: 20px">安全告警：<span>0</span>个</div>
+
+                        </div>
+                    </div>
+                    <div class="p-link"></div>
+                    <div class="p-content">
+                        <div class="p-c-name">
+                            <div class="text03">0</div>
+                            <div class="text04">审核</div>
+                        </div>
+                        <div class="p-c-info">
+                            <div class="text05" style="margin-top: 2px">已审核：<span>0</span>个</div>
+                            <div class="text05">未审核：<span>0</span>个</div>
+                            <div class="text05">误&nbsp;报：<span>0</span>个</div>
+
+                        </div>
+                    </div>
+                    <div class="p-link"></div>
+                    <div class="p-content f-handle">
+                        <div class="p-c-name">
+                            <div class="text03">0</div>
+                            <div class="text04">处理</div>
+                        </div>
+                        <div class="p-c-info">
+                            <div class="text05" style="margin-top: 12px">应&nbsp;急：0个</div>
+                            <div class="text05">预&nbsp;案：0个</div>
+
+                        </div>
+                    </div>
+                    <div class="p-link"></div>
+                    <div class="p-content f-complete">
+                        <div class="p-c-name">
+                            <div class="text03">0</div>
+                            <div class="text04">完成</div>
+                        </div>
+                        <div class="p-c-info">
+                            <div class="text05" style="margin-top: 20px">处理完成：0个</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="side">
+            <div class="real-time bg01">
+                <div class="c-heading">
+                    <h3 class="panel-title">实时监测</h3>
+                </div>
+                <div class="c-body ">
+                    <div class="row no-margin" style="border-bottom: 1px dashed #154b66;">
+                        <div class="col-lg-6 no-padding" style="border-right: 1px dashed #154b66; margin-left:-1px;">
+                            <div class="r-device device-info-0">
+                                <div class="r-device-chart">
+                                    <div class="r-chart">
+                                        <div class="r-chart-gauge"></div>
+                                        <div class="r-chart-pointer"></div>
+                                    </div>
+                                    <div class="r-device-name">--</div>
+                                </div>
+                                <div class="r-device-info">
+                                    <div class='text06' style="margin-left: -20px;">流量<span class='text07 info-flow'>--</span></div>
+                                    <div class='text06'>cpu<span class='text07 info-cpu'>--</span><i class='text08'>%</i></div>
+                                    <div class='text06'>内存<span class='text07 info-memory'>--</span><i class='text08'>%</i></div>
+                                    <div class='text06'>硬盘<span class='text07 info-disk'>--</span><i class='text08'>%</i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 no-padding">
+                            <div class="r-device device-info-1">
+                                <div class="r-device-chart">
+                                    <div class="r-chart">
+                                        <div class="r-chart-gauge"></div>
+                                        <div class="r-chart-pointer"></div>
+                                    </div>
+                                    <div class="r-device-name">--</div>
+                                </div>
+                                <div class="r-device-info ">
+                                    <div class='text06' style="margin-left: -20px;">流量<span class='text07 info-flow'>--</span></div>
+                                    <div class='text06'>cpu<span class='text07 info-cpu'>--</span><i class='text08'>%</i></div>
+                                    <div class='text06'>内存<span class='text07 info-memory'>--</span><i class='text08'>%</i></div>
+                                    <div class='text06'>硬盘<span class='text07 info-disk'>--</span><i class='text08'>%</i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-margin">
+                        <div class="col-md-6 no-padding" style="border-right: 1px dashed #154b66; margin-left:-1px;">
+                            <div class="r-device device-info-2">
+                                <div class="r-device-chart">
+                                    <div class="r-chart">
+                                        <div class="r-chart-gauge"></div>
+                                        <div class="r-chart-pointer"></div>
+                                    </div>
+                                    <div class="r-device-name">--</div>
+                                </div>
+                                <div class="r-device-info ">
+                                    <div class='text06' style="margin-left: -20px;">流量<span class='text07 info-flow'>--</span></div>
+                                    <div class='text06'>cpu<span class='text07 info-cpu'>--</span><i class='text08'>%</i></div>
+                                    <div class='text06'>内存<span class='text07 info-memory'>--</span><i class='text08'>%</i></div>
+                                    <div class='text06'>硬盘<span class='text07 info-disk'>--</span><i class='text08'>%</i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 no-padding">
+                            <div class="r-device device-info-3">
+                                <div class="r-device-chart">
+                                    <div class="r-chart">
+                                        <div class="r-chart-gauge"></div>
+                                        <div class="r-chart-pointer"></div>
+                                    </div>
+                                    <div class="r-device-name">--</div>
+                                </div>
+                                <div class="r-device-info ">
+                                    <div class='text06' style="margin-left: -20px;">流量<span class='text07 info-flow'>--</span></div>
+                                    <div class='text06'>cpu<span class='text07 info-cpu'>--</span><i class='text08'>%</i></div>
+                                    <div class='text06'>内存<span class='text07 info-memory'>--</span><i class='text08'>%</i></div>
+                                    <div class='text06'>硬盘<span class='text07 info-disk'>--</span><i class='text08'>%</i></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="defend bg01 clear">
+                <div class="c-heading">
+                    <h3 class="panel-title">当日拦截次数</h3>
+                </div>
+                <div class="c-body">
+                    <div class="stop-time filter-count">999,999</div>
+                </div>
+            </div>
+            <div class="device-alert bg01">
+                <div class="c-heading">
+                    <h3 class="panel-title">设备告警</h3>
+                </div>
+                <div class="c-body">
+                    <!--<div class="normal"><i class="fa fa-check"></i>正常运行</div>-->
+                    <div class="grid" id="info-grid" >
+                        <!--<table class="table">-->
+                            <!--<thead>-->
+                            <!--<th>时间</th>-->
+                            <!--<th>源IP</th>-->
+                            <!--<th>区域</th>-->
+                            <!--<th>攻击URL</th>-->
+                            <!--<th>攻击方式</th>-->
+                            <!--<th>风险等级</th>-->
+                            <!--</thead>-->
+
+                        <!--</table>-->
+                        <!--<div class="box-border" style="margin: 4px 0 6px;"></div>-->
+                        <div class="gridRoll">
+                            <div class="gridList" id="info" >
+                                <table class="table" >
+                                    <tbody class="waf-items">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--告警详情-->
+                    <div class="alert-modal a-bouncein">
+                        <div class="alert-modal-body">
+
+                            <!--<p>-->
+                                <!--<span class="alert-txt"></span>-->
+                                <!--<span class="alert-data"></span>-->
+                                <!--<span class="alert-txt"></span>-->
+                                <!--<span class="alert-data"></span>-->
+                                <!--<span class="alert-txt"></span>-->
+                                <!--<span class="alert-data"></span>-->
+                            <!--</p>-->
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</div>
+
+<!--modal-->
+<div class="modal a-bounceinT" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog border03" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body scrollbar">
+                <div class="m-info"></div>
+
+                <!--<p><178>Mar 24 13:27:28 localhost DBAppWAF: 发生时间/2016-03-24 13:27:24,威胁/高,事件/漏洞防护,请求方法/GET,URL地址/media.2016g20.org/cgi-bin/publish//iportal?u=http://media.2016g20.org:80/zhutimoban/business/businessview177.html&page=1&meetkind=1,POST数据/,服务器IP/122.224.104.162,主机名/media.2016g20.org,服务器端口/443,客户端IP/115.236.71.44,客户端端口/10524,客户端环境/Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36,标签/漏洞防护,动作/告警,HTTP/S响应码/200,攻击特征串/http://,触发规则/18010016,访问唯一编号/VvN6vH8AAAEAASdrafkAAAAK,国家/中国,省/浙江,市/杭州↵</p>-->
+                <!--<p><190>Mar 16 17:51:28 2508303150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n3150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n3150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n3150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n3150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n3150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n3150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n</p>
+                <p><190>Mar 16 17:51:28 2508303150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n</p>
+                <p><190>Mar 16 17:51:28 2508303150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n</p>
+                <p><190>Mar 16 17:51:28 2508303150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n</p>
+                <p><190>Mar 16 17:51:28 2508303150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n</p>
+                <p><190>Mar 16 17:51:28 2508303150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n</p>
+                <p><190>Mar 16 17:51:28 2508303150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n</p>
+                <p><190>Mar 16 17:51:28 2508303150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n</p>
+                <p><190>Mar 16 17:51:28 2508303150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n</p>
+                <p><190>Mar 16 17:51:28 2508303150007539(root) 44243622 Traffic@FLOW: SESSION: 123.124.237.139:4488->10.10.20.4:80(TCP), interface ethernet0/7, vr trust-vr, policy 8, user -@-, host -, session start\n</p>
+-->
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/script/main.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/d3/d3.v3.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/clock/clock.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/scrool/scrollNum.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/scrollbar/jquery.mCustomScrollbar.concat.min.js" ></script>
+    <script type="text/javascript" src="__PUBLIC__/script/ScreenCenter/cloud-monitor-config.js"  charset="utf-8"></script>
+    <script type="text/javascript" src="__PUBLIC__/script/ScreenCenter/device-group-config.js"  charset="utf-8"></script>
+    <script type="text/javascript" src="__PUBLIC__/script/ScreenCenter/location-reflect.js"  charset="utf-8"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/typetype/jquery.typetype.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/script/ScreenCenter/device-survey.js"  charset="utf-8"></script>
+
+</body>
+</html>

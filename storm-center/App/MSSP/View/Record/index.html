@@ -1,0 +1,234 @@
+<include file="./App/MSSP/View/header.html" />
+<div class="main">
+    <div class="m-inner">
+        <!--查询条件-->
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h3 class="panel-title">查询条件</h3>
+            </div>
+
+            <div class="panel-body">
+                <form action="" class="form mt-20">
+                    <div class="form-line">
+                        <label for="">告警时间</label>
+                        <div class="form-search btn-right">
+                            <input class="form-search-input Wdate" type="text" placeholder=""/>
+                            <!--<button class="form-search-submit"><i class="fa fa-calendar"></i></button>-->
+                        </div>
+                        <span>至</span>
+                        <div class="form-search btn-right">
+                            <input class="form-search-input Wdate" type="text" placeholder=""/>
+                            <!--<button class="form-search-submit"><i class="fa fa-calendar"></i></button>-->
+                        </div>
+                    </div>
+                    <div class="form-line">
+                        <label for="">告警类型</label>
+                        <div class="check-box">
+                            <div> <input type="checkbox"/></div>
+                            <span>服务质量</span>
+                        </div>
+                        <div class="check-box">
+                            <div> <input type="checkbox"/></div>
+                            <span>站点漏洞</span>
+                        </div>
+                        <div class="check-box">
+                            <div> <input type="checkbox"/></div>
+                            <span>网络攻击</span>
+                        </div>
+                    </div>
+                    <div class="form-line">
+                        <label for="">告警事件</label>
+                        <input type="text" style="width: 470px;"/>
+                    </div>
+
+
+                    <div class="form-line">
+                        <label for="">告警站点</label>
+                        <div class="select">
+                            <select name="" id="" style="width: 470px;">
+                                <option value="">请选择</option>
+                            </select>
+                            <button class="select-btn"><i class="fa fa-caret-down"></i></button>
+                        </div>
+                    </div>
+                    <div class="form-submit">
+                        <a href="" class="mod-btn query">查询</a>
+                        <a href="" class="mod-btn reset"> 重置</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <!--告警统计-->
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h3 class="panel-title">告警统计</h3>
+            </div>
+            <div class="panel-body">
+                <div class="chart" style="float: left;width: 428px;">
+                    <div class="panel-sub-title">告警站点分布</div>
+                    <div id="alter-web-pie"></div>
+                    <!--<img src="__PUBLIC__/image/MSSPSelf/chart8.png" alt=""  width=""/>-->
+                </div>
+                <div class="chart" style="float: right;width: 428px;">
+                    <div class="panel-sub-title">告警类型分布</div>
+                    <div id="alter-type-pie"></div>
+                    <!--<img src="__PUBLIC__/image/MSSPSelf/chart9.png" alt=""  width=""/>-->
+                </div>
+
+            </div>
+        </div>
+        <!--告警明细-->
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h3 class="panel-title">告警明细</h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert-detail">
+                    <div class="panel-sub-title">百度一下，你就知道 http：//www.baidu.com（21个告警）</div>
+                    <table class="grid">
+                        <thead>
+                        <tr>
+                            <th>告警时间</th>
+                            <th>事件类型</th>
+                            <th>开始时间</th>
+                            <th>结束时间</th>
+                            <th>持续时长</th>
+                            <th>事件描述</th>
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>2015-09-01 12:00</td>
+                            <td>服务质量</td>
+                            <td>2015-09-01 12:00</td>
+                            <td>2015-09-01 12:00</td>
+                            <td>2分36秒</td>
+                            <td>
+                                故障：服务质量下降<br>
+                                全国可访问节点 22/36，其中恢复故障节点如下：<br>
+                                【山西】状态码：200，响应时长：12355<br>
+                                【广东】状态码：503<br>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>2015-09-01 12:00</td>
+                            <td>服务质量</td>
+                            <td>2015-09-01 12:00</td>
+                            <td>2015-09-01 12:00</td>
+                            <td>2分36秒</td>
+                            <td>
+                                故障：服务质量下降<br>
+                                全国可访问节点 22/36，其中恢复故障节点如下：<br>
+                                【山西】状态码：200，响应时长：12355<br>
+                                【广东】状态码：503<br>
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="grid-page">
+                        <div class="page">
+                            <div class="page-per">
+                                <span>每页</span>
+                                <select name="" >
+                                    <option value="">10</option>
+                                    <option value="">20</option>
+                                    <option value="">50</option>
+                                </select>
+                                <i class="sel"></i>
+                                <span>条</span>
+                            </div>
+                            <div class="page-total">
+                                <input type="text"/>
+                                <span>/<span>2</span>页 共<span>19</span>条</span>
+                            </div>
+                            <ul class="page-num">
+                                <li><a class="first" href=""></a></li>
+                                <li><a class="prev" href=""></a></li>
+                                <li><a class="next" href=""></a></li>
+                                <li><a class="last" href=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert-detail">
+                    <div class="panel-sub-title">百度一下，你就知道 http：//www.baidu.com（21个告警）</div>
+                    <table class="grid">
+                        <thead>
+                        <tr>
+                            <th>告警时间</th>
+                            <th>事件类型</th>
+                            <th>开始时间</th>
+                            <th>结束时间</th>
+                            <th>持续时长</th>
+                            <th>事件描述</th>
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>2015-09-01 12:00</td>
+                            <td>服务质量</td>
+                            <td>2015-09-01 12:00</td>
+                            <td>2015-09-01 12:00</td>
+                            <td>2分36秒</td>
+                            <td>
+                                故障：服务质量下降<br>
+                                全国可访问节点 22/36，其中恢复故障节点如下：<br>
+                                【山西】状态码：200，响应时长：12355<br>
+                                【广东】状态码：503<br>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>2015-09-01 12:00</td>
+                            <td>服务质量</td>
+                            <td>2015-09-01 12:00</td>
+                            <td>2015-09-01 12:00</td>
+                            <td>2分36秒</td>
+                            <td>
+                                故障：服务质量下降<br>
+                                全国可访问节点 22/36，其中恢复故障节点如下：<br>
+                                【山西】状态码：200，响应时长：12355<br>
+                                【广东】状态码：503<br>
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="grid-page">
+                        <div class="page">
+                            <div class="page-per">
+                                <span>每页</span>
+                                <select name="" >
+                                    <option value="">10</option>
+                                    <option value="">20</option>
+                                    <option value="">50</option>
+                                </select>
+                                <i class="sel"></i>
+                                <span>条</span>
+                            </div>
+                            <div class="page-total">
+                                <input type="text"/>
+                                <span>/<span>2</span>页 共<span>19</span>条</span>
+                            </div>
+                            <ul class="page-num">
+                                <li><a class="first" href=""></a></li>
+                                <li><a class="prev" href=""></a></li>
+                                <li><a class="next" href=""></a></li>
+                                <li><a class="last" href=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="./App/MSSP/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/script/MSSP/Site/index.js"></script>

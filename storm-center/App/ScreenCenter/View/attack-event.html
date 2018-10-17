@@ -1,0 +1,131 @@
+<include file="./App/ScreenCenter/View/common/header.html" />
+
+<style>
+    body{
+        background-color: #000!important;
+    }
+    .panel-header{
+        background-image: url("__PUBLIC__/image/attack-src/title.png");
+        background-repeat: repeat;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: "微软雅黑";
+        color: #fff;
+        text-align: center;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        -moz-border-radius: 0.2em;
+        -webkit-border-radius: 0.2em;
+        border-radius: 0.2em;
+
+
+    }
+    .panel-content{
+        min-height: 20px;
+        background-image: url("__PUBLIC__/image/attack-src/content.png");
+        ackground-repeat: repeat;
+        font-family: "宋体";
+        font-size: 12px;
+        color: #fff;
+    }
+    .line{
+        background-image: url("__PUBLIC__/image/attack-src/line.png");
+        ackground-repeat: repeat-x;
+        height: 2px;
+    }
+
+    .item-change{
+        background-color: rgb(24,35,57);
+        color: #ff9e77;
+    }
+        /* .row{
+             margin-right: -15px;
+             margin-left: -15px;
+         }*/
+    .panel-opacity{
+        background-color: rgba(89,94,76,0.3) !important;
+        -moz-border-radius: 1em;
+        -webkit-border-radius: 1em;
+        border-radius: 1em;
+        color: #fff;
+
+    }
+
+
+</style>
+
+
+<div class="title-wraper">
+    <h1>节点受攻击情况监控</h1>
+</div>
+
+
+<div id="asiaMap" class="continents "></div>
+<div id="africaMap" class="continents "></div>
+<div id="europeMap" class="continents "></div>
+<div id="northAmericaMap" class="continents "></div>
+<div id="southAmericaMap" class="continents "></div>
+<div id="oceaniaMap" class="continents "></div>
+
+
+<div class='row' style="position: absolute;top:10%;width: 100%;padding: 20px;">
+    <div class='col-md-2'>
+        <div class="panel-wraper">
+            <div class='panel-header'>攻击来源</div>
+            <div class='panel-content' id="originWraper">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-2  col-md-offset-8">
+        <div class="panel-wraper "  >
+            <div class='panel-header'>攻击目标</div>
+            <div class='panel-content' id='targetWraper'>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div id="map" ></div>
+
+
+<div class="row bottom-row" style="position: absolute;width: 100%;top:70%;padding: 20px;">
+    <div class="col-md-8" style="top:30px;">
+        <div class="panel-wraper "  >
+            <div class='panel-header '>攻击过程</div>
+            <div class='panel-content' id='processWraper'>
+                <div class="row" style="color: #fff;font-size: 12px;font-weight: bold;font-family: '宋体';padding: 5px;">
+                    <div class="col-md-1">时间</div>
+                    <div class="col-md-2">攻击源</div>
+                    <div class="col-md-2">IP</div>
+                    <div class="col-md-3">攻击目标</div>
+                    <div class="col-md-4">攻击事件</div>
+                </div>
+                <div class="line"></div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-2 col-md-offset-2">
+        <div class="panel-wraper">
+            <div class='panel-header'>攻击类型</div>
+            <div class='panel-content' id="typeWraper">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<assign name='plugins' value='echarts'/>
+<include file="./App/ScreenCenter/View/common/autorun.html" />
+
+<include file="./App/ScreenCenter/View/common/footer.html" />
+
+<script type="text/javascript" src="__PUBLIC__/script/ScreenCenter/attack-event.js"></script>

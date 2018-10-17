@@ -1,0 +1,4 @@
+elasticsearch远程代码执行：
+这个漏洞实际上非常简单，ElasticSearch有脚本执行(scripting)的功能，可以很方便地对查询出来的数据再加工处理。
+ElasticSearch用的脚本引擎是MVEL，这个引擎没有做任何的防护，或者沙盒包装，所以直接可以执行任意代码。
+而在ElasticSearch里，默认配置是打开动态脚本功能的，因此用户可以直接通过http请求，执行任意代码

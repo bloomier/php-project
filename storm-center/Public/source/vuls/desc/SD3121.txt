@@ -1,0 +1,4 @@
+apache unfilteredexpectheader 注入漏洞：
+    Apache HTTP Server mod_rewrite向日志文件写入数据时，没有过滤不能打印的字符。
+    如果 mod_rewrite 使用了指令RewriteLog，远程攻击者可利用此漏洞向日志文件写入终
+    端转义序列。如果HTTP请求包含终端模拟器的转义序列，此漏洞也可造成任意命令执行。

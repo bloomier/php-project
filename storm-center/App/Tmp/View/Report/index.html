@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/style-metro.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/metronic-bootstrap/css/select2_metro.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/css/Home/page/domain-report.css" rel="stylesheet" type="text/css" />
+    <style>
+        body{ background-color: #eee!important;}
+        .navbar-inverse .navbar-brand { color: #fff;font-size: 20px; }
+    </style>
+
+    <link href="__PUBLIC__/css/ionicons.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/dialog/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/parsley/parsley.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+
+    <!--如果是IE,使用IE9 的内核来渲染-->
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <![endif]-->
+
+    <link rel="icon" href="__PUBLIC__/image/fav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="__PUBLIC__/image/fav.png" type="image/x-icon">
+
+</head>
+<body class="report" data-spy="scroll" data-target=".navbar" data-offset="100">
+<!--- 可用插件定义  -->
+
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/js/echarts/dist">
+<input id="rootPath" type="hidden" value="www.websaas.cn/index.php">
+<input type="hidden" value="{$value}" id="monitorValue" name="monitorValue"/>
+<input type="hidden" value="{$time}" id="current_time_id" />
+<input type="hidden" value="{$domain}" id="current_domain"/>
+
+<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".select2-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">网站服务评估报告</a>
+        </div>
+
+        <nav class="collapse navbar-collapse select2-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#webInfo-nav">网站信息</a></li>
+                <li><a href="#rank-nav">综合评估</a></li>
+                <li><a href="#service-nav">可用性分析</a></li>
+                <li><a href="#fault-nav">故障分析</a></li>
+                <li><a href="#avail-nav">周期访问</a></li>
+                <li><a href="#domain-nav">域名解析</a></li>
+                <li><a href="#index-nav">首页性能分析</a></li>
+                <li><a href="#update-nav">更新频率</a></li>
+            </ul>
+
+        </nav>
+    </div>
+</header>
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-12">
+                <select class="m-wrap small pull-right avail-date-select">
+                </select>
+            </div>
+        </div>
+        <!--网站信息-->
+        <div class="row pd-t-50" id="webInfo-nav">
+            <div class="col-md-12">
+                <div class="portlet" >
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>网站信息</div>
+                        <div class="tools">
+                            <a class="tool" href="#webInfo" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body collapse in" id="webInfo">
+                        <div class="row common-info">
+                            <div class="col-md-6">
+                                <table style="margin: 0 auto;">
+                                    <tbody>
+                                    <tr>
+                                        <td class="ft-dd">网站标题</td>
+                                        <td class="ft-s"><span class="infoValue" param-key="title" ></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ft-dd">IP地址</td>
+                                        <td class="ft-s"><span class="infoValue" param-key="ip" ></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ft-dd">ISP</td>
+                                        <td class="ft-s"><span class="infoValue " param-key='ip_service' ></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ft-dd">注册邮箱</td>
+                                        <td class="ft-s"><span class="infoValue " param-key='Registration+Email' ></span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table style="margin: 0 auto;">
+                                    <tbody>
+                                    <tr>
+                                        <td class="ft-dd">网站域名</td>
+
+                                        <td class="ft-s"><span class="infoValue " param-key='_id' ></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ft-dd">地理位置</td>
+
+                                        <td class="ft-s"><span class="infoValue " param-key='ip_location' ></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ft-dd">域有效日期</td><!-- 2017-01-01 （距离域名过期还有324天) -->
+                                        <td class="ft-s"><span class="infoValue " param-key='vailTime'></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ft-dd">注册人员</td>
+                                        <td class="ft-s"><span class="infoValue " param-key='Registration+Name'></span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--综合评级-->
+        <div class="row pd-t-50" id="rank-nav">
+            <div class="col-md-12">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>综合评级</div>
+                        <div class="tools">
+                            <a class="tool" href="#rank" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body collapse in" id="rank">
+                        <div class="row padding-row summary">
+                            <div class="col-md-3 no-padding">
+                                <div class="thumbnail">
+                                    <h3>当日故障时长</h3>
+                                    <strong class="green infoValue" param-key="day_error_time"></strong><span>分钟</span>
+                                    <p >当月故障时长 <span class='infoValue' param-key='month_error_time'></span> 分钟</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 no-padding">
+                                <div class="thumbnail">
+                                    <h3>首页加载效率</h3>
+                                    <strong class="orange infoValue" param-key="home_load_desc"></strong>
+                                    <p >首页共加载用时 <span class="infoValue" param-key="home_load_time"></span> ms</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 no-padding">
+                                <div class="thumbnail">
+                                    <h3>可访问省份</h3>
+                                    <strong class="orange infoValue" param-key="access_num"></strong>
+                                    <p>最长连接时间 <span class="infoValue" param-key='max_connect_time'></span> ms</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 no-padding">
+                                <div class="thumbnail no-border">
+                                    <h3>首页当月更新</h3>
+                                    <strong class="orange infoValue" param-key="month_update_times"></strong>
+                                    <p >最后更新日期：<span class="infoValue" param-key='last_update_time'></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--网站可用性分析-->
+        <div class="row pd-t-50" id="service-nav">
+                <div class="col-md-12">
+                    <div class="portlet">
+                        <div class="portlet-title">
+                            <div class="caption"><i class="icon-comments"></i>网站可用性分析</div>
+                            <div class="tools">
+                                <a class="pull-right tool" href="#service" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body collapse in" id="service">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div role="tabpanel" id="myTab1">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#mapView" role="tab" data-toggle="tab">当日分析</a></li>
+                                            <li role="presentation"><a href="#compareView" role="tab" data-toggle="tab">趋势分析</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane fade in active" id="mapView">
+                                                <div class="row">
+                                                    <div class="col-md-8 mt-20">
+                                                        <div id="mapChart">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 mt-20">
+                                                        <table class="table table-bordered nodeStatus-nav-datatable" >
+                                                            <thead class="bg-lightgrey">
+                                                            <tr>
+                                                                <th>节点名称</th>
+                                                                <th>连接状态</th>
+                                                                <th>连接时长(ms)</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody class="nodeStatus-nav-datatablebody">
+                                                            <!--
+                                                            <tr>
+                                                                <td>浙江节点</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>湖北节点</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade active" id="compareView">
+                                                <div class="row">
+                                                    <div class="col-md-12 mt-20">
+                                                        <div id="node"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--故障/延时分析-->
+        <div class="row pd-t-50" id="fault-nav">
+            <div class="col-md-12">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>故障/延时分析</div>
+                        <div class="tools">
+                            <a class="pull-right tool" href="#avail" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body collapse in" id="avail">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div role="tabpanel" id="myTab2">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab">故障分布</a></li>
+                                        <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab">故障趋势</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="tab1">
+                                            <div class="row">
+                                                <div class="col-md-3 mt-20">
+                                                    <div id="faultPie"></div>
+                                                </div>
+                                                <div class="col-md-9 mt-20">
+                                                   <div id="faultBar"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade active" id="tab2">
+                                            <div class="row mt-20">
+                                                <div class="col-md-12">
+                                                    <select class="m-wrap small pull-right fault-nav-node-select">
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div id="faultLine"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--周期性访问延时分析-->
+        <div class="row pd-t-50" id="avail-nav">
+            <div class="col-md-12">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>周期性访问延时分析</div>
+                        <div class="tools">
+                            <a class="pull-right tool" href="#weekAvail" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body collapse in" id="weekAvail">
+                        <div class="row mt-20">
+                            <!--<div class="col-md-10">-->
+                                <!--<a class="btn"><i class="fa fa-remove"></i> 2015-07-29</a>-->
+                                <!--<a class="btn"><i class="fa fa-remove"></i> 2015-07-29</a>-->
+                                <!--<a class="btn"><i class="fa fa-remove"></i> 2015-07-29</a>-->
+                                <!--<a class="btn"><i class="fa fa-remove"></i> 2015-07-29</a>-->
+                                <!--<a class="btn"><i class="fa fa-remove"></i> 2015-07-29</a>-->
+
+                                <!--<div class="date-add" style="display: inline-block;">-->
+                                    <!--<a class="btn" style="z-index: -10;"><i class="fa fa-plus"></i></a>-->
+                                    <!--<input type="hidden" class="Wdate" style="display: inline-block;width: 39px; height: 34px; margin-left: -42px; z-index: 1000;"/>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <div class="col-md-offset-10 col-md-2">
+                                <select class="m-wrap small pull-right avail-nav-site-select">
+                                    <!--<option value="0">选择节点</option>-->
+                                    <!--<option value="1">北京节点</option>-->
+                                    <!--<option value="1">南京节点</option>-->
+                                    <!--<option value="1">杭州节点</option>-->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-20">
+                            <div class="col-md-12">
+                                <div role="tabpanel" id="myTab3">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#tabView" role="tab" data-toggle="tab">图表视角</a></li>
+                                        <li role="presentation"><a href="#tabChart" role="tab" data-toggle="tab">数据视角</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="tabView">
+                                            <div class="row">
+                                                <div class="col-md-12 mt-20">
+                                                    <div id="chartLine"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane active" id="tabChart">
+                                            <div class="row">
+                                                <div class="col-md-12 mt-20">
+                                                    <table class="table table-bordered" >
+                                                        <thead class="bg-lightgrey">
+                                                        <tr>
+                                                            <th>日期</th>
+                                                            <th>0</th>
+                                                            <th>1</th>
+                                                            <th>2</th>
+                                                            <th>3</th>
+                                                            <th>4</th>
+                                                            <th>5</th>
+                                                            <th>6</th>
+                                                            <th>7</th>
+                                                            <th>8</th>
+                                                            <th>9</th>
+                                                            <th>10</th>
+                                                            <th>11</th>
+                                                            <th>12</th>
+                                                            <th>13</th>
+                                                            <th>14</th>
+                                                            <th>15</th>
+                                                            <th>16</th>
+                                                            <th>17</th>
+                                                            <th>18</th>
+                                                            <th>19</th>
+                                                            <th>20</th>
+                                                            <th>21</th>
+                                                            <th>22</th>
+                                                            <th>23</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody class="avail-nav-datatable">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--域名解析与CDN命中率分析-->
+        <div class="row pd-t-50" id="domain-nav">
+            <div class="col-md-12">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>域名解析与CDN命中率分析</div>
+                        <div class="tools">
+                            <a class="pull-right tool" href="#domainF" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body collapse in" id="domainF">
+                        <div class="row">
+                            <div class="col-md-8 mt-20">
+                                <div id="dnsMap">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mt-20">
+                                <table class="table table-bordered datatable dataTable domain-nav-datatable-all" >
+                                    <thead class="bg-lightgrey">
+                                        <tr>
+                                            <th>节点名称</th>
+                                            <th>解析IP</th>
+                                            <th>解析IP所在地</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="domain-nav-datatable">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--首页加载时长分析-->
+        <div class="row pd-t-50" id="index-nav">
+            <div class="col-md-12">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>首页加载时长分析</div>
+                        <div class="tools">
+                            <a class="pull-right tool" href="#indexLoad" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body collapse in" id="indexLoad">
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <strong>说明：</strong> 共计<span class="index-nav-request-count"></span>个请求、<span class="index-nav-request-length"></span>KB、耗时 <span class="index-nav-request-count-time"></span>ms
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="loadTime"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="loadFile"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mt-20">
+                                <table class="table table-bordered datatable dataTable index-nav-datatable-all" >
+                                    <thead class="bg-lightgrey">
+                                    <tr>
+                                        <th>类型</th>
+                                        <th>文件</th>
+                                        <th>字节(kb)</th>
+                                        <th>状态</th>
+                                        <th>耗时(ms)</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="index-nav-datatable">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--网站更新频率分析-->
+        <div class="row pd-t-50" id="update-nav" >
+            <div class="col-md-12">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>网站更新频率分析</div>
+                        <div class="tools">
+                            <a class="pull-right tool" href="#webUpdate" data-toggle="collapse"><i class="fa fa-angle-down fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body collapse in" id="webUpdate">
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <strong>说明：</strong> 该网站最后更新日期为 <strong class="update-nav-lastmodify-data"></strong>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane active" id="week">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="weekChart"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="footer">
+    <p>© 2007-2016 XXXX技术有限公司 保留所有版权</p>
+</div>
+<div class="go-top">
+    <a class="btn icn-only" href="javascript:;"><i class="fa fa-send fa-2x"></i></a>
+    <a class="btn icn-only" href="javascript:;"><i class="fa fa-download domina-report-export fa-2x"></i></a>
+    <a class="btn icn-only scroll" href="javascript:;"><i class="fa fa-angle-double-up fa-2x"></i></a>
+</div>
+<div class="tip">
+    <a class="btn" href="javascript:;">发送<br>报告</a>
+    <a class="btn" href="javascript:;">导出<br>报告</a>
+    <a class="btn scroll" href="javascript:;">回到<br>顶部</a>
+</div>
+
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery/jquery.md5.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/parsley/parsley.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/admin.main.js"></script>
+
+<link href="__PUBLIC__/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+<script  type="text/javascript" src="__PUBLIC__/js/dataTables/jquery.dataTables.js"></script>
+<script  type="text/javascript" src="__PUBLIC__/js/dataTables/dataTables.bootstrap.js"></script>
+
+
+<link href="__PUBLIC__/js/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css" />
+<script  type="text/javascript" src="__PUBLIC__/js/gritter/js/jquery.gritter.min.js"></script>
+
+
+
+<script  type="text/javascript" src="__PUBLIC__/js/dialog/bootstrap-dialog.min.js"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--如果是IE 的版本小于IE9 ,只有引入html5shiv 和respond之后 bootstrap才能生效-->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/html5shiv.min.js"></script>
+<script type="text/javascript"  src="__PUBLIC__/js/bootstrap/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/js/echarts/dist/echarts.js"></script>
+
+<script src="__PUBLIC__/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script type="text/javascript" src="__PUBLIC__/js/metronic-bootstrap/js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/metronic-bootstrap/js/select2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/metronic-bootstrap/js/message.js"></script>
+
+
+<script type="text/javascript" src="__PUBLIC__/script/Service/report.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/metronic-bootstrap/js/app.js"></script>
+</body>
+</html>

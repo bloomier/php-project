@@ -1,0 +1,2 @@
+用友 country 和 language字段任意文件下载漏洞描述：
+    用友人力资源管理任意文件下载，country 和 language字段都存在任意文件下载

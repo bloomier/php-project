@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <include file="./App/Common/View/header.html" />
+    <style>
+        .widget{
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+
+    <div class="row">
+
+
+        <div class="col-sm-4">
+
+            <div class="widget navy-bg p-lg text-center" id="clearCaches">
+                <div class="m-b-md">
+                    <i class="fa fa-unlink fa-4x"></i>
+                    <h1 class="m-xs"></h1>
+                    <h3 class="font-bold no-margins">
+                        清理缓存
+                    </h3>
+                    <small>清理所有服务器端缓存</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+
+            <div class="widget lazur-bg p-lg text-center" id="initial">
+                <div class="m-b-md">
+                    <i class="fa fa-shield fa-4x"></i>
+                    <h1 class="m-xs"></h1>
+                    <h3 class="font-bold no-margins">
+                        初始化
+                    </h3>
+                    <small>重新初始化权限和规则</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+
+            <div class="widget yellow-bg p-lg text-center">
+                <div class="m-b-md">
+                    <i class="fa fa-line-chart fa-4x"></i>
+                    <h1 class="m-xs"></h1>
+                    <h3 class="font-bold no-margins">
+                        数据统计
+                    </h3>
+                    <small>异步统计每个域内需要预统计的数据</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+
+            <div class="widget red-bg p-lg text-center">
+                <div class="m-b-md">
+                    <i class="fa fa-area-chart fa-4x"></i>
+                    <h1 class="m-xs"></h1>
+                    <h3 class="font-bold no-margins">
+                        数据同步
+                    </h3>
+                    <small>立刻从数据中心同步数据</small>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+<div class="modal inmodal in" id="validate" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content animated fadeIn">
+            <div class="modal-header">
+
+                <h4 class="modal-title">该页面需要提交管理认证</h4>
+            </div>
+            <small>
+                <div class="modal-body">
+                    <form method="get" class="form-horizontal policy-form">
+                        <input type="hidden" name="_id">
+                        <div class="form-group formmargin">
+                            <label class="col-sm-2 control-label">认证密码</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="password" id="password"  >
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed hrmargin"></div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-submit">提交</button>
+                </div>
+            </small>
+        </div>
+        <small></small>
+    </div>
+    <small></small>
+</div>
+
+
+
+
+<include file="./App/Common/View/footer.html" />
+<script src="__PUBLIC__/asset/js/jquery/jquery.md5.js" ></script>
+
+<script type="text/javascript" >
+    $(document).ready(function(){
+        var pass=true;
+//        $("#validate").modal("show");
+
+        $(".btn-submit").bind("click",function(){
+            var pwd=$("#password").val();
+            $.post(__WEBROOT__+"/Admin/Console/validate",{password: $.md5(pwd)}).success(function(json){
+                if(json.code<=0){
+                    swal({   title: "认证失败", type: "error",   confirmButtonText: "确定" });
+                }else{
+                    pass=true;
+                    $("#validate").modal("hide");
+                }
+            });
+        });
+
+        $("#clearCaches").bind("click",function(){
+            if(pass){
+                $.post(__WEBROOT__+"/Admin/Console/clearCaches").success(function(json){
+                    swal({   title: "清除成功", type: "success",   confirmButtonText: "确定" });
+
+                });
+            }
+
+        }) ;
+        $("#initial").bind("click",function(){
+            if(pass){
+                $.post(__WEBROOT__+"/Admin/Init/init").success(function(json){
+                    swal({   title: "初始化成功", type: "success",   confirmButtonText: "确定" });
+
+                });
+            }
+
+        });
+    });
+
+</script>
+
+</body>
+</html>

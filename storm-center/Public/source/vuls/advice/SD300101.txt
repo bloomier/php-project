@@ -1,0 +1,10 @@
+nginx php pathinfo rce修复方案：
+    1、设置php.ini的：
+    cgi.fix_pathinfo为0
+    重启php。最方便，但修改设置的影响需要自己评估。
+    2、给nginx的vhost配置添加如下内容，重启nginx。vhost较少的情况下也很方便。
+    if ( $fastcgi_script_name ~ ..*/.*php ) {
+    return 403;
+    }
+    3、禁止上传目录解释PHP程序。不需要动webserver，如果vhost和服务器较多，短期内难度急剧上升；
+    建议在vhost和服务器较少的情况下采用。

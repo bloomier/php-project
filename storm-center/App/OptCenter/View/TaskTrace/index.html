@@ -1,0 +1,110 @@
+<include file="./App/OptCenter/View/header.html" />
+<input type="hidden" id="userList" value="{$userList}">
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Service/index/">首页</a> </li>
+                    <li>网站监测</li>
+                    <li><a href="javascript:;">任务跟踪</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>任务跟踪</div>
+                    </div>
+                    <div class="portlet-body light-grey">
+                        <div class="row margin-bottom-15">
+                            <div class="col-md-12">
+                                <div class="inline">
+                                    <a  class="btn blue btn-task-create" href="__ROOT__/index.php/OptCenter/TaskCreate/index"><i class="fa fa-plus"></i>
+                                        创建任务
+                                    </a>
+                                    <!--<a  class="btn blue btn-task-change-priority" href="javascript:void(0);"><i class="fa fa-exchange"></i>-->
+                                        <!--调整优先级-->
+                                    <!--</a>-->
+                                </div>
+                                <form action="#" class="form-search pull-right">
+                                    <select class="task-node" id="task-node">
+                                        <volist name="nodes" id="vo" key="k" >
+                                            <option value="{$vo.id}">{$vo.name}</option>
+                                        </volist>
+                                    </select>
+                                    <select class="policy-level" id="task-state">
+                                        <option value="0">所有类型</option>
+                                        <option value="1">正在等待</option>
+                                        <option value="2">正在扫描</option>
+                                        <option value="3">扫描结束</option>
+                                        <option value="-2">终止任务</option>
+                                    </select>
+                                    <div class="input-group" style="display: inline-table;vertical-align: top;">
+                                        <input class="m-wrap medium" type="text" placeholder="任务名称" >
+                                        <button class="btn green btn-search" type="button">查询</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table id="task_list_table" class="table table-striped table-bordered table-hover table-condensed datatable">
+                                    <thead class="bg-lightgrey">
+                                    <tr role="row">
+                                        <th><input type="checkbox" > </th>
+                                        <td>任务名称</td>
+                                        <td>创建人</td>
+                                        <td>切片大小</td>
+                                        <td>扫描网站数目</td>
+                                        <td>任务创建时间</td>
+                                        <td>扫描开始时间</td>
+                                        <td>扫描用时</td>
+                                        <td>扫描状态</td>
+                                        <td>完成进度</td>
+                                        <td>操<span style="margin-left: 20px;"></span>作</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">调整优先级</h4>
+            </div>
+            <div class="modal-body">
+                <div style="height:400px;overflow-y: auto; overflow-x:hidden;" class="exchange-level">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default exchange-level-unsent">取消</button>
+                <button type="button" class="btn btn-default exchange-level-sent">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alert alert-success" role="alert" style="display: none" id="exchange-priority-one">
+    <div class="row">
+        <div class="col-sm-6 title">测试</div>
+        <div class="col-sm-2"><a href="javascript:void(0);" class="priority-up"><span class="fa fa fa-arrow-circle-o-up fa-lg " title="优先级升高"></span></a></div>
+        <div class="col-sm-2"><a href="javascript:void(0);" class="priority-down"><span class="fa fa fa-arrow-circle-o-down fa-lg " title="优先级下降"></span></a></div>
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/script/OptCenter/tasktraceindex.js"></script>
+
+<include file="./App/OptCenter/View/footer.html" />

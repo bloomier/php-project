@@ -1,0 +1,140 @@
+<include file="./App/Common/View/header.html" />
+<link href="__PUBLIC__/asset/css/page/wafsite.css" rel="stylesheet" type="text/css" />
+<style>
+    .labal_div{
+        margin-top: 7px;
+    }
+</style>
+
+<input type="hidden" value="{$contract_id}" id="current_contract_id">
+<input type="hidden" id="addActionId" value="{$addAction}">
+<input type="hidden" id="isSystemRoleId" value="{$isSystemRole}">
+
+<div class="main fixed">
+    <div class="m-inner">
+
+        <div class="widget">
+            <div class="widget-heading">
+                <div class="widget-title">合同详情</div>
+            </div>
+        </div>
+
+        <div class="widget">
+            <div class="widget-sub-heading">
+                <div class="widget-sub-title">合同信息</div>
+                <div class="widget-tool">
+                    <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+                </div>
+            </div>
+            <div class="widget-content">
+                <form  action="#" class="form-horizontal ">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">合同编号</label>
+                        <div class="col-sm-3 labal_div">
+                            <span class="no"></span>
+                        </div>
+                        <label class="col-sm-2 control-label">生效日期</label>
+                        <div class="col-sm-3 labal_div">
+                            <span class="begin_date"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">合同名称</label>
+                        <div class="col-sm-3 labal_div">
+                            <span class="name"></span>
+                        </div>
+                        <label class="col-sm-2 control-label">失效日期</label>
+                        <div class="col-sm-3 labal_div">
+                            <span class="end_date"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">销售人员</label>
+                        <div class="col-sm-3 labal_div">
+                            <span class="seller_name"></span>
+                        </div>
+                        <label class="col-sm-2 control-label">创建日期</label>
+                        <div class="col-sm-3 labal_div">
+                            <span class="create_time"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">项目经理</label>
+                        <div class="col-sm-3 labal_div">
+                            <span class="project_manager_name"></span>
+                        </div>
+                        <label class="col-sm-2 control-label">创建人员</label>
+                        <div class="col-sm-3 labal_div">
+                            <span class="create_user_name"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="widget">
+            <div class="widget-sub-heading">
+                <div class="widget-sub-title">客户信息</div>
+                <div class="widget-tool">
+                    <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+                </div>
+            </div>
+            <div class="widget-content">
+                <form  action="#" class="form-horizontal ">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">客户名称</label>
+                        <div class="col-sm-3 labal_div">
+                            <span class="client_name"></span>
+                        </div>
+                        <label class="col-sm-2 control-label">客户电话</label>
+                        <div class="col-sm-3 labal_div">
+                            <span class="client_phone_num"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">客户邮箱</label>
+                        <div class="col-sm-3 labal_div">
+                            <span class="client_email"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="widget">
+            <div class="widget-sub-heading">
+                <div class="widget-sub-title">站点列表</div>
+                <div class="widget-tool">
+                    <a href="javascript:;" class="collapse-link"><i class="fa fa-angle-double-up"></i></a>
+                </div>
+            </div>
+            <div class="widget-content">
+                <table class="u-grid" id="contract_site_table" width="100%">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox" id="checkAll_id"/></th>
+                        <th>站点名称</th>
+                        <th>源站信息</th>
+                        <th>服务质量</th>
+                        <th>漏洞等级</th>
+                        <th>访问次数</th>
+                        <th>攻击次数</th>
+                        <th>当日流量</th>
+                        <th>关停站点</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<include file="./App/Common/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/script/Base/contract_detail.js"  charset="utf-8"></script>

@@ -1,0 +1,2 @@
+nsioncubeloaderwizard配置文件漏洞修复建议：
+    安装厂家补丁或更新版本

@@ -1,0 +1,2 @@
+IIS Global_asa文件漏洞修复建议：
+	注意自己网站下的global.asa文件是否被改写或添加或禁止IIS读取 Global.asa 文件。

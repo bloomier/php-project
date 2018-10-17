@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="__PUBLIC__/js/swiper/css/swiper.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/js/fancybox/jquery.fancybox.css"/>
+    <link href="__PUBLIC__/css/animation.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/Home/page/gov-affairs.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/ScreenCenter/monitor-nodes.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/dialog/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <script src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/js/echarts/dist">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+<include file="./App/ScreenCenter/View/common/navigation.html" />
+<header class="header"  >
+    <h1 data-toggle="modal" data-target="#myModal">监测节点实时监控 </h1>
+    <div class="total pull-right">
+        <a class="node" id="header-node">故障节点 <strong><span class="error_num"></span>/<span class="all_num"></span></strong></a>
+        <!--
+        <a class="site" id="header-site">&nbsp;阻塞点<strong><span>226</span>/<span>1517</span></strong></a>
+        -->
+        <a class="survey" id="header-desc">&nbsp;正在监测 <span class="web orange "></span>&nbsp;<span class="web-status  blue" ></span></a>
+    </div>
+</header>
+<div class="container-fluid content clear">
+    <div class="row">
+        <div class="col-md-8">
+        <div class="box mb-10">
+            <div class="box-heading">
+                <div class="box-title pull-left">
+                    <div class="title">节点实时监测</div>
+                    <div class="sub-title">
+                        总节点<span class="all_num"></span>
+                        故障节点<span class="error_num"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div id="map" ></div>
+                    </div>
+                    <div class="col-md-4">
+
+                            <div class="fault-tracing scrollbar node-monitor-height">
+                                <div class="j-node-monitor">
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <div class="box-heading">
+                <div class="box-title pull-left">
+                    <div class="title">节点的物理状态</div>
+                    <div class="sub-title">
+                        <span>0/29</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper clear j-node-status">
+
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+        <div class="col-md-4">
+        <div class="box mb-10">
+            <div class="box-heading">
+                <div class="box-title pull-left">
+                    <div class="title">周期性任务</div>
+                    <div class="sub-title">
+                        <span class="cyc_Num">X/XX</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box-content week-height">
+                <div class="grid">
+                    <table class="table">
+                        <thead>
+                        <th>心跳时间</th>
+                        <th>监测节点</th>
+                        <th>任务类型</th>
+                        <th>任务状态</th>
+                        </thead>
+                    </table>
+                    <div class="box-border" style="margin: 4px 0 6px;"></div>
+                    <div class="gridRoll">
+                        <div class="gridList scrollbar j-week-task">
+                            <table class="table">
+                                <tbody >
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-heading">
+                <div class="box-title pull-left">
+                    <div class="title">一次性任务</div>
+                    <div class="sub-title">
+                        <span class="single_Num">X/XX</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="grid">
+                    <table class="table">
+                        <thead>
+                        <th>检测时间</th>
+                        <th>监测节点</th>
+                        <th>任务类型</th>
+                        <th>任务状态</th>
+                        </thead>
+                    </table>
+                    <div class="box-border" style="margin: 4px 0 6px;"></div>
+                    <div class="gridRoll">
+                        <div class="gridList scrollbar j-one-task">
+                            <table class="table">
+                                <tbody >
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class='detail-dialog-content' style="display: none;">
+    <!--
+    <div class="modal-dialog">
+        <div class="modal-content">
+        -->
+            <!--
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">浙江节点</h4>
+            </div>
+            -->
+            <div class="modal-body">
+                <div class="modal-panel">
+                    <div class="modal-panel-heading">
+                        <h3 class="modal-panel-title">
+                            工作状态
+                        </h3>
+                    </div>
+                    <div class="modal-panel-body">
+                        <div class="b-info">
+                            <div class="chart">
+                                <div class="chart-gauge"></div>
+                                <div class="chart-gauge-pointer red-pointer" id="work_status_id"></div>
+                            </div>
+                            <div class="name current-node-status">节点正常</div>
+
+                        </div>
+                        <div class="b-detail">
+                            <div class="d-item cycItem-content">
+                                <h5>周期性任务</h5>
+                                <div>服务质量监测<span>正常</span><span>11：12：03</span><span>一分钟前</span></div>
+                                <div>服务质量监测<span>正常</span><span>11：12：03</span><span>一分钟前</span></div>
+                            </div>
+                            <div class="d-item singleItem-content">
+                                <h5>一次性性任务</h5>
+                                <div>服务质量监测<span>正常</span><span>11：12：03</span><span>一分钟前</span></div>
+                                <div>服务质量监测<span>正常</span><span>11：12：03</span><span>一分钟前</span></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-panel">
+                    <div class="modal-panel-heading">
+                        <h3 class="modal-panel-title">
+                            物理状态
+                        </h3>
+                    </div>
+                    <div class="modal-panel-body">
+                        <div class="b-info">
+                            <div class="chart">
+                                <div class="chart-gauge"></div>
+                                <div class="chart-gauge-pointer green-pointer"></div>
+                            </div>
+                            <div class="name">正常</div>
+
+                        </div>
+                        <div class="b-detail">
+                            <div class="d-item">
+                                <h5>主要健康</h5>
+                                <div>CPU<span class="cpu_class">98</span></div>
+                                <div>内存<span class="ram_class">20</span></div>
+                                <div>硬盘<span class="disk_class">68</span></div>
+                                <div>温度<span class="temp_class">68</span>℃</div>
+                            </div>
+                            <div class="d-item">
+                                <div>流量<span class="in_class">10</span>M</div>
+                                <!--
+                                <h5>进出流量</h5>
+                                <div>入流量<span class="in_class">10</span>M</div>
+                                <div>出流量<span class="out_class">3</span>M</div>
+                                -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--
+        </div>
+
+    </div>
+    -->
+
+</div>
+<script src="__PUBLIC__/js/scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+<script src="__PUBLIC__/js/bootstrap/js/bootstrap.min.js"></script>
+<script  type="text/javascript" src="__PUBLIC__/js/dialog/bootstrap-dialog.min.js"></script>
+<script src="__PUBLIC__/js/d3/d3.v3.min.js"></script>
+<script src="__PUBLIC__/js/swiper/js/swiper.jquery.min.js"></script>
+<script src="__PUBLIC__/script/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/echarts/dist/echarts.js"></script>
+<script src="__PUBLIC__/js/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/ScreenCenter/monitor-nodes.js"  charset="utf-8"></script>
+</body>
+</html>

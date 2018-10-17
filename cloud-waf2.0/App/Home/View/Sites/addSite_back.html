@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <include file="./App/Common/View/header.html" />
+    <link href="__PUBLIC__/asset/js/plugins/my97datepicker/skin/WdatePicker.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<style>
+    .panel-default {
+        border: 0 none;
+    }
+    .panel {
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .panel-default > .panel-heading {
+        background-color: transparent;
+        border-bottom: 2px solid #efefef;
+        color: #101010;
+        font-family: Simsun;
+        padding: 0;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+    .panel-title {
+        border-bottom: 2px solid #1b72d4;
+        display: inline-block;
+        margin-bottom: -2px;
+        padding: 10px 30px 10px 10px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+</style>
+
+<body class="gray-bg">
+<input type="hidden" value="{$listUser}" id="listUserId">
+<input type="hidden" value="{$contract_id}" id="current_contract_id">
+<input type="hidden" value="{$client_id}" id="current_client_id">
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- 合同信息 -->
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>合同信息</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content ">
+                    <div class="panel panel-default">
+                        <!--<div class="panel-heading">-->
+                            <!--<h3 class="panel-title">合同信息</h3>-->
+                        <!--</div>-->
+                        <div class="panel-body">
+                            <form  action="#" class="form-horizontal ">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><span class="needWrite">* </span>关联合同</label>
+                                    <div class="col-sm-8">
+                                        <select style="width: 100%;" class="select2" name="client" id="contract_id">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><span class="needWrite">* </span>客户名称</label>
+                                    <div class="col-sm-8">
+                                        <select style="width: 100%;" class="select2" name="client" id="client_id">
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 站点信息 -->
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>站点信息</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content ">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="widget-content new_site_div">
+                                <form  action="#" class="form-horizontal ">
+
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label"></label>
+                                        <div class="col-sm-8" style="padding-top: 5px;">
+                                            <div class="col-sm-10 col-sm-offset-1">
+                                                <div class="inline">
+                                                    <a href="#" class="btn-add-site btn btn-sm  btn-primary" ><i class="fa fa-plus"></i> 添加站点</a>
+                                                    <a href="#" class="btn-import-site btn btn-sm  btn-info" ><i class="fa fa-sign-in"></i> 导入站点</a>
+                                                    <label class="control-label"  style="margin-left: 10px;color: #ff0000;">请导入.xls或.xlsx 格式文件 <a href="__PUBLIC__/source/template/addSiteTemplate.xlsx"><span>(导入模板下载)</span></a></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label"></label>
+                                        <div class="col-sm-11" style="padding-top: 5px;">
+                                            <table class="u-grid" id="sites_table" width="100%">
+                                                <thead>
+                                                <tr>
+                                                    <th>名称</th>
+                                                    <th>域名</th>
+                                                    <th>IP地址</th>
+                                                    <th>端口</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody class="site-list-table">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="widget-content edit_site_div" style="display: none;">
+                                <form id="form_id" action="#" class="form-horizontal " method="post">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"><span class="needWrite">* </span>站点名称</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" style="width: 100%;" class="form-control m-wrap" name="key"  id="siteName_id" /> <!-- placeholder="站点名称" -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"><span class="needWrite">* </span>域名</label>
+                                        <div class="col-sm-8">
+                                            <!--<input type="text" style="width: 98%;" class="form-control m-wrap" name="key"  id="domains_id"  placeholder="服务器端口"/>-->
+                                            <!--<textarea style="width: 100%;" rows="6" id="domains_id"></textarea>-->
+                                            <input type="text" style="width: 100%;" class="form-control m-wrap" name="key"  id="domains_id"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"><span class="needWrite">* </span>服务器IP</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" style="width: 100%;" class="form-control m-wrap" name="key"  id="ip_id"/>
+                                        </div>
+                                        <label class="col-sm-2 control-label"><span class="needWrite">* </span>服务器端口</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" style="width: 100%;" class="form-control m-wrap" name="key"  id="port_id"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Https/SSL加密 -->
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Https/SSL加密</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content ">
+                    <div class="panel panel-default">
+                        <!--<div class="panel-heading">-->
+                        <!--<h3 class="panel-title">合同信息</h3>-->
+                        <!--</div>-->
+                        <div class="panel-body">
+                            <form  action="#" class="form-horizontal ">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">状态</label>
+                                    <div class="col-sm-8" style="padding-top: 5px;">
+                                        <div class="switch">
+                                            <div class="switch-default is_http">
+                                                <span class="text">禁用</span><span class="label"></span>
+                                                <input type="checkbox" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group is_show_http_div" style="display: none">
+                                    <label class="col-sm-2 control-label">证书公钥</label>
+                                    <div class="col-sm-8">
+                                        <input type="hidden"  id="file1">
+                                        <input id="cert_public_key" class="file" type="file" multiple data-min-file-count="1">
+                                    </div>
+                                </div>
+                                <div class="form-group is_show_http_div" style="display: none">
+                                    <label class="col-sm-2 control-label">证书私钥</label>
+                                    <div class="col-sm-8">
+                                        <input type="hidden" id="file2">
+                                        <input id="cert_private_key" class="file" type="file" multiple data-min-file-count="1">
+                                    </div>
+                                </div>
+                                <div class="form-group is_show_http_div" style="display: none">
+                                    <label class="col-sm-2 control-label">证书链</label>
+                                    <div class="col-sm-8">
+                                        <input type="hidden" id="file3">
+                                        <input id="cert_ca_link" class="file" type="file" multiple data-min-file-count="1">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- WAF防护 -->
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>WAF防护</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content ">
+                    <div class="panel panel-default">
+                        <!--<div class="panel-heading">-->
+                        <!--<h3 class="panel-title">合同信息</h3>-->
+                        <!--</div>-->
+                        <div class="panel-body">
+                            <form  action="#" class="form-horizontal ">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Waf告警</label>
+                                    <div class="col-sm-8" style="padding-top: 5px;">
+                                        <div class="switch">
+                                            <div class="switch-default on is_waf_warning">
+                                                <span class="text">禁用</span><span class="label"></span>
+                                                <input type="checkbox" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">防护模式</label>
+                                    <div class="col-sm-8">
+                                        <div>
+                                            <ul class="sub-nav-tab">
+                                                <li><a href="#1" data="detect" data-toggle="tab">检测模式</a></li>
+                                                <li class="active"><a href="#2" data="on" data-toggle="tab">防护模式</a></li>
+                                                <li><a href="#3" data="off" data-toggle="tab">转发模式</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DDoS防护</label>
+                                    <div class="col-sm-8" style="padding-top: 5px;">
+                                        <div class="switch">
+                                            <div class="switch-default on is_ddos">
+                                                <span class="text">禁用</span><span class="label"></span>
+                                                <input type="checkbox" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group is_show_ddos_div">
+                                    <label class="col-sm-2 control-label">高防实例</label>
+                                    <div class="col-sm-8">
+                                        <select style="width: 220px;" id="highInstance_id">
+                                            <option value="361312003">20G 电信</option>
+                                            <option value="361332008">30G 移动</option>
+                                            <!-- ddosBag-0wgwxxbrdrh3 -->
+                                            <option value="361352030">20G BGP</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 漏洞扫描 -->
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>漏洞扫描</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content ">
+                    <div class="panel panel-default">
+                        <!--<div class="panel-heading">-->
+                        <!--<h3 class="panel-title">合同信息</h3>-->
+                        <!--</div>-->
+                        <div class="panel-body">
+                            <form  action="#" class="form-horizontal ">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">状态</label>
+                                    <div class="col-sm-8" style="padding-top: 5px;">
+                                        <div class="switch">
+                                            <div class="switch-default on is_loophole_scan">
+                                                <span class="text">禁用</span><span class="label"></span>
+                                                <input type="checkbox" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">漏洞告警</label>
+                                    <div class="col-sm-8" style="padding-top: 5px;">
+                                        <div class="switch">
+                                            <div class="switch-default loophole_warning">
+                                                <span class="text">禁用</span><span class="label"></span>
+                                                <input type="checkbox" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 可用性检测 -->
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>可用性检测</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content ">
+                    <div class="panel panel-default">
+                        <!--<div class="panel-heading">-->
+                        <!--<h3 class="panel-title">合同信息</h3>-->
+                        <!--</div>-->
+                        <div class="panel-body">
+                            <form  action="#" class="form-horizontal ">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">状态</label>
+                                    <div class="col-sm-8" style="padding-top: 5px;">
+                                        <div class="switch">
+                                            <div class="switch-default on is_available">
+                                                <span class="text">禁用</span><span class="label"></span>
+                                                <input type="checkbox" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">可用性告警</label>
+                                    <div class="col-sm-8" style="padding-top: 5px;">
+                                        <div class="switch">
+                                            <div class="switch-default available_warning">
+                                                <span class="text">禁用</span><span class="label"></span>
+                                                <input type="checkbox" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 告警联系人 -->
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>告警联系人</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content ">
+                    <div class="panel panel-default">
+                        <!--<div class="panel-heading">-->
+                        <!--<h3 class="panel-title">合同信息</h3>-->
+                        <!--</div>-->
+                        <div class="panel-body">
+                            <form  action="#" class="form-horizontal ">
+
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label"></label>
+                                    <div class="col-sm-8" style="padding-top: 5px;">
+                                        <div class="col-sm-10 col-sm-offset-1">
+                                            <div class="inline">
+                                                <a href="#" class="btn-add-user btn btn-sm  btn-primary" ><i class="fa fa-plus"></i> 添加联系人</a>
+                                                <a href="#" class="btn-choose-user btn btn-sm  btn-info" ><i class="fa fa-check"></i> 选择联系人</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label"></label>
+                                    <div class="col-sm-11" style="padding-top: 5px;">
+                                        <table class="u-grid" id="add_users_table" width="100%">
+                                            <thead>
+                                            <tr>
+                                                <th>姓名</th>
+                                                <th>手机号</th>
+                                                <th>邮箱</th>
+                                                <th>告警方式</th>
+                                                <th>短信/APP接收时间</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody class="contact-list-table">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 保存按钮 -->
+            <div class="ibox float-e-margins">
+                <div class="ibox-content ">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <form  action="#" class="form-horizontal ">
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label"></label>
+                                    <div class="col-sm-8" style="padding-top: 5px;">
+                                        <div class="col-sm-10 col-sm-offset-1">
+                                            <div class="inline">
+                                                <a href="#" class="btn-add-user btn btn-sm  btn-primary" ><i class="fa fa-save"></i> 保 存 </a>
+                                                <a href="#" class="btn-choose-user btn btn-sm  btn-default" ><i class="fa fa-reply"></i>返回列表</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<include file="./App/Common/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/asset/js/plugins/cityselector/jquery.cityselect.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/plugins/common/lables.js"></script>
+<script type="text/javascript" src="__PUBLIC__/asset/js/plugins/cityselector/jquery.cityselect.js"></script>
+<script src="__PUBLIC__/asset/js/plugins/my97datepicker/WdatePicker.js" type="text/javascript"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Home/Sites/site_add.js"></script>
+
+</body>
+</html>

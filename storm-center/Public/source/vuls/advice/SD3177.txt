@@ -1,0 +1,2 @@
+aspnet报错信息漏洞修复建议：
+    移除<customErrors mode="Off" />。

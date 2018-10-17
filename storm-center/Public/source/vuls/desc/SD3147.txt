@@ -1,0 +1,2 @@
+Options方法漏洞：
+    APPSCAN通过OPTIONS请求，当响应中发现DELETE、SEARCH、COPY等方法为允许方法时，则认为是漏洞。

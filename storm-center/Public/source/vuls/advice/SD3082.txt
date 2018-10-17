@@ -1,0 +1,3 @@
+rails mass assinment漏洞修复方案：
+    在model中使用attr_accessible代替attr_protected。
+    attr_accessible罗列出model中可通过mass assignment设置的属性。

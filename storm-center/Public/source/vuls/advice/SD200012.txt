@@ -1,0 +1,2 @@
+flash 跨域漏洞修复建议：
+	crossdomain.xml控制好。

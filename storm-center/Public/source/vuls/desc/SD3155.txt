@@ -1,0 +1,4 @@
+Reverse_Proxy_Bypass 漏洞：
+    Apache HTTP Server mod_proxy模块存在安全漏洞，允许恶意用户绕过部分安全限制。
+    当mod_proxy模块配置以反向代理模式时受此漏洞影响，由于不正确处理部分WEB请求，攻
+    击者构建特制的URL可向代理后的不可期服务器发送恶意请求。

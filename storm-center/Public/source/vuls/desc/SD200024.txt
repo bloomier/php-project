@@ -1,0 +1,4 @@
+php代码执行漏洞描述：
+    PHP中可以执行代码的函数。
+    如eval()、assert()、``、system()、exec()、shell_exec()、passthru()、
+    escapeshellcmd()、pcntl_exec() 等

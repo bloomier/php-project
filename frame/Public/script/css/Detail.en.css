@@ -1,0 +1,13 @@
+.en .detail-body-wrap .detail-content-top table th {
+    min-width: 120px;
+    max-width: 120px;
+    width: 120px
+}
+
+.en .detail-body-wrap .detail-content-bottom .info th {
+    width: 120px
+}
+
+.en .detail-body-wrap .detail-content-bottom .files-list dd p .sim-link {
+    display: block
+}

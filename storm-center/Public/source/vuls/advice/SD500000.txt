@@ -1,0 +1,2 @@
+ipboard sql inject plugin漏洞修复建议：
+	安装厂家补丁。 

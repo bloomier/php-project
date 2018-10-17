@@ -1,0 +1,148 @@
+<include file="./App/Service/View/header.html" />
+<div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row">
+            <div class="col-md-12 margin-top-20">
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i> <a href="__ROOT__/index.php/Service/index/">首页</a> </li>
+                    <li><a href="javascript:;">网站监测</a> </li>
+                    <li><a href="__ROOT__/index.php/Service/WebSite/siteManage">站点管理</a> </li>
+                    <li><a href="__ROOT__/index.php/Service/WebSite/addSite">新增站点</a> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>新增站点</div>
+                    </div>
+                    <div class="portlet-body form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form action="#" class="form-horizontal">
+                                    <div class="form-wizard">
+                                        <div class="row steps">
+                                                <ul class="nav nav-tabs" style="border: hidden">
+                                                    <li class="col-md-6 text-center active">
+                                                        <a href="#tab_1" class="step active"data-toggle="tab">
+                                                            <span class="number">1</span>
+                                                            <span class="desc"><i class="icon-ok"></i>服务站点</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="col-md-6 text-center">
+                                                        <a href="#tab_2" class="step" data-toggle="tab">
+                                                            <span class="number">2</span>
+                                                            <span class="desc"><i class="icon-ok"></i>服务套餐</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                        <div class="row margin-top-20">
+                                            <div class="col-md-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 50%;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab_1">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>合同编号</label>
+                                                    <div class="col-sm-6">
+                                                        <input type="text" class="form-control m-wrap">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>客户名称</label>
+                                                    <div class="col-sm-6">
+                                                        <input type="text" class="form-control m-wrap">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>合同期限</label>
+                                                    <div class="col-sm-6">
+                                                        <select class="m-wrap"  style="width: 100%;">
+                                                            <option value="">1年</option>
+                                                            <option value="">2年</option>
+                                                            <option value="">3年</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>提交时间</label>
+                                                    <div class="col-sm-2">
+                                                        <input type="text" class="Wdate form-control m-wrap"
+                                                               onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" >
+                                                    </div>
+                                                    <label class="col-sm-2 control-label" style="text-align: center;">至</label>
+                                                    <div class="col-sm-2">
+                                                        <input type="text" class="Wdate form-control m-wrap"
+                                                               onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>合同期限</label>
+                                                    <div class="col-sm-6">
+                                                        <textarea class="form-control m-wrap"  rows="6">
+
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane" id="tab_2">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>服务套餐</label>
+                                                    <div class="col-sm-6">
+                                                        <select class="m-wrap"  style="width: 100%;">
+                                                            <option value="">全方面告警策略</option>
+                                                            <option value="">域名告警策略</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><span class="required">*</span>告警联系人</label>
+                                                    <div class="col-sm-6">
+                                                        <textarea class="form-control m-wrap"  rows="6">
+
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <a href="#tab_1" class="btn button-previous" data-toggle="tab">
+                                                <i class="m-icon-swapleft"></i>上一步
+                                            </a>
+                                            <a href="#tab_2" class="btn blue button-next" data-toggle="tab">
+                                                下一步 <i class="m-icon-swapright m-icon-white"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn green button-submit">
+                                                提交 <i class="m-icon-swapright m-icon-white"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+<include file="./App/Service/View/footer.html" />
+<script src="__PUBLIC__/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<!--
+<script type="text/javascript" src="__PUBLIC__/script/Service/siteManage.js"></script>-->

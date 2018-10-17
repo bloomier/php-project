@@ -1,0 +1,42 @@
+{php} $hotarc = arclist('', 10, '', 'click desc'); {/php}
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title"><i class="fa fa-fire"></i> 热门文章</h3>
+    </div>
+    <div class="box-body no-padding">
+        <ul class="nav nav-pills nav-stacked">
+        	{volist name="hotarc" id="vo"}
+            <li class="x-t-no">
+                <a class="x-t-no1" href="{$vo.arcurl}">
+                    <span class="label" style="background-color:{:_color()};">{lt name="$i" value="10"}0{/lt}{$i}</span> {$vo.title}
+                </a>
+            </li>
+            {/volist}
+        </ul>
+    </div>
+</div>
+
+<!--最新回复-->
+{php} $newReplyList = newReplyList(10);{/php}
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title"><i class="fa fa-pencil-square-o"></i> 最新回复</h3></div>
+    <div class="box-body chat x-p-0">
+		{volist name="$newReplyList" id="vo"}
+		<div class="x-x-t">
+			<a href="{$vo['arcurl']}" class="name text-muted">
+			<div class="item x-p-10" style="margin-bottom:0;">
+	            <img class="x-yy-4" src="{$vo['userinfo']['avatar']|default='/static/common/img/default.png'}" alt="{$vo['user']['name']}" >
+	            <div class="message x-t-no2">
+	              	<div class="name">
+	                	<small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {$vo['create_time']}</small>
+	                	{$vo['user']['name'] ?: $vo['user']['username']}
+	              	</div>
+	              	{$vo['contents']}
+	            </div>
+	        </div>
+	        </a>
+		</div>
+		{/volist}
+    </div>
+</div>

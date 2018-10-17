@@ -1,0 +1,186 @@
+
+body{
+    background-color: #061A2A
+}
+.m-grid{
+    table-layout: fixed;
+}
+.m-grid .progress{
+    background-color: #4d5c65;
+}
+.bg{
+    background-color: #061627;
+}
+.name{
+    font-size: 32px;
+    color: #00bbff;
+}
+.total a{
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    color: #00bbff;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 20px;
+}
+.total a i{
+    font-style: normal;
+}
+.total a i.fa{
+    color: #00a2fd;
+    margin-right: 6px;
+    width: 16px;
+
+}
+.total .line-chart-in, .total .line-chart-out{
+    display: inline-block;
+    width: 16px;
+    height: 14px;
+    background: url("../../../../asset/image/mobile/line-chart.png") no-repeat;
+    margin-right: 6px;
+}
+.total .line-chart-out{
+    background-position: 0 -14px;
+}
+.total a i.txt{
+    display: inline-block;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    font-style: normal;
+}
+.total a i.count{
+    display: inline-block;
+    font-size: 26px;
+    margin-left: 2px;
+    margin-right: 8px;
+    vertical-align: middle;
+
+}
+
+.dataRange span{
+    font-size: 0;
+}
+.dataRange span em{
+    display: inline-block;
+    width: 12px;
+    height: 10px;
+    margin-right: 2px;
+}
+.dataRange span i{
+    font-style: normal;
+    font-size: 12px;
+    color: #fff;
+}
+.male-color{
+    color: #005bff!important;
+}
+.male-color-default{
+    color: #ddd!important;
+}
+i.fa-male{
+    font-size: 1.8rem;
+    color: #0b2b4c;
+    margin-left: 4px;
+}
+#areaRank tbody tr td:nth-child(1){
+    width: 10%;
+    text-align: center;
+}
+#areaRank tbody tr td:nth-child(2){
+    width: 15%;
+}
+#areaRank tbody tr td:nth-child(3){
+    width: 50%;
+}
+#areaRank tbody tr td:nth-child(4){
+    width: 25%;
+    text-align: right;
+}
+#visitIp tbody tr td:nth-child(1){
+    width: 10%;
+    text-align: center;
+}
+#visitIp tbody tr td:nth-child(2){
+    width: 15%;
+}
+#visitIp tbody tr td:nth-child(3){
+    width: 60%;
+}
+#visitIp tbody tr td:nth-child(4){
+    width: 25%;
+    text-align: right;
+}
+#attackUrl tbody tr td:nth-child(1){
+    width: 15%;
+    text-align: center;
+}
+#attackUrl tbody tr td:nth-child(1) i {
+    display: inline-block;
+    font-style: normal;
+    color: #000;
+    background-color: #b5b5b6;
+    text-align: center;
+    width: 22px!important;
+    font-size: 12px;
+}
+#attackUrl tbody tr:nth-child(1) td:nth-child(1) i{
+    background-color: #ff0000!important;
+}
+#attackUrl tbody tr:nth-child(2) td:nth-child(1) i{
+    background-color: #ff9900!important;
+}
+#attackUrl tbody tr:nth-child(3) td:nth-child(1) i{
+    background-color: #f9e400!important;
+}
+#attackUrl tbody tr td:nth-child(2){
+    width: 15%;
+}
+#attackUrl tbody tr td:nth-child(3){
+    width: 70%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#attackIp tbody tr td:nth-child(1){
+    width: 10%;
+    text-align: center;
+}
+#attackIp tbody tr td:nth-child(2){
+    width: 20%;
+}
+#attackIp tbody tr td:nth-child(3){
+    width: 60%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#attackIp tbody tr td:nth-child(4){
+    width: 10%;
+    text-align: right;
+}
+
+@media only screen and (min-width: 321px) and (max-width: 479px) {
+   .name{
+       font-size: 26px;
+   }
+    h1{
+        font-size: 24px;
+    }
+    h2{
+        font-size: 20px;
+    }
+
+}
+@media only screen and (width: 320px){
+    .name{
+        font-size: 22px;
+    }
+    h1{
+        font-size: 20px;
+    }
+    h2{
+        font-size: 16px;
+    }
+
+}

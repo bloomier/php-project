@@ -1,0 +1,64 @@
+/**
+ * @author Sean.xiang
+ *@date 2015/7/6
+ *@version
+ *@example
+ */
+.form-group{
+    margin-bottom: 0;
+}
+.form-group .control-label{
+    width: auto;
+    font-size: 16px;
+    color:#9A9A9A;
+    font-weight: bold;
+    text-align: left;
+    cursor: auto;
+}
+.form-group .controls{
+    margin-left: 90px!important;
+
+}
+.form-group span{
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+}
+.fancybox-button img{
+    max-width: 100%;
+}
+input.m-wrap{
+    background-color: #fff!important;
+}
+.radio-inline{
+    height: 20px;
+    line-height: 20px;
+}
+.radio-inline label{
+    font-size: 12px;
+    color:#000;
+    font-weight: normal;
+}
+.radio span{
+    /*height: 16px;
+    line-height: 16px;*/
+}
+.list-unstyled i{
+    font-style: normal;
+}
+
+ span i{
+    font-style: normal!important;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 4px;
+}
+ span i.total{
+    color: #FF9A02;
+}
+ span i.repair{
+    color:  #028102;
+}
+span i.unrepair{
+    color:   #CC0202;
+}

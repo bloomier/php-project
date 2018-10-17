@@ -1,0 +1,58 @@
+<html>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <?php
+        $APP_ROOT="http://".$_SERVER['HTTP_HOST'];
+        $SELF=$_SERVER['PHP_SELF'];
+
+        if(substr($SELF,"/cloud-waf")==0){
+             $APP_ROOT= $APP_ROOT."/cloud-waf";
+        }
+    ?>
+
+    <title>玄武盾 - 404 页面</title>
+
+     <link rel="stylesheet" href="<?php echo $APP_ROOT?>/Public/asset/js/plugins/bootstrap/bootstrap.min.css">
+
+    <link rel="stylesheet" href="<?php echo $APP_ROOT?>/Public/asset/css/style.min.css">
+
+</head>
+
+<body class="gray-bg">
+<div class="middle-box text-center animated fadeInDown">
+    <?php if(isset($message)) {?>
+    <h3>系统提示</h3>
+    <p class="success"><?php echo($message); ?></p>
+    <?php }else{?>
+    <h3>系统提示</h3>
+    <p class="error"><?php echo($error); ?></p>
+    <?php }?>
+    <p class="detail"></p>
+    <p class="jump">
+        页面自动 <a id="href" href="<?php echo($jumpUrl); ?>">跳转</a> 等待时间： <b id="wait"><?php echo($waitSecond); ?></b>
+    </p>
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+    <script type="text/javascript">
+        (function(){
+            var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+            var interval = setInterval(function(){
+                var time = --wait.innerHTML;
+                if(time <= 0) {
+                    location.href = href;
+                    clearInterval(interval);
+                };
+            }, 1000);
+        })();
+    </script>
+</html>

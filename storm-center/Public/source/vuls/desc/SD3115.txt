@@ -1,0 +1,3 @@
+apachehttponlycookie泄露漏洞描述：
+    1.受害者中了跨站，浏览器发出携带超大cookies的包
+    2.服务器返回400错误，并会在response包里返回cookies内容

@@ -1,0 +1,144 @@
+<include file="./App/Common/View/header.html" />
+<div class="main">
+    <div class="m-inner">
+        <div class="widget">
+            <div class="widget-heading">
+                <div class="widget-title">查询条件</div>
+            </div>
+            <div class="panel-body">
+                <form id="form_id" action="#" class="form-horizontal " method="post">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">关键字</label>
+                        <div class="col-sm-5">
+                            <input type="text" style="width: 85%;" class="form-control m-wrap" name="key"  id="key_id"  placeholder="*:*"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">威胁等级</label>
+                        <div class="col-sm-10">
+                            <div style='display: inline-block;background-color: #d0d0d0;float:left; height:28px;'>
+                                <input class="bigdataLogCheck" id="low_id" style='display: inline-block;height:20px;width:20px;margin-left: 10px;margin-top: 5px;' type="checkbox" value="" />低
+                                <input class="bigdataLogCheck" name="low" style='display: inline-block;height:20px;width:20px;margin-top: 0px;' type="checkbox" value="0" />0
+                                <input class="bigdataLogCheck" name="low" style='display: inline-block;height:20px;width:20px;margin-top: 0px;' type="checkbox" value="1" />1
+                                <input class="bigdataLogCheck" name="low" style='display: inline-block;height:20px;width:20px;margin-top: 0px;' type="checkbox" value="2" />2
+                                <span style="margin-right: 10px;"><input class="bigdataLogCheck" name="low" style='display: inline-block;height:20px;width:20px;margin-top: 0px;' type="checkbox" value="3" />3</span>
+                            </div>
+                            <div style='display: inline-block;background-color: #FFFF37;float:left; height:28px;margin-left: 10px;'>
+                                <input class="bigdataLogCheck" id="mid_id" style='display: inline-block;height:20px;width:20px;margin-left: 10px;margin-top: 5px;' type="checkbox" value="" />中
+                                <input class="bigdataLogCheck" name="mid" style='display: inline-block;height:20px;width:20px;' type="checkbox" value="4" />4
+                                <input class="bigdataLogCheck" name="mid" style='display: inline-block;height:20px;width:20px;' type="checkbox" value="5" />5
+                                <span style="margin-right: 10px;"><input class="bigdataLogCheck" name="mid" style='display: inline-block;height:20px;width:20px;' type="checkbox" value="6" />6</span>
+                            </div>
+                            <div style='display: inline-block;background-color: #FF2D2D;float:left; height:28px;margin-left: 10px;'>
+                                <input class="bigdataLogCheck" id="high_id" style='display: inline-block;height:20px;width:20px;margin-left: 10px;' type="checkbox" value="" />高
+                                <input class="bigdataLogCheck" name="high" style='display: inline-block;height:20px;width:20px;' type="checkbox" value="7" />7
+                                <input class="bigdataLogCheck" name="high" style='display: inline-block;height:20px;width:20px;' type="checkbox" value="8" />8
+                                <input class="bigdataLogCheck" name="high" style='display: inline-block;height:20px;width:20px;' type="checkbox" value="9" />9
+                                <span style="margin-right: 10px;"><input class="bigdataLogCheck" name="high" style='display: inline-block;height:20px;width:20px;' type="checkbox" value="10" />10</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">是否攻击</label>
+                        <div class="col-sm-2">
+                            <input type="radio" style="align:left;"  name="isWaf" value="2" checked>否
+                            &nbsp;<input type="radio" style="align:left;"  name="isWaf" value="1">是
+                        </div>
+                        <label class="col-sm-1 control-label">策略ID</label>
+                        <div class="col-sm-2">
+                            <input type="text" style="width: 142px;" class="form-control m-wrap" name="ruelId" id="ruelId_id" placeholder="策略ID"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">域名</label>
+                        <div class="col-sm-2">
+                            <input type="text" id="desthostName_id" class="form-control m-wrap" placeholder="域名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">源地址</label>
+                        <div class="col-sm-2">
+                            <input type="text" id="srcAddress_id" class="form-control m-wrap" placeholder="源地址">
+                        </div>
+                        <label class="col-sm-1 control-label">源端口</label>
+                        <div class="col-sm-2">
+                            <input type="text" style="width: 142px;" id="srcPort_id" class="form-control m-wrap" placeholder="源端口">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">目标地址</label>
+                        <div class="col-sm-2">
+                            <input type="text" id="destAddress_id" class="form-control m-wrap" placeholder="目标地址">
+                        </div>
+                        <label class="col-sm-1 control-label">目标端口</label>
+                        <div class="col-sm-2">
+                            <input type="text" style="width: 142px;" id="destPort_id" class="form-control m-wrap" placeholder="目标端口">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">时间范围</label>
+                        <div class="col-sm-8" id="default_time_id">
+                            <input type="radio" name="time" data-par="0" value="0.1" checked="checked"/>最近10分钟
+                            <input type="radio" name="time" value="1" />最近1小时
+                            <input type="radio" name="time" value="8"/>最近8小时
+                            <input type="radio" name="time" value="24"/>最近24小时
+                            <input type="radio" name="time" value="168"/>最近7天
+                            <input type="radio" name="time" value="720"/>最近30天
+                            <input type="radio" name="time" value="-1"/>本日
+                            <input type="radio" name="time" value="-30"/>本月
+                            <a style="cursor: pointer;" onclick="displayDiv('custom_time_id','default_time_id')">自定义</a>
+                        </div>
+                        <div class="col-sm-8" id="custom_time_id" style="display: none;">
+                            <div class="col-sm-4">
+                                <input style='display: inline-block;' type="text" id="start_date_id"
+                                       name="start_date" class="Wdate form-control m-wrap"
+                                       onFocus="var maxDate=$('#end_date_id').val(); WdatePicker({maxDate:maxDate,dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+                            </div>
+                            <div class="col-sm-4">
+                                <input style='display: inline-block;' type="text" id="end_date_id"
+                                       name="end_date" class="Wdate form-control m-wrap"
+                                       onFocus="var minDate=$('#start_date_id').val(); WdatePicker({minDate:minDate,dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+                            </div>
+                            <a onclick="displayDiv('default_time_id','custom_time_id')">返回</a>
+                        </div>
+                    </div>
+                    <div class="form-line">
+                        <label class="col-sm-2 control-label"></label>
+                        <button class="btn-submit u-btn u-btn-success search_list" style="width: 160px;" type="button">查 询</button>
+                        <button class="btn-submit u-btn u-btn-concel clear_up" style="width: 160px;" type="button">清 空</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="widget">
+            <div class="widget-heading">
+                <div class="widget-title">日志列表</div>
+            </div>
+            <table class="u-grid" id="table_id">
+                <thead  style="text-align: center">
+                <tr class="well">
+                    <th>事件级别</th>
+                    <th>事件名称</th>
+                    <th>域名</th>
+                    <th>源地址</th>
+                    <th>源端口</th>
+                    <th>目标地址</th>
+                    <th>目标端口</th>
+                    <th>事件数量</th>
+                    <th>资产名称</th>
+                    <th>采集器接收时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+<include file="./App/Common/View/footer.html" />
+<script src="__PUBLIC__/asset/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Home/logSearch.js"></script>

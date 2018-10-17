@@ -1,0 +1,144 @@
+<include file="./App/MSSP/View/header.html" />
+
+<input type="hidden" name="contract_state" id="contract_state" value="{$contract_state}">
+
+<input type="hidden" name="contract_packages" id="contract_packages" value="{$contract_packages}">
+
+<input type="hidden" name="customerSrc" id="customerSrc" value="{$customerSrc}">
+
+<div class="main">
+    <div class="m-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN REGIONAL STATS PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="fa fa-globe"></i>合同状态</div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div id="left-pie"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div id="right-pie"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END REGIONAL STATS PORTLET-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-comments"></i>合同列表</div>
+                    </div>
+                    <div class="portlet-body light-grey">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="inline">
+                                    <!--<a href="#" class="btn bth-batch-repair">确认修复</a>-->
+                                    <a  class="btn red bth-batch-delete"><i class="fa fa-minus"></i>
+                                        删除
+                                    </a>
+                                </div>
+                                <form action="#" class="form-search pull-right margin-bottom-10">
+                                    <select class="policy-level" id="query_packages" style="width: 100px">
+                                        <option value="0">所有套餐</option>
+                                        <option value="1">漏洞扫描</option>
+                                        <option value="2">服务质量</option>
+                                        <option value="4">云防护</option>
+                                        <option value="8">安全事件</option>
+                                    </select>
+                                    <select class="policy-level" id="contract-state" style="width: 100px">
+                                        <option value="0">所有</option>
+                                        <option value="1">有效</option>
+                                        <option value="2">无效</option>
+                                    </select>
+                                    <div class="input-group" style="display: inline-table;vertical-align: top;margin-left: 10px;">
+                                        <input class="m-wrap" id="query-param" type="text" placeholder="编号|名称|客户|销售">
+                                        <button class="btn green btn-search" type="button">查询</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <table class="table table-bordered contract-list-table datatable" >
+                            <thead class="bg-lightgrey">
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>合同编号</th>
+                                <th>合同名称</th>
+                                <th>客户名称</th>
+                                <th>服务套餐</th>
+                                <th>开始日期</th>
+                                <th>到期状态</th>
+                                <th>创建日期</th>
+                                <th>状态</th>
+                                <th>操&nbsp;&nbsp;&nbsp;&nbsp;作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" id="url_confirm_modal" >
+    <input type="hidden" class="contract_id">
+    <input type="hidden" class="packages_id">
+    <div class="modal-dialog"  >
+        <div class="modal-content">
+            <div class="modal-header"  style="background:#ffffff;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">报告链接发送:<span class="alert_domain_size"></span></h4>
+            </div>
+            <div class="modal-body" style="background:#ffffff">
+                <label>报告内容选择:</label>
+                <div class="row" style="padding-bottom: 20px;">
+                    <div class="col-md-3 col-md-offset-1" id="server_report_div" style="display: none"><input type="checkbox" id="server_report_check">服务质量报告</div>
+                    <div class="col-md-3" id="cloudwaf_report_div" style="display:none"><input type="checkbox" id="cloudwaf_report_check">云防护报告</div>
+                    <div class="col-md-3" id="vuls_report_div" style="display:none"><input type="checkbox" id="vuls_report_check">漏洞报告</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-1" style="min-height: 350px; border:1px solid #000;padding-right: 0px;padding-left: 0px;padding-top:20px;">
+                        <select class="domain-list" multiple="true" style="width: 95%; height: 300px">
+                        </select>
+                    </div>
+                    <div class="col-md-4 col-md-offset-2" style="min-height: 350px; border:1px solid #000;padding-right: 0px;padding-left: 0px;padding-top:20px;">
+
+                        <select class="contact-list" multiple="true" style="width: 95%; height: 300px">
+                        </select>
+                    </div>
+                </div>
+                <form style="padding-bottom: 20px;padding-left:50px">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">邮箱</label>
+                        <div class="col-sm-10">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="add_email">
+                            </div>
+                            <div class="col-sm-2">
+                                <button class="btn add_email_btn">添加</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer alert_domain_footer"   style="background:#ffffff;border-bottom-width: 0px;">
+                <button type="button" class="btn btn-default domain_re_create" style="">重新生成</button>
+                <button type="button" class="btn btn-primary domain_url_send" style="">发送</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<assign name='plugins' value='echarts'/>
+<include file="./App/MSSP/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/script/MSSP/contractindex.js"></script>

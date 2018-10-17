@@ -1,0 +1,29 @@
+.en #acdc-logo {
+    background: #0E47A1 url(./img/logo.en.png) no-repeat left;
+    height: 50px;
+    color: #fff;
+    line-height: 80px;
+    text-align: right
+}
+
+.en #acdc-nav-body .subMenu dl dd {
+    list-style: inside;
+    color: #fff;
+    margin: 5px 3em 0 0;
+    white-space: nowrap;
+    width: 14em;
+    display: inline-block;
+    padding-left: 16px
+}
+
+.en #acdc-nav-body .subMenu {
+    background: #305C9D;
+    padding: 20px;
+    width: 490px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 200px;
+    display: none;
+    z-index: 99999
+}

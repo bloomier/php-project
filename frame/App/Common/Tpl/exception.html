@@ -1,0 +1,63 @@
+<html>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <?php
+        $APP_ROOT="http://".$_SERVER['HTTP_HOST'];
+        $SELF=$_SERVER['PHP_SELF'];
+        if(strpos($SELF,"/cloud-waf")===0){
+             $APP_ROOT= $APP_ROOT."/cloud-waf";
+        }
+    ?>
+
+    <title>玄武盾 - 404 页面</title>
+
+     <link rel="stylesheet" href="<?php echo $APP_ROOT?>/Public/asset/js/plugins/bootstrap/bootstrap.min.css">
+
+    <link rel="stylesheet" href="<?php echo $APP_ROOT?>/Public/asset/css/style.min.css">
+
+</head>
+
+<body class="gray-bg">
+<div class="middle-box text-center animated fadeInDown">
+    <h1>404</h1>
+    <h3 class="font-bold">页面未找到！</h3>
+
+    <div class="error-desc">
+        抱歉，页面好像去火星了~
+
+    </div>
+
+</div>
+
+
+<div class="content" style="display: none;">
+    <?php echo strip_tags($e['message']);?>
+    <?php if(isset($e['file'])) {?>
+    <div class="info">
+        <div class="title">
+            <h3>错误位置</h3>
+        </div>
+        <div class="text">
+            <p>FILE: <?php echo $e['file'] ;?> &#12288;LINE: <?php echo $e['line'];?></p>
+        </div>
+    </div>
+    <?php }?>
+    <?php if(isset($e['trace'])) {?>
+    <div class="info">
+        <div class="title">
+            <h3>TRACE</h3>
+        </div>
+        <div class="text">
+            <p><?php echo nl2br($e['trace']);?></p>
+        </div>
+    </div>
+    <?php }?>
+</div>
+
+
+
+
+
+
+</body></html>

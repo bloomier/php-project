@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <include file="./App/Common/View/header.html" />
+</head>
+<style>
+    .panel-default {
+        border: 0 none;
+    }
+    .panel {
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .panel-default > .panel-heading {
+        background-color: transparent;
+        border-bottom: 2px solid #efefef;
+        color: #101010;
+        font-family: Simsun;
+        padding: 0;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+    .panel-title {
+        border-bottom: 2px solid #1b72d4;
+        display: inline-block;
+        margin-bottom: -2px;
+        padding: 10px 30px 10px 10px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .city-selector select{
+        margin-left: 10px;
+    }
+</style>
+<body class="gray-bg">
+<input type="hidden" id="isUpdate" value="{$update}">
+<input type="hidden" id="_id" value="{$_id}">
+<div id="regionJson" style="display: none;">
+    {$region|json_encode}
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>{$update?'修改':'添加'}域</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content ">
+                    <div class="alert alert-warning {$update?'':'hide'}" id="updateWarning" >
+                        只能修改域的中文名称,域描述以及视图配置
+                        .
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">基本信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form   class="form-horizontal m-t" novalidate="novalidate">
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label"><span style="color: red;">*</span>域名称：</label>
+                                    <div class="col-sm-6">
+                                        <input  class="form-control"  value="{$region.name_cn}" type="text" aria-required="true" required="" minlength="2" name="name_cn" >
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label"><span style="color: red;">*</span>域别名：</label>
+                                    <div class="col-sm-6">
+                                        <input  class="form-control" value="{$region.name_en}"  type="text" aria-required="true" required="" minlength="2" name="name_en" >
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label"><span style="color: red;">*</span>管理员手机号码：</label>
+                                    <div class="col-sm-6">
+                                        <input  class="form-control" value="{$region.phone}"  type="text" aria-required="true" required="" minlength="11" maxlength="11" name="phone" >
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label">备注：</label>
+                                    <div class="col-sm-6">
+                                     <textarea name="desc" style="width: 100%">{$region.desc}</textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">视图配置</h3>
+                        </div>
+                        <div class="panel-body" id="viewConfig">
+                            <form   class="form-horizontal m-t" novalidate="novalidate">
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label">标题后缀：</label>
+                                    <div class="col-sm-6">
+                                        <input  class="form-control"  value="{$region['view_config']['title_suffix']}" type="text" aria-required="true" required="" minlength="2" name="title_suffix" >
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label">初始入口：</label>
+                                    <div class="col-sm-6">
+                                        <div class="row "  >
+                                            <div  class="col-sm-6">
+                                                <select class="form-control m-b prov"></select>
+                                            </div>
+                                            <div  class="col-sm-6">
+                                                <select class="form-control m-b city" ></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label">选用归属：</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control m-b" name="location_type">
+                                            <option value="admin_location">行政归属</option>
+                                            <option value="location">IP归属</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label">下钻层级：</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control m-b" name="deep_type">
+                                            <option value="city">地市级</option>
+                                            <option value="district">区县级</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户资产划分规则：</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control m-b" name="user_power_type">
+                                            <option value="0">不划分</option>
+                                            <option value="1">按地区</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">资产范围</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form   class="form-horizontal m-t" novalidate="novalidate">
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label">域名类型：</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control m-b" name="domain_suffix" multiple="multiple">
+                                            <option value="">===请选择===</option>
+                                            <option value="gov.cn">gov.cn</option>
+                                            <option value="edu.cn">edu.cn</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label">网站归属：</label>
+                                    <div class="col-sm-6">
+
+                                            <div class="row location-type" >
+                                                <label style="" class="radio-inline i-checks col-sm-3">
+                                                    <input type="radio" value="1"  name="location" checked=""> <span> 行政归属</span>
+                                                </label>
+                                                <label class="radio-inline i-checks col-sm-3">
+                                                    <input type="radio" value="2" name="location"> <span> IP归属</span>
+                                                </label>
+                                            </div>
+                                            <br>
+                                            <div class="row city-selector"  id="real_location">
+                                                <div  class="col-sm-4">
+                                                    <select class="form-control m-b prov"></select>
+                                                </div>
+                                                <div  class="col-sm-4">
+                                                    <select class="form-control m-b city"></select>
+                                                </div>
+                                                <div  class="col-sm-4">
+                                                    <select class="form-control m-b dist"></select>
+                                                </div>
+
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label">初始化数据：</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control m-b" name="need_init" >
+                                            <option value="1">是</option>
+                                            <option value="0">否</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group ">
+                                    <label class="col-sm-2 control-label"></label>
+                                    <div class="col-sm-6">
+                                        <a class="btn btn-primary btn-region-save" href="javascript:void(0);" type="button">保存</a>
+                                        <a class="btn  btn-default" type="button" href="__ROOT__/index.php/Admin/Region/index">取消</a>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<include file="./App/Common/View/footer.html" />
+<script type="text/javascript" src="__PUBLIC__/asset/js/plugins/cityselector/jquery.cityselect.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/script/Admin/region_edit.js"></script>
+
+</body>
+</html>

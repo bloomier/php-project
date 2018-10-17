@@ -1,0 +1,249 @@
+<include file="./App/ScreenCenter/View/common/header.html" />
+<link rel="stylesheet" href="__PUBLIC__/js/swiper/css/swiper.min.css"/>
+<link rel="stylesheet" href="__PUBLIC__/js/fancybox/jquery.fancybox.css"/>
+<style>
+    body{
+        background-color: #000;
+        overflow: hidden;
+    }
+    h2{
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+    }
+    @font-face {
+        font-family: "customUUSUN";
+        src: url("__PUBLIC__/font/UUSUNElektron.ttf") format("truetype");
+    }
+    .total-info{
+        text-align: center;
+        font-size: 20px;
+        margin-left: -100px;
+    }
+    .total-info .title{
+        font-size: 40px;
+        color:#fff;
+
+    }
+    .total-info .num{
+        display: inline-block;
+        font-weight: bold;
+        color: #71C34D;
+        /*font-family: Georgia;*/
+        font-family: customUUSUN;
+        font-size: 45px;
+        margin-left: 20px;
+        letter-spacing: 2px;
+
+    }
+
+        /*grid*/
+    .grid{
+        height: 240px;
+        overflow: hidden;
+    }
+    .grid h3{
+        /*color:#6596ED;*/
+        color:#40DFCF;
+        text-align: center;
+        font-size: 20px;
+    }
+    .gridRoll{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+    }
+    .gridList{
+        position: absolute;
+        width: 100%;
+    }
+        /*grid table*/
+    .u-gd-list {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        table-layout:fixed
+    }
+
+    .u-gd-list th,.u-gd-list td{
+        border: 2px solid #226681;
+        padding-left: 14px;
+    }
+    .u-gd-list thead th ,.u-gd-list td{
+        border-left: none;
+        border-right: none;
+        color: #fff;
+        font-size: 12px;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+
+    }
+
+    .u-gd-list tbody td:first-child{
+        width: 120px;
+    }
+    .u-gd-list tbody td:nth-child(2){
+        width: 40px;
+    }
+    .u-gd-list tbody td:nth-child(3){
+        width: 40px;
+    }
+    .u-gd-list tbody td:nth-child(4){
+        width: 60px;
+    }
+
+        /*.reportName{ width: 20px;}*/
+    .u-gd-list thead th{
+        font-weight: bold;
+        height: 38px;
+        font-size: 16px;
+        text-align: left;
+    }
+    .u-gd-list td{
+        height: 30px;
+    }
+
+        /*.u-gd-list thead th:first-child,.u-gd-list td:first-child{width: 200px;}*/
+        /*.u-gd-list thead th:last-child,.u-gd-list td:last-child{width: 100px;}*/
+    tbody tr:first-child td{ border: none; }
+        /*tbody tr td:last-child{ width: 200px}*/
+    tbody tr:nth-child(odd){background:#072837;}
+
+
+    .swiper-container {
+        /*width: 100%;*/
+        margin: 20px auto 0;
+
+    }
+    .swiper-wrapper{
+        /* padding: 0 30px;;*/
+    }
+    .swiper-button-prev,.swiper-button-next{opacity: 0; top: 35%;}
+    .swiper-button-prev:hover,.swiper-button-next:hover{opacity: 1;}
+    .swiper-button-prev{left: 0;}
+    .swiper-button-next{right: 0;}
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        height: 220px;
+
+    }
+    .swiper-slide img{
+        width: 200px;
+        height: 140px;
+        border: 3px solid #4491ee;
+    }
+    .swiper-slide .title, .swiper-slide .domain{
+        color: #fff;
+        font-size: 16px;
+        line-height: 16px;
+        margin : 2px 0;
+    }
+    .swiper-slide .info{
+        height: 30px;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+
+
+
+</style>
+<div class="title-wraper">
+    <h1>网站安全事件</h1>
+</div>
+<div class="container-fluid">
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-2">
+            <h2>安全事件通报率</h2>
+            <div id="gauge" style="margin-left: -40px;margin-top: -10px;"></div>
+            <h2 style="margin-top: -10px;">安全事件TOP5</h2>
+            <div id="bar" style="margin: -50px -140px 0px -30px;"></div>
+        </div>
+        <div class="col-md-7">
+            <div class="total-info">
+                <p class="total"><span class="title">安全事件总数</span><span class="num" id="allNum_id"></span></p>
+            </div>
+            <div id="map"></div>
+            <!--<div id="line" style="margin: -80px -80px 0 -80px; "></div>-->
+        </div>
+        <div class="col-md-3">
+            <h2>安全事件类型</h2>
+            <div id="pie" style="margin-right:-100px;margin-bottom: -20px;"></div>
+            <h2>安全事件密信通报记录</h2>
+            <div id="grid" class="grid">
+                <!--<table class="u-gd-list">
+                    <thead>
+                    <th>时间</th>
+                    <th>类型</th>
+                    <th>通报人</th>
+                    <th>查阅状态</th>
+                    </thead>
+                </table>-->
+                {$info}
+                <div id="gridRoll" class="gridRoll">
+                    <div id="gridList" class="gridList" >
+                        <table class="u-gd-list j-table">
+                            <tbody>
+                            <!--
+                            <tr>
+                                <td>www.baidu.com</td>
+                                <td>张三2</td>
+                                <td>已阅</td>
+                            </tr>
+                            <tr>
+                                <td>www.baidu.com</td>
+                                <td>张三</td>
+                                <td>已阅</td>
+                            </tr>
+                            -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="swiper-container">
+                <div class="swiper-wrapper" id="showphoto_id">
+                    <!--<div class="swiper-slide">
+                        <img src="__PUBLIC__/image/4.png" alt="...">
+                        <div class="info">
+                            <p class="title">百度</p>
+                            <p class="domain">www.baidu.com</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="__PUBLIC__/image/5.png" alt="...">
+                        <div class="info">
+                            <p class="title">百度</p>
+                            <p class="domain">www.baidu.com</p>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<assign name='plugins' value='echarts'/>
+<script src="__PUBLIC__/js/d3/d3.v3.min.js"></script>
+<include file="./App/ScreenCenter/View/common/autorun.html" />
+<include file="./App/ScreenCenter/View/common/footer.html" />
+
+<script type="text/javascript" src="__PUBLIC__/js/swiper/js/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/ScreenCenter/security-event.js"></script>
+<script>
+    $(function(){
+        $("#vavigation-wraper").css("position","static");
+    });
+</script>

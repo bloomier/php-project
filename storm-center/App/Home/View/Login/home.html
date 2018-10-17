@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XXX</title>
+    <meta charset="utf-8">
+    <link href="__PUBLIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/js/parsley/parsley.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/js/dialog/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+
+
+    <link href="__PUBLIC__/css/login.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/html5shiv.min.js"></script>
+    <script type="text/javascript"  src="__PUBLIC__/js/bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="home">
+<input id="rootPath" type="hidden" value="__ROOT__/index.php">
+
+<input id="publicPath" type="hidden" value="__PUBLIC__">
+<input id="echartPath" type="hidden" value="__PUBLIC__/js/echarts/dist">
+<input type="hidden" value="{$mTypes}" id="mTypes">
+<div class="container">
+
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <h1>XXX</h1>
+                <ul class="nav navbar-nav navbar-right ">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user fa-2x"></i>
+                            <span class="username">{$user.name}</span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!--
+                            <li>
+                                <a href="javascript:;" class='resetPassword'>
+                                    <i class="fa fa-key"></i>
+                                    修改密码
+                                </a>
+                            </li>
+                            -->
+                            <li>
+                                <a href="__ROOT__/index.php/Home/Login/logout">
+                                    <i class="fa fa-sign-out"></i>
+                                    退出系统
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+            </div>
+        </div>
+        <!-- END TOP NAVIGATION BAR -->
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <a class="thumbnail bg-blue storm disabled model-enter"  href="javascript:void(0);" mType="7" >
+                <i class="fa fa-briefcase fa-4x"></i><br>
+                <span>风暴中心运营平台</span>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a class="thumbnail bg-darkgreen model-enter disabled" href="javascript:void(0);" mType="6"  >
+                <i class="fa fa-binoculars fa-4x"></i>
+                <span>云观测数据中心</span>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a class="thumbnail bg-yellow model-enter disabled" href="javascript:void(0);" mType="2"  >
+                <i class="fa fa-search fa-4x"></i>
+                <span>网站安全搜索平台</span>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a class="thumbnail bg-green model-enter disabled"  href="javascript:void(0);" mType="8"  >
+                <i class="fa fa-server fa-4x"></i>
+                <span>MSSP服务平台</span>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a class="thumbnail bg-red model-enter disabled"  href="javascript:void(0);"  mType="3" >
+                <i class="fa fa-bell fa-4x"></i>
+                <span>安全事件管理平台</span>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a class="thumbnail bg-purple model-enter disabled"  href="javascript:void(0);" mType="4" >
+                <i class="fa fa-book fa-4x"></i>
+                <span>网站报告自助平台</span>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a class="thumbnail bg-lightblue model-enter disabled"  href="javascript:void(0);" mType="1" >
+                <i class="fa fa-user fa-4x"></i>
+                <span>系统管理平台</span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="footer-inner">
+           <i class="fa fa-copyright"></i> 2007-2016 XXXX技术有限公司 保留所有版权
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/script/Home/home.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery/jquery.md5.js"></script>
+<script  type="text/javascript" src="__PUBLIC__/js/dialog/bootstrap-dialog.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/parsley/parsley.js"></script>
+<include file="./App/Admin/View/reset-pwd.html" />
+
+</body>
+</html>
